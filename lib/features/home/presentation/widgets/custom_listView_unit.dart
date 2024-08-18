@@ -97,15 +97,21 @@ class CustomUnitListview extends StatelessWidget {
                                 )),
                         Row(
                           children: [
-                            const Icon(
-                              Icons.location_on_outlined,
-                              size: 18,
+                            const Expanded(
+                              flex: 1,
+                              child: Icon(
+                                Icons.location_on_outlined,
+                                size: 18,
+                              ),
                             ),
-                            Text(
-                              '123 Palm Avenue, Dubai, United Arab',
-                              style: Theme.of(context).textTheme.bodyMedium,
-                              overflow: TextOverflow.ellipsis,
-                              maxLines: 1,
+                            Expanded(
+                              flex: 9,
+                              child: Text(
+                                '123 Palm Avenue, Dubai, United Arab',
+                                style: Theme.of(context).textTheme.bodyMedium,
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 1,
+                              ),
                             ),
                           ],
                         ),
