@@ -1,0 +1,155 @@
+{
+    "createAccount": "انشاء حساب",
+     "name": "الاسم *",
+     "phoneNumber": "رقم الهاتف *",
+     "nameWithout": "الاسم",
+
+     "phoneNumberWithout": "رقم الهاتف",
+     "adress": "عنوان المكتب",
+
+
+     "onBording_1":"Welcome To eBroker",
+     "onBording_2":"Find your Best Property",
+     "onBording_3":"Buy, Sell & Rent Properties",
+ 
+     "description_onBording_1":"Find the ideal place according to your needs and expectations.",
+     "description_onBording_2":"You can search thousand property, for your life in this platform with easy and fast",
+ 
+     "description_onBording_3":"Buy & sell your expected house from phone with eBroker",
+
+    "tripleName":"الاسم ثلاثي",
+    "followSubscription":"متابعة التسجيل",
+    "alreadyHaveAccount":"بالفعل لديك حساب؟ ",
+    "login":"تسجيل الدخول",
+    "contactUs":"تواصل معنا",
+    "phoneValidation":"الهاتف مطلوب",
+    "nameValidation":"اسم المستخدم مطلوب",
+    "confirmPhoneNum":"تأكيد رقم الموبيل",
+    "changePhoneNumber":"تغيير رقم الموبيل",
+    "enterOtp":"الرجاء ادخال OTP",
+    "kedDegree":"درجة القيد  *",
+    "kedNumber":"رقم القيد  *",
+    "password":"كلمة المرور  *",
+    "confirmPassword":"تأكيد كلمة المرور  *",
+    "hintKedDegree":"مثال: محامي عام",
+    "cardImage":"صورة  الكارنيه",
+    "frontImage":"الصورة الأمامية",
+    "backImage":"الصورة الخلفية",
+    "hintCardImage":"صورة الكارنية للتوثيق ولا تظهر للغير",
+    "hostCode":"كود الأستضافة",
+    "signUp":"تسجيل الدخول",
+    "submit":"تأكيد",
+      "email":"البريد الالكتروني",
+    "emailValidation":"البريد الالكتروني مطلوب",
+    "doUForgrtPassword":"هل نسيت كلمة المرور؟",
+    "resetPassword":"اعادة تعيين كلمة المرور",
+    "send":"ارسال",
+    "doUDoNotHaveAccount":"ليس لديك حساب؟",
+    "home":"الصفحة الرئيسة",
+    "setting":"الاعدادات",
+    "profile":"البروفايل",
+    "olderOfApp":"ترتيب علي الأبليكشن",
+    "olderOfDistric":"ترتيب علي المدينه",
+    "olderOfSpacific":"ترتيب علي التخصص",
+    "olderOfGovernment":"ترتيب علي المحافظة",
+    "olderOfAst2naf":"ترتيب علي درجة الاستئناف",
+    "pleaseSelectImages":"الرجاء اضافة صوره الكارنيه",
+    "search":"البحث",
+    "searchByName":"البحث بالاسم",
+    "government":"المحافظة",
+    "district":"المدينه/الحى",
+    "state":"الحالة",
+    "notification":"الاشعارات",
+    "welcom":"مرحبا بك",
+    "settings":"الاعدادات",
+    "balance":"الرصيد",
+    "inviteFriend":"دعوة صديق",
+    "editProfile":"تعديل البروفايل",
+    "deleteAccount":"حذف الحساب",
+    "logOut":"تسجيل الخروج",
+    "doUDeleteAccount":"هل تريد حذف حسابك نهائياً ؟",
+    "doUWantToLogOut":"هل تريد تسجيل الخروج ؟",
+    "yes":"نعم",
+    "no":"لا",
+    "putYourDescription":"ضع رؤيتك الشخصية",
+    "save":"حفظ",
+"mainAssociation":"التخصص الأساسي ",
+"anotherAssociation":"التخصصات  الأخري",
+"nkata":"النقابة التابع لها",
+"lawBachoolory":"ليسانس حقوق عام",
+"changeLang":"تغيير اللغة",
+"doUWantChangeLang":"هل تريد تغيير اللغة؟",
+"changeTheme":"تغيير المظهر",
+
+"doUWantChangetheme":"هل تريد تغيير المظهر؟",
+"currentBalance":"رصيدك الحالي",
+"golden":"الذهبية",
+"silver":"الفضية",
+"bronze":"البرونزية",
+"returnGroubs":"استرداد  بالمجموعات",
+"collegues":"الزملاء الذين منحتهم مجموعاتك",
+"inviteFriendQuote":"قُمْ بدعوةِ مُحامٍ زميل، واربحْ نقاطًا إضافيةً تُضافُ لترتيبك العام:-",
+"inviteFriendHints":". محامِ جدول عام يمنحك ١٠٠ نقطة.\n. محامِ ابتدائيِّ يمنحك ١٥٠ نقطةً. \n. مُحامِ استئناف يمنحك ٢٠٠ نقطةً.\n. محامِ نقض يمنحك ٢٥٠ نقطة .\n",
+"contantUsWithWhats":"تواصل معنا من خلال الواتساب",
+"contantUsWithmail":"تواصل معنا من خلال الإيميل",
+"giftedGroubs":"المجموعات التي منحها لك محامين المنصة",
+"edit":"تعديل",
+"bronzeGroubs":"مجموعات برونزية",
+"silverGroubs":"مجموعات فضية",
+"goldenGroubs":"مجموعات ذهبية",
+"contactWithMe":"تواصل معي",
+"supportWithGroubs":"دعمه بالمجموعات",
+"forSale":"للبيع",
+"forRent":"للايجار",
+"properties":"المملكات",
+"addProperties":"اضافة وحدة",
+"typeOfProperty":"نوع الوحدة",
+"next":"التالي",
+"propertyName":"اسم الوحدة",
+"description":"الوصف",
+"address":"العنوان",
+"chooseYourAddress":"اختر عنوانك",
+"price":"السعر",
+"addValues": "إضافة القيم",
+"noOfBedRoom": "عدد غرف النوم",
+"noOfBathrooms": "عدد الحمامات",
+"noOfBalconies": "عدد الشرفات",
+"buildArea": "مساحة البناء (قدم مربع)",
+"carpetArea": "مساحة السجاد (قدم مربع)",
+"furnishing": "الأثاث",
+"recentSearches":"عمليات البحث الأخيرة",
+"clear":"مسح",
+"filter":"فلتر",
+"clearFilter":"مسح الفلتر",
+"sell":"بيع",
+"rent":"ايجار",
+"budget":"الميزانية",
+"postedSince":"منذ",
+"location":"الموقع",
+"selectLocation":"اختر الموقع",
+"applyFilter":"تطبيق الفلتر",
+"chat":"محادثة",
+"featureProb":"مميزات المملكات"
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+    
+    
+
+
+    
+}
