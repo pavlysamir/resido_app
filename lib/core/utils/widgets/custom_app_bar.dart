@@ -1,0 +1,39 @@
+import 'package:flutter/material.dart';
+import 'package:resido_app/core/utils/app_colors.dart';
+
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+  final String title;
+  final bool showBackButton;
+  final List<Widget>? actions;
+  final Function() function;
+
+  const CustomAppBar({
+    super.key,
+    required this.title,
+    this.showBackButton = true,
+    this.actions,
+    required this.function,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+      forceMaterialTransparency: true,
+      backgroundColor: AppColors.white,
+      title: Text(
+        title,
+        style: Theme.of(context).textTheme.displayMedium,
+      ),
+      leading: showBackButton
+          ? IconButton(
+              icon: const Icon(Icons.arrow_back, color: AppColors.primaryColor),
+              onPressed: function,
+            )
+          : null,
+      actions: actions,
+    );
+  }
+
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+}
