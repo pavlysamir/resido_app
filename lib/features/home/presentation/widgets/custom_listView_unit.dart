@@ -72,6 +72,9 @@ class CustomUnitListview extends StatelessWidget {
                                 Icons.business,
                                 size: 18,
                               ),
+                              SizedBox(
+                                width: 10.w,
+                              ),
                               Text(
                                 'city',
                                 style: Theme.of(context).textTheme.titleSmall,

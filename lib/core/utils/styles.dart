@@ -43,7 +43,7 @@ abstract class Styles {
   //   );
   // }
   static TextStyle textStyle12Black = const TextStyle(
-      fontSize: 12, fontWeight: FontWeight.bold, color: Colors.black);
+      fontSize: 12, fontWeight: FontWeight.normal, color: Colors.black);
   static TextStyle textStyle12White = const TextStyle(
       fontSize: 12, fontWeight: FontWeight.bold, color: Colors.white);
   static TextStyle textStyle12BoldGrey = const TextStyle(
@@ -102,7 +102,7 @@ abstract class Styles {
 
   static TextStyle textStyle16Black = GoogleFonts.almarai(
     fontSize: 16,
-    fontWeight: FontWeight.bold,
+    fontWeight: FontWeight.normal,
     color: AppColors.black,
   );
   static TextStyle textStyle16White = const TextStyle(
