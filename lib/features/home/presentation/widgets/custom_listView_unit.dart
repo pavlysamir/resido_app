@@ -37,11 +37,15 @@ class CustomUnitListview extends StatelessWidget {
                       AssetsData.unitItem,
                       width: 250.w,
                     ),
-                    CircleAvatar(
-                      backgroundColor: Theme.of(context).cardColor,
-                      child: const Icon(
-                        Icons.favorite_outline,
-                        color: AppColors.primaryColor,
+                    Positioned(
+                      bottom: 10,
+                      right: 10,
+                      child: CircleAvatar(
+                        backgroundColor: Theme.of(context).cardColor,
+                        child: const Icon(
+                          Icons.favorite_outline,
+                          color: AppColors.primaryColor,
+                        ),
                       ),
                     ),
                     const CustomSellContainer(
