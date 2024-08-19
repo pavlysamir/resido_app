@@ -886,6 +886,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Featured Properties'**
   String get featureProb;
+
+  /// No description provided for @mostLikedProp.
+  ///
+  /// In en, this message translates to:
+  /// **'Most Liked Properties'**
+  String get mostLikedProp;
+
+  /// No description provided for @seeMore.
+  ///
+  /// In en, this message translates to:
+  /// **'See More'**
+  String get seeMore;
+
+  /// No description provided for @favoutires.
+  ///
+  /// In en, this message translates to:
+  /// **'Favourites'**
+  String get favoutires;
+
+  /// No description provided for @subscriptionPlan.
+  ///
+  /// In en, this message translates to:
+  /// **'Subscription Plan'**
+  String get subscriptionPlan;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

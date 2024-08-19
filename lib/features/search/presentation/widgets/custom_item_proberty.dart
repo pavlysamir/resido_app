@@ -26,12 +26,12 @@ class CustomItemProbirty extends StatelessWidget {
                 Icons.home_outlined,
                 color: AppColors.primaryColor,
               ),
+              SizedBox(
+                width: 3.w,
+              ),
               Text(
                 'House',
-                style: Theme.of(context)
-                    .textTheme
-                    .bodySmall!
-                    .copyWith(color: Colors.grey[700]),
+                style: Theme.of(context).textTheme.bodySmall!,
               ),
             ],
           ),

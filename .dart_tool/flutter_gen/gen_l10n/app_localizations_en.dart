@@ -401,4 +401,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get featureProb => 'Featured Properties';
+
+  @override
+  String get mostLikedProp => 'Most Liked Properties';
+
+  @override
+  String get seeMore => 'See More';
+
+  @override
+  String get favoutires => 'Favourites';
+
+  @override
+  String get subscriptionPlan => 'Subscription Plan';
 }

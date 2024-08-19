@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #Mon Aug 19 17:21:02 EEST 2024
 base.0=E\:\\resido_app\\build\\app\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 base.1=E\:\\resido_app\\build\\app\\intermediates\\dex\\debug\\mergeLibDexDebug\\0\\classes.dex
@@ -13,4 +14,21 @@ renamed.0=classes.dex
 renamed.1=classes2.dex
 renamed.2=classes3.dex
 renamed.3=classes4.dex
+=======
+#Mon Aug 19 14:28:01 EET 2024
+path.4=1/classes.dex
+path.3=15/classes.dex
+path.2=0/classes.dex
+path.1=0/classes.dex
+path.0=classes.dex
+base.4=D\:\\chrome download\\resido-app\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\1\\classes.dex
+base.3=D\:\\chrome download\\resido-app\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\15\\classes.dex
+base.2=D\:\\chrome download\\resido-app\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
+base.1=D\:\\chrome download\\resido-app\\build\\app\\intermediates\\dex\\debug\\mergeLibDexDebug\\0\\classes.dex
+base.0=D\:\\chrome download\\resido-app\\build\\app\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
+renamed.3=classes4.dex
+renamed.2=classes3.dex
+renamed.1=classes2.dex
+renamed.0=classes.dex
+>>>>>>> 14e6d9c8daee6dddd2da7e26d2800df5583a72e4
 renamed.4=classes5.dex

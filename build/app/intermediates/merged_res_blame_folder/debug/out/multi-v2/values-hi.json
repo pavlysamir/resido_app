@@ -1,10 +1,17 @@
 {
     "logs": [
         {
+<<<<<<< HEAD
             "outputFile": "com.example.resido_app-mergeDebugResources-27:/values-hi/values-hi.xml",
             "map": [
                 {
                     "source": "C:\\Users\\moham\\.gradle\\caches\\transforms-3\\6afaf56d4e1e4056870d44cfdab879b4\\transformed\\core-1.13.1\\res\\values-hi\\values-hi.xml",
+=======
+            "outputFile": "com.example.resido_app-mergeDebugResources-22:/values-hi/values-hi.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\bavly\\.gradle\\caches\\transforms-3\\1d5210c5000ef504524e22a69efebd4e\\transformed\\core-1.13.1\\res\\values-hi\\values-hi.xml",
+>>>>>>> 14e6d9c8daee6dddd2da7e26d2800df5583a72e4
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",

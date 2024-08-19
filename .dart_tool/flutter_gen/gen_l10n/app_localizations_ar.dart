@@ -401,4 +401,16 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get featureProb => 'مميزات المملكات';
+
+  @override
+  String get mostLikedProp => 'المملكات الاكثر مثمرة';
+
+  @override
+  String get seeMore => 'اظهار المزيد';
+
+  @override
+  String get favoutires => 'المفضلة';
+
+  @override
+  String get subscriptionPlan => 'خطة الدفع';
 }

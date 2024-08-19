@@ -3,6 +3,7 @@ import 'package:resido_app/constance.dart';
 import 'package:resido_app/core/Layouts/home_layout.dart';
 import 'package:resido_app/features/home/presentation/views/add_properties_screen.dart';
 import 'package:resido_app/features/home/presentation/views/add_properties_second_screen.dart';
+import 'package:resido_app/features/home/presentation/views/property_details_screen.dart';
 import 'package:resido_app/features/search/presentation/views/filter_screen.dart';
 import 'package:resido_app/features/profile/contact_us/presentation/views/contact_us.dart';
 
@@ -26,6 +27,7 @@ abstract class AppRouter {
   static const kProfileEditScreen = '/ProfileEditScreen';
   static const kFilterScreen = '/FilterScreen';
   static const kAboutUs = '/AboutUs';
+  static const kPropertyDetails = '/PropertyDetails';
 
   static final router = GoRouter(
       navigatorKey: navigatorKey,
@@ -70,6 +72,10 @@ abstract class AppRouter {
         GoRoute(
           path: kAboutUs,
           builder: (context, state) => ContactUs(),
+        ),
+        GoRoute(
+          path: kPropertyDetails,
+          builder: (context, state) => const PropertyDetailes(),
         )
       ]);
 }

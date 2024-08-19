@@ -4,8 +4,14 @@
 4
 5    <uses-sdk
 6        android:minSdkVersion="16"
+<<<<<<< HEAD
 6-->C:\Users\moham\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_native_splash-2.4.1\android\src\main\AndroidManifest.xml
 7        android:targetSdkVersion="16" />
 7-->C:\Users\moham\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_native_splash-2.4.1\android\src\main\AndroidManifest.xml
+=======
+6-->C:\Users\bavly\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_native_splash-2.4.1\android\src\main\AndroidManifest.xml
+7        android:targetSdkVersion="16" />
+7-->C:\Users\bavly\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_native_splash-2.4.1\android\src\main\AndroidManifest.xml
+>>>>>>> 14e6d9c8daee6dddd2da7e26d2800df5583a72e4
 8
 9</manifest>

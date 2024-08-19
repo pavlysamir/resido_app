@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+<<<<<<< HEAD
     <attr format="color" name="animationBackgroundColor"/>
     <attr format="enum" name="finishPrimaryWithPlaceholder">
         
@@ -53,6 +54,17 @@
     <attr format="integer" name="splitMinWidthDp"/>
     <attr format="float" name="splitRatio"/>
     <attr format="string" name="tag"/>
+=======
+    <attr format="reference" name="nestedScrollViewStyle"/>
+    <attr format="enum" name="splitLayoutDirection">
+        <enum name="locale" value="0"/>
+        <enum name="ltr" value="1"/>
+        <enum name="rtl" value="2"/>
+    </attr>
+    <attr format="dimension" name="splitMinSmallestWidth"/>
+    <attr format="dimension" name="splitMinWidth"/>
+    <attr format="float" name="splitRatio"/>
+>>>>>>> 14e6d9c8daee6dddd2da7e26d2800df5583a72e4
     <color name="androidx_core_ripple_material_light">#1f000000</color>
     <color name="androidx_core_secondary_text_default_material_light">#8a000000</color>
     <color name="call_notification_answer_color">#1d873b</color>
@@ -117,11 +129,17 @@
     <item name="accessibility_custom_action_8" type="id"/>
     <item name="accessibility_custom_action_9" type="id"/>
     <item name="androidx_window_activity_scope" type="id"/>
+<<<<<<< HEAD
     <item name="fragment_container_view_tag" type="id"/>
     <item name="line1" type="id"/>
     <item name="line3" type="id"/>
     <item name="report_drawn" type="id"/>
     <item name="special_effects_controller_view_tag" type="id"/>
+=======
+    <item name="line1" type="id"/>
+    <item name="line3" type="id"/>
+    <item name="report_drawn" type="id"/>
+>>>>>>> 14e6d9c8daee6dddd2da7e26d2800df5583a72e4
     <item name="tag_accessibility_actions" type="id"/>
     <item name="tag_accessibility_clickable_spans" type="id"/>
     <item name="tag_accessibility_heading" type="id"/>
@@ -142,7 +160,10 @@
     <id name="view_tree_on_back_pressed_dispatcher_owner"/>
     <id name="view_tree_saved_state_registry_owner"/>
     <id name="view_tree_view_model_store_owner"/>
+<<<<<<< HEAD
     <item name="visible_removing_fragment_view_tag" type="id"/>
+=======
+>>>>>>> 14e6d9c8daee6dddd2da7e26d2800df5583a72e4
     <integer name="status_bar_notification_info_maxnum">999</integer>
     <string name="androidx_startup" translatable="false">androidx.startup</string>
     <string name="call_notification_answer_action">Answer</string>
@@ -182,7 +203,10 @@
     <declare-styleable name="ActivityRule">
         
         <attr format="boolean" name="alwaysExpand"/>
+<<<<<<< HEAD
         <attr name="tag"/>
+=======
+>>>>>>> 14e6d9c8daee6dddd2da7e26d2800df5583a72e4
     </declare-styleable>
     <declare-styleable name="Capability">
         
@@ -254,6 +278,7 @@
         <attr name="android:fontVariationSettings"/>
         <attr name="android:ttcIndex"/>
     </declare-styleable>
+<<<<<<< HEAD
     <declare-styleable name="Fragment">
         <attr name="android:name"/>
         <attr name="android:id"/>
@@ -263,6 +288,8 @@
         <attr name="android:name"/>
         <attr name="android:tag"/>
     </declare-styleable>
+=======
+>>>>>>> 14e6d9c8daee6dddd2da7e26d2800df5583a72e4
     <declare-styleable name="GradientColor">
         
         <attr name="android:startColor"/>
@@ -312,6 +339,7 @@
     </declare-styleable>
     <declare-styleable name="SplitPairRule">
         
+<<<<<<< HEAD
         <attr format="boolean" name="clearTop"/>
         <attr name="finishPrimaryWithSecondary"/>
         <attr name="finishSecondaryWithPrimary"/>
@@ -324,10 +352,22 @@
         <attr name="splitLayoutDirection"/>
         <attr name="tag"/>
         <attr name="animationBackgroundColor"/>
+=======
+        <attr format="boolean" name="finishPrimaryWithSecondary"/>
+        
+        <attr format="boolean" name="finishSecondaryWithPrimary"/>
+        
+        <attr format="boolean" name="clearTop"/>
+        <attr name="splitRatio"/>
+        <attr name="splitMinWidth"/>
+        <attr name="splitMinSmallestWidth"/>
+        <attr name="splitLayoutDirection"/>
+>>>>>>> 14e6d9c8daee6dddd2da7e26d2800df5583a72e4
     </declare-styleable>
     <declare-styleable name="SplitPlaceholderRule">
         
         <attr format="string" name="placeholderActivityName"/>
+<<<<<<< HEAD
         
         <attr format="boolean" name="stickyPlaceholder"/>
         <attr name="finishPrimaryWithPlaceholder"/>
@@ -340,5 +380,11 @@
         <attr name="splitLayoutDirection"/>
         <attr name="tag"/>
         <attr name="animationBackgroundColor"/>
+=======
+        <attr name="splitRatio"/>
+        <attr name="splitMinWidth"/>
+        <attr name="splitMinSmallestWidth"/>
+        <attr name="splitLayoutDirection"/>
+>>>>>>> 14e6d9c8daee6dddd2da7e26d2800df5583a72e4
     </declare-styleable>
 </resources>
