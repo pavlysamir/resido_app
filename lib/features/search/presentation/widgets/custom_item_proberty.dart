@@ -28,10 +28,7 @@ class CustomItemProbirty extends StatelessWidget {
               ),
               Text(
                 'House',
-                style: Theme.of(context)
-                    .textTheme
-                    .bodySmall!
-                    .copyWith(color: Colors.grey[700]),
+                style: Theme.of(context).textTheme.bodySmall!,
               ),
             ],
           ),

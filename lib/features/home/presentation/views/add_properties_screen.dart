@@ -51,7 +51,7 @@ class AddPropertiesScreen extends StatelessWidget {
                 style: Theme.of(context).textTheme.displayMedium,
               ),
               SizedBox(height: 14.h),
-              const GridViewProperties()
+              const GridViewMostLikedProperties()
             ],
           ),
         ),
