@@ -105,6 +105,22 @@ abstract class Styles {
     fontWeight: FontWeight.bold,
     color: AppColors.black,
   );
+  // contact us
+  static TextStyle textStyle16Grey = GoogleFonts.almarai(
+    fontSize: 16,
+    fontWeight: FontWeight.normal,
+    color: AppColors.grey,
+  );
   static TextStyle textStyle16White = const TextStyle(
       fontSize: 16, fontWeight: FontWeight.normal, color: Colors.white);
+  static TextStyle textStyle18BoldPrimary = GoogleFonts.almarai(
+    fontSize: 18.0,
+    fontWeight: FontWeight.bold,
+    color: AppColors.primaryColor,
+  );
+  static TextStyle textStyleDarkGrey = GoogleFonts.almarai(
+    fontSize: 14, // Adjust the font size as needed
+    fontWeight: FontWeight.normal, // Adjust the font weight as needed
+    color: AppColors.darkGrey,
+  );
 }
