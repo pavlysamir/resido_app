@@ -16,7 +16,7 @@ class CustomSellContainer extends StatelessWidget {
             height: 30.h,
             width: 50.w,
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(3.r),
+                borderRadius: BorderRadius.circular(10.r),
                 color: Colors.white.withOpacity(0.5)),
             child: Center(
                 child: Text(
