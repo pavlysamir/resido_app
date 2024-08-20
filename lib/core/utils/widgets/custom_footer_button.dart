@@ -26,7 +26,7 @@ class CustomFooterButton extends StatelessWidget {
     return TextButton(
         onPressed: function,
         child: Container(
-          height: 55.h,
+          height: 40.h,
           width: 90.w,
           decoration: BoxDecoration(
             border: Border.all(color: borderColor),

@@ -5,7 +5,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:resido_app/core/Theme/Teme_data.dart';
 import 'package:resido_app/core/utils/app_router.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:resido_app/features/authentications/presentation/managers/cubit/register_cubit.dart';
+import 'package:resido_app/core/utils/service_locator.dart';
+import 'package:resido_app/features/authentications/data/repo/auth_repo_impl.dart';
+import 'package:resido_app/features/authentications/presentation/managers/register_cubit/register_cubit.dart';
 import 'package:resido_app/features/authentications/presentation/managers/login_cubit/login_cubit.dart';
 import 'package:resido_app/features/chat/presentation/managers/cubit/chat_cubit.dart';
 import 'package:resido_app/features/home/presentation/managers/cubit/add_proparties_cubit.dart';
@@ -20,7 +22,8 @@ class ResidoApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => AddPropartiesCubit()),
-        BlocProvider(create: (context) => LoginCubit()),
+        BlocProvider(
+            create: (context) => LoginCubit(getIt.get<AuthRepoImpl>())),
         BlocProvider(create: (context) => RegisterCubit()),
         BlocProvider(create: (context) => SearchCubit()),
         BlocProvider(create: (context) => ChatCubit()),

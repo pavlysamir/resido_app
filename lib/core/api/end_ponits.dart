@@ -1,5 +1,5 @@
 class EndPoint {
-  static String baseUrl = "http://16.171.141.127/";
+  static String baseUrl = "https://ai.w-manage.org/api/";
 
   static String getAllGradesRegistration =
       "api/BaseLookup/GetAllRegistrationGrade";
@@ -37,7 +37,7 @@ class EndPoint {
 
   static String resendOtp = "Account/Resend-otp";
 
-  static String login = "Account/Login";
+  static String login = "login";
   static String signUp = "Account/Register";
 
   static const String contentType = 'application/json';
