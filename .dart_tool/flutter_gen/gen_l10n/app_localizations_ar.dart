@@ -26,6 +26,12 @@ class AppLocalizationsAr extends AppLocalizations {
   String get description_onBording_3 => 'Buy & sell your expected house from phone with eBroker';
 
   @override
+  String get contactUs => 'تواصل معنا';
+
+  @override
+  String get callUs => 'اتصل';
+
+  @override
   String get name => 'الاسم *';
 
   @override
@@ -41,6 +47,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get adress => 'عنوان المكتب';
 
   @override
+  String get phone => 'الهاتف';
+
+  @override
   String get tripleName => 'الاسم ثلاثي';
 
   @override
@@ -51,9 +60,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get login => 'تسجيل الدخول';
-
-  @override
-  String get contactUs => 'تواصل معنا';
 
   @override
   String get phoneValidation => 'الهاتف مطلوب';
@@ -110,6 +116,21 @@ class AppLocalizationsAr extends AppLocalizations {
   String get email => 'البريد الالكتروني';
 
   @override
+  String get fullName => 'الاسم الكامل';
+
+  @override
+  String get emailAddress => 'البريد الالكتروني';
+
+  @override
+  String get phoneNum => 'رقم الهاتف';
+
+  @override
+  String get subject => 'موضوع';
+
+  @override
+  String get updateProfile => 'تحديث البروفايل';
+
+  @override
   String get emailValidation => 'البريد الالكتروني مطلوب';
 
   @override
@@ -120,6 +141,9 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get send => 'ارسال';
+
+  @override
+  String get writeSomethingHere => 'اكتب شيئا هنا...';
 
   @override
   String get doUDoNotHaveAccount => 'ليس لديك حساب؟';

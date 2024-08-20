@@ -109,6 +109,12 @@
             android:authorities="com.example.resido_app.androidx-startup"
             android:exported="false" >
             <meta-data
+<<<<<<< HEAD
+                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+                android:value="androidx.startup" />
+            <meta-data
+=======
+>>>>>>> 14e6d9c8daee6dddd2da7e26d2800df5583a72e4
                 android:name="androidx.profileinstaller.ProfileInstallerInitializer"
                 android:value="androidx.startup" />
         </provider>

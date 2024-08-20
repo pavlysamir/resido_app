@@ -135,6 +135,18 @@ abstract class AppLocalizations {
   /// **'Buy & sell your expected house from phone with eBroker'**
   String get description_onBording_3;
 
+  /// No description provided for @contactUs.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact Us'**
+  String get contactUs;
+
+  /// No description provided for @callUs.
+  ///
+  /// In en, this message translates to:
+  /// **'Call'**
+  String get callUs;
+
   /// No description provided for @name.
   ///
   /// In en, this message translates to:
@@ -165,6 +177,12 @@ abstract class AppLocalizations {
   /// **'Adress'**
   String get adress;
 
+  /// No description provided for @phone.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone'**
+  String get phone;
+
   /// No description provided for @tripleName.
   ///
   /// In en, this message translates to:
@@ -188,12 +206,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Login'**
   String get login;
-
-  /// No description provided for @contactUs.
-  ///
-  /// In en, this message translates to:
-  /// **'Contact Us'**
-  String get contactUs;
 
   /// No description provided for @phoneValidation.
   ///
@@ -303,6 +315,36 @@ abstract class AppLocalizations {
   /// **'Email *'**
   String get email;
 
+  /// No description provided for @fullName.
+  ///
+  /// In en, this message translates to:
+  /// **'Full Name'**
+  String get fullName;
+
+  /// No description provided for @emailAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'Email Address'**
+  String get emailAddress;
+
+  /// No description provided for @phoneNum.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone Number'**
+  String get phoneNum;
+
+  /// No description provided for @subject.
+  ///
+  /// In en, this message translates to:
+  /// **'Subject'**
+  String get subject;
+
+  /// No description provided for @updateProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'update Profile'**
+  String get updateProfile;
+
   /// No description provided for @emailValidation.
   ///
   /// In en, this message translates to:
@@ -326,6 +368,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Send'**
   String get send;
+
+  /// No description provided for @writeSomethingHere.
+  ///
+  /// In en, this message translates to:
+  /// **'Write something here...'**
+  String get writeSomethingHere;
 
   /// No description provided for @doUDoNotHaveAccount.
   ///

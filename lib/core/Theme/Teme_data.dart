@@ -1,15 +1,94 @@
+// import 'package:flutter/material.dart';
+// import 'package:flutter/services.dart';
+// import 'package:google_fonts/google_fonts.dart';
+// import 'package:post_bet/core/Theme/color_extension.dart';
+// import 'package:post_bet/core/colors/colors_dark.dart';
+// import 'package:post_bet/core/colors/colors_light.dart';
+
+// import '../../constants.dart';
+// import '../utils/styles.dart';
+
+// ThemeData themeLightData = ThemeData(
+//   scaffoldBackgroundColor: ColorsLight.kwhiteKey,
+//   extensions: const <ThemeExtension<dynamic>>[
+//     MyColors.light,
+//   ],
+//   textTheme: GoogleFonts.poppinsTextTheme(),
+//   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+//     unselectedItemColor: Colors.grey,
+//     selectedItemColor: kPrimaryKey,
+//     elevation: 0.0,
+//     type: BottomNavigationBarType.fixed,
+//   ),
+//   appBarTheme: AppBarTheme(
+//     systemOverlayStyle: const SystemUiOverlayStyle(
+//       statusBarBrightness: Brightness.dark,
+//       statusBarColor: Colors.black,
+//     ),
+//     iconTheme: const IconThemeData(color: kPrimaryKey),
+//     backgroundColor: Colors.white,
+//     toolbarHeight: 70,
+//     elevation: 0,
+//     titleTextStyle: Styles.textStyle12,
+//   ),
+//   tabBarTheme: TabBarTheme(
+//       labelColor: kPrimaryKey,
+//       indicatorColor: kPrimaryKey,
+//       dividerColor: kPrimaryKey,
+//       overlayColor: MaterialStateProperty.all(kPrimaryKey),
+//       unselectedLabelColor: kPrimaryKey,
+//       mouseCursor: MaterialStateMouseCursor.clickable),
+// );
+
+// ThemeData themeDarkData = ThemeData(
+//   scaffoldBackgroundColor: ColorsLight.kBlackColor,
+//   extensions: const <ThemeExtension<dynamic>>[
+//     MyColors.light,
+//   ],
+//   textTheme: const TextTheme(
+//     displaySmall: TextStyle(
+//       fontSize: 14,
+//       color: ColorsDark.kwhiteKey,
+//       //fontFamily: FontFamilyHelper.geLocalozedFontFamily(),
+//     ),
+//   ),
+//   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+//     unselectedItemColor: Colors.grey,
+//     selectedItemColor: kPrimaryKey,
+//     elevation: 0.0,
+//     type: BottomNavigationBarType.fixed,
+//   ),
+//   appBarTheme: AppBarTheme(
+//     systemOverlayStyle: const SystemUiOverlayStyle(
+//       statusBarBrightness: Brightness.dark,
+//       statusBarColor: Colors.black,
+//     ),
+//     iconTheme: const IconThemeData(color: kPrimaryKey),
+//     backgroundColor: Colors.white,
+//     toolbarHeight: 70,
+//     elevation: 0,
+//     titleTextStyle: Styles.textStyle12,
+//   ),
+//   tabBarTheme: TabBarTheme(
+//       labelColor: kPrimaryKey,
+//       indicatorColor: kPrimaryKey,
+//       dividerColor: kPrimaryKey,
+//       overlayColor: MaterialStateProperty.all(kPrimaryKey),
+//       unselectedLabelColor: kPrimaryKey,
+//       mouseCursor: MaterialStateMouseCursor.clickable),
+// );
 import 'package:flutter/material.dart';
 import 'package:resido_app/core/utils/app_colors.dart';
 import 'package:resido_app/core/utils/styles.dart';
 
 class AppTheme {
   static ThemeData lightTheme = ThemeData(
-    cardColor: AppColors.white,
-    indicatorColor: AppColors.black,
+    cardColor: Colors.white,
+    indicatorColor: Colors.black,
     shadowColor: Colors.black.withOpacity(0.2),
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-      backgroundColor: AppColors.white,
-      unselectedItemColor: AppColors.grey,
+      backgroundColor: Colors.white,
+      unselectedItemColor: Colors.grey,
       selectedItemColor: AppColors.primaryColor,
       elevation: 0.0,
       type: BottomNavigationBarType.fixed,
@@ -36,37 +115,37 @@ class AppTheme {
         // Text color for light mode
         ),
     inputDecorationTheme: InputDecorationTheme(
-      fillColor: AppColors.white,
+      fillColor: Colors.white,
       enabledBorder: OutlineInputBorder(
         borderSide: const BorderSide(color: Colors.white),
         borderRadius: BorderRadius.circular(10.0),
       ),
       border: OutlineInputBorder(
         borderSide: const BorderSide(
-            color: AppColors.white), // Border color for light mode
+            color: Colors.white), // Border color for light mode
         borderRadius: BorderRadius.circular(10.0),
       ),
     ),
-    iconTheme: const IconThemeData(color: AppColors.black),
+    iconTheme: const IconThemeData(color: Colors.black),
   );
 
   static ThemeData darkTheme = ThemeData(
-    indicatorColor: AppColors.white,
+    indicatorColor: Colors.white,
 
-    cardColor: Colors.grey[900],
+    cardColor: Colors.black,
     shadowColor: Colors.white.withOpacity(0.1),
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-      backgroundColor: AppColors.black,
-      unselectedItemColor: AppColors.grey,
+      backgroundColor: Colors.black,
+      unselectedItemColor: Colors.grey,
       selectedItemColor: AppColors.primaryColor,
       elevation: 0.0,
       type: BottomNavigationBarType.fixed,
     ),
-    scaffoldBackgroundColor: AppColors.black,
+    scaffoldBackgroundColor: Colors.black,
 
     primaryColor: AppColors.primaryColor, // Change primary color as needed
     textTheme: TextTheme(
-        bodySmall: Styles.textStyle12White,
+        bodySmall: Styles.textStyle12Blue,
         displayLarge: Styles.textStyle32Blue,
         displayMedium: Styles.textStyle18White,
         bodyLarge: Styles.textStyle12White,
@@ -85,17 +164,17 @@ class AppTheme {
         ),
     brightness: Brightness.dark,
     inputDecorationTheme: InputDecorationTheme(
-      fillColor: AppColors.black,
+      fillColor: Colors.black,
       enabledBorder: OutlineInputBorder(
         borderSide: const BorderSide(color: Colors.white),
         borderRadius: BorderRadius.circular(10.0),
       ),
       border: OutlineInputBorder(
-        borderSide: const BorderSide(
-            color: AppColors.white), // Border color for dark mode
+        borderSide:
+            const BorderSide(color: Colors.white), // Border color for dark mode
         borderRadius: BorderRadius.circular(10.0),
       ),
     ),
-    iconTheme: const IconThemeData(color: AppColors.white),
+    iconTheme: const IconThemeData(color: Colors.white),
   );
 }
