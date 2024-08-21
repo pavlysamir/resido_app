@@ -78,11 +78,11 @@ class AuthRepoImpl implements AuthRepo {
         "password_confirmation": confirmPassword,
       });
 
-      var data = DataUserRegister.fromJson(response);
+      var data = DataUserRegister.fromJson(response['data']);
       getIt
           .get<CashHelperSharedPreferences>()
           .saveData(key: ApiKey.id, value: data.token);
-      return Right(response);
+      return Right(data);
     } on ServerException catch (e) {
       return Left(e.errModel.errorMessage!);
     }

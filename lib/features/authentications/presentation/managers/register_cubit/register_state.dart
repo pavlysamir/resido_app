@@ -73,11 +73,7 @@ final class CashedSecondRegisterUserDataSuccess extends RegisterState {}
 
 final class CashedSecondRegisterUserDataLoading extends RegisterState {}
 
-final class SignUpSuccess extends RegisterState {
-  final String message;
-
-  SignUpSuccess(this.message);
-}
+final class SignUpSuccess extends RegisterState {}
 
 final class SignUpLoading extends RegisterState {}
 

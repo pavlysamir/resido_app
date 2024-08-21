@@ -1,11 +1,13 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:resido_app/features/authentications/data/repo/auth_repo.dart';
 
 part 'register_state.dart';
 
 class RegisterCubit extends Cubit<RegisterState> {
-  RegisterCubit() : super(RegisterInitial());
+  RegisterCubit(this.authRepository) : super(RegisterInitial());
+  final AuthRepo authRepository;
 
   static RegisterCubit? get(context) => BlocProvider.of(context);
 
@@ -42,28 +44,25 @@ class RegisterCubit extends Cubit<RegisterState> {
     emit(RegisterConfirmPasswordVisibleEye());
   }
 
-  // signUp() async {
-  //   emit(SignUpLoading());
-  //   final response = await authRepository.signUp(
-  //     name: nameController.text,
-  //     email: emailController.text,
-  //     password: passwordController.text,
-  //   );
-  //   response.fold((errMessage) => emit(SignUpFailure(errMessage: errMessage)),
-  //       (signUpModel) async {
-  //     await getIt
-  //         .get<CashHelperSharedPreferences>()
-  //         .saveData(key: ApiKey.verfyAccount, value: emailController.text);
+  signUp() async {
+    emit(SignUpLoading());
+    final response = await authRepository.signUp(
+      userName: nameController.text,
+      email: emailController.text,
+      password: passwordController.text,
+      confirmPassword: confirmPasswordController.text,
+    );
+    response.fold((errMessage) => emit(SignUpFaluir(errMessage)),
+        (signUpModel) async {
+      emailController.clear();
+      passwordController.clear();
+      confirmPasswordController.clear();
+      nameController.clear();
+      phoneController.clear();
 
-  //     emailController.clear();
-  //     passwordController.clear();
-  //     confirmPasswordController.clear();
-  //     nameController.clear();
-  //     phoneController.clear();
-
-  //     emit(SignUpSuccess(data: signUpModel.data));
-  //   });
-  // }
+      emit(SignUpSuccess());
+    });
+  }
 
   TextEditingController verfyAccountOtpController = TextEditingController();
   var verfyFormKey = GlobalKey<FormState>();
