@@ -1,31 +1,36 @@
-com.example.resido_app-jetified-activity-1.9.1-0 C:\Users\bavly\.gradle\caches\transforms-3\0bab3a97f04a4cb145924ce7c80c9098\transformed\jetified-activity-1.9.1\res
-com.example.resido_app-core-1.13.1-1 C:\Users\bavly\.gradle\caches\transforms-3\1d5210c5000ef504524e22a69efebd4e\transformed\core-1.13.1\res
-com.example.resido_app-jetified-datastore-1.0.0-2 C:\Users\bavly\.gradle\caches\transforms-3\3d15c6db8f47a09f33ea91f2dc57b20d\transformed\jetified-datastore-1.0.0\res
-com.example.resido_app-jetified-savedstate-1.2.1-3 C:\Users\bavly\.gradle\caches\transforms-3\474d02554cf9a5a9352f8addc0d783a6\transformed\jetified-savedstate-1.2.1\res
-com.example.resido_app-jetified-lifecycle-viewmodel-savedstate-2.6.2-4 C:\Users\bavly\.gradle\caches\transforms-3\5d069cb55d938de61f845d89e3a248b4\transformed\jetified-lifecycle-viewmodel-savedstate-2.6.2\res
-com.example.resido_app-jetified-window-1.0.0-beta04-5 C:\Users\bavly\.gradle\caches\transforms-3\64ce42b3f52ad35b963cce0c260934fa\transformed\jetified-window-1.0.0-beta04\res
-com.example.resido_app-lifecycle-runtime-2.6.2-6 C:\Users\bavly\.gradle\caches\transforms-3\6c839fdcabc696775ada2f9245c606a2\transformed\lifecycle-runtime-2.6.2\res
-com.example.resido_app-jetified-core-ktx-1.13.1-7 C:\Users\bavly\.gradle\caches\transforms-3\76c9c38b69593a969dd4cd510150aa35\transformed\jetified-core-ktx-1.13.1\res
-com.example.resido_app-jetified-profileinstaller-1.3.1-8 C:\Users\bavly\.gradle\caches\transforms-3\8d40f7700147976def31a714b20092eb\transformed\jetified-profileinstaller-1.3.1\res
-com.example.resido_app-jetified-annotation-experimental-1.4.0-9 C:\Users\bavly\.gradle\caches\transforms-3\98a61c524e689f79009a9b75e3206e42\transformed\jetified-annotation-experimental-1.4.0\res
-com.example.resido_app-lifecycle-livedata-2.6.2-10 C:\Users\bavly\.gradle\caches\transforms-3\9ebd3ac6a21f6840f45104ed6949bcbb\transformed\lifecycle-livedata-2.6.2\res
-com.example.resido_app-core-runtime-2.2.0-11 C:\Users\bavly\.gradle\caches\transforms-3\a3a070a99085d94518e6d3491751b042\transformed\core-runtime-2.2.0\res
-com.example.resido_app-jetified-window-java-1.0.0-beta04-12 C:\Users\bavly\.gradle\caches\transforms-3\b79bf934e5d1702057f6bf018dd7f9be\transformed\jetified-window-java-1.0.0-beta04\res
-com.example.resido_app-lifecycle-viewmodel-2.6.2-13 C:\Users\bavly\.gradle\caches\transforms-3\be2600da2d96771e301d1a294e9a56e4\transformed\lifecycle-viewmodel-2.6.2\res
-com.example.resido_app-jetified-startup-runtime-1.1.1-14 C:\Users\bavly\.gradle\caches\transforms-3\c57b4206d3746644d4a73e78c3cef978\transformed\jetified-startup-runtime-1.1.1\res
-com.example.resido_app-lifecycle-livedata-core-2.6.2-15 C:\Users\bavly\.gradle\caches\transforms-3\d209b5390a2a0b82e04b9dbd535efbcc\transformed\lifecycle-livedata-core-2.6.2\res
-com.example.resido_app-jetified-datastore-preferences-1.0.0-16 C:\Users\bavly\.gradle\caches\transforms-3\df3cc9e8751dcc63de2c28bc8db5f481\transformed\jetified-datastore-preferences-1.0.0\res
-com.example.resido_app-debug-17 D:\chrome download\resido-app\android\app\src\debug\res
-com.example.resido_app-main-18 D:\chrome download\resido-app\android\app\src\main\res
-com.example.resido_app-pngs-19 D:\chrome download\resido-app\build\app\generated\res\pngs\debug
-com.example.resido_app-resValues-20 D:\chrome download\resido-app\build\app\generated\res\resValues\debug
-com.example.resido_app-rs-21 D:\chrome download\resido-app\build\app\generated\res\rs\debug
-com.example.resido_app-mergeDebugResources-22 D:\chrome download\resido-app\build\app\intermediates\incremental\debug\mergeDebugResources\merged.dir
-com.example.resido_app-mergeDebugResources-23 D:\chrome download\resido-app\build\app\intermediates\incremental\debug\mergeDebugResources\stripped.dir
-com.example.resido_app-merged_res-24 D:\chrome download\resido-app\build\app\intermediates\merged_res\debug
-com.example.resido_app-packaged_res-25 D:\chrome download\resido-app\build\flutter_native_splash\intermediates\packaged_res\debug
-com.example.resido_app-packaged_res-26 D:\chrome download\resido-app\build\flutter_plugin_android_lifecycle\intermediates\packaged_res\debug
-com.example.resido_app-packaged_res-27 D:\chrome download\resido-app\build\image_picker_android\intermediates\packaged_res\debug
-com.example.resido_app-packaged_res-28 D:\chrome download\resido-app\build\path_provider_android\intermediates\packaged_res\debug
-com.example.resido_app-packaged_res-29 D:\chrome download\resido-app\build\shared_preferences_android\intermediates\packaged_res\debug
-com.example.resido_app-packaged_res-30 D:\chrome download\resido-app\build\sqflite\intermediates\packaged_res\debug
+com.example.resido_app-jetified-core-ktx-1.13.1-0 C:\Users\moham\.gradle\caches\transforms-3\14acd3eccc27490532755d8c2be97ae0\transformed\jetified-core-ktx-1.13.1\res
+com.example.resido_app-jetified-window-java-1.2.0-1 C:\Users\moham\.gradle\caches\transforms-3\186704fa0996b9c185e359efb3d3f885\transformed\jetified-window-java-1.2.0\res
+com.example.resido_app-core-runtime-2.2.0-2 C:\Users\moham\.gradle\caches\transforms-3\1d179e3f318997542354bcd52d7b78ea\transformed\core-runtime-2.2.0\res
+com.example.resido_app-jetified-lifecycle-livedata-core-ktx-2.7.0-3 C:\Users\moham\.gradle\caches\transforms-3\26964745285543a92e019afbc8eef15e\transformed\jetified-lifecycle-livedata-core-ktx-2.7.0\res
+com.example.resido_app-jetified-lifecycle-viewmodel-savedstate-2.7.0-4 C:\Users\moham\.gradle\caches\transforms-3\3716ec2c0b6ee0819260c0f6474c0011\transformed\jetified-lifecycle-viewmodel-savedstate-2.7.0\res
+com.example.resido_app-jetified-startup-runtime-1.1.1-5 C:\Users\moham\.gradle\caches\transforms-3\3ab8c02f2f9d4e29769d57d09b12c566\transformed\jetified-startup-runtime-1.1.1\res
+com.example.resido_app-fragment-1.7.1-6 C:\Users\moham\.gradle\caches\transforms-3\3f237f33335100b8d5036018cd714add\transformed\fragment-1.7.1\res
+com.example.resido_app-jetified-lifecycle-process-2.7.0-7 C:\Users\moham\.gradle\caches\transforms-3\49449b5505e9e8d548c971c9264abed2\transformed\jetified-lifecycle-process-2.7.0\res
+com.example.resido_app-lifecycle-livedata-core-2.7.0-8 C:\Users\moham\.gradle\caches\transforms-3\5179f1bc74c22e3b2014f54aa3cd2d4a\transformed\lifecycle-livedata-core-2.7.0\res
+com.example.resido_app-jetified-datastore-preferences-1.0.0-9 C:\Users\moham\.gradle\caches\transforms-3\5cb0ecf6321606c02dc1961b71982336\transformed\jetified-datastore-preferences-1.0.0\res
+com.example.resido_app-core-1.13.1-10 C:\Users\moham\.gradle\caches\transforms-3\6afaf56d4e1e4056870d44cfdab879b4\transformed\core-1.13.1\res
+com.example.resido_app-jetified-annotation-experimental-1.4.0-11 C:\Users\moham\.gradle\caches\transforms-3\7fd8862d512fbebe7e4a1d5da4a18497\transformed\jetified-annotation-experimental-1.4.0\res
+com.example.resido_app-jetified-activity-1.9.1-12 C:\Users\moham\.gradle\caches\transforms-3\85a67ee9f6082bb9d558ec6158af7f30\transformed\jetified-activity-1.9.1\res
+com.example.resido_app-jetified-tracing-1.2.0-13 C:\Users\moham\.gradle\caches\transforms-3\886740a7e6336fadfcbf2a2a9a62c533\transformed\jetified-tracing-1.2.0\res
+com.example.resido_app-jetified-core-1.0.0-14 C:\Users\moham\.gradle\caches\transforms-3\8df11cd2b11fd5a4c249ba8b66ffb2b9\transformed\jetified-core-1.0.0\res
+com.example.resido_app-lifecycle-livedata-2.7.0-15 C:\Users\moham\.gradle\caches\transforms-3\8f89c10074ee8d31cb00a1be680b7c68\transformed\lifecycle-livedata-2.7.0\res
+com.example.resido_app-jetified-profileinstaller-1.3.1-16 C:\Users\moham\.gradle\caches\transforms-3\9733868a27f0fb6ca52d6d03f08fe7e9\transformed\jetified-profileinstaller-1.3.1\res
+com.example.resido_app-jetified-datastore-1.0.0-17 C:\Users\moham\.gradle\caches\transforms-3\a35d18d7b0998906aec214d667d7f41b\transformed\jetified-datastore-1.0.0\res
+com.example.resido_app-lifecycle-runtime-2.7.0-18 C:\Users\moham\.gradle\caches\transforms-3\ccc796139538e1ddd25a9ffb61040bfe\transformed\lifecycle-runtime-2.7.0\res
+com.example.resido_app-jetified-savedstate-1.2.1-19 C:\Users\moham\.gradle\caches\transforms-3\d03ee220ded2c566dd52f223e433ceee\transformed\jetified-savedstate-1.2.1\res
+com.example.resido_app-lifecycle-viewmodel-2.7.0-20 C:\Users\moham\.gradle\caches\transforms-3\d369364c5dd92e28a306bdfd3ea49136\transformed\lifecycle-viewmodel-2.7.0\res
+com.example.resido_app-jetified-window-1.2.0-21 C:\Users\moham\.gradle\caches\transforms-3\fed52157e596e1ef7fd1819362cdf328\transformed\jetified-window-1.2.0\res
+com.example.resido_app-debug-22 E:\sido_app\android\app\src\debug\res
+com.example.resido_app-main-23 E:\sido_app\android\app\src\main\res
+com.example.resido_app-pngs-24 E:\sido_app\build\app\generated\res\pngs\debug
+com.example.resido_app-resValues-25 E:\sido_app\build\app\generated\res\resValues\debug
+com.example.resido_app-rs-26 E:\sido_app\build\app\generated\res\rs\debug
+com.example.resido_app-mergeDebugResources-27 E:\sido_app\build\app\intermediates\incremental\debug\mergeDebugResources\merged.dir
+com.example.resido_app-mergeDebugResources-28 E:\sido_app\build\app\intermediates\incremental\debug\mergeDebugResources\stripped.dir
+com.example.resido_app-merged_res-29 E:\sido_app\build\app\intermediates\merged_res\debug
+com.example.resido_app-packaged_res-30 E:\sido_app\build\flutter_native_splash\intermediates\packaged_res\debug
+com.example.resido_app-packaged_res-31 E:\sido_app\build\flutter_plugin_android_lifecycle\intermediates\packaged_res\debug
+com.example.resido_app-packaged_res-32 E:\sido_app\build\image_picker_android\intermediates\packaged_res\debug
+com.example.resido_app-packaged_res-33 E:\sido_app\build\path_provider_android\intermediates\packaged_res\debug
+com.example.resido_app-packaged_res-34 E:\sido_app\build\shared_preferences_android\intermediates\packaged_res\debug
+com.example.resido_app-packaged_res-35 E:\sido_app\build\sqflite\intermediates\packaged_res\debug

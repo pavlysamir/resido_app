@@ -11,6 +11,7 @@ import 'package:resido_app/features/authentications/presentation/managers/regist
 import 'package:resido_app/features/authentications/presentation/managers/login_cubit/login_cubit.dart';
 import 'package:resido_app/features/chat/presentation/managers/cubit/chat_cubit.dart';
 import 'package:resido_app/features/home/presentation/managers/cubit/add_proparties_cubit.dart';
+import 'package:resido_app/features/profile/profile_main/presentation/controller/profile_bloc_cubit.dart';
 import 'package:resido_app/features/search/presentation/managers/cubit/search_cubit.dart';
 import 'package:resido_app/l10n/l10n.dart';
 
@@ -28,6 +29,8 @@ class ResidoApp extends StatelessWidget {
             create: (context) => RegisterCubit(getIt.get<AuthRepoImpl>())),
         BlocProvider(create: (context) => SearchCubit()),
         BlocProvider(create: (context) => ChatCubit()),
+        BlocProvider(create: (context) => ProfileCubit()),
+
       ],
       child: ScreenUtilInit(
         designSize: const Size(390, 844),

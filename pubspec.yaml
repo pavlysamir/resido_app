@@ -56,7 +56,7 @@ dependencies:
   flutter_speed_dial: ^7.0.0
   carousel_slider: ^5.0.0
   toggle_switch: ^2.3.0
-
+  logger: ^2.4.0
 
 dev_dependencies:
   flutter_test:

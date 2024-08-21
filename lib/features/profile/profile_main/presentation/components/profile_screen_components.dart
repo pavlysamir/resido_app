@@ -287,7 +287,7 @@ class HeaderWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: MediaQuery.of(context).size.height * 0.12,
+      height: MediaQuery.of(context).size.height * 0.11,
       decoration: const BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.only(
@@ -308,75 +308,3 @@ class HeaderWidget extends StatelessWidget {
   }
 }
 
-class ProfileInfoWidget extends StatelessWidget {
-  const ProfileInfoWidget({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        // Navigate to the profile edit screen when tapped
-        customJustGoNavigate(
-            context: context, path: AppRouter.kProfileEditScreen);
-      },
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 30.0),
-        margin: const EdgeInsets.symmetric(horizontal: 16.0),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(10.0),
-        ),
-        child: Row(
-          children: [
-            Container(
-              width: 50.0,
-              height: 50.0,
-              decoration: const BoxDecoration(
-                shape: BoxShape.circle,
-                image: DecorationImage(
-                  image: AssetImage('assets/images/mainLogo.png'),
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            const SizedBox(width: 16.0),
-            const Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'John Doe',
-                  style: TextStyle(
-                    fontSize: 18.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Text(
-                  'john.doe@example.com',
-                  style: TextStyle(
-                    fontSize: 14.0,
-                    color: Colors.grey,
-                  ),
-                ),
-              ],
-            ),
-            const Spacer(),
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                border: Border.all(
-                  color: Colors.grey,
-                ),
-                borderRadius: BorderRadius.circular(5.0),
-              ),
-              child: const Icon(
-                Icons.navigate_next_rounded,
-                color: Colors.blue,
-                size: 40.0,
-              ),
-            )
-          ],
-        ),
-      ),
-    );
-  }
-}
