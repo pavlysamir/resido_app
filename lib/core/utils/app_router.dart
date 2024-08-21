@@ -39,6 +39,7 @@ abstract class AppRouter {
           null
           ? kLoginScreen
           : kHomeLayout,
+
       routes: [
         GoRoute(
           path: kHomeLayout,
