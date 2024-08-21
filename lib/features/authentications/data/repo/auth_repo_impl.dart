@@ -21,7 +21,7 @@ class AuthRepoImpl implements AuthRepo {
         'password': password,
       });
 
-      var data = DataUserLogin.fromJson(response);
+      var data = DataUserLogin.fromJson(response['data']);
 
       getIt
           .get<CashHelperSharedPreferences>()
@@ -44,14 +44,7 @@ class AuthRepoImpl implements AuthRepo {
       }
 
       return Right(data);
-    }
-    // on DioException catch (e) {
-    //   // Check if DioException contains additional information
-    //   final errorMessage =
-    //       e.response?.data['errorMessage'] ?? 'Unknown error occurred';
-    //   return Left(errorMessage);
-    // }
-    on ServerException catch (e) {
+    } on ServerException catch (e) {
       return Left(e.errModel.errorMessage ?? 'Server error');
     }
   }

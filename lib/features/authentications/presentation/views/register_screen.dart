@@ -10,7 +10,7 @@ import 'package:resido_app/core/utils/widgets/custom_button_large.dart';
 import 'package:resido_app/core/utils/widgets/custom_form_field.dart';
 import 'package:resido_app/core/utils/widgets/custom_go_navigator.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:resido_app/features/authentications/presentation/managers/cubit/register_cubit.dart';
+import 'package:resido_app/features/authentications/presentation/managers/register_cubit/register_cubit.dart';
 
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({super.key});

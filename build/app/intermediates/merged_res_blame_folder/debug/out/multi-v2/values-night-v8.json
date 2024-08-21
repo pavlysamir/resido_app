@@ -1,17 +1,10 @@
 {
     "logs": [
         {
-<<<<<<< HEAD
-            "outputFile": "com.example.resido_app-mergeDebugResources-27:/values-night-v8/values-night-v8.xml",
-            "map": [
-                {
-                    "source": "E:\\resido_app\\android\\app\\src\\main\\res\\values-night\\styles.xml",
-=======
             "outputFile": "com.example.resido_app-mergeDebugResources-22:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
                     "source": "D:\\chrome download\\resido-app\\android\\app\\src\\main\\res\\values-night\\styles.xml",
->>>>>>> 14e6d9c8daee6dddd2da7e26d2800df5583a72e4
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",

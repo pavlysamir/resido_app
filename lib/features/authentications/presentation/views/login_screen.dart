@@ -100,7 +100,12 @@ class LoginScreen extends StatelessWidget {
                             LoginCubit.get(context)!.iconDataPassword),
                       ),
                       controller: LoginCubit.get(context)!.passwordController,
-                      validationMassage: conditionOfValidationPassWord,
+                      validationMassage: (value) {
+                        if (value.isEmpty) {
+                          return 'please enter password';
+                        }
+                      },
+                      // conditionOfValidationPassWord,
                       hintText: '************',
                       textInputType: TextInputType.visiblePassword),
                   Center(
@@ -127,17 +132,23 @@ class LoginScreen extends StatelessWidget {
                   //         color: kPrimaryKey,
                   //       ))
                   //     :
-                  CustomButtonLarge(
-                      text: AppLocalizations.of(context)!.login,
-                      textColor: Colors.white,
-                      function: () async {
-                        if (LoginCubit.get(context)!
-                            .formScreenLoginrKey
-                            .currentState!
-                            .validate()) {
-                          LoginCubit.get(context)!.login();
-                        }
-                      }),
+                  state is LoginLoading
+                      ? const Center(
+                          child: CircularProgressIndicator(
+                            color: AppColors.primaryColor,
+                          ),
+                        )
+                      : CustomButtonLarge(
+                          text: AppLocalizations.of(context)!.login,
+                          textColor: Colors.white,
+                          function: () async {
+                            if (LoginCubit.get(context)!
+                                .formScreenLoginrKey
+                                .currentState!
+                                .validate()) {
+                              LoginCubit.get(context)!.login();
+                            }
+                          }),
                   SizedBox(
                     height: 70.h,
                   ),
