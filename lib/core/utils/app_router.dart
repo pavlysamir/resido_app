@@ -1,6 +1,7 @@
 import 'package:go_router/go_router.dart';
 import 'package:resido_app/constance.dart';
 import 'package:resido_app/core/Layouts/home_layout.dart';
+import 'package:resido_app/core/api/end_ponits.dart';
 import 'package:resido_app/core/utils/service_locator.dart';
 import 'package:resido_app/core/utils/shared_preferences_cash_helper.dart';
 import 'package:resido_app/features/home/presentation/views/add_properties_screen.dart';
@@ -14,7 +15,6 @@ import '../../features/authentications/presentation/views/register_screen.dart';
 import '../../features/home/presentation/views/add_proparties_third_screen.dart';
 import '../../features/profile/profile_edite/presentation/views/profile_edite_screen.dart';
 import '../../features/search/presentation/views/search_screen.dart';
-import '../api/end_ponits.dart';
 
 abstract class AppRouter {
   static const kWelcomeView = '/';
@@ -34,9 +34,9 @@ abstract class AppRouter {
 
   static final router = GoRouter(
       navigatorKey: navigatorKey,
-      initialLocation: getIt.get<CashHelperSharedPreferences>().getData(
-                key: ApiKey.token,
-      ) == null
+      initialLocation:
+      getIt.get<CashHelperSharedPreferences>().getData(key: ApiKey.token) ==
+          null
           ? kLoginScreen
           : kHomeLayout,
       routes: [
