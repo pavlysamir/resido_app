@@ -45,7 +45,7 @@ class AuthRepoImpl implements AuthRepo {
 
       return Right(data);
     } on ServerException catch (e) {
-      return Left(e.errModel.errorMessage ?? 'Server error');
+      return Left(e.errModel.errorMessage![0] ?? 'Server error');
     }
   }
 
@@ -59,7 +59,7 @@ class AuthRepoImpl implements AuthRepo {
 
       return Right(response['message']);
     } on ServerException catch (e) {
-      return Left(e.errModel.errorMessage!);
+      return Left(e.errModel.errorMessage![0] ?? 'Server error');
     }
   }
 
@@ -84,7 +84,7 @@ class AuthRepoImpl implements AuthRepo {
           .saveData(key: ApiKey.id, value: data.token);
       return Right(data);
     } on ServerException catch (e) {
-      return Left(e.errModel.errorMessage!);
+      return Left(e.errModel.errorMessage![0] ?? 'Server error');
     }
   }
 }

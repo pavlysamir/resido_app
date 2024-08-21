@@ -22,9 +22,10 @@ class LoginScreen extends StatelessWidget {
       listener: (context, state) {
         if (state is LoginSuccess) {
           customGoAndDeleteNavigate(
-              context: context, path: AppRouter.kLoginScreen);
+              context: context, path: AppRouter.kHomeLayout);
+          showInfoSnackBar(context, 'success', AppColors.green);
         } else if (state is LoginFailure) {
-          showInfoSnackBar(context, state.message);
+          showInfoSnackBar(context, state.message, AppColors.red);
         }
       },
       builder: (context, state) {

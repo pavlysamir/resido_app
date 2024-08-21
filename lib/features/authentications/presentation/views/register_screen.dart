@@ -23,8 +23,9 @@ class RegisterScreen extends StatelessWidget {
         if (state is SignUpSuccess) {
           customGoAndDeleteNavigate(
               context: context, path: AppRouter.kLoginScreen);
+          showInfoSnackBar(context, 'success', AppColors.green);
         } else if (state is SignUpFaluir) {
-          showInfoSnackBar(context, state.errorMessage);
+          showInfoSnackBar(context, state.errorMessage, AppColors.red);
         }
       },
       builder: (context, state) {

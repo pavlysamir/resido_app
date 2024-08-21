@@ -64,6 +64,8 @@ class LoginCubit extends Cubit<LoginState> {
       (errMessage) => emit(LoginFailure(message: errMessage)),
       (login) {
         emit(LoginSuccess());
+        emailController.clear();
+        passwordController.clear();
       },
     );
   }
