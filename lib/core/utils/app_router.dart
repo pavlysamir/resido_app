@@ -76,6 +76,7 @@ abstract class AppRouter {
           path: kFilterScreen,
           builder: (context, state) => const FilterScreen(),
         ),
+
         GoRoute(
           path: kAboutUs,
           builder: (context, state) => ContactUs(),
