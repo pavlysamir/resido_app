@@ -26,10 +26,12 @@ class ProfileEditeCubit extends Cubit<ProfileEditeState> {
   getProfileEdit() async {
     emit(ProfileEditeLoading());
     final response = await profileEditRepository.getProfileEdit();
+    // 
     response.fold(
       (errMessage) {
         Logger().i("check profile edit screen response error :${errMessage}");
         emit(ProfileEditeFailure(message: errMessage));
+
         },
       (success) {
 

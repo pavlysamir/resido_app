@@ -6,7 +6,7 @@ class EndPoint {
   static String getAllAvailabilityWork =
       "api/BaseLookup/GetAllAvailabilityWork";
 
-  static String getProfileEndPoint = "$baseUrl/profile";
+  static String getProfileEndPoint = "profile";
   static String getCurrentUserSorted = "Home/GetCurrentUserSorted";
 
   static String getAllUsers = "Home/GetAllUsers";
