@@ -1,0 +1,1 @@
+ E:\\sido_app\\.dart_tool\\flutter_gen\\gen_l10n\\app_localizations_ar.dart E:\\sido_app\\.dart_tool\\flutter_gen\\gen_l10n\\app_localizations_en.dart E:\\sido_app\\.dart_tool\\flutter_gen\\gen_l10n\\app_localizations.dart:  E:\\sido_app\\l10n.yaml E:\\sido_app\\lib/l10n\\app_ar.arb E:\\sido_app\\lib/l10n\\app_en.arb

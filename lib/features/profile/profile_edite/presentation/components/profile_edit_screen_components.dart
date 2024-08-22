@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:image_picker/image_picker.dart';
 import '../../../../../core/Assets/assets.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../controller/profile_edite_cubit.dart';
@@ -239,83 +242,104 @@ class TextFieldSectionWidget extends StatelessWidget {
   }
 }
 
-class ProfileImageWidget extends StatelessWidget {
+
+class ProfileImageWidget extends StatefulWidget {
   const ProfileImageWidget({Key? key}) : super(key: key);
+
+  @override
+  _ProfileImageWidgetState createState() => _ProfileImageWidgetState();
+}
+
+class _ProfileImageWidgetState extends State<ProfileImageWidget> {
+  final ImagePicker _picker = ImagePicker();
+  XFile? _image;
+
+  Future<void> _pickImage() async {
+    final XFile? selectedImage = await _picker.pickImage(source: ImageSource.gallery);
+    if (selectedImage != null) {
+      setState(() {
+        _image = selectedImage;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Container(
-        width: 130,
-        height: 130,
-        decoration: BoxDecoration(
-          color: AppColors.primaryColor,
-          shape: BoxShape.circle,
-          border: Border.all(
+      child: GestureDetector(
+        onTap: _pickImage,
+        child: Container(
+          width: 130,
+          height: 130,
+          decoration: BoxDecoration(
             color: AppColors.primaryColor,
-            width: 1,
-          ),
-          boxShadow: const [
-            BoxShadow(
-              color: AppColors.darkGrey,
-              blurRadius: 10.0,
+            shape: BoxShape.circle,
+            border: Border.all(
+              color: AppColors.primaryColor,
+              width: 1,
             ),
-          ],
-        ),
-        child: Stack(
-          children: [
-            Container(
-              width: 130,
-              height: 130,
-              decoration: BoxDecoration(
-                border: Border.all(
-                  width: 4,
-                  color: Theme.of(context).scaffoldBackgroundColor,
-                ),
-                boxShadow: [
-                  BoxShadow(
-                    spreadRadius: 2,
-                    blurRadius: 10,
-                    color: AppColors.black.withOpacity(0.1),
-                    offset: const Offset(0, 10),
-                  ),
-                ],
-                shape: BoxShape.circle,
-                image: const DecorationImage(
-                  fit: BoxFit.cover,
-                  image: NetworkImage(
-                      'https://th.bing.com/th/id/OIP.6tUU7elzE78McOxUt5y-wwHaEO?rs=1&pid=ImgDetMain'),
-                ),
+            boxShadow: const [
+              BoxShadow(
+                color: AppColors.darkGrey,
+                blurRadius: 10.0,
               ),
-            ),
-            Positioned(
-              bottom: 0,
-              right: 0,
-              child: Container(
-                height: 40,
-                width: 40,
+            ],
+          ),
+          child: Stack(
+            children: [
+              Container(
+                width: 130,
+                height: 130,
                 decoration: BoxDecoration(
-                  shape: BoxShape.circle,
                   border: Border.all(
                     width: 4,
                     color: Theme.of(context).scaffoldBackgroundColor,
                   ),
-                  color: AppColors.darkGrey,
-                ),
-                child: const Image(
-                  image: AssetImage(
-                    AssetsData.profileEdit,
+                  boxShadow: [
+                    BoxShadow(
+                      spreadRadius: 2,
+                      blurRadius: 10,
+                      color: AppColors.black.withOpacity(0.1),
+                      offset: const Offset(0, 10),
+                    ),
+                  ],
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: _image == null
+                        ? const NetworkImage('https://th.bing.com/th/id/OIP.6tUU7elzE78McOxUt5y-wwHaEO?rs=1&pid=ImgDetMain')
+                        : FileImage(File(_image!.path)) as ImageProvider,
                   ),
                 ),
               ),
-            ),
-          ],
+              Positioned(
+                bottom: 0,
+                right: 0,
+                child: Container(
+                  height: 40,
+                  width: 40,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                      width: 4,
+                      color: Theme.of(context).scaffoldBackgroundColor,
+                    ),
+                    color: AppColors.darkGrey,
+                  ),
+                  child: const Image(
+                    image: AssetImage(
+                      AssetsData.profileEdit,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
   }
 }
-
 class ProfileFormWidget extends StatelessWidget {
   const ProfileFormWidget({Key? key}) : super(key: key);
 
@@ -342,12 +366,12 @@ class ProfileFormWidget extends StatelessWidget {
                   const SizedBox(height: 0.0),
                   TextFieldSectionWidget(
                     label: AppLocalizations.of(context)!.callUs,
-                    placeholder: cubit.name ?? '',
+                    placeholder: cubit.name ??'',
                     isPassword: false,
                   ),
                   TextFieldSectionWidget(
                     label: AppLocalizations.of(context)!.callUs,
-                    placeholder: cubit.email ??'',
+                    placeholder: cubit.email??'',
                     isPassword: false,
                   ),
                   TextFieldSectionWidget(
