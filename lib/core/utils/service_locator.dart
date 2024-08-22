@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:resido_app/core/api/dio_consumer.dart';
 import 'package:resido_app/features/authentications/data/repo/auth_repo_impl.dart';
+import 'package:resido_app/features/search/data/repo/search_repo_impl.dart';
 
 import '../../features/profile/profile_edite/data/repository/profile_edit_repository.dart';
 import '../api/api_consumer.dart';
@@ -23,9 +24,12 @@ void setUpServiceLocator() {
     api: getIt.get<DioConsumer>(),
   ));
 
+  getIt.registerSingleton<SearchRepoImpl>(SearchRepoImpl(
+    api: getIt.get<DioConsumer>(),
+  ));
+
   // Register ProfileEditRepositoryImpl
   getIt.registerLazySingleton<ProfileEditRepository>(
-        () => ProfileEditRepositoryImpl(api: getIt<ApiConsumer>()),
+    () => ProfileEditRepositoryImpl(api: getIt<ApiConsumer>()),
   );
-
 }

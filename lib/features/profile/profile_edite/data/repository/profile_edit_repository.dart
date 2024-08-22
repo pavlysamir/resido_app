@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:logger/logger.dart';
 import 'package:resido_app/core/errors/exceptions.dart';
 
 import '../../../../../core/api/api_consumer.dart';
@@ -25,8 +24,6 @@ class ProfileEditRepositoryImpl extends ProfileEditRepository {
       var data = DataProfileEditModel.fromJson(response['data']);
       return Right(data);
     } on ServerException catch (error) {
-      Logger().i("response profile $error");
-
       return Left(error.errModel.errorMessage![0] ?? 'Server error');
     }
   }

@@ -42,6 +42,8 @@ class EndPoint {
 
   static String signUp = "register";
 
+  static String search = "search";
+
   static const String contentType = 'application/json';
 
   static String forgotPassword = "Account/InitiatePasswordResetAsync";

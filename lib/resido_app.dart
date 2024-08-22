@@ -13,6 +13,7 @@ import 'package:resido_app/features/chat/presentation/managers/cubit/chat_cubit.
 import 'package:resido_app/features/home/presentation/managers/cubit/add_proparties_cubit.dart';
 import 'package:resido_app/features/profile/profile_edite/data/repository/profile_edit_repository.dart';
 import 'package:resido_app/features/profile/profile_main/presentation/controller/profile_bloc_cubit.dart';
+import 'package:resido_app/features/search/data/repo/search_repo_impl.dart';
 import 'package:resido_app/features/search/presentation/managers/cubit/search_cubit.dart';
 import 'package:resido_app/l10n/l10n.dart';
 
@@ -30,12 +31,14 @@ class ResidoApp extends StatelessWidget {
             create: (context) => LoginCubit(getIt.get<AuthRepoImpl>())),
         BlocProvider(
             create: (context) => RegisterCubit(getIt.get<AuthRepoImpl>())),
-        BlocProvider(create: (context) => SearchCubit()),
+        BlocProvider(
+            create: (context) => SearchCubit(getIt.get<SearchRepoImpl>())),
         BlocProvider(create: (context) => ChatCubit()),
         BlocProvider(create: (context) => ProfileCubit()),
-        BlocProvider(create: (context) => ProfileEditeCubit(getIt.get<ProfileEditRepositoryImpl>())..getProfileEdit()
-        )
-
+        BlocProvider(
+            create: (context) =>
+                ProfileEditeCubit(getIt.get<ProfileEditRepositoryImpl>())
+                  ..getProfileEdit())
       ],
       child: ScreenUtilInit(
         designSize: const Size(390, 844),
