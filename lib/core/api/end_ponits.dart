@@ -6,7 +6,7 @@ class EndPoint {
   static String getAllAvailabilityWork =
       "api/BaseLookup/GetAllAvailabilityWork";
 
-  static String getProfileEndPoint = "$baseUrl/profile";
+  static String getProfileEndPoint = "profile";
   static String getCurrentUserSorted = "Home/GetCurrentUserSorted";
 
   static String getAllUsers = "Home/GetAllUsers";
@@ -143,5 +143,5 @@ class ApiKey {
   static String allgradesRegisters = "allgradesRegisters";
   static String allCountRegisters = "allCountRegisters";
   static String namesOfGrades = "namesOfGrades";
-  static String LOGIN_USER_DATA= "onBoarding";
+  static String LOGIN_USER_DATA = "onBoarding";
 }
