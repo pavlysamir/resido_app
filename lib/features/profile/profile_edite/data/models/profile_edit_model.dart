@@ -1,32 +1,33 @@
-class ProfileEditModel {
+class DataProfileEditModel {
   int id;
   String name;
   String email;
   String? emailVerifiedAt;
   String? code;
   String role;
-  String? image;
+  String image;
   String? phone;
   String? address;
   String createdAt;
   String updatedAt;
 
-  ProfileEditModel({
+  DataProfileEditModel({
     required this.id,
     required this.name,
     required this.email,
     this.emailVerifiedAt,
     this.code,
     required this.role,
-    this.image,
+    required this.image,
     this.phone,
     this.address,
     required this.createdAt,
     required this.updatedAt,
   });
 
-  factory ProfileEditModel.fromJson(Map<String, dynamic> json) {
-    return ProfileEditModel(
+  // Factory method to create a User object from JSON
+  factory DataProfileEditModel.fromJson(Map<String, dynamic> json) {
+    return DataProfileEditModel(
       id: json['id'],
       name: json['name'],
       email: json['email'],
@@ -41,6 +42,7 @@ class ProfileEditModel {
     );
   }
 
+  // Method to convert a User object to JSON
   Map<String, dynamic> toJson() {
     return {
       'id': id,
@@ -54,27 +56,6 @@ class ProfileEditModel {
       'address': address,
       'created_at': createdAt,
       'updated_at': updatedAt,
-    };
-  }
-}
-
-class DataProfileEditModel {
-  ProfileEditModel user;
-  String token;
-
-  DataProfileEditModel({required this.user, required this.token});
-
-  factory DataProfileEditModel.fromJson(Map<String, dynamic> json) {
-    return DataProfileEditModel(
-      user: ProfileEditModel.fromJson(json['user']),
-      token: json['token'],
-    );
-  }
-
-  Map<String, dynamic> toJson() {
-    return {
-      'user': user.toJson(),
-      'token': token,
     };
   }
 }

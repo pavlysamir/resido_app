@@ -143,5 +143,5 @@ class ApiKey {
   static String allgradesRegisters = "allgradesRegisters";
   static String allCountRegisters = "allCountRegisters";
   static String namesOfGrades = "namesOfGrades";
-  static String LOGIN_USER_DATA= "onBoarding";
+  static String LOGIN_USER_DATA = "onBoarding";
 }

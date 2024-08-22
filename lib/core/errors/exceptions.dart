@@ -3,9 +3,10 @@ import 'package:resido_app/core/errors/error_model.dart';
 
 class ServerException implements Exception {
   final ErrorModel errModel;
-  final ErrorMessageModel? errorMessageModel;
 
-  ServerException({required this.errModel, this.errorMessageModel});
+  ServerException({
+    required this.errModel,
+  });
 }
 
 void handleDioExceptions(DioException e) {

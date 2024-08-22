@@ -8,10 +8,10 @@ import '../../../../../core/utils/service_locator.dart';
 import '../../../../../core/utils/shared_preferences_cash_helper.dart';
 import '../models/profile_edit_model.dart';
 
-
-abstract class ProfileEditRepository{
+abstract class ProfileEditRepository {
   Future<Either<String, DataProfileEditModel>> getProfileEdit();
-  Future<Either<String, DataProfileEditModel>> updateProfileEdit(ProfileEditModel profileEditModel);
+  Future<Either<String, DataProfileEditModel>> updateProfileEdit(
+      DataProfileEditModel profileEditModel);
 }
 
 class ProfileEditRepositoryImpl extends ProfileEditRepository {
@@ -27,22 +27,22 @@ class ProfileEditRepositoryImpl extends ProfileEditRepository {
     } on ServerException catch (error) {
       Logger().i("response profile $error");
 
-      return Left(
-        error.errModel.errorMessage![0] ?? 'Server error'
-      );
+      return Left(error.errModel.errorMessage![0] ?? 'Server error');
     }
   }
+
   @override
-  Future<Either<String, DataProfileEditModel>> updateProfileEdit(ProfileEditModel profileEditModel) async {
+  Future<Either<String, DataProfileEditModel>> updateProfileEdit(
+      DataProfileEditModel profileEditModel) async {
     try {
-      final response = await api.put((EndPoint.getProfileEndPoint),queryParameters:{
+      final response =
+          await api.put((EndPoint.getProfileEndPoint), queryParameters: {
         'name': profileEditModel.name,
-        'email':profileEditModel.email,
-        'phone':profileEditModel.phone,
-        'address':profileEditModel.address,
-        'image':profileEditModel.image,
-        }
-       );
+        'email': profileEditModel.email,
+        'phone': profileEditModel.phone,
+        'address': profileEditModel.address,
+        'image': profileEditModel.image,
+      });
       var updatedProfile = DataProfileEditModel.fromJson(response['data']);
 
       getIt
@@ -53,14 +53,12 @@ class ProfileEditRepositoryImpl extends ProfileEditRepository {
           .saveData(key: ApiKey.email, value: profileEditModel.email);
 
       if (profileEditModel.image != null) {
-        getIt
-            .get<CashHelperSharedPreferences>()
-            .saveData(key: ApiKey.IMAGE_PROFILE_KEY, value: profileEditModel.image);
+        getIt.get<CashHelperSharedPreferences>().saveData(
+            key: ApiKey.IMAGE_PROFILE_KEY, value: profileEditModel.image);
       }
       return Right(updatedProfile);
     } catch (error) {
       return Left(error.toString());
     }
   }
-
 }

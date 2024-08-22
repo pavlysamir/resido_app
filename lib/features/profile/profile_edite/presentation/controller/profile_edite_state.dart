@@ -15,3 +15,5 @@ final class ProfileEditeFailure extends ProfileEditeState{
   final String message;
   ProfileEditeFailure({required this.message});
 }
+final class SuccessfulPickImage extends ProfileEditeState{}
+final class FailPickImage extends ProfileEditeState{}
