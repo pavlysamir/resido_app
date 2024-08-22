@@ -11,9 +11,12 @@ import 'package:resido_app/features/authentications/presentation/managers/regist
 import 'package:resido_app/features/authentications/presentation/managers/login_cubit/login_cubit.dart';
 import 'package:resido_app/features/chat/presentation/managers/cubit/chat_cubit.dart';
 import 'package:resido_app/features/home/presentation/managers/cubit/add_proparties_cubit.dart';
+import 'package:resido_app/features/profile/profile_edite/data/repository/profile_edit_repository.dart';
 import 'package:resido_app/features/profile/profile_main/presentation/controller/profile_bloc_cubit.dart';
 import 'package:resido_app/features/search/presentation/managers/cubit/search_cubit.dart';
 import 'package:resido_app/l10n/l10n.dart';
+
+import 'features/profile/profile_edite/presentation/controller/profile_edite_cubit.dart';
 
 class ResidoApp extends StatelessWidget {
   const ResidoApp({super.key});
@@ -30,6 +33,8 @@ class ResidoApp extends StatelessWidget {
         BlocProvider(create: (context) => SearchCubit()),
         BlocProvider(create: (context) => ChatCubit()),
         BlocProvider(create: (context) => ProfileCubit()),
+        BlocProvider(create: (context) => ProfileEditeCubit(getIt.get<ProfileEditRepositoryImpl>())..getProfileEdit()
+        )
 
       ],
       child: ScreenUtilInit(

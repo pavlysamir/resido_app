@@ -7,3 +7,5 @@ bool isSelected = false;
 Map<String, dynamic> selecties = {};
 
 Map<String, int> ss = {};
+
+// String? token = '';

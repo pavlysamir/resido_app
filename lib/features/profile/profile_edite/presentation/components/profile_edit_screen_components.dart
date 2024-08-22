@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../../../../../core/Assets/assets.dart';
 import '../../../../../core/utils/app_colors.dart';
+import '../controller/profile_edite_cubit.dart';
 
 class HeaderWidget extends StatelessWidget {
   const HeaderWidget({Key? key}) : super(key: key);
@@ -319,42 +321,58 @@ class ProfileFormWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 20.0),
-      child: GestureDetector(
-        onTap: () {
-          // cubit.updateProfile();
-        },
-        child: Column(
-          children: [
-            const ProfileImageWidget(),
-            const SizedBox(height: 0.0),
-            TextFieldSectionWidget(
-              label:AppLocalizations.of(context)!.callUs,
-              placeholder: 'demo user',
-              isPassword: false,
+    var cubit = ProfileEditeCubit.get(context);
+    return BlocConsumer<ProfileEditeCubit, ProfileEditeState>(
+      listener: (context, state) {
+        // Handle state changes if needed
+
+      },
+      builder: (context, state) {
+
+
+          return Container(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 20.0),
+            child: GestureDetector(
+              onTap: () {
+                // cubit.updateProfile();
+              },
+              child: Column(
+                children: [
+                  const ProfileImageWidget(),
+                  const SizedBox(height: 0.0),
+                  TextFieldSectionWidget(
+                    label: AppLocalizations.of(context)!.callUs,
+                    placeholder: cubit.name ?? '',
+                    isPassword: false,
+                  ),
+                  TextFieldSectionWidget(
+                    label: AppLocalizations.of(context)!.callUs,
+                    placeholder: cubit.email ??'',
+                    isPassword: false,
+                  ),
+                  TextFieldSectionWidget(
+                    label: AppLocalizations.of(context)!.phoneNum,
+                    placeholder: cubit.phone ??'',
+                    isPassword: false,
+                  ),
+                  TextFieldSectionWidget(
+                    label: 'Address',
+                    placeholder: cubit.address ??'',
+                    isPassword: false,
+                  ),
+                  LocationFieldWidget(onPressed: () {
+                    // Handle location selection
+                  }),
+                  const LocationNoteWidget(),
+                  UpdateButtonWidget(onPressed: () {
+                    // Handle update profile
+                  }),
+                ],
+              ),
             ),
-            TextFieldSectionWidget(
-              label: AppLocalizations.of(context)!.callUs,
-              placeholder: 'demo@ebroker.com',
-              isPassword: false,
-            ),
-            TextFieldSectionWidget(
-              label: AppLocalizations.of(context)!.phoneNum,
-              placeholder: '9876543210',
-              isPassword: false,
-            ),
-            const TextFieldSectionWidget(
-              label: 'Address',
-              placeholder: 'Time square, Bhuj Kutch',
-              isPassword: false,
-            ),
-            LocationFieldWidget(onPressed: () {  },),
-            const LocationNoteWidget(),
-            UpdateButtonWidget(onPressed: () {  },),
-          ],
-        ),
-      ),
+          );
+
+      },
     );
   }
 }

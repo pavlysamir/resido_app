@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:logger/logger.dart';
 
 import '../../../../../core/Assets/assets.dart';
 import '../../../../../core/utils/app_colors.dart';
@@ -14,32 +15,28 @@ class ProfileEditeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => ProfileEditeCubit(),
-      child: BlocConsumer<ProfileEditeCubit, ProfileEditeState>(
-        listener: (context, state) {},
-        builder: (context, state) {
-          var cubit = ProfileEditeCubit.get(context);
+    return BlocConsumer<ProfileEditeCubit, ProfileEditeState>(
+      listener: (context, state) {
+        // listen of state
+      },
+      builder: (context, state) {
+        var cubit = ProfileEditeCubit.get(context);
 
-          return const Scaffold(
-            body: SingleChildScrollView(
-              child: Column(
-                children: [
-                  HeaderWidget(),
-                  SizedBox(height: 0.0),
-                  ProfileFormWidget(),
-                ],
-              ),
+        return const Scaffold(
+          body: SingleChildScrollView(
+            child: Column(
+              children: [
+                HeaderWidget(),
+                SizedBox(height: 0.0),
+                ProfileFormWidget(),
+
+
+              ],
             ),
-          );
-        },
-      ),
+          ),
+        );
+      },
     );
   }
-
-
-
-
-
 
 }

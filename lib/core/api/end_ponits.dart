@@ -6,7 +6,7 @@ class EndPoint {
   static String getAllAvailabilityWork =
       "api/BaseLookup/GetAllAvailabilityWork";
 
-  static String profileAPI = "$baseUrl/profile";
+  static String getProfileEndPoint = "$baseUrl/profile";
   static String getCurrentUserSorted = "Home/GetCurrentUserSorted";
 
   static String getAllUsers = "Home/GetAllUsers";
@@ -107,6 +107,7 @@ class ApiKey {
   static String otp = "OTP";
   static String newForgetPassword = "newPass";
   static String token = "token";
+  static String IMAGE_PROFILE_KEY = "image profile";
 
   static String id = "id";
   static String firstName = "firstName";

@@ -12,7 +12,7 @@ abstract class BaseProfileEditRemoteDataSource {
 class ProfileEditRemoteDataSource extends BaseProfileEditRemoteDataSource{
   @override
   Future<ProfileEditModel> getProfileEdit() async {
-    final response = await Dio().get(EndPoint.profileAPI);
+    final response = await Dio().get(EndPoint.getProfileEndPoint);
     if (response.statusCode == 200) {
       return ProfileEditModel.fromJson(response.data);
     } else {

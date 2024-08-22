@@ -1,45 +1,17 @@
 {
     "logs": [
         {
-<<<<<<< HEAD
             "outputFile": "com.example.resido_app-mergeDebugResources-27:/values-night-v8/values-night-v8.xml",
-=======
-            "outputFile": "C:\\Users\\bavly\\.gradle\\daemon\\8.3\\com.example.resido_app-mergeDebugResources-22:\\values-night-v8\\values-night-v8.xml",
->>>>>>> 4f558a79b2d4e440d5e92574e6e369bd0736ebac
             "map": [
                 {
                     "source": "E:\\sido_app\\android\\app\\src\\main\\res\\values-night\\styles.xml",
                     "from": {
-                        "startLines": "3,14",
+                        "startLines": "3,18",
                         "startColumns": "4,4",
-                        "startOffsets": "175,831",
-                        "endLines": "7,16",
+                        "startOffsets": "175,1106",
+                        "endLines": "11,20",
                         "endColumns": "12,12",
-                        "endOffsets": "482,997"
-                    },
-                    "to": {
-                        "startLines": "2,6",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,236",
-                        "endLines": "5,8",
-                        "endColumns": "12,12",
-                        "endOffsets": "231,400"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.example.resido_app-mergeDebugResources-22:/values-night-v8/values-night-v8.xml",
-            "map": [
-                {
-                    "source": "D:\\chrome download\\resido-app\\android\\app\\src\\main\\res\\values-night\\styles.xml",
-                    "from": {
-                        "startLines": "3,-1",
-                        "startColumns": "4,-1",
-                        "startOffsets": "172,-1",
-                        "endLines": "11,-1",
-                        "endColumns": "12,-1",
-                        "endOffsets": "747,-1"
+                        "endOffsets": "757,1272"
                     },
                     "to": {
                         "startLines": "2,10",

@@ -40,7 +40,7 @@ class AuthRepoImpl implements AuthRepo {
       if (data.user.image != null) {
         getIt
             .get<CashHelperSharedPreferences>()
-            .saveData(key: ApiKey.token, value: data.user.image);
+            .saveData(key: ApiKey.IMAGE_PROFILE_KEY, value: data.user.image);
       }
 
       return Right(data);

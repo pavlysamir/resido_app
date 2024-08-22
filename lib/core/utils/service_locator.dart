@@ -3,6 +3,8 @@ import 'package:get_it/get_it.dart';
 import 'package:resido_app/core/api/dio_consumer.dart';
 import 'package:resido_app/features/authentications/data/repo/auth_repo_impl.dart';
 
+import '../../features/profile/profile_edite/data/repository/profile_edit_repository.dart';
+import '../api/api_consumer.dart';
 import 'shared_preferences_cash_helper.dart';
 
 final getIt = GetIt.instance;
@@ -17,4 +19,13 @@ void setUpServiceLocator() {
   getIt.registerSingleton<AuthRepoImpl>(AuthRepoImpl(
     api: getIt.get<DioConsumer>(),
   ));
+  getIt.registerSingleton<ProfileEditRepositoryImpl>(ProfileEditRepositoryImpl(
+    api: getIt.get<DioConsumer>(),
+  ));
+
+  // Register ProfileEditRepositoryImpl
+  getIt.registerLazySingleton<ProfileEditRepository>(
+        () => ProfileEditRepositoryImpl(api: getIt<ApiConsumer>()),
+  );
+
 }
