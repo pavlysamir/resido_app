@@ -11,7 +11,8 @@ import '../models/profile_edit_model.dart';
 abstract class ProfileEditRepository {
   Future<Either<String, DataProfileEditModel>> getProfileEdit();
   Future<Either<String, DataProfileEditModel>> updateProfileEdit(
-      DataProfileEditModel profileEditModel);
+      String? name,  String? phone, String? address, String? image);
+
 }
 
 class ProfileEditRepositoryImpl extends ProfileEditRepository {
@@ -33,28 +34,30 @@ class ProfileEditRepositoryImpl extends ProfileEditRepository {
 
   @override
   Future<Either<String, DataProfileEditModel>> updateProfileEdit(
-      DataProfileEditModel profileEditModel) async {
+      String? name,  String? phone, String? address, String? image
+      ) async {
     try {
       final response =
-          await api.put((EndPoint.getProfileEndPoint), queryParameters: {
-        'name': profileEditModel.name,
-        'email': profileEditModel.email,
-        'phone': profileEditModel.phone,
-        'address': profileEditModel.address,
-        'image': profileEditModel.image,
+          await api.put((EndPoint.updateUserProfile), queryParameters: {
+        'name': name,
+       // 'email': email,
+        'phone': phone,
+        'address': address,
+        'image':image
+            //  age': image,
       });
       var updatedProfile = DataProfileEditModel.fromJson(response['data']);
 
       getIt
           .get<CashHelperSharedPreferences>()
-          .saveData(key: ApiKey.userName, value: profileEditModel.name);
+          .saveData(key: ApiKey.userName, value: name);
       getIt
           .get<CashHelperSharedPreferences>()
-          .saveData(key: ApiKey.email, value: profileEditModel.email);
+          .saveData(key: ApiKey.phone, value: phone);
 
-      if (profileEditModel.image != null) {
+      if (image != null) {
         getIt.get<CashHelperSharedPreferences>().saveData(
-            key: ApiKey.IMAGE_PROFILE_KEY, value: profileEditModel.image);
+            key: ApiKey.IMAGE_PROFILE_KEY, value: image);
       }
       return Right(updatedProfile);
     } catch (error) {

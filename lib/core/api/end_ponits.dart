@@ -48,7 +48,7 @@ class EndPoint {
   static String changeForgetPassword = "/Auth/change-forget-password";
   static String verfyForgetPasswordOtp =
       "Account/VerifyOtpAndResetPasswordAsync";
-
+  static String updateUserProfile ="update-me";
   static String resetPassword = "user/reset";
 
   static String getProfileSetting = "ProfileSetting/GetProfileSetting";

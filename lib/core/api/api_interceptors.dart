@@ -19,6 +19,7 @@ class ApiInterceptor extends Interceptor {
 
     String? token =
         getIt.get<CashHelperSharedPreferences>().getData(key: ApiKey.token);
+    print('token: $token');
 
     // If token is not null, add it to the request headers as a Bearer token
     options.headers['APP_KEY'] = apiKey;
