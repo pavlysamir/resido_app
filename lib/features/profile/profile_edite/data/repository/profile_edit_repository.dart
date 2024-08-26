@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 import 'package:logger/logger.dart';
 import 'package:resido_app/core/errors/exceptions.dart';
 
@@ -43,7 +44,9 @@ class ProfileEditRepositoryImpl extends ProfileEditRepository {
        // 'email': email,
         'phone': phone,
         'address': address,
-        'image':image
+            if(image!=null)
+              'image': await MultipartFile.fromFile(image, filename: 'profile.png'),
+
             //  age': image,
       });
       var updatedProfile = DataProfileEditModel.fromJson(response['data']);

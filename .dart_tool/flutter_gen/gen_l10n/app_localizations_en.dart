@@ -43,6 +43,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get nameWithout => 'Name';
 
   @override
+  String get finishingUpdateProfile => 'Finishing Update Profile';
+
+  @override
   String get phoneNumberWithout => 'Phone number';
 
   @override

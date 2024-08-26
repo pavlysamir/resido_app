@@ -16,7 +16,7 @@ import 'package:resido_app/features/profile/profile_main/presentation/controller
 import 'package:resido_app/features/search/presentation/managers/cubit/search_cubit.dart';
 import 'package:resido_app/l10n/l10n.dart';
 
-import 'features/profile/profile_edite/presentation/controller/profile_edite_cubit.dart';
+import 'features/profile/profile_edite/presentation/controller/profile_edit_cubit.dart';
 
 class ResidoApp extends StatelessWidget {
   const ResidoApp({super.key});
@@ -33,7 +33,7 @@ class ResidoApp extends StatelessWidget {
         BlocProvider(create: (context) => SearchCubit()),
         BlocProvider(create: (context) => ChatCubit()),
         BlocProvider(create: (context) => ProfileCubit()),
-        BlocProvider(create: (context) => ProfileEditeCubit(getIt.get<ProfileEditRepositoryImpl>())..getProfileEdit()
+        BlocProvider(create: (context) => ProfileEditCubit(getIt.get<ProfileEditRepositoryImpl>())..getProfileEdit()
         )
 
       ],

@@ -1,102 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../../../../../core/Assets/assets.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_router.dart';
 import '../../../../../core/utils/styles.dart';
 import '../../../../../core/utils/widgets/custom_go_navigator.dart';
+import 'account_dialog_widget.dart';
 
-class AccountDialogWidget extends StatelessWidget {
-  final String title;
-  final String message;
-  final String imagePath;
-  final List<Widget> actions;
 
-  const AccountDialogWidget({
-    Key? key,
-    required this.title,
-    required this.message,
-    required this.imagePath,
-    required this.actions,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    final screenSize = MediaQuery.of(context).size;
-    final imageWidth = screenSize.width * 0.25; // 25% of screen width
-    final imageHeight = screenSize.height * 0.35; // 25% of screen height
-
-    return AlertDialog(
-      content: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Image.asset(
-            imagePath, // Replace with the correct image path
-            width: 400,
-            height: 250,
-          ),
-          const SizedBox(height: 16.0),
-          Text(
-            title,
-            style: Styles.textStyle18BoldPrimary
-          ),
-          const SizedBox(height: 8.0),
-          Text(
-            message,
-            textAlign: TextAlign.center,
-            style: Styles.textStyleDarkGrey,
-          ),
-          const SizedBox(height: 16.0),
-          Row(
-            children: actions,
-          )
-        ],
-      ),
-    );
-  }
-}
-
-class LogoutButton extends StatelessWidget {
-  final VoidCallback onPressed;
-
-  const LogoutButton({Key? key, required this.onPressed}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Container(
-        width: double.infinity,
-        decoration: BoxDecoration(
-          color: const Color(0xFF087C7C),
-          borderRadius: BorderRadius.circular(10.0), // Optional: Add border radius
-        ),
-        child: TextButton.icon(
-          onPressed: onPressed,
-          icon: Container(
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(10.0), // Add border radius
-            ),
-            padding: const EdgeInsets.all(4.0),
-            child: Image.asset(
-              AssetsData.logout, // Replace with the correct image path
-              color: const Color(0xFF087C7C), // Optional: Set image color to white if needed
-              width: 24.0, // Optional: Set width
-              height: 24.0, // Optional: Set height
-            ),
-          ),
-          label: const Text(
-            'Logout',
-            style: TextStyle(
-              color: Colors.white, // Set text color to white
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
 
 Map<String, VoidCallback> getActionsMap(BuildContext context) {
   return {

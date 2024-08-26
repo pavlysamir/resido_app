@@ -9,7 +9,7 @@ import 'package:resido_app/features/profile/profile_edite/presentation/component
 import 'package:resido_app/features/profile/profile_edite/presentation/components/update_button.dart';
 import '../../../../../core/Assets/assets.dart';
 import '../../../../../core/utils/app_colors.dart';
-import '../controller/profile_edite_cubit.dart';
+import '../controller/profile_edit_cubit.dart';
 
 class HeaderWidget extends StatelessWidget {
   const HeaderWidget({Key? key}) : super(key: key);
@@ -182,9 +182,9 @@ class ProfileFormWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var cubit = ProfileEditeCubit.get(context);
+    var cubit = ProfileEditCubit.get(context);
 
-    return BlocConsumer<ProfileEditeCubit, ProfileEditeState>(
+    return BlocConsumer<ProfileEditCubit, ProfileEditState>(
       listener: (context, state) {
         // Handle state changes if needed
       },
@@ -220,9 +220,10 @@ class ProfileFormWidget extends StatelessWidget {
                 isPassword: false,
                 controller: cubit.addressController,
               ),
-              LocationFieldWidget(onPressed: () {
-                // Handle location selection
-              }),
+              // LocationFieldWidget(onPressed: () {
+              //   // Handle location selection
+              // }),
+
               const LocationNoteWidget(),
               UpdateButtonWidget(onPressed: () {
                 cubit.updateProfile(

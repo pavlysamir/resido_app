@@ -167,6 +167,12 @@ abstract class AppLocalizations {
   /// **'Name'**
   String get nameWithout;
 
+  /// No description provided for @finishingUpdateProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Finishing Update Profile'**
+  String get finishingUpdateProfile;
+
   /// No description provided for @phoneNumberWithout.
   ///
   /// In en, this message translates to:
