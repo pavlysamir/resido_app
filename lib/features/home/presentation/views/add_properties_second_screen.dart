@@ -8,7 +8,7 @@ import 'package:resido_app/core/utils/widgets/custom_button_large.dart';
 import 'package:resido_app/core/utils/widgets/custom_description_post_field.dart';
 import 'package:resido_app/core/utils/widgets/custom_form_field.dart';
 import 'package:resido_app/core/utils/widgets/custom_go_navigator.dart';
-import 'package:resido_app/features/home/presentation/managers/cubit/add_proparties_cubit.dart';
+import 'package:resido_app/features/home/presentation/managers/add_prob_cubit/add_proparties_cubit.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AddPropertiesSecondScreen extends StatelessWidget {

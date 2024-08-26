@@ -10,7 +10,9 @@ import 'package:resido_app/features/authentications/data/repo/auth_repo_impl.dar
 import 'package:resido_app/features/authentications/presentation/managers/register_cubit/register_cubit.dart';
 import 'package:resido_app/features/authentications/presentation/managers/login_cubit/login_cubit.dart';
 import 'package:resido_app/features/chat/presentation/managers/cubit/chat_cubit.dart';
-import 'package:resido_app/features/home/presentation/managers/cubit/add_proparties_cubit.dart';
+import 'package:resido_app/features/home/data/repo/home_repo_impl.dart';
+import 'package:resido_app/features/home/presentation/managers/add_prob_cubit/add_proparties_cubit.dart';
+import 'package:resido_app/features/home/presentation/managers/home_cubit/home_cubit.dart';
 import 'package:resido_app/features/profile/profile_edite/data/repository/profile_edit_repository.dart';
 import 'package:resido_app/features/profile/profile_main/presentation/controller/profile_bloc_cubit.dart';
 import 'package:resido_app/features/search/data/repo/search_repo_impl.dart';
@@ -28,11 +30,15 @@ class ResidoApp extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => AddPropartiesCubit()),
         BlocProvider(
+            create: (context) =>
+                HomeCubit(getIt.get<HomeRepoImpl>())..getBanner()),
+        BlocProvider(
             create: (context) => LoginCubit(getIt.get<AuthRepoImpl>())),
         BlocProvider(
             create: (context) => RegisterCubit(getIt.get<AuthRepoImpl>())),
         BlocProvider(
-            create: (context) => SearchCubit(getIt.get<SearchRepoImpl>())),
+            create: (context) =>
+                SearchCubit(getIt.get<SearchRepoImpl>())..getCategory()),
         BlocProvider(create: (context) => ChatCubit()),
         BlocProvider(create: (context) => ProfileCubit()),
         BlocProvider(

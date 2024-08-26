@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:resido_app/core/errors/exceptions.dart';
-
 import '../../../../../core/api/api_consumer.dart';
 import '../../../../../core/api/end_ponits.dart';
 import '../../../../../core/utils/service_locator.dart';

@@ -1,9 +1,5 @@
 import 'dart:convert';
 import 'dart:io';
-import 'dart:ui';
-import 'dart:ui';
-import 'dart:ui';
-import 'dart:ui';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
@@ -11,8 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:meta/meta.dart';
 import 'package:resido_app/features/profile/profile_edite/data/models/profile_edit_model.dart';
-import 'package:image/image.dart'as img;
-import '../../../../authentications/presentation/managers/register_cubit/register_cubit.dart';
+import 'package:image/image.dart' as img;
 import '../../data/repository/profile_edit_repository.dart';
 
 part 'profile_edite_state.dart';
@@ -33,11 +28,10 @@ class ProfileEditeCubit extends Cubit<ProfileEditeState> {
   getProfileEdit() async {
     emit(ProfileEditeLoading());
     final response = await profileEditRepository.getProfileEdit();
-    // 
+    //
     response.fold(
       (errMessage) {
         emit(ProfileEditeFailure(message: errMessage));
-
       },
       (success) {
         name = success.name;
@@ -73,7 +67,6 @@ class ProfileEditeCubit extends Cubit<ProfileEditeState> {
         base64BackImage = base64Encode(compressedBytes);
 
         file = File(image.path);
-
 
         // Emit success state
         emit(SuccessfulPickImage());

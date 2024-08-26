@@ -7,6 +7,7 @@ import 'package:resido_app/core/utils/shared_preferences_cash_helper.dart';
 import 'package:resido_app/features/home/presentation/views/add_properties_screen.dart';
 import 'package:resido_app/features/home/presentation/views/add_properties_second_screen.dart';
 import 'package:resido_app/features/home/presentation/views/property_details_screen.dart';
+import 'package:resido_app/features/search/presentation/views/filter_result_screen.dart';
 import 'package:resido_app/features/search/presentation/views/filter_screen.dart';
 import 'package:resido_app/features/profile/contact_us/presentation/views/contact_us.dart';
 
@@ -31,15 +32,15 @@ abstract class AppRouter {
   static const kFilterScreen = '/FilterScreen';
   static const kAboutUs = '/AboutUs';
   static const kPropertyDetails = '/PropertyDetails';
+  static const kFilterResultsScreen = '/FilterResultsScreen';
 
   static final router = GoRouter(
       navigatorKey: navigatorKey,
       initialLocation:
-      getIt.get<CashHelperSharedPreferences>().getData(key: ApiKey.token) ==
-          null
-          ? kLoginScreen
-          : kHomeLayout,
-
+          getIt.get<CashHelperSharedPreferences>().getData(key: ApiKey.token) ==
+                  null
+              ? kLoginScreen
+              : kHomeLayout,
       routes: [
         GoRoute(
           path: kHomeLayout,
@@ -77,7 +78,6 @@ abstract class AppRouter {
           path: kFilterScreen,
           builder: (context, state) => const FilterScreen(),
         ),
-
         GoRoute(
           path: kAboutUs,
           builder: (context, state) => ContactUs(),
@@ -85,6 +85,10 @@ abstract class AppRouter {
         GoRoute(
           path: kPropertyDetails,
           builder: (context, state) => const PropertyDetailes(),
+        ),
+        GoRoute(
+          path: kFilterResultsScreen,
+          builder: (context, state) => const FilterResultScreen(),
         )
       ]);
 }

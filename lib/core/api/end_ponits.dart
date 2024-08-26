@@ -26,8 +26,7 @@ class EndPoint {
   static String getAllPostgraduateStudy =
       "api/BaseLookup/GetAllPostgraduateStudy";
 
-  static String getAllSpecializationField =
-      "api/BaseLookup/GetAllSpecializationField";
+  static String getCategories = "categories";
 
   static String verifyMobileNum = "Account/VerifyMobileNumber";
   static String verifyOtpMobileNum = "Account/verify-otp";
@@ -42,7 +41,11 @@ class EndPoint {
 
   static String signUp = "register";
 
-  static String search = "search";
+  static String search = "search-apartment";
+
+  static String filter = "filter-apartment";
+
+  static String banners = "banners";
 
   static const String contentType = 'application/json';
 

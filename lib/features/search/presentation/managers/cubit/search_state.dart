@@ -14,3 +14,27 @@ final class SearchFailure extends SearchState {
 
   SearchFailure({required this.message});
 }
+
+final class FilterLoading extends SearchState {}
+
+final class FilterSuccess extends SearchState {}
+
+final class FilterFailure extends SearchState {
+  final String message;
+
+  FilterFailure({required this.message});
+}
+
+final class GetCategoryLoading extends SearchState {}
+
+final class GetCategorySuccess extends SearchState {}
+
+final class GetCategoryFailure extends SearchState {
+  final String message;
+
+  GetCategoryFailure({required this.message});
+}
+
+final class SelectCategoryId extends SearchState {}
+
+final class ClearFilterData extends SearchState {}
