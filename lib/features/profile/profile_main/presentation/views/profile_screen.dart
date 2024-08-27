@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:resido_app/core/Assets/assets.dart';
+
+import '../../../../../core/utils/app_router.dart';
+import '../../../../../core/utils/widgets/custom_go_navigator.dart';
+import '../components/account_dialog_widget.dart';
+import '../components/logout_widget.dart';
 import '../components/profile_info_widget.dart';
 import '../components/profile_screen_components.dart';
 import '../controller/profile_bloc_cubit.dart';

@@ -7,21 +7,21 @@ import 'package:image_picker/image_picker.dart';
 
 import '../../../../../core/Assets/assets.dart';
 import '../../../../../core/utils/app_colors.dart';
-import '../controller/profile_edite_cubit.dart';
+import '../controller/profile_edit_cubit.dart';
 
 class ProfileImageWidget extends StatelessWidget {
   const ProfileImageWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final cubit = ProfileEditeCubit.get(context);
+    final cubit = ProfileEditCubit.get(context);
 
     return Center(
-      child: GestureDetector(
+      child: InkWell(
         onTap: () {
           cubit.pickImageFromGallery();
         },
-        child: BlocBuilder<ProfileEditeCubit, ProfileEditeState>(
+        child: BlocBuilder<ProfileEditCubit, ProfileEditState>(
           builder: (context, state) {
             return Container(
               width: 130,

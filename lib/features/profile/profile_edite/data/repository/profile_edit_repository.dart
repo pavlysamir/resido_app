@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 import 'package:resido_app/core/errors/exceptions.dart';
 import '../../../../../core/api/api_consumer.dart';
 import '../../../../../core/api/end_ponits.dart';
@@ -9,8 +10,7 @@ import '../models/profile_edit_model.dart';
 abstract class ProfileEditRepository {
   Future<Either<String, DataProfileEditModel>> getProfileEdit();
   Future<Either<String, DataProfileEditModel>> updateProfileEdit(
-      String? name,  String? phone, String? address, String? image);
-
+      String? name, String? phone, String? address, String? image);
 }
 
 class ProfileEditRepositoryImpl extends ProfileEditRepository {
@@ -30,17 +30,18 @@ class ProfileEditRepositoryImpl extends ProfileEditRepository {
 
   @override
   Future<Either<String, DataProfileEditModel>> updateProfileEdit(
-      String? name,  String? phone, String? address, String? image
-      ) async {
+      String? name, String? phone, String? address, String? image) async {
     try {
       final response =
           await api.put((EndPoint.updateUserProfile), queryParameters: {
         'name': name,
-       // 'email': email,
+        // 'email': email,
         'phone': phone,
         'address': address,
-        'image':image
-            //  age': image,
+        if (image != null)
+          'image': await MultipartFile.fromFile(image, filename: 'profile.png'),
+
+        //  age': image,
       });
       var updatedProfile = DataProfileEditModel.fromJson(response['data']);
 
@@ -52,8 +53,9 @@ class ProfileEditRepositoryImpl extends ProfileEditRepository {
           .saveData(key: ApiKey.phone, value: phone);
 
       if (image != null) {
-        getIt.get<CashHelperSharedPreferences>().saveData(
-            key: ApiKey.IMAGE_PROFILE_KEY, value: image);
+        getIt
+            .get<CashHelperSharedPreferences>()
+            .saveData(key: ApiKey.IMAGE_PROFILE_KEY, value: image);
       }
       return Right(updatedProfile);
     } catch (error) {

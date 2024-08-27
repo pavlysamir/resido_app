@@ -25,8 +25,8 @@ class AssetsData {
 
   static const logout = 'assets/images/logout.png';
   static const deleteAccountAlertDialog =
-      'assets/images/deleteAccountAlertDialog.png';
-  static const logOutConfirmation = 'assets/images/logoutConfirmation.png';
+      'assets/svg/delete_illustrator.svg';
+  static const logOutConfirmation = 'assets/svg/logout_confirmation.svg';
   static const icon_1 = 'assets/images/icon_1.png';
   static const call = 'assets/images/call.png';
   static const icon_2 = 'assets/images/icon_2.png';

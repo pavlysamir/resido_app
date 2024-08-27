@@ -41,6 +41,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get nameWithout => 'الاسم';
 
   @override
+  String get finishingUpdateProfile => 'انتهاء تحديث البروفايل';
+
+  @override
   String get phoneNumberWithout => 'رقم الهاتف';
 
   @override
