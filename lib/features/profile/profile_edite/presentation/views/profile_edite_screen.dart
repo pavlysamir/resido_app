@@ -1,10 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:logger/logger.dart';
-
-import '../../../../../core/Assets/assets.dart';
-import '../../../../../core/utils/app_colors.dart';
 import '../components/profile_edit_screen_components.dart';
 import '../controller/profile_edite_cubit.dart';
 

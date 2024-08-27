@@ -47,13 +47,17 @@ class EndPoint {
 
   static String banners = "banners";
 
+  static String getFeatures = "featureds";
+
+  static String getAllFeatures = "featureds-all";
+
   static const String contentType = 'application/json';
 
   static String forgotPassword = "Account/InitiatePasswordResetAsync";
   static String changeForgetPassword = "/Auth/change-forget-password";
   static String verfyForgetPasswordOtp =
       "Account/VerifyOtpAndResetPasswordAsync";
-
+  static String updateUserProfile = "update-me";
   static String resetPassword = "user/reset";
 
   static String getProfileSetting = "ProfileSetting/GetProfileSetting";

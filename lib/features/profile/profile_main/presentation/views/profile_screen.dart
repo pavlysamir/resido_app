@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:resido_app/core/Assets/assets.dart';
-
-import '../../../../../core/utils/app_router.dart';
-import '../../../../../core/utils/widgets/custom_go_navigator.dart';
 import '../components/profile_info_widget.dart';
 import '../components/profile_screen_components.dart';
 import '../controller/profile_bloc_cubit.dart';
@@ -46,14 +43,13 @@ class ProfileScreen extends StatelessWidget {
         return Scaffold(
           body: CustomScrollView(
             slivers: [
-              SliverAppBar(
-             //   backgroundColor: Colors.transparent,
+              const SliverAppBar(
+                //   backgroundColor: Colors.transparent,
                 pinned: true,
-              //  expandedHeight: MediaQuery.of(context).size.height * 0.12,
-                flexibleSpace: const FlexibleSpaceBar(
-                 // title: Text('My Profile'),
+                //  expandedHeight: MediaQuery.of(context).size.height * 0.12,
+                flexibleSpace: FlexibleSpaceBar(
+                  // title: Text('My Profile'),
                   background: HeaderWidget(),
-
                 ),
               ),
               SliverToBoxAdapter(
@@ -76,19 +72,24 @@ class ProfileScreen extends StatelessWidget {
                             actions: [
                               Expanded(
                                 child: Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 4.0), // Add horizontal margin
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 4.0), // Add horizontal margin
                                   child: Container(
                                     decoration: BoxDecoration(
-                                      color: Color(0xFFEEEEEE),
-                                      borderRadius: BorderRadius.circular(10.0), // Set border radius
+                                      color: const Color(0xFFEEEEEE),
+                                      borderRadius: BorderRadius.circular(
+                                          10.0), // Set border radius
                                     ),
                                     child: TextButton(
                                       onPressed: () {
-                                        Navigator.of(context).pop(); // Close the dialog
+                                        Navigator.of(context)
+                                            .pop(); // Close the dialog
                                       },
                                       child: const Text(
                                         'Cancel',
-                                        style: TextStyle(color: Color(0xFF087C7C)), // Set text color
+                                        style: TextStyle(
+                                            color: Color(
+                                                0xFF087C7C)), // Set text color
                                       ),
                                     ),
                                   ),
@@ -96,17 +97,21 @@ class ProfileScreen extends StatelessWidget {
                               ),
                               Expanded(
                                 child: Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 4.0), // Add horizontal margin
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 4.0), // Add horizontal margin
                                   child: Container(
                                     decoration: BoxDecoration(
-                                      color: Color(0xFF087C7C),
-                                      borderRadius: BorderRadius.circular(10.0), // Set border radius
+                                      color: const Color(0xFF087C7C),
+                                      borderRadius: BorderRadius.circular(
+                                          10.0), // Set border radius
                                     ),
                                     child: TextButton(
                                       onPressed: () {
                                         // Add your delete logic here
                                       },
-                                      child: const Text('Delete', style: TextStyle(color: Colors.white)),
+                                      child: const Text('Delete',
+                                          style:
+                                              TextStyle(color: Colors.white)),
                                     ),
                                   ),
                                 ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:resido_app/features/home/presentation/managers/home_cubit/home_cubit.dart';
+import 'package:resido_app/core/utils/app_colors.dart';
 import 'package:resido_app/features/home/presentation/widgets/carousel_slider_home_slider.dart';
 import 'package:resido_app/features/home/presentation/widgets/custom_listView_properties_home.dart';
 import 'package:resido_app/features/home/presentation/widgets/custom_listView_unit.dart';
@@ -41,14 +41,29 @@ class HomeScreen extends StatelessWidget {
               SizedBox(
                 height: 18.h,
               ),
-              Text(
-                AppLocalizations.of(context)!.featureProb,
-                style: Theme.of(context).textTheme.headlineSmall,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    AppLocalizations.of(context)!.featureProb,
+                    style: Theme.of(context).textTheme.headlineSmall,
+                  ),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Text(
+                      AppLocalizations.of(context)!.seeMore,
+                      style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                          decoration: TextDecoration.underline,
+                          color: AppColors.primaryColor),
+                    ),
+                  ),
+                ],
               ),
+
               SizedBox(
                 height: 14.h,
               ),
-              const CustomUnitListview(),
+              CustomUnitListview(),
               SizedBox(height: 14.h),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -57,9 +72,14 @@ class HomeScreen extends StatelessWidget {
                     AppLocalizations.of(context)!.mostLikedProp,
                     style: Theme.of(context).textTheme.headlineSmall,
                   ),
-                  Text(
-                    AppLocalizations.of(context)!.seeMore,
-                    style: Theme.of(context).textTheme.bodySmall,
+                  GestureDetector(
+                    onTap: () {},
+                    child: Text(
+                      AppLocalizations.of(context)!.seeMore,
+                      style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                          decoration: TextDecoration.underline,
+                          color: AppColors.primaryColor),
+                    ),
                   ),
                 ],
               ),

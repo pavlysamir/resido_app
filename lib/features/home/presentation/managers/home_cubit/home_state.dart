@@ -17,3 +17,21 @@ final class GetBannerFailure extends HomeState {
 }
 
 final class GetBannerLoading extends HomeState {}
+
+final class GetFeaturePropertiesSuccess extends HomeState {}
+
+final class GetFeaturePropertiesFailure extends HomeState {
+  final String message;
+  const GetFeaturePropertiesFailure({required this.message});
+}
+
+final class GetFeaturePropertiesLoading extends HomeState {}
+
+final class GetAllFeaturePropertiesSuccess extends HomeState {}
+
+final class GetAllFeaturePropertiesFailure extends HomeState {
+  final String message;
+  const GetAllFeaturePropertiesFailure({required this.message});
+}
+
+final class GetAllFeaturePropertiesLoading extends HomeState {}
