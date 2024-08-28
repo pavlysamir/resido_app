@@ -35,3 +35,13 @@ final class GetAllFeaturePropertiesFailure extends HomeState {
 }
 
 final class GetAllFeaturePropertiesLoading extends HomeState {}
+
+final class GetCategoryLoading extends HomeState {}
+
+final class GetCategorySuccess extends HomeState {}
+
+final class GetCategoryFailure extends HomeState {
+  final String message;
+
+  const GetCategoryFailure({required this.message});
+}

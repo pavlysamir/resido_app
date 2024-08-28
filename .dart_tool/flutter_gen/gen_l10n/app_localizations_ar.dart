@@ -420,4 +420,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get filterResults => 'تصفية النتائج';
+
+  @override
+  String get subCategory => 'التصنيف الفرعي';
 }

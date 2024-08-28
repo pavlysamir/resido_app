@@ -1,11 +1,16 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:resido_app/core/utils/app_colors.dart';
+import 'package:resido_app/features/home/data/models/category_item_model.dart';
 
 class CustomItemProbirtyHome extends StatelessWidget {
   const CustomItemProbirtyHome({
     super.key,
+    required this.category,
   });
+
+  final Category category;
 
   @override
   Widget build(BuildContext context) {
@@ -22,12 +27,21 @@ class CustomItemProbirtyHome extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Icon(Icons.home, color: AppColors.primaryColor),
+              CircleAvatar(
+                radius: 15.r,
+                backgroundColor: AppColors.white,
+                child: CachedNetworkImage(
+                  imageUrl: category.image,
+                  height: 25.h,
+                  width: 25.w,
+                  fit: BoxFit.cover,
+                ),
+              ),
               SizedBox(
                 width: 3.w,
               ),
               Text(
-                'home',
+                category.title,
                 style: Theme.of(context).textTheme.bodySmall!,
               ),
             ],

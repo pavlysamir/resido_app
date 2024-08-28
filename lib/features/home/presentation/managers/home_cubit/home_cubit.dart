@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:resido_app/features/home/data/models/banner_model.dart';
+import 'package:resido_app/features/home/data/models/category_item_model.dart';
 import 'package:resido_app/features/home/data/models/features_model.dart';
 import 'package:resido_app/features/home/data/repo/home_repo.dart';
 
@@ -53,6 +54,20 @@ class HomeCubit extends Cubit<HomeState> {
       (featureProp) {
         allFeatureProperties = featureProp;
         emit(GetAllFeaturePropertiesSuccess());
+      },
+    );
+  }
+
+  List<Category> categoryItems = [];
+  getCategory() async {
+    emit(GetCategoryLoading());
+    final response = await homeRepository.getCategory();
+
+    response.fold(
+      (errMessage) => emit(GetCategoryFailure(message: errMessage)),
+      (categories) {
+        categoryItems = categories.data;
+        emit(GetCategorySuccess());
       },
     );
   }
