@@ -174,6 +174,7 @@ class ItemsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+
       padding: const EdgeInsets.all(16.0),
       margin: const EdgeInsets.symmetric(horizontal: 16.0),
       decoration: BoxDecoration(

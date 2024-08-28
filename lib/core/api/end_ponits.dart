@@ -7,6 +7,7 @@ class EndPoint {
       "api/BaseLookup/GetAllAvailabilityWork";
 
   static String getProfileEndPoint = "profile";
+  static String getFavoriteDataEndPoint = "like-user";
   static String getCurrentUserSorted = "Home/GetCurrentUserSorted";
 
   static String getAllUsers = "Home/GetAllUsers";

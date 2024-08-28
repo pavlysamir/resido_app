@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:resido_app/features/chat/presentation/views/chat_screen.dart';
-import 'package:resido_app/features/favourite/presentation/views/favorites_screen.dart';
 import 'package:resido_app/features/home/presentation/views/home_screen.dart';
 
+import '../../features/favourite/ui/views/favorites_screen.dart';
 import '../../features/profile/profile_main/presentation/views/profile_screen.dart';
 
 part 'home_layout_state.dart';

@@ -1,4 +1,4 @@
-#Mon Aug 26 14:24:02 EEST 2024
+#Wed Aug 28 16:45:45 EEST 2024
 base.0=E\:\\sido_app\\build\\app\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 base.1=E\:\\sido_app\\build\\app\\intermediates\\dex\\debug\\mergeLibDexDebug\\0\\classes.dex
 base.2=E\:\\sido_app\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
