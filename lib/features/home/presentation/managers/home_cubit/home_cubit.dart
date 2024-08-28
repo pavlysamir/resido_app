@@ -37,8 +37,7 @@ class HomeCubit extends Cubit<HomeState> {
     response.fold(
       (errMessage) => emit(GetFeaturePropertiesFailure(message: errMessage)),
       (featureProp) {
-        featureProperties = featureProp.properties;
-        print(featureProperties.length);
+        featureProperties = featureProp;
         emit(GetFeaturePropertiesSuccess());
       },
     );
@@ -52,7 +51,7 @@ class HomeCubit extends Cubit<HomeState> {
     response.fold(
       (errMessage) => emit(GetAllFeaturePropertiesFailure(message: errMessage)),
       (featureProp) {
-        allFeatureProperties = featureProp.properties;
+        allFeatureProperties = featureProp;
         emit(GetAllFeaturePropertiesSuccess());
       },
     );

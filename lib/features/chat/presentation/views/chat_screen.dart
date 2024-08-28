@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:resido_app/core/utils/widgets/custom_form_field.dart';
 import 'package:resido_app/features/chat/presentation/managers/cubit/chat_cubit.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:resido_app/features/chat/presentation/widgets/chat_send_bubble.dart';
 
 class ChatScreen extends StatelessWidget {

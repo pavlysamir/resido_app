@@ -4,6 +4,6 @@ import 'package:resido_app/features/home/data/models/features_model.dart';
 
 abstract class HomeRepo {
   Future<Either<String, BannerResponse>> getBannerData();
-  Future<Either<String, FeaturePropertyList>> getFeaturePropartiesData();
-  Future<Either<String, FeaturePropertyList>> getAllFeaturePropartiesData();
+  Future<Either<String, List<FeatureProperty>>> getFeaturePropartiesData();
+  Future<Either<String, List<FeatureProperty>>> getAllFeaturePropartiesData();
 }

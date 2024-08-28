@@ -8,8 +8,6 @@ class UserLogin {
   String? image;
   String? phone;
   String? address;
-  String createdAt;
-  String updatedAt;
 
   UserLogin({
     required this.id,
@@ -21,8 +19,6 @@ class UserLogin {
     this.image,
     this.phone,
     this.address,
-    required this.createdAt,
-    required this.updatedAt,
   });
 
   factory UserLogin.fromJson(Map<String, dynamic> json) {
@@ -36,8 +32,6 @@ class UserLogin {
       image: json['image'],
       phone: json['phone'],
       address: json['address'],
-      createdAt: json['created_at'],
-      updatedAt: json['updated_at'],
     );
   }
 
@@ -52,8 +46,6 @@ class UserLogin {
       'image': image,
       'phone': phone,
       'address': address,
-      'created_at': createdAt,
-      'updated_at': updatedAt,
     };
   }
 }

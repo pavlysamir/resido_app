@@ -6,6 +6,7 @@ import 'package:resido_app/core/utils/service_locator.dart';
 import 'package:resido_app/core/utils/shared_preferences_cash_helper.dart';
 import 'package:resido_app/features/home/presentation/views/add_prop_screens/add_properties_screen.dart';
 import 'package:resido_app/features/home/presentation/views/add_prop_screens/add_properties_second_screen.dart';
+import 'package:resido_app/features/home/presentation/views/feature_prop_screen.dart';
 import 'package:resido_app/features/home/presentation/views/property_details_screen.dart';
 import 'package:resido_app/features/search/presentation/views/filter_result_screen.dart';
 import 'package:resido_app/features/search/presentation/views/filter_screen.dart';
@@ -33,6 +34,7 @@ abstract class AppRouter {
   static const kAboutUs = '/AboutUs';
   static const kPropertyDetails = '/PropertyDetails';
   static const kFilterResultsScreen = '/FilterResultsScreen';
+  static const kAllFeaturePropScreen = '/AllFeaturePropScreen';
 
   static final router = GoRouter(
       navigatorKey: navigatorKey,
@@ -89,6 +91,10 @@ abstract class AppRouter {
         GoRoute(
           path: kFilterResultsScreen,
           builder: (context, state) => const FilterResultScreen(),
+        ),
+        GoRoute(
+          path: kAllFeaturePropScreen,
+          builder: (context, state) => const FeaturePropScreen(),
         )
       ]);
 }

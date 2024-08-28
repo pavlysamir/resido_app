@@ -1,11 +1,9 @@
 import 'package:dio/dio.dart';
-import 'package:logger/logger.dart';
+import 'package:flutter/foundation.dart';
 import 'package:resido_app/constance.dart';
 import 'package:resido_app/core/utils/app_router.dart';
 import 'package:resido_app/core/utils/shared_preferences_cash_helper.dart';
-
 import 'package:resido_app/core/utils/widgets/custom_go_navigator.dart';
-
 import '../utils/service_locator.dart';
 import 'end_ponits.dart';
 
@@ -15,11 +13,13 @@ class ApiInterceptor extends Interceptor {
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     // Get the token from SharedPreferences
 
-    String apiKey = 'base64:N/MOfXjVqhK55s8zScmY+1dYm6Zxbpzjc8Aq1HeaU38=';
+    String apiKey = 'base64:vDsGZjXJlDcXVKkrV3xYe8xUiL6TMf5D6Pqf6QPSw5c=';
 
     String? token =
         getIt.get<CashHelperSharedPreferences>().getData(key: ApiKey.token);
-    print('token: $token');
+    if (kDebugMode) {
+      print('token: $token');
+    }
 
     // If token is not null, add it to the request headers as a Bearer token
     options.headers['APP_KEY'] = apiKey;

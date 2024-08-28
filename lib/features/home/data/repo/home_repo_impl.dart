@@ -26,13 +26,17 @@ class HomeRepoImpl implements HomeRepo {
   }
 
   @override
-  Future<Either<String, FeaturePropertyList>> getFeaturePropartiesData() async {
+  Future<Either<String, List<FeatureProperty>>>
+      getFeaturePropartiesData() async {
     try {
       final response = await api.get(
         EndPoint.getFeatures,
       );
+      List<FeatureProperty> data = [];
 
-      var data = FeaturePropertyList.fromJson(response);
+      for (var element in response['data']) {
+        data.add(FeatureProperty.fromJson(element));
+      }
 
       return Right(data);
     } on ServerException catch (e) {
@@ -41,14 +45,18 @@ class HomeRepoImpl implements HomeRepo {
   }
 
   @override
-  Future<Either<String, FeaturePropertyList>>
+  Future<Either<String, List<FeatureProperty>>>
       getAllFeaturePropartiesData() async {
     try {
       final response = await api.get(
         EndPoint.getAllFeatures,
       );
+      List<FeatureProperty> data = [];
 
-      var data = FeaturePropertyList.fromJson(response);
+      for (var element in response['data']) {
+        data.add(FeatureProperty.fromJson(element));
+      }
+
       return Right(data);
     } on ServerException catch (e) {
       return Left(e.errModel.errorMessage![0] ?? 'Server error');

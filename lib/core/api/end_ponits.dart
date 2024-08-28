@@ -47,9 +47,9 @@ class EndPoint {
 
   static String banners = "banners";
 
-  static String getFeatures = "featureds";
+  static String getFeatures = "featured";
 
-  static String getAllFeatures = "featureds-all";
+  static String getAllFeatures = "featured-all";
 
   static const String contentType = 'application/json';
 

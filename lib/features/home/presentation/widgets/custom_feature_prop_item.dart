@@ -39,7 +39,7 @@ class CustomprobFeaturedItem extends StatelessWidget {
               ),
             ),
             CustomSellContainer(
-              text: featureProperty.type,
+              text: featureProperty.type.title,
             ),
           ]),
           Container(
@@ -65,7 +65,7 @@ class CustomprobFeaturedItem extends StatelessWidget {
                         width: 10.w,
                       ),
                       Text(
-                        featureProperty.category,
+                        featureProperty.sub.name,
                         style: Theme.of(context).textTheme.titleSmall,
                       ),
                     ],
@@ -77,7 +77,7 @@ class CustomprobFeaturedItem extends StatelessWidget {
                         .labelLarge!
                         .copyWith(color: AppColors.primaryColor),
                   ),
-                  Text(featureProperty.name,
+                  Text(featureProperty.title ?? '',
                       style: Theme.of(context).textTheme.labelMedium),
                   Row(
                     children: [
@@ -91,7 +91,7 @@ class CustomprobFeaturedItem extends StatelessWidget {
                       Expanded(
                         flex: 9,
                         child: Text(
-                          featureProperty.address,
+                          featureProperty.address ?? '',
                           style: Theme.of(context).textTheme.bodyMedium,
                           overflow: TextOverflow.ellipsis,
                           maxLines: 1,

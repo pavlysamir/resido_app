@@ -1,51 +1,125 @@
 class FeatureProperty {
-  final int id;
-  final String name;
-  final String image;
-  final String price;
-  final String type;
-  final String address;
-  final int featured;
-  final String category;
-  final bool like;
+  int id;
+  String image;
+  String price;
+  String bedrooms;
+  String bathrooms;
+  String area;
+  String featured;
+  String? deliveryIn;
+  String longitude;
+  String latitude;
+  String balconies;
+  String likes;
+  String grage;
+  int statusId;
+  int typeId;
+  int compoundId;
+  int userId;
+  int subId;
+  DateTime createdAt;
+  DateTime updatedAt;
+  String? title;
+  String? description;
+  String? address;
+  SubCategory sub;
+  Type type;
 
   FeatureProperty({
     required this.id,
-    required this.name,
     required this.image,
     required this.price,
-    required this.type,
-    required this.address,
+    required this.bedrooms,
+    required this.bathrooms,
+    required this.area,
     required this.featured,
-    required this.category,
-    required this.like,
+    this.deliveryIn,
+    required this.longitude,
+    required this.latitude,
+    required this.balconies,
+    required this.likes,
+    required this.grage,
+    required this.statusId,
+    required this.typeId,
+    required this.compoundId,
+    required this.userId,
+    required this.subId,
+    required this.createdAt,
+    required this.updatedAt,
+    this.title,
+    this.description,
+    this.address,
+    required this.sub,
+    required this.type,
   });
 
   factory FeatureProperty.fromJson(Map<String, dynamic> json) {
     return FeatureProperty(
       id: json['id'],
-      name: json['name'],
       image: json['image'],
       price: json['price'],
-      type: json['type'],
-      address: json['address'],
+      bedrooms: json['bedrooms'],
+      bathrooms: json['bathrooms'],
+      area: json['area'],
       featured: json['featured'],
-      category: json['category'],
-      like: json['like'],
+      deliveryIn: json['delivery_in'],
+      longitude: json['longitude'],
+      latitude: json['latitude'],
+      balconies: json['balconies'],
+      likes: json['likes'],
+      grage: json['grage'],
+      statusId: json['status_id'],
+      typeId: json['type_id'],
+      compoundId: json['compound_id'],
+      userId: json['user_id'],
+      subId: json['sub_id'],
+      createdAt: DateTime.parse(json['created_at']),
+      updatedAt: DateTime.parse(json['updated_at']),
+      title: json['title'],
+      description: json['description'],
+      address: json['address'],
+      sub: SubCategory.fromJson(json['sub']),
+      type: Type.fromJson(json['type']),
     );
   }
 }
 
-class FeaturePropertyList {
-  final List<FeatureProperty> properties;
+class SubCategory {
+  int id;
+  String? image;
+  int catId;
+  String name;
 
-  FeaturePropertyList({required this.properties});
+  SubCategory({
+    required this.id,
+    this.image,
+    required this.catId,
+    required this.name,
+  });
 
-  factory FeaturePropertyList.fromJson(Map<String, dynamic> json) {
-    var list = json['data'] as List;
-    List<FeatureProperty> propertyList =
-        list.map((i) => FeatureProperty.fromJson(i)).toList();
+  factory SubCategory.fromJson(Map<String, dynamic> json) {
+    return SubCategory(
+      id: json['id'],
+      image: json['image'],
+      catId: json['cat_id'],
+      name: json['name'],
+    );
+  }
+}
 
-    return FeaturePropertyList(properties: propertyList);
+class Type {
+  int id;
+  String title;
+
+  Type({
+    required this.id,
+    required this.title,
+  });
+
+  factory Type.fromJson(Map<String, dynamic> json) {
+    return Type(
+      id: json['id'],
+      title: json['title'],
+    );
   }
 }
