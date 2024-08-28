@@ -416,4 +416,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get subscriptionPlan => 'خطة الدفع';
+
+  @override
+  String get area => 'مساحة';
+
+  @override
+  String get filterResults => 'تصفية النتائج';
 }

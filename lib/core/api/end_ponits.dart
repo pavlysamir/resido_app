@@ -27,8 +27,7 @@ class EndPoint {
   static String getAllPostgraduateStudy =
       "api/BaseLookup/GetAllPostgraduateStudy";
 
-  static String getAllSpecializationField =
-      "api/BaseLookup/GetAllSpecializationField";
+  static String getCategories = "categories";
 
   static String verifyMobileNum = "Account/VerifyMobileNumber";
   static String verifyOtpMobileNum = "Account/verify-otp";
@@ -43,13 +42,23 @@ class EndPoint {
 
   static String signUp = "register";
 
+  static String search = "search-apartment";
+
+  static String filter = "filter-apartment";
+
+  static String banners = "banners";
+
+  static String getFeatures = "featured";
+
+  static String getAllFeatures = "featured-all";
+
   static const String contentType = 'application/json';
 
   static String forgotPassword = "Account/InitiatePasswordResetAsync";
   static String changeForgetPassword = "/Auth/change-forget-password";
   static String verfyForgetPasswordOtp =
       "Account/VerifyOtpAndResetPasswordAsync";
-  static String updateUserProfile ="update-me";
+  static String updateUserProfile = "update-me";
   static String resetPassword = "user/reset";
 
   static String getProfileSetting = "ProfileSetting/GetProfileSetting";

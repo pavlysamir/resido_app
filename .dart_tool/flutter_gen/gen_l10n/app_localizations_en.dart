@@ -416,4 +416,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get subscriptionPlan => 'Subscription Plan';
+
+  @override
+  String get area => 'Area';
+
+  @override
+  String get filterResults => 'Filter Results';
 }

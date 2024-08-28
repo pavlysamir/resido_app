@@ -916,6 +916,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Subscription Plan'**
   String get subscriptionPlan;
+
+  /// No description provided for @area.
+  ///
+  /// In en, this message translates to:
+  /// **'Area'**
+  String get area;
+
+  /// No description provided for @filterResults.
+  ///
+  /// In en, this message translates to:
+  /// **'Filter Results'**
+  String get filterResults;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

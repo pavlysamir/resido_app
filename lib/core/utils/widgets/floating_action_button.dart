@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:resido_app/core/utils/app_colors.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';

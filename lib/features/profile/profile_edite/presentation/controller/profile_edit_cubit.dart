@@ -1,9 +1,5 @@
-import 'dart:convert';
 import 'dart:io';
-import 'dart:ui';
-import 'dart:ui';
-import 'dart:ui';
-import 'dart:ui';
+
 import 'package:path/path.dart' as path;
 import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
@@ -14,8 +10,6 @@ import 'package:logger/logger.dart';
 import 'package:meta/meta.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:resido_app/features/profile/profile_edite/data/models/profile_edit_model.dart';
-import 'package:image/image.dart' as img;
-import '../../../../authentications/presentation/managers/register_cubit/register_cubit.dart';
 import '../../data/repository/profile_edit_repository.dart';
 
 part 'profile_edit_state.dart';
@@ -31,9 +25,8 @@ class ProfileEditCubit extends Cubit<ProfileEditState> {
   var imageController = TextEditingController();
 
   final ImagePicker _picker = ImagePicker();
-  XFile? selectedImage ;
+  XFile? selectedImage;
   File? pngFile;
-
 
   ProfileEditRepository profileEditRepository;
 
@@ -41,15 +34,16 @@ class ProfileEditCubit extends Cubit<ProfileEditState> {
   Future<void> getProfileEdit() async {
     emit(ProfileEditeLoading());
     final response = await profileEditRepository.getProfileEdit();
+    //
     response.fold(
-          (errMessage) {
+      (errMessage) {
         emit(ProfileEditeFailure(message: errMessage));
       },
-          (success) {
+      (success) {
         nameController.text = success.name;
         emailController.text = success.email;
-        phoneController.text = success.phone!;
-        addressController.text = success.address!;
+        phoneController.text = success.phone ?? '';
+        addressController.text = success.address ?? '';
         imageController.text = success.image;
         emit(ProfileEditeSuccess(profileEditModel: success));
       },
@@ -61,19 +55,17 @@ class ProfileEditCubit extends Cubit<ProfileEditState> {
     emit(LoadingUpdateProfile());
     final response = await profileEditRepository.updateProfileEdit(
       nameController.text,
-
       phoneController.text,
       addressController.text,
-
       pngFile?.path,
     );
     bool isSuccess = false;
     response.fold(
-          (errMessage) {
+      (errMessage) {
         emit(FailUpdateProfile(message: errMessage));
         isSuccess = false;
       },
-          (success) {
+      (success) {
         emit(SuccessfulUpdateProfile(profileEditModel: success));
         isSuccess = true;
       },
@@ -83,10 +75,11 @@ class ProfileEditCubit extends Cubit<ProfileEditState> {
 
   Future<void> pickImageFromGallery() async {
     try {
-      final XFile? selectedImageFromClick = await _picker.pickImage(source: ImageSource.gallery);
+      final XFile? selectedImageFromClick =
+          await _picker.pickImage(source: ImageSource.gallery);
       if (selectedImageFromClick != null) {
         // Convert the image to PNG
-         pngFile = await convertImageToPng(selectedImageFromClick);
+        pngFile = await convertImageToPng(selectedImageFromClick);
         selectedImage = XFile(pngFile!.path);
         emit(SuccessfulPickImage());
       } else {
@@ -96,25 +89,27 @@ class ProfileEditCubit extends Cubit<ProfileEditState> {
       emit(FailPickImage());
     }
   }
+
 // Function to convert image to PNG
   Future<File> convertImageToPng(XFile imageFile) async {
     // Read the image file as bytes
     final bytes = await imageFile.readAsBytes();
 
     // Decode the image
-    final image = img.decodeImage(bytes);
+    // final image = img.decodeImage(bytes);
 
-    // Encode the image to PNG format
-    final pngBytes = img.encodePng(image!);
+    // // Encode the image to PNG format
+    // final pngBytes = img.encodePng(image!);
 
     // Get the temporary directory
     final tempDir = await getTemporaryDirectory();
 
     // Create a new file in the temporary directory
-    final pngFile = File(path.join(tempDir.path, '${path.basenameWithoutExtension(imageFile.path)}.png'));
+    final pngFile = File(path.join(
+        tempDir.path, '${path.basenameWithoutExtension(imageFile.path)}.png'));
 
     // Write the PNG bytes to the file
-    await pngFile.writeAsBytes(pngBytes);
+    // await pngFile.writeAsBytes(pngBytes);
 
     return pngFile;
   }

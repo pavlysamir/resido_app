@@ -43,7 +43,6 @@ class CustomFormField extends StatelessWidget {
       },
       // focusNode: FocusNode(),
       decoration: InputDecoration(
-        
         contentPadding:
             const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
         filled: true,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:resido_app/features/search/presentation/widgets/custom_item_proberty.dart';
+import 'package:resido_app/features/home/presentation/widgets/custom_item_proberty.dart';
 
 class CustomPropertyHomeListview extends StatelessWidget {
   const CustomPropertyHomeListview({super.key});
@@ -15,7 +15,7 @@ class CustomPropertyHomeListview extends StatelessWidget {
           itemCount: 10,
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
-            return const CustomItemProbirty();
+            return const CustomItemProbirtyHome();
           }),
     );
   }
