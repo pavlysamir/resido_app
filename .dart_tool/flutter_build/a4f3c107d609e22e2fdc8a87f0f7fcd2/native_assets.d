@@ -1,0 +1,1 @@
+ E:\\sido_app\\.dart_tool\\flutter_build\\a4f3c107d609e22e2fdc8a87f0f7fcd2\\native_assets.yaml: 

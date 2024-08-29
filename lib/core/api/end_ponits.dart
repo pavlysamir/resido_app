@@ -39,6 +39,8 @@ class EndPoint {
   static String resendOtp = "Account/Resend-otp";
 
   static String login = "login";
+  static String logout = "logout";
+  static String deleteAccountAPI = "delete-account";
 
   static String signUp = "register";
 

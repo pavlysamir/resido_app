@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:resido_app/core/Assets/assets.dart';
 
 import '../../../../../core/utils/app_router.dart';
+import '../../../../../core/utils/service_locator.dart';
+import '../../../../../core/utils/shared_preferences_cash_helper.dart';
 import '../../../../../core/utils/widgets/custom_go_navigator.dart';
 import '../components/account_dialog_widget.dart';
 import '../components/logout_widget.dart';
@@ -67,64 +69,8 @@ class ProfileScreen extends StatelessWidget {
                     const SizedBox(height: 0.0),
                     LogoutButton(onPressed: () {
                       // Add your logout logic here
-                      showDialog(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return AccountDialogWidget(
-                            title: 'Logout Confirmation',
-                            imagePath: AssetsData.logOutConfirmation,
-                            message: 'Are you sure you want to logout?',
-                            actions: [
-                              Expanded(
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 4.0), // Add horizontal margin
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      color: const Color(0xFFEEEEEE),
-                                      borderRadius: BorderRadius.circular(
-                                          10.0), // Set border radius
-                                    ),
-                                    child: TextButton(
-                                      onPressed: () {
-                                        Navigator.of(context)
-                                            .pop(); // Close the dialog
-                                      },
-                                      child: const Text(
-                                        'Cancel',
-                                        style: TextStyle(
-                                            color: Color(
-                                                0xFF087C7C)), // Set text color
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Expanded(
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 4.0), // Add horizontal margin
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      color: const Color(0xFF087C7C),
-                                      borderRadius: BorderRadius.circular(
-                                          10.0), // Set border radius
-                                    ),
-                                    child: TextButton(
-                                      onPressed: () {
-                                        // Add your delete logic here
-                                      },
-                                      child: const Text('Delete',
-                                          style:
-                                              TextStyle(color: Colors.white)),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          );
-                        },
-                      );
+                      LogoutDialog.show(context);
+
                     }), // Build the logout button
                     const SizedBox(height: 20.0),
                   ],

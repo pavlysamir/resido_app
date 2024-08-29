@@ -10,6 +10,7 @@ import 'package:resido_app/features/authentications/data/repo/auth_repo_impl.dar
 import 'package:resido_app/features/authentications/presentation/managers/register_cubit/register_cubit.dart';
 import 'package:resido_app/features/authentications/presentation/managers/login_cubit/login_cubit.dart';
 import 'package:resido_app/features/chat/presentation/managers/cubit/chat_cubit.dart';
+import 'package:resido_app/features/favourite/logic/cubit/favorite_cubit.dart';
 import 'package:resido_app/features/home/data/repo/home_repo_impl.dart';
 import 'package:resido_app/features/home/presentation/managers/add_prob_cubit/add_proparties_cubit.dart';
 import 'package:resido_app/features/home/presentation/managers/home_cubit/home_cubit.dart';
@@ -19,7 +20,10 @@ import 'package:resido_app/features/search/data/repo/search_repo_impl.dart';
 import 'package:resido_app/features/search/presentation/managers/cubit/search_cubit.dart';
 import 'package:resido_app/l10n/l10n.dart';
 
+import 'core/api/dio_consumer.dart';
+import 'features/favourite/data/repository/favorite_repository.dart';
 import 'features/profile/profile_edite/presentation/controller/profile_edit_cubit.dart';
+import 'features/profile/profile_main/data/repository/profile_main_repository.dart';
 
 class ResidoApp extends StatelessWidget {
   const ResidoApp({super.key});
@@ -41,11 +45,14 @@ class ResidoApp extends StatelessWidget {
             create: (context) =>
                 SearchCubit(getIt.get<SearchRepoImpl>())..getCategory()),
         BlocProvider(create: (context) => ChatCubit()),
-        BlocProvider(create: (context) => ProfileCubit()),
+        BlocProvider(create: (context) => ProfileCubit(
+            getIt.get<ProfileMainRepositoryImpl>()
+        )),
         BlocProvider(
             create: (context) =>
                 ProfileEditCubit(getIt.get<ProfileEditRepositoryImpl>())
-                  ..getProfileEdit())
+                  ..getProfileEdit()),
+        BlocProvider(create: (context)=>FavoriteCubit(getIt.get<FavoriteRepositoryImpl>())..getFavorite()),
       ],
       child: ScreenUtilInit(
         designSize: const Size(390, 844),

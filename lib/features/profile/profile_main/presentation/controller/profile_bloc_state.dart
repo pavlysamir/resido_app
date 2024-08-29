@@ -14,3 +14,10 @@ final class ProfileFailedSharedPreference extends ProfileState {
     final String error;
     ProfileFailedSharedPreference(this.error);
 }
+// logout state
+final class ProfileLoadingLogout extends ProfileState {}
+final class ProfileSuccessLogout extends ProfileState {}
+final class ProfileFailedLogout extends ProfileState {
+    final String error;
+    ProfileFailedLogout(this.error);
+}

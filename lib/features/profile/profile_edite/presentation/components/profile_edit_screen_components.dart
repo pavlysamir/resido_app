@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:resido_app/features/profile/profile_edite/presentation/components/profile_image.dart';
+import 'package:resido_app/features/profile/profile_edite/presentation/components/text_field_widget.dart';
 import 'package:resido_app/features/profile/profile_edite/presentation/components/text_field_section.dart';
 import 'package:resido_app/features/profile/profile_edite/presentation/components/update_button.dart';
 import '../../../../../core/Assets/assets.dart';
@@ -51,71 +52,6 @@ class HeaderWidget extends StatelessWidget {
 }
 
 
-class TextFieldWidget extends StatelessWidget {
-  final String labelText;
-  final String placeHolder;
-  final bool isPasswordTextField;
-  final bool isObscurePassword;
-  final TextEditingController? controller;
-  final bool enable;
-
-  const TextFieldWidget({
-    Key? key,
-    required this.labelText,
-    required this.placeHolder,
-    required this.isPasswordTextField,
-    required this.isObscurePassword,
-    this.controller,
-    this.enable = true, // Default value set to true
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 20),
-      child: TextField(
-        controller: controller,
-        obscureText: isPasswordTextField ? isObscurePassword : false,
-        enabled: enable ,
-        decoration: InputDecoration(
-          contentPadding: const EdgeInsets.only(left: 20, bottom: 5),
-          labelText: labelText,
-          floatingLabelBehavior: FloatingLabelBehavior.always,
-          suffixIcon: isPasswordTextField
-              ? IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.remove_red_eye, color: Colors.grey),
-          )
-              : null,
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10.0),
-            borderSide: BorderSide.none,
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10.0),
-            borderSide: BorderSide.none,
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10.0),
-            borderSide: BorderSide.none,
-          ),
-          errorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10.0),
-            borderSide: BorderSide.none,
-          ),
-          hintText: placeHolder,
-          hintStyle: const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.normal,
-            color: Colors.grey,
-          ),
-          fillColor: Colors.white,
-          filled: true,
-        ),
-      ),
-    );
-  }
-}
 class LocationNoteWidget extends StatelessWidget {
   const LocationNoteWidget({Key? key}) : super(key: key);
 
@@ -213,6 +149,7 @@ class ProfileFormWidget extends StatelessWidget {
                 placeholder: cubit.phoneController.text ?? '',
                 isPassword: false,
                 controller: cubit.phoneController,
+
               ),
               TextFieldSectionWidget(
                 label: 'Address',

@@ -62,8 +62,12 @@ class ProfileImageWidget extends StatelessWidget {
                         shape: BoxShape.circle,
                         image: DecorationImage(
                           fit: BoxFit.cover,
-                          image: FileImage(File(cubit.selectedImage!.path)),
-                        ),
+                          image: cubit.selectedImage != null && cubit.selectedImage!.path.isNotEmpty
+                              ? FileImage(File(cubit.selectedImage!.path))
+                              : cubit.imageController.text.isNotEmpty
+                              ? NetworkImage(cubit.imageController.text)
+                              : NetworkImage('https://pmptraining.com.my/new/wp-content/uploads/2023/11/person-pmp.jpg'), // Placeholder image
+                        )
                       ),
                     )
                   else

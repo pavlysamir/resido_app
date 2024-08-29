@@ -1,19 +1,23 @@
 import 'package:bloc/bloc.dart';
+import 'package:dartz/dartz.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
 import 'package:meta/meta.dart';
+import 'package:resido_app/core/errors/exceptions.dart';
 import 'package:resido_app/core/utils/service_locator.dart';
+import 'package:resido_app/features/profile/profile_main/data/repository/profile_main_repository.dart';
 
 import '../../../../../core/api/end_ponits.dart';
+import '../../../../../core/errors/failure.dart';
 import '../../../../../core/utils/shared_preferences_cash_helper.dart';
+import '../../data/model/logout_model.dart';
 
 part 'profile_bloc_state.dart';
 
 class ProfileCubit extends Cubit<ProfileState> {
-  ProfileCubit() : super(ProfileInitial()){
-   //getSharedPreference();
-  }
+  final ProfileMainRepository profileMainRepository;
+  ProfileCubit(this.profileMainRepository) : super(ProfileInitial());
 
   static ProfileCubit get(context) => BlocProvider.of(context);
 
@@ -34,6 +38,20 @@ class ProfileCubit extends Cubit<ProfileState> {
     emit(ProfileSuccessSharedPreference(sharedPreferenceModel));
     } catch (e) {
       emit(ProfileFailedSharedPreference(e.toString()));
+    }
+  }
+  Future<void> logOut() async {
+    emit(ProfileLoadingLogout());
+    try {
+      final result = await profileMainRepository.logout();
+      result.fold(
+            (failure) => emit(ProfileFailedLogout(failure)),
+            (success) => emit(ProfileSuccessLogout()),
+      );
+
+    }on ServerException catch (error) {
+      emit(ProfileFailedLogout(error.toString()));
+
     }
   }
 }

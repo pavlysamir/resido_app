@@ -26,7 +26,6 @@ class ProfileEditCubit extends Cubit<ProfileEditState> {
 
   final ImagePicker _picker = ImagePicker();
   XFile? selectedImage;
-  File? pngFile;
 
   ProfileEditRepository profileEditRepository;
 
@@ -57,7 +56,8 @@ class ProfileEditCubit extends Cubit<ProfileEditState> {
       nameController.text,
       phoneController.text,
       addressController.text,
-      pngFile?.path,
+      selectedImage?.path,
+
     );
     bool isSuccess = false;
     response.fold(
@@ -76,11 +76,13 @@ class ProfileEditCubit extends Cubit<ProfileEditState> {
   Future<void> pickImageFromGallery() async {
     try {
       final XFile? selectedImageFromClick =
-          await _picker.pickImage(source: ImageSource.gallery);
+      await _picker.pickImage(source: ImageSource.gallery);
       if (selectedImageFromClick != null) {
-        // Convert the image to PNG
-        pngFile = await convertImageToPng(selectedImageFromClick);
-        selectedImage = XFile(pngFile!.path);
+        selectedImage = selectedImageFromClick;
+       // pngFile = File(selectedImageFromClick.path);
+        Logger().i('selectedImageFromClick : $selectedImageFromClick');
+        Logger().i('selectedImage : ${selectedImage!.path}');
+      //  Logger().i('pngFile : $pngFile');
         emit(SuccessfulPickImage());
       } else {
         emit(FailPickImage());
@@ -90,27 +92,4 @@ class ProfileEditCubit extends Cubit<ProfileEditState> {
     }
   }
 
-// Function to convert image to PNG
-  Future<File> convertImageToPng(XFile imageFile) async {
-    // Read the image file as bytes
-    final bytes = await imageFile.readAsBytes();
-
-    // Decode the image
-    // final image = img.decodeImage(bytes);
-
-    // // Encode the image to PNG format
-    // final pngBytes = img.encodePng(image!);
-
-    // Get the temporary directory
-    final tempDir = await getTemporaryDirectory();
-
-    // Create a new file in the temporary directory
-    final pngFile = File(path.join(
-        tempDir.path, '${path.basenameWithoutExtension(imageFile.path)}.png'));
-
-    // Write the PNG bytes to the file
-    // await pngFile.writeAsBytes(pngBytes);
-
-    return pngFile;
-  }
 }
