@@ -3,6 +3,7 @@ import 'package:resido_app/core/api/api_consumer.dart';
 import 'package:resido_app/core/api/end_ponits.dart';
 import 'package:resido_app/core/errors/exceptions.dart';
 import 'package:resido_app/features/home/data/models/banner_model.dart';
+import 'package:resido_app/features/home/data/models/category_item_model.dart';
 import 'package:resido_app/features/home/data/models/features_model.dart';
 import 'package:resido_app/features/home/data/repo/home_repo.dart';
 
@@ -56,6 +57,21 @@ class HomeRepoImpl implements HomeRepo {
       for (var element in response['data']) {
         data.add(FeatureProperty.fromJson(element));
       }
+
+      return Right(data);
+    } on ServerException catch (e) {
+      return Left(e.errModel.errorMessage![0] ?? 'Server error');
+    }
+  }
+
+  @override
+  Future<Either<String, CategoryList>> getCategory() async {
+    try {
+      final response = await api.get(
+        EndPoint.getCategories,
+      );
+
+      var data = CategoryList.fromJson(response);
 
       return Right(data);
     } on ServerException catch (e) {

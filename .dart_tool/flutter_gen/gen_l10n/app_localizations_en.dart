@@ -422,4 +422,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get filterResults => 'Filter Results';
+
+  @override
+  String get subCategory => 'Sub Category';
 }

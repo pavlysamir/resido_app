@@ -83,8 +83,8 @@ class EndPoint {
     return "/User/$id";
   }
 
-  static String confirnSubscribeEndPoint(refId) {
-    return "/plans/subscribe/confirmPayment/$refId";
+  static String getApartmentDeatails(id) {
+    return "apartments/$id";
   }
 
   static String plans = "/plans";

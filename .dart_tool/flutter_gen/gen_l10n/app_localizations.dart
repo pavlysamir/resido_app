@@ -928,6 +928,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Filter Results'**
   String get filterResults;
+
+  /// No description provided for @subCategory.
+  ///
+  /// In en, this message translates to:
+  /// **'Sub Category'**
+  String get subCategory;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
