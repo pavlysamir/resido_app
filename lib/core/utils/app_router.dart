@@ -84,10 +84,10 @@ abstract class AppRouter {
           path: kAboutUs,
           builder: (context, state) => ContactUs(),
         ),
-        GoRoute(
-          path: kPropertyDetails,
-          builder: (context, state) => const PropertyDetailes(),
-        ),
+        // GoRoute(
+        //   path: kPropertyDetails,
+        //   builder: (context, state) => const PropertyDetailes(),
+        // ),
         GoRoute(
           path: kFilterResultsScreen,
           builder: (context, state) => const FilterResultScreen(),
