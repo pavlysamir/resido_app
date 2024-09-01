@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:resido_app/features/profile/profile_main/ui/widget/account_dialog_widget.dart';
 
 import '../../../../../core/Assets/assets.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_router.dart';
 import '../../../../../core/utils/styles.dart';
 import '../../../../../core/utils/widgets/custom_go_navigator.dart';
-import '../../logic/profile_cubit.dart';
-import 'account_dialog_widget.dart';
-import 'delete_account_dialog.dart';
 
 Map<String, VoidCallback> getActionsMap(BuildContext context) {
   return {
@@ -35,10 +32,61 @@ Map<String, VoidCallback> getActionsMap(BuildContext context) {
     // 'Terms & Conditions': () => Navigator.pushNamed(context, '/termsAndConditions'),
     // 'Privacy Policy': () => Navigator.pushNamed(context, '/privacyPolicy'),
     'Delete Account': () {
+      // Add your delete account logic here
       showDialog(
         context: context,
         builder: (BuildContext context) {
-          return DeleteAccountDialog();
+          return AccountDialogWidget(
+            title: 'Delete Account?',
+            imagePath: AssetsData.deleteAccountAlertDialog,
+            message:
+                "You won't able to rollback it. You will be logged out and all active sessions will be terminated",
+            actions: [
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 4.0), // Add horizontal margin
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Color(0xFFEEEEEE),
+                      borderRadius:
+                          BorderRadius.circular(10.0), // Set border radius
+                    ),
+                    child: TextButton(
+                      onPressed: () {
+                        Navigator.of(context).pop(); // Close the dialog
+                      },
+                      child: const Text(
+                        'Cancel',
+                        style: TextStyle(
+                            color: Color(0xFF087C7C)), // Set text color
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 4.0), // Add horizontal margin
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Color(0xFF087C7C),
+                      borderRadius:
+                          BorderRadius.circular(10.0), // Set border radius
+                    ),
+                    child: TextButton(
+                      onPressed: () {
+                        // Add your delete logic here
+                      },
+                      child: const Text('Delete',
+                          style: TextStyle(color: Colors.white)),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          );
         },
       );
     },
@@ -87,7 +135,11 @@ class CustomInkWell extends StatelessWidget {
                 const SizedBox(width: 16.0),
                 Text(
                   items[index]['title']!,
-                  style: Theme.of(context).textTheme.labelMedium,
+                  style: const TextStyle(
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.normal,
+                    color: Color(0xFF4D5454),
+                  ),
                 ),
                 const Spacer(),
                 items[index]['title'] == 'Dark Theme'
@@ -97,7 +149,7 @@ class CustomInkWell extends StatelessWidget {
                       )
                     : Container(
                         decoration: BoxDecoration(
-                          color: Theme.of(context).appBarTheme.backgroundColor,
+                          color: Colors.white,
                           border: Border.all(
                             color: Colors.grey,
                           ),
@@ -130,10 +182,7 @@ class ItemsList extends StatelessWidget {
       padding: const EdgeInsets.all(16.0),
       margin: const EdgeInsets.symmetric(horizontal: 16.0),
       decoration: BoxDecoration(
-        color: Theme.of(context).appBarTheme.backgroundColor,
-        border: Border.all(
-          color: Colors.grey,
-        ),
+        color: Colors.white,
         borderRadius: BorderRadius.circular(10.0),
       ),
       child: ListView.builder(
@@ -143,6 +192,34 @@ class ItemsList extends StatelessWidget {
         itemBuilder: (context, index) {
           return CustomInkWell(context: context, index: index, items: items);
         },
+      ),
+    );
+  }
+}
+
+class HeaderWidget extends StatelessWidget {
+  const HeaderWidget({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      height: MediaQuery.of(context).size.height * 0.11,
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(20.0),
+          bottomRight: Radius.circular(20.0),
+        ),
+      ),
+      alignment: Alignment.bottomLeft,
+      padding: const EdgeInsets.only(left: 16.0, bottom: 15.0),
+      child: const Text(
+        'My Profile',
+        style: TextStyle(
+          color: Color(0xFF4D5454),
+          fontSize: 18.0,
+        ),
       ),
     );
   }

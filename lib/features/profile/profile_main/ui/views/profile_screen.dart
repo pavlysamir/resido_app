@@ -9,7 +9,6 @@ import '../widget/profile_screen_components.dart';
 class ProfileScreen extends StatelessWidget {
   ProfileScreen({super.key});
 
-
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<ProfileCubit, ProfileState>(
@@ -27,7 +26,9 @@ class ProfileScreen extends StatelessWidget {
                 //  expandedHeight: MediaQuery.of(context).size.height * 0.12,
                 flexibleSpace: FlexibleSpaceBar(
                   // title: Text('My Profile'),
-                  background: HeaderWidget(),
+                  background: HeaderWidget(
+                    showArrow: false,
+                  ),
                 ),
               ),
               SliverToBoxAdapter(
@@ -41,7 +42,6 @@ class ProfileScreen extends StatelessWidget {
                     LogoutButton(onPressed: () {
                       // Add your logout logic here
                       LogoutDialog.show(context);
-
                     }), // Build the logout button
                     const SizedBox(height: 20.0),
                   ],

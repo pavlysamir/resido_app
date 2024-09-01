@@ -21,7 +21,12 @@ class CustomItemProbirtyHome extends StatelessWidget {
         decoration: BoxDecoration(
           color: Theme.of(context).cardColor,
           borderRadius: BorderRadius.circular(10),
-          border: Border.all(color: Colors.grey[300]!),
+          border: Border.all(
+              color: Theme.of(context)
+                  .inputDecorationTheme
+                  .enabledBorder!
+                  .borderSide
+                  .color),
         ),
         child: Center(
           child: Row(

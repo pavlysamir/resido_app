@@ -56,8 +56,7 @@ class ProfileEditCubit extends Cubit<ProfileEditState> {
       nameController.text,
       phoneController.text,
       addressController.text,
-      selectedImage?.path,
-
+      file!.path,
     );
     bool isSuccess = false;
     response.fold(
@@ -73,23 +72,43 @@ class ProfileEditCubit extends Cubit<ProfileEditState> {
     Logger().i('isSuccess check here : $isSuccess and response is : $response');
   }
 
-  Future<void> pickImageFromGallery() async {
-    try {
-      final XFile? selectedImageFromClick =
-      await _picker.pickImage(source: ImageSource.gallery);
-      if (selectedImageFromClick != null) {
-        selectedImage = selectedImageFromClick;
-       // pngFile = File(selectedImageFromClick.path);
-        Logger().i('selectedImageFromClick : $selectedImageFromClick');
-        Logger().i('selectedImage : ${selectedImage!.path}');
-      //  Logger().i('pngFile : $pngFile');
-        emit(SuccessfulPickImage());
-      } else {
-        emit(FailPickImage());
-      }
-    } catch (e) {
+  File? file;
+
+  Future<void> pickCameraImage() async {
+    final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+    if (image != null) {
+      file = File(image.path);
+      print(file);
+
+      // Emit success state
+      emit(SuccessfulPickImage());
+    } else {
       emit(FailPickImage());
     }
   }
-
 }
+
+
+
+
+
+  // Future<void> pickImageFromGallery() async {
+  //   try {
+  //     final XFile? selectedImageFromClick =
+  //     await _picker.pickImage(source: ImageSource.gallery);
+  //     if (selectedImageFromClick != null) {
+  //       selectedImage = selectedImageFromClick;
+  //      // pngFile = File(selectedImageFromClick.path);
+  //       Logger().i('selectedImageFromClick : $selectedImageFromClick');
+  //       Logger().i('selectedImage : ${selectedImage!.path}');
+  //     //  Logger().i('pngFile : $pngFile');
+  //       emit(SuccessfulPickImage());
+  //     } else {
+  //       emit(FailPickImage());
+  //     }
+  //   } catch (e) {
+  //     emit(FailPickImage());
+  //   }
+  // }
+
+

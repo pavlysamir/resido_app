@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:resido_app/core/errors/exceptions.dart';
@@ -38,9 +40,8 @@ class ProfileEditRepositoryImpl extends ProfileEditRepository {
         // 'email': email,
         'phone': phone,
         'address': address,
-        if (image != null)
-         'image': await MultipartFile.fromFile(image, filename: 'profile.png'),
-          //'image': image,
+        if (image != null) 'image': image,
+        //'image': image,
 
         //  age': image,
       });

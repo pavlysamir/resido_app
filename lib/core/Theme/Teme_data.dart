@@ -84,6 +84,9 @@ import 'package:resido_app/core/utils/styles.dart';
 class AppTheme {
   static ThemeData lightTheme = ThemeData(
     cardColor: Colors.white,
+    appBarTheme: const AppBarTheme(
+      backgroundColor: AppColors.white,
+    ),
     indicatorColor: Colors.black,
     shadowColor: Colors.black.withOpacity(0.2),
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
@@ -117,7 +120,7 @@ class AppTheme {
     inputDecorationTheme: InputDecorationTheme(
       fillColor: Colors.white,
       enabledBorder: OutlineInputBorder(
-        borderSide: const BorderSide(color: Colors.white),
+        borderSide: const BorderSide(color: Colors.grey),
         borderRadius: BorderRadius.circular(10.0),
       ),
       border: OutlineInputBorder(
@@ -131,7 +134,9 @@ class AppTheme {
 
   static ThemeData darkTheme = ThemeData(
     indicatorColor: Colors.white,
-
+    appBarTheme: const AppBarTheme(
+      backgroundColor: AppColors.lightBlack,
+    ),
     cardColor: Colors.black,
     shadowColor: Colors.white.withOpacity(0.1),
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
@@ -145,7 +150,7 @@ class AppTheme {
 
     primaryColor: AppColors.primaryColor, // Change primary color as needed
     textTheme: TextTheme(
-        bodySmall: Styles.textStyle12Blue,
+        bodySmall: Styles.textStyle12White,
         displayLarge: Styles.textStyle32Blue,
         displayMedium: Styles.textStyle18White,
         bodyLarge: Styles.textStyle12White,
@@ -166,7 +171,7 @@ class AppTheme {
     inputDecorationTheme: InputDecorationTheme(
       fillColor: Colors.black,
       enabledBorder: OutlineInputBorder(
-        borderSide: const BorderSide(color: Colors.white),
+        borderSide: const BorderSide(color: Colors.grey),
         borderRadius: BorderRadius.circular(10.0),
       ),
       border: OutlineInputBorder(

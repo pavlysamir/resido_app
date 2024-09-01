@@ -19,7 +19,7 @@ class ProfileImageWidget extends StatelessWidget {
     return Center(
       child: InkWell(
         onTap: () {
-          cubit.pickImageFromGallery();
+          cubit.pickCameraImage();
         },
         child: BlocBuilder<ProfileEditCubit, ProfileEditState>(
           builder: (context, state) {
@@ -42,33 +42,34 @@ class ProfileImageWidget extends StatelessWidget {
               ),
               child: Stack(
                 children: [
-                  if (cubit.selectedImage != null)
+                  if (cubit.file != null)
                     Container(
                       width: 130,
                       height: 130,
                       decoration: BoxDecoration(
-                        border: Border.all(
-                          width: 4,
-                          color: Theme.of(context).scaffoldBackgroundColor,
-                        ),
-                        boxShadow: [
-                          BoxShadow(
-                            spreadRadius: 2,
-                            blurRadius: 10,
-                            color: AppColors.black.withOpacity(0.1),
-                            offset: const Offset(0, 10),
+                          border: Border.all(
+                            width: 4,
+                            color: Theme.of(context).scaffoldBackgroundColor,
                           ),
-                        ],
-                        shape: BoxShape.circle,
-                        image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: cubit.selectedImage != null && cubit.selectedImage!.path.isNotEmpty
-                              ? FileImage(File(cubit.selectedImage!.path))
-                              : cubit.imageController.text.isNotEmpty
-                              ? NetworkImage(cubit.imageController.text)
-                              : NetworkImage('https://pmptraining.com.my/new/wp-content/uploads/2023/11/person-pmp.jpg'), // Placeholder image
-                        )
-                      ),
+                          boxShadow: [
+                            BoxShadow(
+                              spreadRadius: 2,
+                              blurRadius: 10,
+                              color: AppColors.black.withOpacity(0.1),
+                              offset: const Offset(0, 10),
+                            ),
+                          ],
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: cubit.file != null &&
+                                    cubit.file!.path.isNotEmpty
+                                ? FileImage(File(cubit.file!.path))
+                                : cubit.imageController.text.isNotEmpty
+                                    ? NetworkImage(cubit.imageController.text)
+                                    : NetworkImage(
+                                        'https://pmptraining.com.my/new/wp-content/uploads/2023/11/person-pmp.jpg'), // Placeholder image
+                          )),
                     )
                   else
                     Container(

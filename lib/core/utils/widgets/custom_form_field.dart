@@ -48,7 +48,7 @@ class CustomFormField extends StatelessWidget {
         filled: true,
         suffixIcon: suffixIcon,
         prefixIcon: prefixIcon,
-        fillColor: AppColors.white,
+        fillColor: Theme.of(context).appBarTheme.backgroundColor,
         enabledBorder: outlineInputBorder(context),
         focusedBorder: outlineInputBorder(context),
         errorBorder: outlineInputBorderError(),
