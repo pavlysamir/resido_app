@@ -33,8 +33,12 @@ class ProfileMainRepositoryImpl extends ProfileMainRepository {
   Future<Either<String, DeleteModel>> deleteAccount() async {
     try {
       final response = await api.delete(EndPoint.deleteAccountAPI);
-      var data = DeleteModel.fromJson(response['data']);
-      return Right(data);
+      if (response['data'] is List) {
+        var data = DeleteModel(message: response['data'][0]);
+        return Right(data);
+      } else {
+        return Left('Unexpected response format');
+      }
     } on ServerException catch (error) {
       return Left(error.errModel.errorMessage![0] ?? 'Server error');
     }

@@ -1,4 +1,4 @@
-part of 'profile_bloc_cubit.dart';
+part of 'profile_cubit.dart';
 
 @immutable
 sealed class ProfileState {}
@@ -20,4 +20,14 @@ final class ProfileSuccessLogout extends ProfileState {}
 final class ProfileFailedLogout extends ProfileState {
     final String error;
     ProfileFailedLogout(this.error);
+}
+// delete account state
+final class ProfileLoadingDeleteAccount extends ProfileState {}
+final class ProfileSuccessDeleteAccount extends ProfileState {
+    final DeleteModel deleteModel;
+    ProfileSuccessDeleteAccount(this.deleteModel);
+}
+final class ProfileFailedDeleteAccount extends ProfileState {
+    final String error;
+    ProfileFailedDeleteAccount(this.error);
 }

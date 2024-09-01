@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../../../core/Assets/assets.dart';
@@ -6,6 +7,7 @@ import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_router.dart';
 import '../../../../../core/utils/styles.dart';
 import '../../../../../core/utils/widgets/custom_go_navigator.dart';
+import '../controller/profile_cubit.dart';
 import 'account_dialog_widget.dart';
 
 
@@ -34,30 +36,29 @@ Map<String, VoidCallback> getActionsMap(BuildContext context) {
     // 'Terms & Conditions': () => Navigator.pushNamed(context, '/termsAndConditions'),
     // 'Privacy Policy': () => Navigator.pushNamed(context, '/privacyPolicy'),
     'Delete Account': () {
-      // Add your delete account logic here
       showDialog(
         context: context,
         builder: (BuildContext context) {
           return AccountDialogWidget(
             title: 'Delete Account?',
             imagePath: AssetsData.deleteAccountAlertDialog,
-            message: "You won't able to rollback it. You will be logged out and all active sessions will be terminated",
+            message: "You won't be able to rollback it. You will be logged out and all active sessions will be terminated",
             actions: [
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 4.0), // Add horizontal margin
+                  padding: const EdgeInsets.symmetric(horizontal: 4.0),
                   child: Container(
                     decoration: BoxDecoration(
                       color: Color(0xFFEEEEEE),
-                      borderRadius: BorderRadius.circular(10.0), // Set border radius
+                      borderRadius: BorderRadius.circular(10.0),
                     ),
                     child: TextButton(
                       onPressed: () {
-                        Navigator.of(context).pop(); // Close the dialog
+                        Navigator.of(context).pop();
                       },
                       child: const Text(
                         'Cancel',
-                        style: TextStyle(color: Color(0xFF087C7C)), // Set text color
+                        style: TextStyle(color: Color(0xFF087C7C)),
                       ),
                     ),
                   ),
@@ -65,15 +66,18 @@ Map<String, VoidCallback> getActionsMap(BuildContext context) {
               ),
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 4.0), // Add horizontal margin
+                  padding: const EdgeInsets.symmetric(horizontal: 4.0),
                   child: Container(
                     decoration: BoxDecoration(
                       color: Color(0xFF087C7C),
-                      borderRadius: BorderRadius.circular(10.0), // Set border radius
+                      borderRadius: BorderRadius.circular(10.0),
                     ),
                     child: TextButton(
                       onPressed: () {
-                        // Add your delete logic here
+                        context.read<ProfileCubit>().deleteAccount().then((_) {
+                          customGoAndDeleteNavigate(
+                              context: context, path: AppRouter.kLoginScreen);
+                        });
                       },
                       child: const Text('Delete', style: TextStyle(color: Colors.white)),
                     ),

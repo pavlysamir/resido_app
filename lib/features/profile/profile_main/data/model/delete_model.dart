@@ -1,17 +1,17 @@
 class DeleteModel {
-  final List<String> data;
+  final String message;
 
-  DeleteModel({required this.data});
+  DeleteModel({required this.message});
 
   factory DeleteModel.fromJson(Map<String, dynamic> json) {
     return DeleteModel(
-      data: List<String>.from(json['data']),
+      message: json['message'],
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
-      'data': data,
+      'message': message,
     };
   }
 }

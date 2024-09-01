@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_router.dart';
 import '../../../../../core/utils/widgets/custom_go_navigator.dart';
-import '../controller/profile_bloc_cubit.dart';
+import '../controller/profile_cubit.dart';
 
 class ProfileInfoWidget extends StatelessWidget {
   const ProfileInfoWidget({Key? key}) : super(key: key);

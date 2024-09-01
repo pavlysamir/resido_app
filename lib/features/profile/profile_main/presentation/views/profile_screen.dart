@@ -10,7 +10,7 @@ import '../components/account_dialog_widget.dart';
 import '../components/logout_widget.dart';
 import '../components/profile_info_widget.dart';
 import '../components/profile_screen_components.dart';
-import '../controller/profile_bloc_cubit.dart';
+import '../controller/profile_cubit.dart';
 
 class ProfileScreen extends StatelessWidget {
   ProfileScreen({super.key});

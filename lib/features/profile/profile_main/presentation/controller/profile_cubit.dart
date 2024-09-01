@@ -11,9 +11,10 @@ import 'package:resido_app/features/profile/profile_main/data/repository/profile
 import '../../../../../core/api/end_ponits.dart';
 import '../../../../../core/errors/failure.dart';
 import '../../../../../core/utils/shared_preferences_cash_helper.dart';
+import '../../data/model/delete_model.dart';
 import '../../data/model/logout_model.dart';
 
-part 'profile_bloc_state.dart';
+part 'profile_state.dart';
 
 class ProfileCubit extends Cubit<ProfileState> {
   final ProfileMainRepository profileMainRepository;
@@ -52,6 +53,21 @@ class ProfileCubit extends Cubit<ProfileState> {
     }on ServerException catch (error) {
       emit(ProfileFailedLogout(error.toString()));
 
+    }
+  }
+  Future<void> deleteAccount() async {
+    emit(ProfileLoadingDeleteAccount());
+    try {
+      final result = await profileMainRepository.deleteAccount();
+      result.fold(
+            (failure) => emit(ProfileFailedDeleteAccount(failure)),
+            (success) async {
+          await getIt.get<CashHelperSharedPreferences>().clearData();
+          emit(ProfileSuccessDeleteAccount(success));
+        },
+      );
+    } on ServerException catch (error) {
+      emit(ProfileFailedDeleteAccount(error.errModel.errorMessage![0] ?? 'Server error'));
     }
   }
 }
