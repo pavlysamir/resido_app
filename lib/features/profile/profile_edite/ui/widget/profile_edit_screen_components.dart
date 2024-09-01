@@ -4,56 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:resido_app/features/profile/profile_edite/presentation/components/profile_image.dart';
-import 'package:resido_app/features/profile/profile_edite/presentation/components/text_field_widget.dart';
-import 'package:resido_app/features/profile/profile_edite/presentation/components/text_field_section.dart';
-import 'package:resido_app/features/profile/profile_edite/presentation/components/update_button.dart';
+import 'package:resido_app/features/profile/profile_edite/ui/widget/profile_image.dart';
+import 'package:resido_app/features/profile/profile_edite/ui/widget/text_field_section.dart';
+import 'package:resido_app/features/profile/profile_edite/ui/widget/text_field_widget.dart';
+import 'package:resido_app/features/profile/profile_edite/ui/widget/update_button.dart';
 import '../../../../../core/Assets/assets.dart';
 import '../../../../../core/utils/app_colors.dart';
-import '../controller/profile_edit_cubit.dart';
+import '../../logic/profile_edit_cubit.dart';
 
-class HeaderWidget extends StatelessWidget {
-  final String title;
-  final bool showArrow;
-
-  const HeaderWidget({Key? key, this.title = 'Edit Profile', this.showArrow = true}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: MediaQuery.of(context).size.height * 0.12,
-      decoration: const BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(20.0),
-          bottomRight: Radius.circular(20.0),
-        ),
-      ),
-      alignment: Alignment.bottomLeft,
-      padding: const EdgeInsets.only(left: 16.0, bottom: 15.0),
-      child: Row(
-        children: [
-          if (showArrow)
-            IconButton(
-              icon: const Icon(Icons.arrow_back, color: Colors.blue),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          Text(
-            title,
-            style: const TextStyle(
-              color: Color(0xFF4D5454),
-              fontStyle: FontStyle.normal,
-              fontSize: 18.0,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
 
 class LocationNoteWidget extends StatelessWidget {
   const LocationNoteWidget({Key? key}) : super(key: key);

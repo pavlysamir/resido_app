@@ -4,7 +4,7 @@ import 'package:resido_app/features/chat/presentation/views/chat_screen.dart';
 import 'package:resido_app/features/home/presentation/views/home_screen.dart';
 
 import '../../features/favourite/ui/views/favorites_screen.dart';
-import '../../features/profile/profile_main/presentation/views/profile_screen.dart';
+import '../../features/profile/profile_main/ui/views/profile_screen.dart';
 
 part 'home_layout_state.dart';
 

@@ -1,7 +1,6 @@
 
 import 'package:flutter/cupertino.dart';
-import 'package:resido_app/features/profile/profile_edite/presentation/components/profile_edit_screen_components.dart';
-import 'package:resido_app/features/profile/profile_edite/presentation/components/text_field_widget.dart';
+import 'package:resido_app/features/profile/profile_edite/ui/widget/text_field_widget.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 

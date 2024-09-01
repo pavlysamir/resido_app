@@ -7,8 +7,9 @@ import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_router.dart';
 import '../../../../../core/utils/styles.dart';
 import '../../../../../core/utils/widgets/custom_go_navigator.dart';
-import '../controller/profile_cubit.dart';
+import '../../logic/profile_cubit.dart';
 import 'account_dialog_widget.dart';
+import 'delete_account_dialog.dart';
 
 
 
@@ -39,53 +40,7 @@ Map<String, VoidCallback> getActionsMap(BuildContext context) {
       showDialog(
         context: context,
         builder: (BuildContext context) {
-          return AccountDialogWidget(
-            title: 'Delete Account?',
-            imagePath: AssetsData.deleteAccountAlertDialog,
-            message: "You won't be able to rollback it. You will be logged out and all active sessions will be terminated",
-            actions: [
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 4.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Color(0xFFEEEEEE),
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    child: TextButton(
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
-                      child: const Text(
-                        'Cancel',
-                        style: TextStyle(color: Color(0xFF087C7C)),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 4.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Color(0xFF087C7C),
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    child: TextButton(
-                      onPressed: () {
-                        context.read<ProfileCubit>().deleteAccount().then((_) {
-                          customGoAndDeleteNavigate(
-                              context: context, path: AppRouter.kLoginScreen);
-                        });
-                      },
-                      child: const Text('Delete', style: TextStyle(color: Colors.white)),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          );
+          return DeleteAccountDialog();
         },
       );
     },
@@ -197,31 +152,4 @@ class ItemsList extends StatelessWidget {
   }
 }
 
-class HeaderWidget extends StatelessWidget {
-  const HeaderWidget({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: MediaQuery.of(context).size.height * 0.11,
-      decoration: const BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(20.0),
-          bottomRight: Radius.circular(20.0),
-        ),
-      ),
-      alignment: Alignment.bottomLeft,
-      padding: const EdgeInsets.only(left: 16.0, bottom: 15.0),
-      child: const Text(
-        'My Profile',
-        style: TextStyle(
-          color: Color(0xFF4D5454),
-          fontSize: 18.0,
-        ),
-      ),
-    );
-  }
-}
 

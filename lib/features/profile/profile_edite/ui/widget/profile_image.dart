@@ -7,7 +7,7 @@ import 'package:image_picker/image_picker.dart';
 
 import '../../../../../core/Assets/assets.dart';
 import '../../../../../core/utils/app_colors.dart';
-import '../controller/profile_edit_cubit.dart';
+import '../../logic/profile_edit_cubit.dart';
 
 class ProfileImageWidget extends StatelessWidget {
   const ProfileImageWidget({Key? key}) : super(key: key);

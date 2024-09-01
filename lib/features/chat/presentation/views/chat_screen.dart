@@ -4,9 +4,9 @@ import 'package:resido_app/core/utils/widgets/custom_form_field.dart';
 import 'package:resido_app/features/chat/presentation/managers/cubit/chat_cubit.dart';
 import 'package:resido_app/features/chat/presentation/widgets/chat_send_bubble.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-import '../../../profile/profile_edite/presentation/components/profile_edit_screen_components.dart';
 import 'dart:async';
+
+import '../../../../core/widgets/header_widget.dart';
 
 class ChatScreen extends StatelessWidget {
   const ChatScreen({super.key});

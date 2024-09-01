@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:resido_app/core/Assets/assets.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../../../../../core/utils/app_colors.dart';
-import '../components/contact_us_components.dart';
+import '../widget/contact_us_components.dart';
 
 class ContactUs extends StatelessWidget {
   ContactUs({super.key});

@@ -7,7 +7,7 @@ import '../../../../../core/utils/app_router.dart';
 import '../../../../../core/utils/service_locator.dart';
 import '../../../../../core/utils/shared_preferences_cash_helper.dart';
 import '../../../../../core/utils/widgets/custom_go_navigator.dart';
-import '../controller/profile_cubit.dart';
+import '../../logic/profile_cubit.dart';
 import 'account_dialog_widget.dart';
 
 class LogoutButton extends StatelessWidget {

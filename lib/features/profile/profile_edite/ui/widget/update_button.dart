@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../../../../../core/utils/app_colors.dart';
-import '../controller/profile_edit_cubit.dart';
+import '../../logic/profile_edit_cubit.dart';
 
 class UpdateButtonWidget extends StatelessWidget {
   final VoidCallback onPressed;

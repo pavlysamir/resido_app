@@ -10,7 +10,7 @@ import 'package:logger/logger.dart';
 import 'package:meta/meta.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:resido_app/features/profile/profile_edite/data/models/profile_edit_model.dart';
-import '../../data/repository/profile_edit_repository.dart';
+import '../data/repository/profile_edit_repository.dart';
 
 part 'profile_edit_state.dart';
 

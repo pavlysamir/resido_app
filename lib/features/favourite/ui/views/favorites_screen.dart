@@ -5,7 +5,7 @@ import 'package:resido_app/core/utils/widgets/custom_app_bar.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:resido_app/features/favourite/logic/cubit/favorite_cubit.dart';
 
-import '../../../profile/profile_edite/presentation/components/profile_edit_screen_components.dart';
+import '../../../../core/widgets/header_widget.dart';
 import '../widgets/favorites_item_widget.dart';
 import '../../data/models/DataFavoriteModel.dart';
 

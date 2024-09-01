@@ -15,15 +15,15 @@ import 'package:resido_app/features/home/data/repo/home_repo_impl.dart';
 import 'package:resido_app/features/home/presentation/managers/add_prob_cubit/add_proparties_cubit.dart';
 import 'package:resido_app/features/home/presentation/managers/home_cubit/home_cubit.dart';
 import 'package:resido_app/features/profile/profile_edite/data/repository/profile_edit_repository.dart';
-import 'package:resido_app/features/profile/profile_main/presentation/controller/profile_cubit.dart';
 import 'package:resido_app/features/search/data/repo/search_repo_impl.dart';
 import 'package:resido_app/features/search/presentation/managers/cubit/search_cubit.dart';
 import 'package:resido_app/l10n/l10n.dart';
 
 import 'core/api/dio_consumer.dart';
 import 'features/favourite/data/repository/favorite_repository.dart';
-import 'features/profile/profile_edite/presentation/controller/profile_edit_cubit.dart';
+import 'features/profile/profile_edite/logic/profile_edit_cubit.dart';
 import 'features/profile/profile_main/data/repository/profile_main_repository.dart';
+import 'features/profile/profile_main/logic/profile_cubit.dart';
 
 class ResidoApp extends StatelessWidget {
   const ResidoApp({super.key});
