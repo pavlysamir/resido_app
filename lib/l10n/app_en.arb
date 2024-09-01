@@ -27,6 +27,7 @@
     "alreadyHaveAccount":"Already have an account?",
     "login":"Login",
     "contactUs":"Contact Us",
+    "favorites":"Favorite",
     "phoneValidation":"phone is required",
     "nameValidation":"username is required",
     "confirmPhoneNum":"Confirm Mobile Number",

@@ -38,11 +38,11 @@ void setUpServiceLocator() {
 
   // Register ProfileEditRepositoryImpl
   getIt.registerLazySingleton<ProfileEditRepository>(
-        () => ProfileEditRepositoryImpl(api: getIt<ApiConsumer>()),
+    () => ProfileEditRepositoryImpl(api: getIt<ApiConsumer>()),
   );
-  getIt.registerLazySingleton<FavoriteRepositoryImpl>(
-        () => FavoriteRepositoryImpl(api: getIt<DioConsumer>()),
-  );
+  getIt.registerSingleton<FavoriteRepositoryImpl>(FavoriteRepositoryImpl(
+    api: getIt.get<DioConsumer>(),
+  ));
   getIt.registerSingleton<ProfileMainRepositoryImpl>(ProfileMainRepositoryImpl(
     api: getIt.get<DioConsumer>(),
   ));

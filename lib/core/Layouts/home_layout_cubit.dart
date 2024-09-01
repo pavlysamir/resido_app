@@ -16,7 +16,7 @@ class HomeLayoutCubit extends Cubit<HomeLayoutState> {
   int currentIndex = 0;
   List screens = [
     const HomeScreen(),
-    const FavoritesScreen(),
+     FavoritesScreen(),
     const ChatScreen(),
     ProfileScreen()
   ];

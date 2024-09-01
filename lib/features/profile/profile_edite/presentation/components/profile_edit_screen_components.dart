@@ -13,7 +13,10 @@ import '../../../../../core/utils/app_colors.dart';
 import '../controller/profile_edit_cubit.dart';
 
 class HeaderWidget extends StatelessWidget {
-  const HeaderWidget({Key? key}) : super(key: key);
+  final String title;
+  final bool showArrow;
+
+  const HeaderWidget({Key? key, this.title = 'Edit Profile', this.showArrow = true}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -31,15 +34,16 @@ class HeaderWidget extends StatelessWidget {
       padding: const EdgeInsets.only(left: 16.0, bottom: 15.0),
       child: Row(
         children: [
-          IconButton(
-            icon: const Icon(Icons.arrow_back, color: Colors.blue),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-          ),
-          const Text(
-            'Edit Profile',
-            style: TextStyle(
+          if (showArrow)
+            IconButton(
+              icon: const Icon(Icons.arrow_back, color: Colors.blue),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          Text(
+            title,
+            style: const TextStyle(
               color: Color(0xFF4D5454),
               fontStyle: FontStyle.normal,
               fontSize: 18.0,
@@ -50,7 +54,6 @@ class HeaderWidget extends StatelessWidget {
     );
   }
 }
-
 
 class LocationNoteWidget extends StatelessWidget {
   const LocationNoteWidget({Key? key}) : super(key: key);

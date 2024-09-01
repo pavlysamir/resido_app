@@ -1,4 +1,25 @@
 class DataFavoriteModel {
+  final List<FavoriteData> data;
+
+  DataFavoriteModel({required this.data});
+
+  factory DataFavoriteModel.fromJson(Map<String, dynamic> json) {
+    var dataList = json['data'] as List;
+    List<FavoriteData> favoriteDataList = dataList.map((i) => FavoriteData.fromJson(i)).toList();
+
+    return DataFavoriteModel(data: favoriteDataList);
+  }
+
+  Map<String, dynamic> toJson() {
+    List<Map<String, dynamic>> dataToJson = data.map((i) => i.toJson()).toList();
+
+    return {
+      'data': dataToJson,
+    };
+  }
+}
+
+class FavoriteData {
   final int id;
   final int userId;
   final int apartmentId;
@@ -6,7 +27,7 @@ class DataFavoriteModel {
   final String updatedAt;
   final Apartment apartment;
 
-  DataFavoriteModel({
+  FavoriteData({
     required this.id,
     required this.userId,
     required this.apartmentId,
@@ -15,8 +36,8 @@ class DataFavoriteModel {
     required this.apartment,
   });
 
-  factory DataFavoriteModel.fromJson(Map<String, dynamic> json) {
-    return DataFavoriteModel(
+  factory FavoriteData.fromJson(Map<String, dynamic> json) {
+    return FavoriteData(
       id: json['id'],
       userId: json['user_id'],
       apartmentId: json['apartment_id'],
@@ -58,9 +79,9 @@ class Apartment {
   final int subId;
   final String createdAt;
   final String updatedAt;
-  final String title;
-  final String description;
-  final String address;
+  final String? title;
+  final String? description;
+  final String? address;
   final List<Translation> translations;
 
   Apartment({
@@ -84,9 +105,9 @@ class Apartment {
     required this.subId,
     required this.createdAt,
     required this.updatedAt,
-    required this.title,
-    required this.description,
-    required this.address,
+    this.title,
+    this.description,
+    this.address,
     required this.translations,
   });
 

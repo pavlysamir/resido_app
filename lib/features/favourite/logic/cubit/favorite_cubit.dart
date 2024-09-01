@@ -13,19 +13,18 @@ class FavoriteCubit extends Cubit<FavoriteState> {
   // make instance of FavoriteCubit
   static FavoriteCubit get(context) => BlocProvider.of(context);
 
-  // get data from api from repository
+  /// Fetches the favorite details from the repository and updates the state.
   Future<void> getFavorite() async {
     emit(FavoriteLoading());
-    final response = await favoriteRepository.getFavorite();
-    // check if response is success or error
-    response.fold(
-      (errMessage) {
-        emit(FavoriteError(errMessage));
-      },
-      (success) {
-        emit(FavoriteSuccess(success));
-      },
-    );
+    try {
+      final response = await favoriteRepository.getFavorite();
+      response.fold(
+            (errMessage) => emit(FavoriteError(errMessage)),
+            (success) => emit(FavoriteSuccess(success)),
+      );
+    } catch (e) {
+      emit(FavoriteError('Unexpected error: $e'));
+    }
   }
 
 }

@@ -67,6 +67,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get login => 'تسجيل الدخول';
 
   @override
+  String get favorites => 'المفضلة';
+
+  @override
   String get phoneValidation => 'الهاتف مطلوب';
 
   @override

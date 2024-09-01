@@ -215,6 +215,12 @@ abstract class AppLocalizations {
   /// **'Login'**
   String get login;
 
+  /// No description provided for @favorites.
+  ///
+  /// In en, this message translates to:
+  /// **'Favorite'**
+  String get favorites;
+
   /// No description provided for @phoneValidation.
   ///
   /// In en, this message translates to:

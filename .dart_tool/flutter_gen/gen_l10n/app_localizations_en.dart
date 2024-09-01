@@ -67,6 +67,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get login => 'Login';
 
   @override
+  String get favorites => 'Favorite';
+
+  @override
   String get phoneValidation => 'phone is required';
 
   @override
