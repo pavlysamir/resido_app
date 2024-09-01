@@ -423,4 +423,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get subCategory => 'التصنيف الفرعي';
+
+  @override
+  String get compounds => 'المجموعات';
 }

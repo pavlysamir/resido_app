@@ -32,15 +32,21 @@ class CustomprobFeaturedItem extends StatelessWidget {
         children: [
           Stack(alignment: Alignment.bottomRight, children: [
             CachedNetworkImage(
-                imageUrl: featureProperty.image, height: 150.h, width: 250.w),
+                fit: BoxFit.cover,
+                imageUrl: featureProperty.image,
+                height: 150.h,
+                width: 250.w),
             Positioned(
               bottom: 10,
               right: 10,
-              child: CircleAvatar(
-                backgroundColor: Theme.of(context).cardColor,
-                child: const Icon(
-                  Icons.favorite_outline,
-                  color: AppColors.primaryColor,
+              child: InkWell(
+                onTap: () {},
+                child: CircleAvatar(
+                  backgroundColor: Theme.of(context).cardColor,
+                  child: const Icon(
+                    Icons.favorite_outline,
+                    color: AppColors.primaryColor,
+                  ),
                 ),
               ),
             ),
