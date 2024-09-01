@@ -45,3 +45,23 @@ final class GetCategoryFailure extends HomeState {
 
   const GetCategoryFailure({required this.message});
 }
+
+final class GetApartmentDetailsLoading extends HomeState {}
+
+final class GetApartmentDetailsSuccess extends HomeState {}
+
+final class GetApartmentDetailsFailure extends HomeState {
+  final String message;
+
+  const GetApartmentDetailsFailure({required this.message});
+}
+
+final class GetCompoundLoading extends HomeState {}
+
+final class GetCompoundSuccess extends HomeState {}
+
+final class GetCompoundFailure extends HomeState {
+  final String message;
+
+  const GetCompoundFailure({required this.message});
+}

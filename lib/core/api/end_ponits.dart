@@ -30,6 +30,8 @@ class EndPoint {
 
   static String getCategories = "categories";
 
+  static String getCompound = "compounds";
+
   static String verifyMobileNum = "Account/VerifyMobileNumber";
   static String verifyOtpMobileNum = "Account/verify-otp";
 
@@ -49,7 +51,7 @@ class EndPoint {
 
   static String filter = "filter-apartment";
 
-  static String banners = "banners";
+  static String banners = "banner";
 
   static String getFeatures = "featured";
 

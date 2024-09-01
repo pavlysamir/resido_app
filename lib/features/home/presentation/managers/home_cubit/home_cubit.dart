@@ -1,8 +1,10 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:resido_app/features/home/data/models/apartment_details_model.dart';
 import 'package:resido_app/features/home/data/models/banner_model.dart';
 import 'package:resido_app/features/home/data/models/category_item_model.dart';
+import 'package:resido_app/features/home/data/models/compound_model.dart';
 import 'package:resido_app/features/home/data/models/features_model.dart';
 import 'package:resido_app/features/home/data/repo/home_repo.dart';
 
@@ -68,6 +70,34 @@ class HomeCubit extends Cubit<HomeState> {
       (categories) {
         categoryItems = categories.data;
         emit(GetCategorySuccess());
+      },
+    );
+  }
+
+  ApartmentDaetails? apartmentDetails;
+  getApartmentDetails(int id) async {
+    emit(GetCategoryLoading());
+    final response = await homeRepository.getApartmentDetails(id);
+
+    response.fold(
+      (errMessage) => emit(GetCategoryFailure(message: errMessage)),
+      (apartmentDetails) {
+        apartmentDetails = apartmentDetails;
+        emit(GetCategorySuccess());
+      },
+    );
+  }
+
+  List<CompoundModel> copoundList = [];
+  getCompounds() async {
+    emit(GetCompoundLoading());
+    final response = await homeRepository.getCoumpound();
+
+    response.fold(
+      (errMessage) => emit(GetCompoundFailure(message: errMessage)),
+      (compounds) {
+        copoundList = compounds;
+        emit(GetCompoundSuccess());
       },
     );
   }

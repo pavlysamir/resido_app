@@ -2,10 +2,10 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:resido_app/core/utils/app_colors.dart';
-import 'package:resido_app/core/utils/app_router.dart';
-import 'package:resido_app/core/utils/widgets/custom_go_navigator.dart';
+
 import 'package:resido_app/core/utils/widgets/custom_sell_container.dart';
 import 'package:resido_app/features/home/data/models/features_model.dart';
+import 'package:resido_app/features/home/presentation/views/property_details_screen.dart';
 
 class CustomprobFeaturedItem extends StatelessWidget {
   const CustomprobFeaturedItem({
@@ -18,23 +18,35 @@ class CustomprobFeaturedItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        customJustGoNavigate(
-            context: context, path: AppRouter.kPropertyDetails);
+        // customJustGoNavigate(
+        //     context: context, path: AppRouter.kPropertyDetails);
+
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return PropertyDetailes(
+            featureProperty: featureProperty,
+          );
+        }));
       },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Stack(alignment: Alignment.bottomRight, children: [
             CachedNetworkImage(
-                imageUrl: featureProperty.image, height: 150.h, width: 250.w),
+                fit: BoxFit.cover,
+                imageUrl: featureProperty.image,
+                height: 150.h,
+                width: 250.w),
             Positioned(
               bottom: 10,
               right: 10,
-              child: CircleAvatar(
-                backgroundColor: Theme.of(context).cardColor,
-                child: const Icon(
-                  Icons.favorite_outline,
-                  color: AppColors.primaryColor,
+              child: InkWell(
+                onTap: () {},
+                child: CircleAvatar(
+                  backgroundColor: Theme.of(context).cardColor,
+                  child: const Icon(
+                    Icons.favorite_outline,
+                    color: AppColors.primaryColor,
+                  ),
                 ),
               ),
             ),

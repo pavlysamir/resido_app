@@ -428,4 +428,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get subCategory => 'Sub Category';
+
+  @override
+  String get compounds => 'Compounds';
 }

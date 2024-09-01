@@ -940,6 +940,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Sub Category'**
   String get subCategory;
+
+  /// No description provided for @compounds.
+  ///
+  /// In en, this message translates to:
+  /// **'Compounds'**
+  String get compounds;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

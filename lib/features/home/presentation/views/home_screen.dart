@@ -4,6 +4,7 @@ import 'package:resido_app/core/utils/app_colors.dart';
 import 'package:resido_app/core/utils/app_router.dart';
 import 'package:resido_app/core/utils/widgets/custom_go_navigator.dart';
 import 'package:resido_app/features/home/presentation/widgets/carousel_slider_home_slider.dart';
+import 'package:resido_app/features/home/presentation/widgets/custom_listView_compound.dart';
 import 'package:resido_app/features/home/presentation/widgets/custom_listView_properties_home.dart';
 import 'package:resido_app/features/home/presentation/widgets/custom_listView_unit.dart';
 import 'package:resido_app/features/home/presentation/widgets/custom_search_decoration.dart';
@@ -40,6 +41,17 @@ class HomeScreen extends StatelessWidget {
                 height: 14.h,
               ),
               const CustomPropertyHomeListview(),
+              SizedBox(
+                height: 18.h,
+              ),
+              Text(
+                AppLocalizations.of(context)!.compounds,
+                style: Theme.of(context).textTheme.headlineSmall,
+              ),
+              SizedBox(
+                height: 18.h,
+              ),
+              const CustomListviewCompound(),
               SizedBox(
                 height: 18.h,
               ),
