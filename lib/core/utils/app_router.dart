@@ -10,12 +10,12 @@ import 'package:resido_app/features/home/presentation/views/feature_prop_screen.
 import 'package:resido_app/features/home/presentation/views/property_details_screen.dart';
 import 'package:resido_app/features/search/presentation/views/filter_result_screen.dart';
 import 'package:resido_app/features/search/presentation/views/filter_screen.dart';
-import 'package:resido_app/features/profile/contact_us/presentation/views/contact_us.dart';
 
 import '../../features/authentications/presentation/views/login_screen.dart';
 import '../../features/authentications/presentation/views/register_screen.dart';
 import '../../features/home/presentation/views/add_prop_screens/add_proparties_third_screen.dart';
-import '../../features/profile/profile_edite/presentation/views/profile_edite_screen.dart';
+import '../../features/profile/contact_us/ui/views/contact_us.dart';
+import '../../features/profile/profile_edite/ui/views/profile_edite_screen.dart';
 import '../../features/search/presentation/views/search_screen.dart';
 
 abstract class AppRouter {

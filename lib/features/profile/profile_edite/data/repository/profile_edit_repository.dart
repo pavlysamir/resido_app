@@ -39,7 +39,8 @@ class ProfileEditRepositoryImpl extends ProfileEditRepository {
         'phone': phone,
         'address': address,
         if (image != null)
-          'image': await MultipartFile.fromFile(image, filename: 'profile.png'),
+         'image': await MultipartFile.fromFile(image, filename: 'profile.png'),
+          //'image': image,
 
         //  age': image,
       });
@@ -58,8 +59,8 @@ class ProfileEditRepositoryImpl extends ProfileEditRepository {
             .saveData(key: ApiKey.IMAGE_PROFILE_KEY, value: image);
       }
       return Right(updatedProfile);
-    } catch (error) {
-      return Left(error.toString());
+    } on ServerException catch (error) {
+      return Left(error.errModel.errorMessage![0] ?? 'Server error');
     }
   }
 }

@@ -7,6 +7,8 @@ class EndPoint {
       "api/BaseLookup/GetAllAvailabilityWork";
 
   static String getProfileEndPoint = "profile";
+  static String getFavoriteDataEndPoint = "like-user";
+  static String getFavorite="favorite";
   static String getCurrentUserSorted = "Home/GetCurrentUserSorted";
 
   static String getAllUsers = "Home/GetAllUsers";
@@ -40,6 +42,8 @@ class EndPoint {
   static String resendOtp = "Account/Resend-otp";
 
   static String login = "login";
+  static String logout = "logout";
+  static String deleteAccountAPI = "delete-account";
 
   static String signUp = "register";
 
