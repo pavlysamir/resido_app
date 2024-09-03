@@ -12,4 +12,5 @@ abstract class HomeRepo {
   Future<Either<String, CategoryList>> getCategory();
   Future<Either<String, ApartmentDaetails>> getApartmentDetails(int id);
   Future<Either<String, List<CompoundModel>>> getCoumpound();
+  Future<Either<String, void>> makeLike(int apartmentId);
 }

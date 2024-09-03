@@ -12,7 +12,7 @@ class DataItem {
   factory DataItem.fromJson(Map<String, dynamic> json) {
     return DataItem(
       id: json['id'],
-      name: json['name'],
+      name: json['title'],
       image: json['image'],
     );
   }
@@ -20,7 +20,7 @@ class DataItem {
   Map<String, dynamic> toJson() {
     return {
       'id': id,
-      'name': name,
+      'title': name,
       'image': image,
     };
   }

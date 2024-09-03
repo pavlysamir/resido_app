@@ -65,3 +65,15 @@ final class GetCompoundFailure extends HomeState {
 
   const GetCompoundFailure({required this.message});
 }
+
+final class MakeLikeLoading extends HomeState {}
+
+final class MakeLikeSuccess extends HomeState {}
+
+final class MakeLikeFailure extends HomeState {
+  final String message;
+
+  const MakeLikeFailure({required this.message});
+}
+
+final class ToggleLikeIcon extends HomeState {}

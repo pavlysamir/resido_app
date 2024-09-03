@@ -5,6 +5,7 @@ class FeatureProperty {
   String bedrooms;
   String bathrooms;
   String area;
+  int likey;
   String featured;
   String? deliveryIn;
   String longitude;
@@ -34,6 +35,7 @@ class FeatureProperty {
     required this.area,
     required this.featured,
     this.deliveryIn,
+    required this.likey,
     required this.longitude,
     required this.latitude,
     required this.balconies,
@@ -80,6 +82,7 @@ class FeatureProperty {
       address: json['address'],
       sub: SubCategory.fromJson(json['sub']),
       type: Type.fromJson(json['type']),
+      likey: json['likey'],
     );
   }
 }

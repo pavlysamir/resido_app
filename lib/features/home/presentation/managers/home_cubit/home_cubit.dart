@@ -41,6 +41,13 @@ class HomeCubit extends Cubit<HomeState> {
       (errMessage) => emit(GetFeaturePropertiesFailure(message: errMessage)),
       (featureProp) {
         featureProperties = featureProp;
+        featureProp.forEach(
+          (element) {
+            if (element.likey == 1) {
+              likes[element.id] = true;
+            }
+          },
+        );
         emit(GetFeaturePropertiesSuccess());
       },
     );
@@ -101,4 +108,20 @@ class HomeCubit extends Cubit<HomeState> {
       },
     );
   }
+
+  makeLike(int apartmentId) async {
+    emit(MakeLikeLoading());
+
+    final response = await homeRepository.makeLike(apartmentId);
+
+    response.fold(
+      (errMessage) => emit(MakeLikeFailure(message: errMessage)),
+      (liked) {
+        likes[apartmentId] = !likes[apartmentId]!;
+        emit(MakeLikeSuccess());
+      },
+    );
+  }
+
+  Map<int, bool> likes = {};
 }

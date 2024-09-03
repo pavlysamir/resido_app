@@ -1,24 +1,16 @@
-<<<<<<< HEAD
-#Sun Sep 01 13:48:44 EEST 2024
-base.0=E\:\\sido_app\\build\\app\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
-base.1=E\:\\sido_app\\build\\app\\intermediates\\dex\\debug\\mergeLibDexDebug\\0\\classes.dex
-base.2=E\:\\sido_app\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
-base.3=E\:\\sido_app\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\15\\classes.dex
-base.4=E\:\\sido_app\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\1\\classes.dex
-=======
-#Sat Aug 31 16:57:56 EET 2024
+#Mon Sep 02 16:59:50 EET 2024
 path.4=1/classes.dex
 path.3=15/classes.dex
 path.2=0/classes.dex
 path.1=0/classes.dex
->>>>>>> ebecdf1fd590b80968fe7db1fbd62c6647e2d2b0
 path.0=classes.dex
-path.1=0/classes.dex
-path.2=0/classes.dex
-path.3=15/classes.dex
-path.4=1/classes.dex
-renamed.0=classes.dex
-renamed.1=classes2.dex
-renamed.2=classes3.dex
+base.4=D\:\\chrome download\\resido-app\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\1\\classes.dex
+base.3=D\:\\chrome download\\resido-app\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\15\\classes.dex
+base.2=D\:\\chrome download\\resido-app\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
+base.1=D\:\\chrome download\\resido-app\\build\\app\\intermediates\\dex\\debug\\mergeLibDexDebug\\0\\classes.dex
+base.0=D\:\\chrome download\\resido-app\\build\\app\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 renamed.3=classes4.dex
+renamed.2=classes3.dex
+renamed.1=classes2.dex
+renamed.0=classes.dex
 renamed.4=classes5.dex

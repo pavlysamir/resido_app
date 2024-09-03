@@ -33,7 +33,7 @@ class GridViewPropertiesItem extends StatelessWidget {
         Container(
           width: 250.w,
           decoration: BoxDecoration(
-            color: Theme.of(context).cardColor,
+            color: Theme.of(context).appBarTheme.backgroundColor,
             borderRadius: BorderRadius.circular(5.r),
           ),
           child: Padding(

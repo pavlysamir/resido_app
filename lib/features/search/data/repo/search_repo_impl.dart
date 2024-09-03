@@ -11,15 +11,17 @@ class SearchRepoImpl implements SearchRepo {
   SearchRepoImpl({required this.api});
 
   @override
-  Future<Either<String, UnitDataModel>> search(String keword) async {
+  Future<Either<String, PaginatedProperties>> search(String keword,
+      {int pageNumber = 1}) async {
     try {
       final response = await api.post(
         EndPoint.search,
+        queryParameters: {'page': pageNumber},
         data: {
           'keword': keword,
         },
       );
-      var data = UnitDataModel.fromJson(response);
+      var data = PaginatedProperties.fromJson(response);
       return Right(data);
     } on ServerException catch (e) {
       return Left(e.errModel.errorMessage![0] ?? 'Server error');
@@ -27,7 +29,7 @@ class SearchRepoImpl implements SearchRepo {
   }
 
   @override
-  Future<Either<String, UnitDataModel>> filter(
+  Future<Either<String, PaginatedProperties>> filter(
       int? typeId,
       int? categoryId,
       String? priceFrom,
@@ -49,7 +51,7 @@ class SearchRepoImpl implements SearchRepo {
         },
       );
 
-      var data = UnitDataModel.fromJson(response);
+      var data = PaginatedProperties.fromJson(response);
 
       return Right(data);
     } on ServerException catch (e) {

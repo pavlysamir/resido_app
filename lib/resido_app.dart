@@ -73,7 +73,7 @@ class ResidoApp extends StatelessWidget {
           ],
           supportedLocales: L10n.all,
           routerConfig: AppRouter.router,
-          theme: AppTheme.darkTheme,
+          theme: AppTheme.lightTheme,
         ),
       ),
     );

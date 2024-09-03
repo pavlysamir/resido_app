@@ -111,4 +111,17 @@ class HomeRepoImpl implements HomeRepo {
       return Left(e.errModel.errorMessage![0] ?? 'Server error');
     }
   }
+
+  @override
+  Future<Either<String, void>> makeLike(int apartmentId) async {
+    try {
+      final response = await api.post(EndPoint.makeLike, data: {
+        'apartment_id': apartmentId,
+      });
+
+      return Right(response);
+    } on ServerException catch (e) {
+      return Left(e.errModel.errorMessage![0] ?? 'Server error');
+    }
+  }
 }

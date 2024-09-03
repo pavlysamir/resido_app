@@ -19,7 +19,7 @@ class CustomItemProbirtyHome extends StatelessWidget {
       child: Container(
         width: 90.w,
         decoration: BoxDecoration(
-          color: Theme.of(context).cardColor,
+          color: Theme.of(context).appBarTheme.backgroundColor,
           borderRadius: BorderRadius.circular(10),
           border: Border.all(
               color: Theme.of(context)

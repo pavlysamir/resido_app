@@ -23,7 +23,7 @@ class CustomSearchDecoration extends StatelessWidget {
           width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
             border: Border.all(color: Colors.grey[300]!),
-            color: AppColors.white,
+            color: Theme.of(context).appBarTheme.backgroundColor,
             borderRadius: BorderRadius.circular(10),
           ),
           child: Row(

@@ -9,7 +9,7 @@ class SearchItemWidget extends StatelessWidget {
     super.key,
     required this.propertyDetailsModel,
   });
-  final PropertyDetailsModel propertyDetailsModel;
+  final PropertyModel propertyDetailsModel;
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +53,7 @@ class SearchItemWidget extends StatelessWidget {
                         color: Colors.white.withOpacity(0.5)),
                     child: Center(
                         child: Text(
-                      propertyDetailsModel.type,
+                      propertyDetailsModel.title,
                       style: Theme.of(context).textTheme.titleSmall,
                     )),
                   ),
@@ -84,7 +84,7 @@ class SearchItemWidget extends StatelessWidget {
                         width: 5.w,
                       ),
                       Text(
-                        propertyDetailsModel.category,
+                        propertyDetailsModel.description,
                         style: Theme.of(context).textTheme.titleSmall,
                       ),
                       const Spacer(),
@@ -104,8 +104,8 @@ class SearchItemWidget extends StatelessWidget {
                         .labelLarge!
                         .copyWith(color: AppColors.primaryColor),
                   ),
-                  Text(propertyDetailsModel.name,
-                      style: Theme.of(context).textTheme.labelMedium),
+                  // Text(propertyDetailsModel.name,
+                  //     style: Theme.of(context).textTheme.labelMedium),
                   const Spacer(),
                   Row(
                     children: [
