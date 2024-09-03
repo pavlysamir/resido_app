@@ -25,13 +25,16 @@ class SearchCubit extends Cubit<SearchState> {
   final TextEditingController location = TextEditingController();
 
   int? typeId;
+  int selectedIndex = 0;
 
   changeType(int index) {
+    selectedIndex = index;
     if (index == 0) {
       typeId = 1;
     } else if (index == 1) {
       typeId = 2;
     }
+    // emit(SearchTypeChanged());
   }
 
   PaginatedProperties? searchList;
@@ -135,6 +138,23 @@ class SearchCubit extends Cubit<SearchState> {
       selectedMapCategory[index] = true;
       emit(SelectCategoryId());
       print(selectedMapCategory);
+    }
+  }
+
+  Map<int, bool> toggleMapType = {0: true};
+
+  toggleCategory(int index) {
+    if (toggleMapType[index] == true) {
+      toggleMapType.clear();
+
+      emit(SelectCategoryId());
+
+      print(toggleMapType);
+    } else {
+      toggleMapType.clear();
+      toggleMapType[index] = true;
+      emit(SelectCategoryId());
+      print(toggleMapType);
     }
   }
 

@@ -429,4 +429,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get compounds => 'Compounds';
+
+  @override
+  String get resetPassWord => 'Reset Your Password';
+
+  @override
+  String get forgetpass => 'Forgot Password?';
+
+  @override
+  String get yourEmail => 'Your Email';
+
+  @override
+  String get noWorry => 'No worries , we”ll send a recovery link to your email.';
+
+  @override
+  String get backTo => 'Back To';
 }

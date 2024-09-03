@@ -47,6 +47,8 @@ class LoginCubit extends Cubit<LoginState> {
 
   TextEditingController confirmNewPasswordController = TextEditingController();
 
+  TextEditingController emailToResetPassword = TextEditingController();
+
   var formScreenLoginrKey = GlobalKey<FormState>();
 
   var formScreenResetPasswordKey = GlobalKey<FormState>();
@@ -54,6 +56,8 @@ class LoginCubit extends Cubit<LoginState> {
   var formVerifyOtpPhoneKey = GlobalKey<FormState>();
 
   var formVerifyPhoneKey = GlobalKey<FormState>();
+
+  var formVerifyEmailForgetOtpKey = GlobalKey<FormState>();
 
   login() async {
     emit(LoginLoading());

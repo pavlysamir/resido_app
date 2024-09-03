@@ -150,7 +150,11 @@
 "area":"Area",
 "filterResults":"Filter Results",
 "subCategory":"Sub Category",
-"compounds":"Compounds"
-
+"compounds":"Compounds",
+"resetPassWord":"Reset Your Password",
+"forgetpass":"Forgot Password?",
+"yourEmail":"Your Email",
+"noWorry":"No worries , we”ll send a recovery link to your email.",
+"backTo":"Back To"
 
   }

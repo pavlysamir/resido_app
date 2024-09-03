@@ -112,8 +112,9 @@ class LoginScreen extends StatelessWidget {
                   Center(
                       child: TextButton(
                     onPressed: () {
-                      // customGoAndDeleteNavigate(
-                      //     context: context, path: AppRouter.kVerifyPhoneScreen);
+                      customGoAndDeleteNavigate(
+                          context: context,
+                          path: AppRouter.kResetPasswordScreen);
                       LoginCubit.get(context)!.clearData();
                     },
                     child: Text(

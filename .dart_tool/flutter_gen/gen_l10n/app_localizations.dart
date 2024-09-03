@@ -944,6 +944,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Compounds'**
   String get compounds;
+
+  /// No description provided for @resetPassWord.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset Your Password'**
+  String get resetPassWord;
+
+  /// No description provided for @forgetpass.
+  ///
+  /// In en, this message translates to:
+  /// **'Forgot Password?'**
+  String get forgetpass;
+
+  /// No description provided for @yourEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Email'**
+  String get yourEmail;
+
+  /// No description provided for @noWorry.
+  ///
+  /// In en, this message translates to:
+  /// **'No worries , we”ll send a recovery link to your email.'**
+  String get noWorry;
+
+  /// No description provided for @backTo.
+  ///
+  /// In en, this message translates to:
+  /// **'Back To'**
+  String get backTo;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

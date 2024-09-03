@@ -34,9 +34,8 @@ class CustomItemCompound extends StatelessWidget {
               child: CachedNetworkImage(
                   fit: BoxFit.cover,
                   imageUrl:
-                      'https://www.shutterstock.com/image-photo/residential-area-ecological-sustainable-green-600nw-1888460134.jpg'
-                  //compoundModel.image
-                  ,
+                      //  'https://www.shutterstock.com/image-photo/residential-area-ecological-sustainable-green-600nw-1888460134.jpg'
+                      compoundModel.image,
                   height: 200.h,
                   width: 300.w),
             ),

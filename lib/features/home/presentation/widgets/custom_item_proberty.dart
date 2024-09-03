@@ -45,9 +45,13 @@ class CustomItemProbirtyHome extends StatelessWidget {
               SizedBox(
                 width: 3.w,
               ),
-              Text(
-                category.title,
-                style: Theme.of(context).textTheme.bodySmall!,
+              Expanded(
+                child: Text(
+                  category.title,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: Theme.of(context).textTheme.bodySmall!,
+                ),
               ),
             ],
           ),

@@ -44,3 +44,5 @@ final class GetMoreSearchLoading extends SearchState {}
 final class GetMoreSearchedSuccess extends SearchState {}
 
 final class ClearData extends SearchState {}
+
+final class SearchTypeChanged extends SearchState {}
