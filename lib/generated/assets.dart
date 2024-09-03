@@ -46,5 +46,6 @@ class Assets {
   static const String svgDeleteIllustrator = 'assets/svg/delete_illustrator.svg';
   static const String svgEnquiry = 'assets/svg/enquiry.svg';
   static const String svgLogoutConfirmation = 'assets/svg/logout_confirmation.svg';
+  static const String svgNoDataFound = 'assets/svg/no_data_found.svg';
 
 }

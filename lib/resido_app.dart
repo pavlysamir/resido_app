@@ -37,7 +37,9 @@ class ResidoApp extends StatelessWidget {
               ..getBanner()
               ..getFeatureProparties()
               ..getCategory()
-              ..getCompounds()),
+              ..getCompounds()
+                ..getMostLike()
+        ),
         BlocProvider(
             create: (context) => LoginCubit(getIt.get<AuthRepoImpl>())),
         BlocProvider(
@@ -73,7 +75,7 @@ class ResidoApp extends StatelessWidget {
           ],
           supportedLocales: L10n.all,
           routerConfig: AppRouter.router,
-          theme: AppTheme.darkTheme,
+          theme: AppTheme.lightTheme,
         ),
       ),
     );

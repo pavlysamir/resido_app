@@ -1,13 +1,18 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:resido_app/core/Assets/assets.dart';
 import 'package:resido_app/core/utils/app_colors.dart';
 import 'package:resido_app/core/utils/widgets/custom_sell_container.dart';
+import 'package:shimmer/shimmer.dart';
+
+import '../../data/models/most_like_model.dart';
 
 class GridViewPropertiesItem extends StatelessWidget {
-  const GridViewPropertiesItem({
-    super.key,
-  });
+  final Data item;
+
+  const GridViewPropertiesItem({required this.item, super.key});
+
 
   @override
   Widget build(BuildContext context) {
@@ -15,9 +20,21 @@ class GridViewPropertiesItem extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Stack(alignment: Alignment.bottomRight, children: [
-          Image.asset(
-            AssetsData.unitItem,
+          CachedNetworkImage(
+            imageUrl: item.image,
             width: 250.w,
+            height: 100.h,
+            fit: BoxFit.cover,
+            placeholder: (context, url) => Shimmer.fromColors(
+              baseColor: Colors.grey[300]!,
+              highlightColor: Colors.grey[100]!,
+              child: Container(
+                width: 250.w,
+                height: 150.h,
+                color: Colors.white,
+              ),
+            ),
+            errorWidget: (context, url, error) => const Icon(Icons.error),
           ),
           CircleAvatar(
             backgroundColor: Theme.of(context).cardColor,
@@ -26,8 +43,8 @@ class GridViewPropertiesItem extends StatelessWidget {
               color: AppColors.primaryColor,
             ),
           ),
-          const CustomSellContainer(
-            text: 'Sell',
+          CustomSellContainer(
+            text: item.type.title,
           ),
         ]),
         Container(
@@ -48,19 +65,19 @@ class GridViewPropertiesItem extends StatelessWidget {
                       size: 18,
                     ),
                     Text(
-                      'city',
+                      item.address.toString(),
                       style: Theme.of(context).textTheme.titleSmall,
                     ),
                   ],
                 ),
                 Text(
-                  '2,500,000',
+                  item.price.toString(),
                   style: Theme.of(context)
                       .textTheme
                       .labelLarge!
                       .copyWith(color: AppColors.primaryColor),
                 ),
-                Text('Luxuries Haven Villa',
+                Text(item.title.toString(),
                     style: Theme.of(context).textTheme.labelMedium),
                 Row(
                   children: [

@@ -9,6 +9,8 @@ import 'package:resido_app/features/home/data/models/compound_model.dart';
 import 'package:resido_app/features/home/data/models/features_model.dart';
 import 'package:resido_app/features/home/data/repo/home_repo.dart';
 
+import '../models/most_like_model.dart';
+
 class HomeRepoImpl implements HomeRepo {
   final ApiConsumer api;
   HomeRepoImpl({required this.api});
@@ -106,6 +108,20 @@ class HomeRepoImpl implements HomeRepo {
       var data = List<CompoundModel>.from(
           response['data'].map((x) => CompoundModel.fromJson(x)));
 
+      return Right(data);
+    } on ServerException catch (e) {
+      return Left(e.errModel.errorMessage![0] ?? 'Server error');
+    }
+  }
+
+  @override
+  Future<Either<String, MostLikeModel>> getMostLike()  async{
+    try {
+      final response = await api.get(
+        EndPoint.mostLike,
+      );
+
+      var data = MostLikeModel.fromJson(response);
       return Right(data);
     } on ServerException catch (e) {
       return Left(e.errModel.errorMessage![0] ?? 'Server error');

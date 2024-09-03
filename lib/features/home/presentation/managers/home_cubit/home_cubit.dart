@@ -8,6 +8,8 @@ import 'package:resido_app/features/home/data/models/compound_model.dart';
 import 'package:resido_app/features/home/data/models/features_model.dart';
 import 'package:resido_app/features/home/data/repo/home_repo.dart';
 
+import '../../../data/models/most_like_model.dart';
+
 part 'home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {
@@ -97,6 +99,20 @@ class HomeCubit extends Cubit<HomeState> {
       (errMessage) => emit(GetCompoundFailure(message: errMessage)),
       (compounds) {
         copoundList = compounds;
+        emit(GetCompoundSuccess());
+      },
+    );
+  }
+  // get most like from repository
+  MostLikeModel? mostLike;
+  getMostLike() async {
+    emit(GetCompoundLoading());
+    final response = await homeRepository.getMostLike();
+
+    response.fold(
+      (errMessage) => emit(GetCompoundFailure(message: errMessage)),
+      (mostLike) {
+        this.mostLike = mostLike;
         emit(GetCompoundSuccess());
       },
     );

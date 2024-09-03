@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shimmer/shimmer.dart';
 import 'package:resido_app/core/utils/app_colors.dart';
-
 import 'package:resido_app/core/utils/widgets/custom_sell_container.dart';
 import 'package:resido_app/features/home/data/models/features_model.dart';
 import 'package:resido_app/features/home/presentation/views/property_details_screen.dart';
@@ -18,9 +18,6 @@ class CustomprobFeaturedItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        // customJustGoNavigate(
-        //     context: context, path: AppRouter.kPropertyDetails);
-
         Navigator.push(context, MaterialPageRoute(builder: (context) {
           return PropertyDetailes(
             featureProperty: featureProperty,
@@ -32,10 +29,21 @@ class CustomprobFeaturedItem extends StatelessWidget {
         children: [
           Stack(alignment: Alignment.bottomRight, children: [
             CachedNetworkImage(
-                fit: BoxFit.cover,
-                imageUrl: featureProperty.image,
-                height: 150.h,
-                width: 250.w),
+              fit: BoxFit.cover,
+              imageUrl: featureProperty.image,
+              height: 150.h,
+              width: 250.w,
+              placeholder: (context, url) => Shimmer.fromColors(
+                baseColor: Colors.grey[300]!,
+                highlightColor: Colors.grey[100]!,
+                child: Container(
+                  width: 250.w,
+                  height: 150.h,
+                  color: Colors.white,
+                ),
+              ),
+              errorWidget: (context, url, error) => Icon(Icons.error),
+            ),
             Positioned(
               bottom: 10,
               right: 10,
@@ -59,8 +67,9 @@ class CustomprobFeaturedItem extends StatelessWidget {
             decoration: BoxDecoration(
               color: Theme.of(context).cardColor,
               borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(3.r),
-                  bottomRight: Radius.circular(3.r)),
+                bottomLeft: Radius.circular(3.r),
+                bottomRight: Radius.circular(3.r),
+              ),
             ),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
@@ -76,9 +85,11 @@ class CustomprobFeaturedItem extends StatelessWidget {
                       SizedBox(
                         width: 10.w,
                       ),
-                      Text(
-                        featureProperty.sub.name,
-                        style: Theme.of(context).textTheme.titleSmall,
+                      Expanded(
+                        child: Text(
+                          featureProperty.sub.name,
+                          style: Theme.of(context).textTheme.titleSmall,
+                        ),
                       ),
                     ],
                   ),
@@ -89,8 +100,10 @@ class CustomprobFeaturedItem extends StatelessWidget {
                         .labelLarge!
                         .copyWith(color: AppColors.primaryColor),
                   ),
-                  Text(featureProperty.title ?? '',
-                      style: Theme.of(context).textTheme.labelMedium),
+                  Text(
+                    featureProperty.title ?? '',
+                    style: Theme.of(context).textTheme.labelMedium,
+                  ),
                   Row(
                     children: [
                       const Expanded(

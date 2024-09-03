@@ -13,11 +13,11 @@
 13         to allow setting breakpoints, to provide hot reload, etc.
 14    -->
 15    <uses-permission android:name="android.permission.INTERNET" />
-15-->E:\sido_app\android\app\src\main\AndroidManifest.xml:3:8-69
-15-->E:\sido_app\android\app\src\main\AndroidManifest.xml:3:25-67
+15-->E:\resido_app\android\app\src\main\AndroidManifest.xml:3:8-69
+15-->E:\resido_app\android\app\src\main\AndroidManifest.xml:3:25-67
 16    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-16-->E:\sido_app\android\app\src\main\AndroidManifest.xml:2:5-79
-16-->E:\sido_app\android\app\src\main\AndroidManifest.xml:2:22-77
+16-->E:\resido_app\android\app\src\main\AndroidManifest.xml:2:5-79
+16-->E:\resido_app\android\app\src\main\AndroidManifest.xml:2:22-77
 17    <!--
 18 Required to query activities that can process text, see:
 19         https://developer.android.com/training/package-visibility and
@@ -26,16 +26,16 @@
 22         In particular, this is used by the Flutter engine in io.flutter.plugin.text.ProcessTextPlugin.
 23    -->
 24    <queries>
-24-->E:\sido_app\android\app\src\main\AndroidManifest.xml:43:5-48:15
+24-->E:\resido_app\android\app\src\main\AndroidManifest.xml:43:5-48:15
 25        <intent>
-25-->E:\sido_app\android\app\src\main\AndroidManifest.xml:44:9-47:18
+25-->E:\resido_app\android\app\src\main\AndroidManifest.xml:44:9-47:18
 26            <action android:name="android.intent.action.PROCESS_TEXT" />
-26-->E:\sido_app\android\app\src\main\AndroidManifest.xml:45:13-72
-26-->E:\sido_app\android\app\src\main\AndroidManifest.xml:45:21-70
+26-->E:\resido_app\android\app\src\main\AndroidManifest.xml:45:13-72
+26-->E:\resido_app\android\app\src\main\AndroidManifest.xml:45:21-70
 27
 28            <data android:mimeType="text/plain" />
-28-->E:\sido_app\android\app\src\main\AndroidManifest.xml:46:13-50
-28-->E:\sido_app\android\app\src\main\AndroidManifest.xml:46:19-48
+28-->E:\resido_app\android\app\src\main\AndroidManifest.xml:46:13-50
+28-->E:\resido_app\android\app\src\main\AndroidManifest.xml:46:19-48
 29        </intent>
 30    </queries>
 31
@@ -92,43 +92,43 @@
 76            android:value="2" />
 77
 78        <provider
-78-->[:image_picker_android] E:\sido_app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:11:9-19:20
+78-->[:image_picker_android] E:\resido_app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:11:9-19:20
 79            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
-79-->[:image_picker_android] E:\sido_app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-82
+79-->[:image_picker_android] E:\resido_app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-82
 80            android:authorities="com.example.resido_app.flutter.image_provider"
-80-->[:image_picker_android] E:\sido_app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-74
+80-->[:image_picker_android] E:\resido_app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-74
 81            android:exported="false"
-81-->[:image_picker_android] E:\sido_app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:14:13-37
+81-->[:image_picker_android] E:\resido_app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:14:13-37
 82            android:grantUriPermissions="true" >
-82-->[:image_picker_android] E:\sido_app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:15:13-47
+82-->[:image_picker_android] E:\resido_app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:15:13-47
 83            <meta-data
-83-->[:image_picker_android] E:\sido_app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:16:13-18:75
+83-->[:image_picker_android] E:\resido_app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:16:13-18:75
 84                android:name="android.support.FILE_PROVIDER_PATHS"
-84-->[:image_picker_android] E:\sido_app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:17:17-67
+84-->[:image_picker_android] E:\resido_app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:17:17-67
 85                android:resource="@xml/flutter_image_picker_file_paths" />
-85-->[:image_picker_android] E:\sido_app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:18:17-72
+85-->[:image_picker_android] E:\resido_app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:18:17-72
 86        </provider> <!-- Trigger Google Play services to install the backported photo picker module. -->
 87        <service
-87-->[:image_picker_android] E:\sido_app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:21:9-33:19
+87-->[:image_picker_android] E:\resido_app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:21:9-33:19
 88            android:name="com.google.android.gms.metadata.ModuleDependencies"
-88-->[:image_picker_android] E:\sido_app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:22:13-78
+88-->[:image_picker_android] E:\resido_app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:22:13-78
 89            android:enabled="false"
-89-->[:image_picker_android] E:\sido_app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:23:13-36
+89-->[:image_picker_android] E:\resido_app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:23:13-36
 90            android:exported="false" >
-90-->[:image_picker_android] E:\sido_app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:24:13-37
+90-->[:image_picker_android] E:\resido_app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:24:13-37
 91            <intent-filter>
-91-->[:image_picker_android] E:\sido_app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:26:13-28:29
+91-->[:image_picker_android] E:\resido_app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:26:13-28:29
 92                <action android:name="com.google.android.gms.metadata.MODULE_DEPENDENCIES" />
-92-->[:image_picker_android] E:\sido_app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:27:17-94
-92-->[:image_picker_android] E:\sido_app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:27:25-91
+92-->[:image_picker_android] E:\resido_app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:27:17-94
+92-->[:image_picker_android] E:\resido_app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:27:25-91
 93            </intent-filter>
 94
 95            <meta-data
-95-->[:image_picker_android] E:\sido_app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:30:13-32:36
+95-->[:image_picker_android] E:\resido_app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:30:13-32:36
 96                android:name="photopicker_activity:0:required"
-96-->[:image_picker_android] E:\sido_app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:31:17-63
+96-->[:image_picker_android] E:\resido_app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:31:17-63
 97                android:value="" />
-97-->[:image_picker_android] E:\sido_app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:32:17-33
+97-->[:image_picker_android] E:\resido_app\build\image_picker_android\intermediates\merged_manifest\debug\AndroidManifest.xml:32:17-33
 98        </service>
 99
 100        <uses-library
