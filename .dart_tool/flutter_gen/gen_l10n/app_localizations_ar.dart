@@ -431,4 +431,19 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get compounds => 'المجموعات';
+
+  @override
+  String get resetPassWord => 'اعادة تعيين كلمة المرور';
+
+  @override
+  String get forgetpass => 'نسيت كلمة المرور؟';
+
+  @override
+  String get yourEmail => 'بريدك الالكتروني';
+
+  @override
+  String get noWorry => 'لا تقلق، سوف نرسل لك رابط استعادة كلمة المرور.';
+
+  @override
+  String get backTo => 'العودة للخلف';
 }

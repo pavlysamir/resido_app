@@ -1,7 +1,6 @@
 // lib/features/favourite/ui/widgets/favorites_item_widget.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:resido_app/core/Assets/assets.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../data/models/DataFavoriteModel.dart';
 
@@ -23,7 +22,7 @@ class _FavoriteItemState extends State<FavoriteItem> {
       height: 150.h,
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Theme.of(context).cardColor,
+        color: Theme.of(context).appBarTheme.backgroundColor,
         borderRadius: BorderRadius.circular(15),
       ),
       child: Row(
@@ -53,9 +52,9 @@ class _FavoriteItemState extends State<FavoriteItem> {
                         color: Colors.white.withOpacity(0.5)),
                     child: Center(
                         child: Text(
-                          'Sell',
-                          style: Theme.of(context).textTheme.titleSmall,
-                        )),
+                      'Sell',
+                      style: Theme.of(context).textTheme.titleSmall,
+                    )),
                   ),
                 ),
               ),
@@ -64,7 +63,7 @@ class _FavoriteItemState extends State<FavoriteItem> {
           Container(
             width: 200.w,
             decoration: BoxDecoration(
-              color: Theme.of(context).cardColor,
+              color: Theme.of(context).appBarTheme.backgroundColor,
               borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(3.r),
                   bottomRight: Radius.circular(3.r)),
@@ -93,8 +92,12 @@ class _FavoriteItemState extends State<FavoriteItem> {
                         },
                         child: CircleAvatar(
                           child: Icon(
-                            isFavorite ? Icons.favorite : Icons.favorite_outline,
-                            color: isFavorite ? Color(0xFF53ADAE) : AppColors.primaryColor,
+                            isFavorite
+                                ? Icons.favorite
+                                : Icons.favorite_outline,
+                            color: isFavorite
+                                ? Color(0xFF53ADAE)
+                                : AppColors.primaryColor,
                           ),
                         ),
                       ),

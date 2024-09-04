@@ -26,8 +26,8 @@ class HomeCubit extends Cubit<HomeState> {
     final response = await homeRepository.getBannerData();
 
     response.fold(
-      (errMessage) => emit(GetBannerFailure(message: errMessage)),
-      (banners) {
+          (errMessage) => emit(GetBannerFailure(message: errMessage)),
+          (banners) {
         bannerList = banners.data;
         emit(GetBannerSuccess());
       },
@@ -40,8 +40,8 @@ class HomeCubit extends Cubit<HomeState> {
     final response = await homeRepository.getFeaturePropartiesData();
 
     response.fold(
-      (errMessage) => emit(GetFeaturePropertiesFailure(message: errMessage)),
-      (featureProp) {
+          (errMessage) => emit(GetFeaturePropertiesFailure(message: errMessage)),
+          (featureProp) {
         featureProperties = featureProp;
         emit(GetFeaturePropertiesSuccess());
       },
@@ -54,8 +54,8 @@ class HomeCubit extends Cubit<HomeState> {
     final response = await homeRepository.getAllFeaturePropartiesData();
 
     response.fold(
-      (errMessage) => emit(GetAllFeaturePropertiesFailure(message: errMessage)),
-      (featureProp) {
+          (errMessage) => emit(GetAllFeaturePropertiesFailure(message: errMessage)),
+          (featureProp) {
         allFeatureProperties = featureProp;
         emit(GetAllFeaturePropertiesSuccess());
       },
@@ -68,8 +68,8 @@ class HomeCubit extends Cubit<HomeState> {
     final response = await homeRepository.getCategory();
 
     response.fold(
-      (errMessage) => emit(GetCategoryFailure(message: errMessage)),
-      (categories) {
+          (errMessage) => emit(GetCategoryFailure(message: errMessage)),
+          (categories) {
         categoryItems = categories.data;
         emit(GetCategorySuccess());
       },
@@ -82,8 +82,8 @@ class HomeCubit extends Cubit<HomeState> {
     final response = await homeRepository.getApartmentDetails(id);
 
     response.fold(
-      (errMessage) => emit(GetCategoryFailure(message: errMessage)),
-      (apartmentDetails) {
+          (errMessage) => emit(GetCategoryFailure(message: errMessage)),
+          (apartmentDetails) {
         apartmentDetails = apartmentDetails;
         emit(GetCategorySuccess());
       },
@@ -96,8 +96,8 @@ class HomeCubit extends Cubit<HomeState> {
     final response = await homeRepository.getCoumpound();
 
     response.fold(
-      (errMessage) => emit(GetCompoundFailure(message: errMessage)),
-      (compounds) {
+          (errMessage) => emit(GetCompoundFailure(message: errMessage)),
+          (compounds) {
         copoundList = compounds;
         emit(GetCompoundSuccess());
       },
@@ -110,8 +110,8 @@ class HomeCubit extends Cubit<HomeState> {
     final response = await homeRepository.getMostLike();
 
     response.fold(
-      (errMessage) => emit(GetCompoundFailure(message: errMessage)),
-      (mostLike) {
+          (errMessage) => emit(GetCompoundFailure(message: errMessage)),
+          (mostLike) {
         this.mostLike = mostLike;
         emit(GetCompoundSuccess());
       },

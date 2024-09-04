@@ -19,7 +19,7 @@ class CustomItemProbirtyHome extends StatelessWidget {
       child: Container(
         width: 90.w,
         decoration: BoxDecoration(
-          color: Theme.of(context).cardColor,
+          color: Theme.of(context).appBarTheme.backgroundColor,
           borderRadius: BorderRadius.circular(10),
           border: Border.all(
               color: Theme.of(context)
@@ -45,9 +45,13 @@ class CustomItemProbirtyHome extends StatelessWidget {
               SizedBox(
                 width: 3.w,
               ),
-              Text(
-                category.title,
-                style: Theme.of(context).textTheme.bodySmall!,
+              Expanded(
+                child: Text(
+                  category.title,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: Theme.of(context).textTheme.bodySmall!,
+                ),
               ),
             ],
           ),

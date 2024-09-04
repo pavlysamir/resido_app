@@ -10,14 +10,16 @@ class GridViewMostLikedProperties extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cubit = HomeCubit.get(context);
+    cubit?.getMostLike();
+
     return BlocConsumer<HomeCubit, HomeState>(
       listener: (context, state) {
         // Handle side effects here if needed
       },
       builder: (context, state) {
-        var cubit = HomeCubit.get(context);
-        if (state is GetCompoundSuccess ||  cubit!.mostLike != null) {
-          final mostLikeList = cubit!.mostLike!.data;
+        if (state is GetCompoundSuccess && cubit!.mostLike != null) {
+          final mostLikeList = cubit.mostLike!.data;
           return GridView.builder(
             physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
@@ -32,7 +34,7 @@ class GridViewMostLikedProperties extends StatelessWidget {
               return GridViewPropertiesItem(item: mostLikeList[index]);
             },
           );
-        } else if (state is GetCompoundLoading) {
+        } else {
           return GridView.builder(
             physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
@@ -57,8 +59,6 @@ class GridViewMostLikedProperties extends StatelessWidget {
               );
             },
           );
-        } else {
-          return const SizedBox();
         }
       },
     );

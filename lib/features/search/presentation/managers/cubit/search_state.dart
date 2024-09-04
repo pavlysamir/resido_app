@@ -38,3 +38,11 @@ final class GetCategoryFailure extends SearchState {
 final class SelectCategoryId extends SearchState {}
 
 final class ClearFilterData extends SearchState {}
+
+final class GetMoreSearchLoading extends SearchState {}
+
+final class GetMoreSearchedSuccess extends SearchState {}
+
+final class ClearData extends SearchState {}
+
+final class SearchTypeChanged extends SearchState {}

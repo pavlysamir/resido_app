@@ -36,19 +36,22 @@ class FilterResultScreen extends StatelessWidget {
                           child: CircularProgressIndicator(
                           color: AppColors.primaryColor,
                         ))
-                      : SearchCubit.get(context)!.searchList.isEmpty
+                      : SearchCubit.get(context)!.searchList!.data.isEmpty
                           ? const Center(child: Text('No Data Found'))
                           : ListView.builder(
                               scrollDirection: Axis.vertical,
                               shrinkWrap: true,
-                              itemCount:
-                                  SearchCubit.get(context)!.filterList.length,
+                              itemCount: SearchCubit.get(context)!
+                                  .filterList!
+                                  .data
+                                  .length,
                               itemBuilder: (context, index) => Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: SearchItemWidget(
                                   propertyDetailsModel:
                                       SearchCubit.get(context)!
-                                          .filterList[index],
+                                          .filterList!
+                                          .data[index],
                                 ),
                               ),
                             ),

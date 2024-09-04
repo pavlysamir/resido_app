@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -10,8 +11,55 @@ import 'package:resido_app/features/search/presentation/widgets/Custom_Search_Ba
 import 'package:resido_app/features/search/presentation/widgets/search_item_widget.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class SearchScreen extends StatelessWidget {
+class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
+
+  @override
+  State<SearchScreen> createState() => _SearchScreenState();
+}
+
+class _SearchScreenState extends State<SearchScreen> {
+  ScrollController? _scrollController;
+  bool isLoading = false;
+  int pageNum = 1;
+  late SearchCubit _searchCubit;
+
+  @override
+  void initState() {
+    super.initState();
+    _searchCubit = SearchCubit.get(context)!;
+    _scrollController = ScrollController();
+
+    // HomeCubit.get(context)!
+    //     .getAllUsers(pageNumber: pageNum); // Fetch initial data
+    _scrollController!.addListener(_scrollListener);
+  }
+
+  @override
+  void dispose() {
+    _scrollController?.dispose();
+    _searchCubit.clearData();
+
+    super.dispose();
+  }
+
+  void _scrollListener() async {
+    if (_scrollController!.position.pixels >=
+            0.7 * _scrollController!.position.maxScrollExtent &&
+        !isLoading) {
+      if (SearchCubit.get(context)!.count! !=
+          SearchCubit.get(context)!.searchList!.data.length) {
+        isLoading = true;
+        if (kDebugMode) {
+          print("bavlyyyyyyyyyyyyyy${++pageNum}");
+        }
+        await SearchCubit.get(context)!.search(pageNum++);
+        isLoading = false;
+      } else {
+        null;
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +72,7 @@ class SearchScreen extends StatelessWidget {
             child: CustomButtonLarge(
               text: AppLocalizations.of(context)!.search,
               function: () {
-                SearchCubit.get(context)!.search();
+                SearchCubit.get(context)!.search(1);
               },
               textColor: Colors.white,
             ),
@@ -121,18 +169,21 @@ class SearchScreen extends StatelessWidget {
                         child: CircularProgressIndicator(
                         color: AppColors.primaryColor,
                       ))
-                    : SearchCubit.get(context)!.searchList.isEmpty
+                    : SearchCubit.get(context)!.searchList == null
                         ? const Center(child: Text('No Data Found'))
                         : ListView.builder(
                             scrollDirection: Axis.vertical,
                             shrinkWrap: true,
-                            itemCount:
-                                SearchCubit.get(context)!.searchList.length,
+                            itemCount: SearchCubit.get(context)!
+                                .searchList!
+                                .data
+                                .length,
                             itemBuilder: (context, index) => Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: SearchItemWidget(
-                                propertyDetailsModel:
-                                    SearchCubit.get(context)!.searchList[index],
+                                propertyDetailsModel: SearchCubit.get(context)!
+                                    .searchList!
+                                    .data[index],
                               ),
                             ),
                           ),

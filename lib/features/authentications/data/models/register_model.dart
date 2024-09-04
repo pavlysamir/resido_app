@@ -1,15 +1,12 @@
 class UserRegister {
   String name;
   String email;
-  String updatedAt;
-  String createdAt;
+
   int id;
 
   UserRegister({
     required this.name,
     required this.email,
-    required this.updatedAt,
-    required this.createdAt,
     required this.id,
   });
 
@@ -17,8 +14,6 @@ class UserRegister {
     return UserRegister(
       name: json['name'],
       email: json['email'],
-      updatedAt: json['updated_at'],
-      createdAt: json['created_at'],
       id: json['id'],
     );
   }
@@ -27,8 +22,6 @@ class UserRegister {
     return {
       'name': name,
       'email': email,
-      'updated_at': updatedAt,
-      'created_at': createdAt,
       'id': id,
     };
   }

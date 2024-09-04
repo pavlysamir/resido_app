@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:resido_app/features/search/data/models/category_item_model.dart';
@@ -24,18 +25,31 @@ class SearchCubit extends Cubit<SearchState> {
   final TextEditingController location = TextEditingController();
 
   int? typeId;
+  int selectedIndex = 0;
 
   changeType(int index) {
+    selectedIndex = index;
     if (index == 0) {
       typeId = 1;
     } else if (index == 1) {
       typeId = 2;
     }
+    // emit(SearchTypeChanged());
   }
 
-  List<PropertyDetailsModel> searchList = [];
-  search() async {
-    emit(SearchLoading());
+  PaginatedProperties? searchList;
+  int? count;
+  search(int pageNumber) async {
+    if (pageNumber == 1) {
+      searchList!.data.clear();
+    }
+
+    if (pageNumber == 1) {
+      emit(SearchLoading());
+    } else {
+      emit(GetMoreSearchLoading());
+    }
+
     final response = await searchRepo.search(
       searchController.text,
     );
@@ -43,13 +57,24 @@ class SearchCubit extends Cubit<SearchState> {
     response.fold(
       (errMessage) => emit(SearchFailure(message: errMessage)),
       (search) {
-        searchList = search.data;
+        if (pageNumber == 1) {
+          count = search.total;
+        }
+
+        searchList = search;
+        if (pageNumber == 1) {
+          emit(SearchSuccess());
+        } else {
+          emit(GetMoreSearchedSuccess());
+        }
+
+        searchList = search;
         emit(SearchSuccess());
       },
     );
   }
 
-  List<PropertyDetailsModel> filterList = [];
+  PaginatedProperties? filterList;
 
   filter() async {
     emit(FilterLoading());
@@ -66,7 +91,7 @@ class SearchCubit extends Cubit<SearchState> {
     response.fold(
       (errMessage) => emit(FilterFailure(message: errMessage)),
       (filter) {
-        filterList = filter.data;
+        filterList = filter;
         emit(FilterSuccess());
       },
     );
@@ -93,7 +118,7 @@ class SearchCubit extends Cubit<SearchState> {
     filterAreaToController.clear();
     location.clear();
     selectedMapCategory.clear();
-    filterList.clear();
+    filterList == null;
     typeId = null;
 
     emit(ClearFilterData());
@@ -114,5 +139,29 @@ class SearchCubit extends Cubit<SearchState> {
       emit(SelectCategoryId());
       print(selectedMapCategory);
     }
+  }
+
+  Map<int, bool> toggleMapType = {0: true};
+
+  toggleCategory(int index) {
+    if (toggleMapType[index] == true) {
+      toggleMapType.clear();
+
+      emit(SelectCategoryId());
+
+      print(toggleMapType);
+    } else {
+      toggleMapType.clear();
+      toggleMapType[index] = true;
+      emit(SelectCategoryId());
+      print(toggleMapType);
+    }
+  }
+
+  Future<void> clearData() async {
+    searchController.clear();
+    searchList == null;
+
+    emit(ClearData());
   }
 }

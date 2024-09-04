@@ -8,7 +8,7 @@ class EndPoint {
 
   static String getProfileEndPoint = "profile";
   static String getFavoriteDataEndPoint = "like-user";
-  static String getFavorite="favorite";
+  static String getFavorite = "favorite";
   static String getCurrentUserSorted = "Home/GetCurrentUserSorted";
 
   static String getAllUsers = "Home/GetAllUsers";
@@ -55,6 +55,8 @@ class EndPoint {
   static String banners = "banner";
 
   static String getFeatures = "featured";
+
+  static String makeLike = "favorite";
 
   static String getAllFeatures = "featured-all";
 

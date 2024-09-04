@@ -72,3 +72,15 @@ final class GetMostLikeFailure extends HomeState {
   final String message;
   const GetMostLikeFailure({required this.message});
 }
+
+final class MakeLikeLoading extends HomeState {}
+
+final class MakeLikeSuccess extends HomeState {}
+
+final class MakeLikeFailure extends HomeState {
+  final String message;
+
+  const MakeLikeFailure({required this.message});
+}
+
+final class ToggleLikeIcon extends HomeState {}
