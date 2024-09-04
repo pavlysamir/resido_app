@@ -11,14 +11,14 @@ class GridViewMostLikedProperties extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cubit = HomeCubit.get(context);
-    cubit?.getMostLike();
+   // cubit?.getMostLike();
 
     return BlocConsumer<HomeCubit, HomeState>(
       listener: (context, state) {
         // Handle side effects here if needed
       },
       builder: (context, state) {
-        if (state is GetCompoundSuccess && cubit!.mostLike != null) {
+        if (cubit!.mostLike != null) {
           final mostLikeList = cubit.mostLike!.data;
           return GridView.builder(
             physics: const NeverScrollableScrollPhysics(),

@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:logger/logger.dart';
 import 'package:resido_app/features/home/data/models/apartment_details_model.dart';
 import 'package:resido_app/features/home/data/models/banner_model.dart';
 import 'package:resido_app/features/home/data/models/category_item_model.dart';
@@ -106,15 +107,49 @@ class HomeCubit extends Cubit<HomeState> {
   // get most like from repository
   MostLikeModel? mostLike;
   getMostLike() async {
-    emit(GetCompoundLoading());
+    emit(GetMostLikeLoading());
     final response = await homeRepository.getMostLike();
-
     response.fold(
-          (errMessage) => emit(GetCompoundFailure(message: errMessage)),
+          (errMessage) => emit(GetMostLikeFailure(message: errMessage)),
           (mostLike) {
         this.mostLike = mostLike;
-        emit(GetCompoundSuccess());
+        updateFavoritesFromMostLike();
+        emit(GetMostLikeSuccess());
       },
     );
+  }
+  Map<int,bool> isFavorites = {};
+
+  void addPropertyToFavorites(int id) async {
+    emit(AddFavoriteLoading());
+    final response = await homeRepository.addProperty(id);
+    response.fold(
+          (errMessage) => emit(AddFavoriteFailure(message: errMessage)),
+          (data) {
+            /*
+            * This is the part where you should update the isFavorites map with the new value
+            * */
+        if (isFavorites.containsKey(id)) {
+          isFavorites[id] = !isFavorites[id]!;
+        } else {
+          isFavorites[id] = true; // or false, depending on the initial state
+        }
+
+        emit(AddFavoriteSuccess());
+      },
+    );
+  }
+  void updateFavoritesFromMostLike() {
+    if (mostLike != null) {
+      /*
+      * this loop will update the isFavorites map with the values from the mostLike model
+      * and body of this loop should be the same as the body of the loop in the getMostLike method
+      * */
+      for (var item in mostLike!.data) {
+        // this mean send item id and item likey to isFavorites map and check
+        // if item.likey == 1 then isFavorites[item.id] = true else isFavorites[item.id] = false
+        isFavorites[item.id] = item.likey == 1;
+      }
+    }
   }
 }

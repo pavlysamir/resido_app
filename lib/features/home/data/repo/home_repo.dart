@@ -15,5 +15,7 @@ abstract class HomeRepo {
   Future<Either<String, ApartmentDaetails>> getApartmentDetails(int id);
   Future<Either<String, List<CompoundModel>>> getCoumpound();
   Future<Either<String,MostLikeModel>> getMostLike();
+  /// Create post method to add new property by use 0 and 1 if zero mean not like and 1 mean like
+  Future<Either<String, dynamic>> addProperty(int data);
 
 }

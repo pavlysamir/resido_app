@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:logger/logger.dart';
 import 'package:resido_app/core/api/api_consumer.dart';
 import 'package:resido_app/core/api/end_ponits.dart';
 import 'package:resido_app/core/errors/exceptions.dart';
@@ -133,9 +134,27 @@ class HomeRepoImpl implements HomeRepo {
       final response = await api.get(
         EndPoint.mostLike,
       );
-
+      //Logger().i(response);
       var data = MostLikeModel.fromJson(response);
       return Right(data);
+    } on ServerException catch (e) {
+      return Left(e.errModel.errorMessage![0] ?? 'Server error');
+    }
+  }
+
+  /*
+  * this method is used to add property to favorite list by passing apartment id
+  * */
+  @override
+  Future<Either<String, dynamic>> addProperty(int data) async {
+    try {
+      final response = await api.post(
+        EndPoint.getFavorite,
+        data: {
+          'apartment_id': data,
+        },
+      );
+      return Right(response);
     } on ServerException catch (e) {
       return Left(e.errModel.errorMessage![0] ?? 'Server error');
     }
