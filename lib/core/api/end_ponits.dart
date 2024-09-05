@@ -33,6 +33,7 @@ class EndPoint {
   static String getSubCategories = "sub-categories";
 
   static String getCompound = "compounds";
+  static String mostLike = "mlikes";
 
   static String verifyMobileNum = "Account/VerifyMobileNumber";
   static String verifyOtpMobileNum = "Account/verify-otp";

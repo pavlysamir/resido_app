@@ -8,6 +8,8 @@ import 'package:resido_app/features/home/data/models/compound_model.dart';
 import 'package:resido_app/features/home/data/models/features_model.dart';
 import 'package:resido_app/features/home/data/repo/home_repo.dart';
 
+import '../../../data/models/most_like_model.dart';
+
 part 'home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {
@@ -41,13 +43,6 @@ class HomeCubit extends Cubit<HomeState> {
       (errMessage) => emit(GetFeaturePropertiesFailure(message: errMessage)),
       (featureProp) {
         featureProperties = featureProp;
-        featureProp.forEach(
-          (element) {
-            if (element.likey == 1) {
-              likes[element.id] = true;
-            }
-          },
-        );
         emit(GetFeaturePropertiesSuccess());
       },
     );
@@ -109,19 +104,54 @@ class HomeCubit extends Cubit<HomeState> {
     );
   }
 
-  makeLike(int apartmentId) async {
-    emit(MakeLikeLoading());
-
-    final response = await homeRepository.makeLike(apartmentId);
-
+  // get most like from repository
+  MostLikeModel? mostLike;
+  getMostLike() async {
+    emit(GetMostLikeLoading());
+    final response = await homeRepository.getMostLike();
     response.fold(
-      (errMessage) => emit(MakeLikeFailure(message: errMessage)),
-      (liked) {
-        // likes[apartmentId] = !likes[apartmentId]!;
-        emit(MakeLikeSuccess());
+      (errMessage) => emit(GetMostLikeFailure(message: errMessage)),
+      (mostLike) {
+        this.mostLike = mostLike;
+        updateFavoritesFromMostLike();
+        emit(GetMostLikeSuccess());
       },
     );
   }
 
-  Map<int, bool> likes = {};
+  Map<int, bool> isFavorites = {};
+
+  void addPropertyToFavorites(int id) async {
+    emit(AddFavoriteLoading());
+    final response = await homeRepository.addProperty(id);
+    response.fold(
+      (errMessage) => emit(AddFavoriteFailure(message: errMessage)),
+      (data) {
+        /*
+            * This is the part where you should update the isFavorites map with the new value
+            * */
+        if (isFavorites.containsKey(id)) {
+          isFavorites[id] = !isFavorites[id]!;
+        } else {
+          isFavorites[id] = true; // or false, depending on the initial state
+        }
+
+        emit(AddFavoriteSuccess());
+      },
+    );
+  }
+
+  void updateFavoritesFromMostLike() {
+    if (mostLike != null) {
+      /*
+      * this loop will update the isFavorites map with the values from the mostLike model
+      * and body of this loop should be the same as the body of the loop in the getMostLike method
+      * */
+      for (var item in mostLike!.data) {
+        // this mean send item id and item likey to isFavorites map and check
+        // if item.likey == 1 then isFavorites[item.id] = true else isFavorites[item.id] = false
+        isFavorites[item.id] = item.likey == 1;
+      }
+    }
+  }
 }

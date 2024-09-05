@@ -37,7 +37,9 @@ class ResidoApp extends StatelessWidget {
               ..getBanner()
               ..getFeatureProparties()
               ..getCategory()
-              ..getCompounds()),
+              ..getCompounds()
+                ..getMostLike()
+        ),
         BlocProvider(
             create: (context) => LoginCubit(getIt.get<AuthRepoImpl>())),
         BlocProvider(

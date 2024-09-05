@@ -67,6 +67,7 @@ class _SerachResultScreenState extends State<SerachResultScreen> {
                 Navigator.pop(context);
               }),
           body: SingleChildScrollView(
+            controller: _scrollController,
             child: Column(
               children: [
                 state is SearchLoading
@@ -79,6 +80,7 @@ class _SerachResultScreenState extends State<SerachResultScreen> {
                         : ListView.builder(
                             scrollDirection: Axis.vertical,
                             shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
                             itemCount: SearchCubit.get(context)!
                                 .searchList!
                                 .data

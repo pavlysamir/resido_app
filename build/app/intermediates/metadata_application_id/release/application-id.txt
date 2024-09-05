@@ -1,1 +1,0 @@
-com.example.resido_app

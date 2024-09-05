@@ -130,24 +130,24 @@ class FilterScreen extends StatelessWidget {
                                   AppLocalizations.of(context)!.selectLocation,
                               textInputType: TextInputType.number),
                         ),
-                        SizedBox(width: 14.w),
-                        Expanded(
-                          flex: 1,
-                          child: Container(
-                            height: 50.h,
-                            width: 40.w,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              border: Border.all(color: Colors.grey[300]!),
-                              color: Theme.of(context).cardColor,
-                            ),
-                            child: const Icon(
-                              Icons.location_searching_outlined,
-                              color: AppColors.primaryColor,
-                              size: 30.0,
-                            ),
-                          ),
-                        )
+                        // SizedBox(width: 14.w),
+                        // Expanded(
+                        //   flex: 1,
+                        //   child: Container(
+                        //     height: 50.h,
+                        //     width: 40.w,
+                        //     decoration: BoxDecoration(
+                        //       borderRadius: BorderRadius.circular(10),
+                        //       border: Border.all(color: Colors.grey[300]!),
+                        //       color: Theme.of(context).cardColor,
+                        //     ),
+                        //     child: const Icon(
+                        //       Icons.location_searching_outlined,
+                        //       color: AppColors.primaryColor,
+                        //       size: 30.0,
+                        //     ),
+                        //   ),
+                        // )
                       ],
                     )
                   ],

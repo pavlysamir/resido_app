@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shimmer/shimmer.dart';
+import 'package:resido_app/features/home/presentation/managers/home_cubit/home_cubit.dart';
 import 'package:resido_app/features/home/presentation/widgets/grid_view_properties_item.dart';
 
 class GridViewMostLikedProperties extends StatefulWidget {
@@ -6,28 +9,70 @@ class GridViewMostLikedProperties extends StatefulWidget {
 
   @override
   State<GridViewMostLikedProperties> createState() =>
-      _GridViewPropertiesState();
+      _GridViewMostLikedPropertiesState();
 }
 
-class _GridViewPropertiesState extends State<GridViewMostLikedProperties> {
+class _GridViewMostLikedPropertiesState
+    extends State<GridViewMostLikedProperties> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    HomeCubit.get(context)!.getMostLike();
+  }
+
   @override
   Widget build(BuildContext context) {
-    final List<String> items =
-        List<String>.generate(4, (index) => "Item $index");
-    return GridView.builder(
-      physics: const NeverScrollableScrollPhysics(),
-      shrinkWrap: true,
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        childAspectRatio: 3 / 4,
+    final cubit = HomeCubit.get(context);
+    // cubit?.getMostLike();
 
-        // 4 items per row
-        crossAxisSpacing: 12.0,
-        mainAxisSpacing: 2.0,
-      ),
-      itemCount: items.length,
-      itemBuilder: (BuildContext context, int index) {
-        return const GridViewPropertiesItem();
+    return BlocConsumer<HomeCubit, HomeState>(
+      listener: (context, state) {
+        // Handle side effects here if needed
+      },
+      builder: (context, state) {
+        if (cubit!.mostLike != null) {
+          final mostLikeList = cubit.mostLike!.data;
+          return GridView.builder(
+            physics: const NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              childAspectRatio: 3 / 4,
+              crossAxisSpacing: 12.0,
+              mainAxisSpacing: 2.0,
+            ),
+            itemCount: mostLikeList.length,
+            itemBuilder: (BuildContext context, int index) {
+              return GridViewPropertiesItem(item: mostLikeList[index]);
+            },
+          );
+        } else {
+          return GridView.builder(
+            physics: const NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              childAspectRatio: 3 / 4,
+              crossAxisSpacing: 12.0,
+              mainAxisSpacing: 2.0,
+            ),
+            itemCount: 2, // Default shimmer items count
+            itemBuilder: (BuildContext context, int index) {
+              return Shimmer.fromColors(
+                baseColor: Colors.grey[300]!,
+                highlightColor: Colors.grey[100]!,
+                child: Container(
+                  margin: EdgeInsets.all(8.0),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                ),
+              );
+            },
+          );
+        }
       },
     );
   }

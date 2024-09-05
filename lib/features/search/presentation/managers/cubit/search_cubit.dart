@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:logger/logger.dart';
 import 'package:resido_app/features/search/data/models/sub-category_model.dart';
 import 'package:resido_app/features/search/data/models/unit_data_model.dart';
 import 'package:resido_app/features/search/data/repo/search_repo.dart';
@@ -74,40 +75,54 @@ class SearchCubit extends Cubit<SearchState> {
   int? countFilter;
 
   filter(int pageNumber) async {
-    if (pageNumber == 1) {
-      emit(FilterLoading());
-    } else {
-      emit(GetMoreSearchLoading());
+    try {
+      if (pageNumber == 1) {
+        emit(FilterLoading());
+      } else {
+        emit(GetMoreSearchLoading());
+      }
+      print(toggleMapType.keys.first);
+      print(selectedMapCategory.keys.first);
+      // Check if toggleMapType and selectedMapCategory are not empty before accessing first element
+      final toggleMapTypeKey =
+          toggleMapType.isNotEmpty ? toggleMapType.keys.first : null;
+      final selectedMapCategoryKey =
+          selectedMapCategory == {} ? null : selectedMapCategory.keys.first;
+
+      final response = await searchRepo.filter(
+        toggleMapTypeKey,
+        selectedMapCategoryKey,
+        filterMinBudgetController.text == ''
+            ? null
+            : filterMinBudgetController.text,
+        filterMinToBudgetController.text == ''
+            ? null
+            : filterMinToBudgetController.text,
+        filterAreafromController.text == ''
+            ? null
+            : filterAreafromController.text,
+        filterAreaToController.text == '' ? null : filterAreaToController.text,
+        location.text == '' ? null : location.text,
+      );
+
+      response.fold(
+        (errMessage) => emit(FilterFailure(message: errMessage)),
+        (filter) {
+          if (pageNumber == 1) {
+            countFilter = filter.total;
+          }
+
+          filterList = filter;
+          if (pageNumber == 1) {
+            emit(FilterSuccess());
+          } else {
+            emit(GetMoreSearchedSuccess());
+          }
+        },
+      );
+    } on Exception catch (e) {
+      Logger().i(e.toString());
     }
-    emit(FilterLoading());
-    print(toggleMapType.keys.first);
-    print(selectedMapCategory.keys.first);
-
-    final response = await searchRepo.filter(
-      toggleMapType.isEmpty ? null : toggleMapType.keys.first,
-      selectedMapCategory.isEmpty ? null : selectedMapCategory.keys.first,
-      filterMinBudgetController.text,
-      filterMinToBudgetController.text,
-      filterAreafromController.text,
-      filterAreaToController.text,
-      location.text,
-    );
-
-    response.fold(
-      (errMessage) => emit(FilterFailure(message: errMessage)),
-      (filter) {
-        if (pageNumber == 1) {
-          countFilter = filter.total;
-        }
-
-        filterList = filter;
-        if (pageNumber == 1) {
-          emit(FilterSuccess());
-        } else {
-          emit(GetMoreSearchedSuccess());
-        }
-      },
-    );
   }
 
   List<DataItem> subCategoryItems = [];
@@ -154,7 +169,7 @@ class SearchCubit extends Cubit<SearchState> {
     }
   }
 
-  Map<int, bool> toggleMapType = {0: true};
+  Map<int, bool> toggleMapType = {1: true};
 
   toggleCategory(int index) {
     if (toggleMapType[index] == true) {

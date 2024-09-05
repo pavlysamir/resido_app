@@ -65,6 +65,20 @@ final class GetCompoundFailure extends HomeState {
 
   const GetCompoundFailure({required this.message});
 }
+/// This is a most like state
+final class GetMostLikeLoading extends HomeState {}
+final class GetMostLikeSuccess extends HomeState {}
+final class GetMostLikeFailure extends HomeState {
+  final String message;
+  const GetMostLikeFailure({required this.message});
+}
+/// Add property to favorite state
+final class AddFavoriteLoading extends HomeState {}
+final class AddFavoriteSuccess extends HomeState {}
+final class AddFavoriteFailure extends HomeState {
+  final String message;
+  const AddFavoriteFailure({required this.message});
+}
 
 final class MakeLikeLoading extends HomeState {}
 

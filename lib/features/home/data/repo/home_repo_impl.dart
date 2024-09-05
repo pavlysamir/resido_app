@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:logger/logger.dart';
 import 'package:resido_app/core/api/api_consumer.dart';
 import 'package:resido_app/core/api/end_ponits.dart';
 import 'package:resido_app/core/errors/exceptions.dart';
@@ -8,6 +9,8 @@ import 'package:resido_app/features/home/data/models/category_item_model.dart';
 import 'package:resido_app/features/home/data/models/compound_model.dart';
 import 'package:resido_app/features/home/data/models/features_model.dart';
 import 'package:resido_app/features/home/data/repo/home_repo.dart';
+
+import '../models/most_like_model.dart';
 
 class HomeRepoImpl implements HomeRepo {
   final ApiConsumer api;
@@ -119,6 +122,38 @@ class HomeRepoImpl implements HomeRepo {
         'apartment_id': apartmentId,
       });
 
+      return Right(response);
+    } on ServerException catch (e) {
+      return Left(e.errModel.errorMessage![0] ?? 'Server error');
+    }
+  }
+
+  @override
+  Future<Either<String, MostLikeModel>> getMostLike()  async{
+    try {
+      final response = await api.get(
+        EndPoint.mostLike,
+      );
+      //Logger().i(response);
+      var data = MostLikeModel.fromJson(response);
+      return Right(data);
+    } on ServerException catch (e) {
+      return Left(e.errModel.errorMessage![0] ?? 'Server error');
+    }
+  }
+
+  /*
+  * this method is used to add property to favorite list by passing apartment id
+  * */
+  @override
+  Future<Either<String, dynamic>> addProperty(int data) async {
+    try {
+      final response = await api.post(
+        EndPoint.getFavorite,
+        data: {
+          'apartment_id': data,
+        },
+      );
       return Right(response);
     } on ServerException catch (e) {
       return Left(e.errModel.errorMessage![0] ?? 'Server error');

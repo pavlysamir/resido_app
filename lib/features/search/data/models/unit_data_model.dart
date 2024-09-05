@@ -279,7 +279,7 @@ class PaginatedProperties {
   final int currentPage;
   final List<PropertyModel> data;
   final String? firstPageUrl;
-  final int from;
+  final int? from;
   final int lastPage;
   final String? lastPageUrl;
   final List<PageLink> links;
@@ -294,7 +294,7 @@ class PaginatedProperties {
     required this.currentPage,
     required this.data,
     this.firstPageUrl,
-    required this.from,
+    this.from,
     required this.lastPage,
     this.lastPageUrl,
     required this.links,

@@ -66,6 +66,7 @@ class _FilterResultScreenState extends State<FilterResultScreen> {
               },
             ),
             body: SingleChildScrollView(
+              controller: _scrollController,
               child: Column(
                 children: [
                   state is FilterLoading
@@ -73,11 +74,12 @@ class _FilterResultScreenState extends State<FilterResultScreen> {
                           child: CircularProgressIndicator(
                           color: AppColors.primaryColor,
                         ))
-                      : SearchCubit.get(context)!.searchList!.data.isEmpty
+                      : SearchCubit.get(context)!.filterList == null
                           ? const Center(child: Text('No Data Found'))
                           : ListView.builder(
                               scrollDirection: Axis.vertical,
                               shrinkWrap: true,
+                              physics: const NeverScrollableScrollPhysics(),
                               itemCount: SearchCubit.get(context)!
                                   .filterList!
                                   .data
