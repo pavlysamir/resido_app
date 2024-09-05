@@ -46,7 +46,7 @@ class ResidoApp extends StatelessWidget {
             create: (context) => RegisterCubit(getIt.get<AuthRepoImpl>())),
         BlocProvider(
             create: (context) =>
-                SearchCubit(getIt.get<SearchRepoImpl>())..getCategory()),
+                SearchCubit(getIt.get<SearchRepoImpl>())..getSubCategory()),
         BlocProvider(create: (context) => ChatCubit()),
         BlocProvider(
             create: (context) =>

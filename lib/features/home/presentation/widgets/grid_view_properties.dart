@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:resido_app/features/home/presentation/managers/home_cubit/home_cubit.dart';
 import 'package:resido_app/features/home/presentation/widgets/grid_view_properties_item.dart';
@@ -9,21 +8,36 @@ class GridViewMostLikedProperties extends StatefulWidget {
   const GridViewMostLikedProperties({super.key});
 
   @override
+<<<<<<< HEAD
   State<GridViewMostLikedProperties> createState() => _GridViewMostLikedPropertiesState();
 }
 
 class _GridViewMostLikedPropertiesState extends State<GridViewMostLikedProperties> {
+=======
+  State<GridViewMostLikedProperties> createState() =>
+      _GridViewMostLikedPropertiesState();
+}
+
+class _GridViewMostLikedPropertiesState
+    extends State<GridViewMostLikedProperties> {
+>>>>>>> 69885cbef8cb623689aa1ee439535d1732147a6e
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
+<<<<<<< HEAD
     HomeCubit.get(context)?.getMostLike();
 
   }
+=======
+    HomeCubit.get(context)!.getMostLike();
+  }
+
+>>>>>>> 69885cbef8cb623689aa1ee439535d1732147a6e
   @override
   Widget build(BuildContext context) {
     final cubit = HomeCubit.get(context);
-   // cubit?.getMostLike();
+    // cubit?.getMostLike();
 
     return BlocConsumer<HomeCubit, HomeState>(
       listener: (context, state) {

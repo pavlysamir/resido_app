@@ -17,11 +17,11 @@ class CustomPropertyListview extends StatelessWidget {
           child: ListView.builder(
               shrinkWrap: true,
               // physics: const NeverScrollableScrollPhysics(),
-              itemCount: SearchCubit.get(context)!.categoryItems.length,
+              itemCount: SearchCubit.get(context)!.subCategoryItems.length,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
                 return CustomItemProbirty(
-                  dataItem: SearchCubit.get(context)!.categoryItems[index],
+                  dataItem: SearchCubit.get(context)!.subCategoryItems[index],
                 );
               }),
         );

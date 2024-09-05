@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:logger/logger.dart';
 import 'package:resido_app/features/home/data/models/apartment_details_model.dart';
 import 'package:resido_app/features/home/data/models/banner_model.dart';
 import 'package:resido_app/features/home/data/models/category_item_model.dart';
@@ -27,8 +26,8 @@ class HomeCubit extends Cubit<HomeState> {
     final response = await homeRepository.getBannerData();
 
     response.fold(
-          (errMessage) => emit(GetBannerFailure(message: errMessage)),
-          (banners) {
+      (errMessage) => emit(GetBannerFailure(message: errMessage)),
+      (banners) {
         bannerList = banners.data;
         emit(GetBannerSuccess());
       },
@@ -41,8 +40,8 @@ class HomeCubit extends Cubit<HomeState> {
     final response = await homeRepository.getFeaturePropartiesData();
 
     response.fold(
-          (errMessage) => emit(GetFeaturePropertiesFailure(message: errMessage)),
-          (featureProp) {
+      (errMessage) => emit(GetFeaturePropertiesFailure(message: errMessage)),
+      (featureProp) {
         featureProperties = featureProp;
         emit(GetFeaturePropertiesSuccess());
       },
@@ -55,8 +54,8 @@ class HomeCubit extends Cubit<HomeState> {
     final response = await homeRepository.getAllFeaturePropartiesData();
 
     response.fold(
-          (errMessage) => emit(GetAllFeaturePropertiesFailure(message: errMessage)),
-          (featureProp) {
+      (errMessage) => emit(GetAllFeaturePropertiesFailure(message: errMessage)),
+      (featureProp) {
         allFeatureProperties = featureProp;
         emit(GetAllFeaturePropertiesSuccess());
       },
@@ -69,8 +68,8 @@ class HomeCubit extends Cubit<HomeState> {
     final response = await homeRepository.getCategory();
 
     response.fold(
-          (errMessage) => emit(GetCategoryFailure(message: errMessage)),
-          (categories) {
+      (errMessage) => emit(GetCategoryFailure(message: errMessage)),
+      (categories) {
         categoryItems = categories.data;
         emit(GetCategorySuccess());
       },
@@ -83,8 +82,8 @@ class HomeCubit extends Cubit<HomeState> {
     final response = await homeRepository.getApartmentDetails(id);
 
     response.fold(
-          (errMessage) => emit(GetCategoryFailure(message: errMessage)),
-          (apartmentDetails) {
+      (errMessage) => emit(GetCategoryFailure(message: errMessage)),
+      (apartmentDetails) {
         apartmentDetails = apartmentDetails;
         emit(GetCategorySuccess());
       },
@@ -97,36 +96,38 @@ class HomeCubit extends Cubit<HomeState> {
     final response = await homeRepository.getCoumpound();
 
     response.fold(
-          (errMessage) => emit(GetCompoundFailure(message: errMessage)),
-          (compounds) {
+      (errMessage) => emit(GetCompoundFailure(message: errMessage)),
+      (compounds) {
         copoundList = compounds;
         emit(GetCompoundSuccess());
       },
     );
   }
+
   // get most like from repository
   MostLikeModel? mostLike;
   getMostLike() async {
     emit(GetMostLikeLoading());
     final response = await homeRepository.getMostLike();
     response.fold(
-          (errMessage) => emit(GetMostLikeFailure(message: errMessage)),
-          (mostLike) {
+      (errMessage) => emit(GetMostLikeFailure(message: errMessage)),
+      (mostLike) {
         this.mostLike = mostLike;
         updateFavoritesFromMostLike();
         emit(GetMostLikeSuccess());
       },
     );
   }
-  Map<int,bool> isFavorites = {};
+
+  Map<int, bool> isFavorites = {};
 
   void addPropertyToFavorites(int id) async {
     emit(AddFavoriteLoading());
     final response = await homeRepository.addProperty(id);
     response.fold(
-          (errMessage) => emit(AddFavoriteFailure(message: errMessage)),
-          (data) {
-            /*
+      (errMessage) => emit(AddFavoriteFailure(message: errMessage)),
+      (data) {
+        /*
             * This is the part where you should update the isFavorites map with the new value
             * */
         if (isFavorites.containsKey(id)) {
@@ -139,6 +140,7 @@ class HomeCubit extends Cubit<HomeState> {
       },
     );
   }
+
   void updateFavoritesFromMostLike() {
     if (mostLike != null) {
       /*

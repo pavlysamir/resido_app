@@ -30,6 +30,8 @@ class EndPoint {
 
   static String getCategories = "categories";
 
+  static String getSubCategories = "sub-categories";
+
   static String getCompound = "compounds";
   static String mostLike = "mlikes";
 
@@ -48,9 +50,9 @@ class EndPoint {
 
   static String signUp = "register";
 
-  static String search = "search-apartment";
+  static String search = "apartments/search";
 
-  static String filter = "filter-apartment";
+  static String filter = "filter-apartments";
 
   static String banners = "banner";
 

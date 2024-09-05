@@ -10,6 +10,7 @@ import 'package:resido_app/features/home/presentation/views/add_prop_screens/add
 import 'package:resido_app/features/home/presentation/views/feature_prop_screen.dart';
 import 'package:resido_app/features/search/presentation/views/filter_result_screen.dart';
 import 'package:resido_app/features/search/presentation/views/filter_screen.dart';
+import 'package:resido_app/features/search/presentation/views/serach_result_screen.dart';
 import '../../features/authentications/presentation/views/login_screen.dart';
 import '../../features/authentications/presentation/views/register_screen.dart';
 import '../../features/home/presentation/views/add_prop_screens/add_proparties_third_screen.dart';
@@ -35,6 +36,7 @@ abstract class AppRouter {
   static const kFilterResultsScreen = '/FilterResultsScreen';
   static const kAllFeaturePropScreen = '/AllFeaturePropScreen';
   static const kResetPasswordScreen = '/ResetPasswordScreen';
+  static const kSearchResultScreen = '/SearchResultScreen';
 
   static final router = GoRouter(
       navigatorKey: navigatorKey,
@@ -99,6 +101,10 @@ abstract class AppRouter {
         GoRoute(
           path: kResetPasswordScreen,
           builder: (context, state) => const ForgetPasswordScreen(),
+        ),
+        GoRoute(
+          path: kSearchResultScreen,
+          builder: (context, state) => const SerachResultScreen(),
         )
       ]);
 }

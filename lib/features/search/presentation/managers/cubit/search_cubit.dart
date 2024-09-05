@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:resido_app/features/search/data/models/category_item_model.dart';
+import 'package:logger/logger.dart';
+import 'package:resido_app/features/search/data/models/sub-category_model.dart';
 import 'package:resido_app/features/search/data/models/unit_data_model.dart';
 import 'package:resido_app/features/search/data/repo/search_repo.dart';
 
@@ -41,7 +41,7 @@ class SearchCubit extends Cubit<SearchState> {
   int? count;
   search(int pageNumber) async {
     if (pageNumber == 1) {
-      searchList!.data.clear();
+      //searchList!.data.clear();
     }
 
     if (pageNumber == 1) {
@@ -67,45 +67,73 @@ class SearchCubit extends Cubit<SearchState> {
         } else {
           emit(GetMoreSearchedSuccess());
         }
-
-        searchList = search;
-        emit(SearchSuccess());
       },
     );
   }
 
   PaginatedProperties? filterList;
+  int? countFilter;
 
-  filter() async {
-    emit(FilterLoading());
-    final response = await searchRepo.filter(
-      typeId,
-      selectedMapCategory.isEmpty ? null : selectedMapCategory.keys.first,
-      filterMinBudgetController.text,
-      filterMinToBudgetController.text,
-      filterAreafromController.text,
-      filterAreaToController.text,
-      location.text,
-    );
+  filter(int pageNumber) async {
+    try {
+      if (pageNumber == 1) {
+        emit(FilterLoading());
+      } else {
+        emit(GetMoreSearchLoading());
+      }
+      print(toggleMapType.keys.first);
+      print(selectedMapCategory.keys.first);
+      // Check if toggleMapType and selectedMapCategory are not empty before accessing first element
+      final toggleMapTypeKey =
+          toggleMapType.isNotEmpty ? toggleMapType.keys.first : null;
+      final selectedMapCategoryKey =
+          selectedMapCategory == {} ? null : selectedMapCategory.keys.first;
 
-    response.fold(
-      (errMessage) => emit(FilterFailure(message: errMessage)),
-      (filter) {
-        filterList = filter;
-        emit(FilterSuccess());
-      },
-    );
+      final response = await searchRepo.filter(
+        toggleMapTypeKey,
+        selectedMapCategoryKey,
+        filterMinBudgetController.text == ''
+            ? null
+            : filterMinBudgetController.text,
+        filterMinToBudgetController.text == ''
+            ? null
+            : filterMinToBudgetController.text,
+        filterAreafromController.text == ''
+            ? null
+            : filterAreafromController.text,
+        filterAreaToController.text == '' ? null : filterAreaToController.text,
+        location.text == '' ? null : location.text,
+      );
+
+      response.fold(
+        (errMessage) => emit(FilterFailure(message: errMessage)),
+        (filter) {
+          if (pageNumber == 1) {
+            countFilter = filter.total;
+          }
+
+          filterList = filter;
+          if (pageNumber == 1) {
+            emit(FilterSuccess());
+          } else {
+            emit(GetMoreSearchedSuccess());
+          }
+        },
+      );
+    } on Exception catch (e) {
+      Logger().i(e.toString());
+    }
   }
 
-  List<DataItem> categoryItems = [];
-  getCategory() async {
+  List<DataItem> subCategoryItems = [];
+  getSubCategory() async {
     emit(GetCategoryLoading());
-    final response = await searchRepo.getCategory();
+    final response = await searchRepo.getSubCategory();
 
     response.fold(
       (errMessage) => emit(GetCategoryFailure(message: errMessage)),
       (categories) {
-        categoryItems = categories.data;
+        subCategoryItems = categories.data;
         emit(GetCategorySuccess());
       },
     );
@@ -141,7 +169,7 @@ class SearchCubit extends Cubit<SearchState> {
     }
   }
 
-  Map<int, bool> toggleMapType = {0: true};
+  Map<int, bool> toggleMapType = {1: true};
 
   toggleCategory(int index) {
     if (toggleMapType[index] == true) {
