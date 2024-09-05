@@ -23,7 +23,7 @@ import 'features/favourite/data/repository/favorite_repository.dart';
 import 'features/profile/profile_edite/logic/profile_edit_cubit.dart';
 import 'features/profile/profile_main/data/repository/profile_main_repository.dart';
 import 'features/profile/profile_main/logic/profile_cubit.dart';
-
+GlobalKey globalKey = GlobalKey();
 class ResidoApp extends StatelessWidget {
   const ResidoApp({super.key});
 
@@ -65,6 +65,7 @@ class ResidoApp extends StatelessWidget {
         minTextAdapt: true,
         splitScreenMode: true,
         child: MaterialApp.router(
+          key: globalKey,
           debugShowCheckedModeBanner: false,
           locale: const Locale('en'),
           localizationsDelegates: const [

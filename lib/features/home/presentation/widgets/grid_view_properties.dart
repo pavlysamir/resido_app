@@ -5,9 +5,21 @@ import 'package:shimmer/shimmer.dart';
 import 'package:resido_app/features/home/presentation/managers/home_cubit/home_cubit.dart';
 import 'package:resido_app/features/home/presentation/widgets/grid_view_properties_item.dart';
 
-class GridViewMostLikedProperties extends StatelessWidget {
+class GridViewMostLikedProperties extends StatefulWidget {
   const GridViewMostLikedProperties({super.key});
 
+  @override
+  State<GridViewMostLikedProperties> createState() => _GridViewMostLikedPropertiesState();
+}
+
+class _GridViewMostLikedPropertiesState extends State<GridViewMostLikedProperties> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    HomeCubit.get(context)?.getMostLike();
+
+  }
   @override
   Widget build(BuildContext context) {
     final cubit = HomeCubit.get(context);

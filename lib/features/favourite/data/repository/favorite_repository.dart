@@ -1,42 +1,48 @@
 import 'package:dartz/dartz.dart';
 import 'package:logger/logger.dart';
+import 'package:resido_app/features/favourite/data/repository/favorite_model.dart';
 
 import '../../../../core/api/api_consumer.dart';
 import '../../../../core/api/end_ponits.dart';
 import '../../../../core/errors/exceptions.dart';
-import '../models/DataFavoriteModel.dart';
 
 abstract class FavoriteRepository {
-  Future<Either<String, DataFavoriteModel>> getFavorite();
-  Future<Either<String, DataFavoriteModel>> addFavorite(String? id);
-  Future<Either<String, DataFavoriteModel>> removeFavorite(String? id);
+  Future<Either<String, FavoriteModel>> getFavorite();
+  Future<Either<String, dynamic>> removeItemFromFavorites(int data);
+
 }
 class FavoriteRepositoryImpl extends FavoriteRepository {
   final ApiConsumer api;
   FavoriteRepositoryImpl({required this.api});
-  @override
-  Future<Either<String, DataFavoriteModel>> addFavorite(String? id) {
-    // TODO: implement addFavorite
-    throw UnimplementedError();
-  }
 
   @override
-  Future<Either<String, DataFavoriteModel>> getFavorite() async {
-    try {
-      var response = await api.get(EndPoint.getFavorite);
-      Logger().i(response);
-      var data = DataFavoriteModel.fromJson(response['data']);
+  Future<Either<String, FavoriteModel>> getFavorite() async{
+   try {
+      final response = await api.get(
+        EndPoint.getFavorite,
+      );
+
+      var data = FavoriteModel.fromJson(response);
 
       return Right(data);
-    } on ServerException catch  (error) {
-      return Left(error.errModel.errorMessage![0] ?? 'Server error');
+    } on ServerException catch (e) {
+      return Left(e.errModel.errorMessage![0] ?? 'Server error');
+    }
+  }
+  @override
+  Future<Either<String, dynamic>> removeItemFromFavorites(int data) async {
+    try {
+      final response = await api.post(
+        EndPoint.getFavorite,
+        data: {
+          'apartment_id': data,
+        },
+      );
+      return Right(response);
+    } on ServerException catch (e) {
+      return Left(e.errModel.errorMessage![0] ?? 'Server error');
     }
   }
 
-  @override
-  Future<Either<String, DataFavoriteModel>> removeFavorite(String? id) {
-    // TODO: implement removeFavorite
-    throw UnimplementedError();
-  }
 
 }

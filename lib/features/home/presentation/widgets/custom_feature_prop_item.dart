@@ -1,11 +1,14 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:resido_app/core/utils/app_colors.dart';
 import 'package:resido_app/core/utils/widgets/custom_sell_container.dart';
 import 'package:resido_app/features/home/data/models/features_model.dart';
 import 'package:resido_app/features/home/presentation/views/property_details_screen.dart';
+
+import '../managers/home_cubit/home_cubit.dart';
 
 class CustomprobFeaturedItem extends StatelessWidget {
   const CustomprobFeaturedItem({
@@ -16,6 +19,7 @@ class CustomprobFeaturedItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cubit = HomeCubit.get(context);
     return GestureDetector(
       onTap: () {
         Navigator.push(context, MaterialPageRoute(builder: (context) {
@@ -47,13 +51,22 @@ class CustomprobFeaturedItem extends StatelessWidget {
             Positioned(
               bottom: 10,
               right: 10,
-              child: InkWell(
-                onTap: () {},
+              child:  GestureDetector(
+                onTap: () {
+                  cubit?.addPropertyToFavorites(featureProperty.id);
+                },
                 child: CircleAvatar(
                   backgroundColor: Theme.of(context).cardColor,
-                  child: const Icon(
-                    Icons.favorite_outline,
-                    color: AppColors.primaryColor,
+                  child: BlocBuilder<HomeCubit, HomeState>(
+                    builder: (context, state) {
+                      final isFavorite = cubit?.isFavorites[
+                      featureProperty.id
+                      ] ?? false;
+                      return Icon(
+                        isFavorite ? Icons.favorite : Icons.favorite_outline,
+                        color: AppColors.primaryColor,
+                      );
+                    },
                   ),
                 ),
               ),
