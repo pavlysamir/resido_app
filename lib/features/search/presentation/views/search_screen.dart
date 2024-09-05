@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -8,75 +7,37 @@ import 'package:resido_app/core/utils/widgets/custom_button_large.dart';
 import 'package:resido_app/core/utils/widgets/custom_go_navigator.dart';
 import 'package:resido_app/features/search/presentation/managers/cubit/search_cubit.dart';
 import 'package:resido_app/features/search/presentation/widgets/Custom_Search_Bar.dart';
-import 'package:resido_app/features/search/presentation/widgets/search_item_widget.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class SearchScreen extends StatefulWidget {
+class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
-
-  @override
-  State<SearchScreen> createState() => _SearchScreenState();
-}
-
-class _SearchScreenState extends State<SearchScreen> {
-  ScrollController? _scrollController;
-  bool isLoading = false;
-  int pageNum = 1;
-  late SearchCubit _searchCubit;
-
-  @override
-  void initState() {
-    super.initState();
-    _searchCubit = SearchCubit.get(context)!;
-    _scrollController = ScrollController();
-
-    // HomeCubit.get(context)!
-    //     .getAllUsers(pageNumber: pageNum); // Fetch initial data
-    _scrollController!.addListener(_scrollListener);
-  }
-
-  @override
-  void dispose() {
-    _scrollController?.dispose();
-    _searchCubit.clearData();
-
-    super.dispose();
-  }
-
-  void _scrollListener() async {
-    if (_scrollController!.position.pixels >=
-            0.7 * _scrollController!.position.maxScrollExtent &&
-        !isLoading) {
-      if (SearchCubit.get(context)!.count! !=
-          SearchCubit.get(context)!.searchList!.data.length) {
-        isLoading = true;
-        if (kDebugMode) {
-          print("bavlyyyyyyyyyyyyyy${++pageNum}");
-        }
-        await SearchCubit.get(context)!.search(pageNum++);
-        isLoading = false;
-      } else {
-        null;
-      }
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<SearchCubit, SearchState>(
-      listener: (context, state) {},
+      listener: (context, state) {
+        if (state is SearchSuccess) {
+          customJustGoNavigate(
+              context: context, path: AppRouter.kSearchResultScreen);
+        }
+      },
       builder: (context, state) {
         return Scaffold(
-          bottomNavigationBar: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: CustomButtonLarge(
-              text: AppLocalizations.of(context)!.search,
-              function: () {
-                SearchCubit.get(context)!.search(1);
-              },
-              textColor: Colors.white,
-            ),
-          ),
+          bottomNavigationBar: state is SearchLoading
+              ? const Center(
+                  child: CircularProgressIndicator(
+                  color: AppColors.primaryColor,
+                ))
+              : Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: CustomButtonLarge(
+                    text: AppLocalizations.of(context)!.search,
+                    function: () {
+                      SearchCubit.get(context)!.search(1);
+                    },
+                    textColor: Colors.white,
+                  ),
+                ),
           body: SafeArea(
             child: Column(
               children: [
@@ -164,29 +125,63 @@ class _SearchScreenState extends State<SearchScreen> {
                 SizedBox(
                   height: 10.h,
                 ),
-                state is SearchLoading
-                    ? const Center(
-                        child: CircularProgressIndicator(
-                        color: AppColors.primaryColor,
-                      ))
-                    : SearchCubit.get(context)!.searchList == null
-                        ? const Center(child: Text('No Data Found'))
-                        : ListView.builder(
-                            scrollDirection: Axis.vertical,
-                            shrinkWrap: true,
-                            itemCount: SearchCubit.get(context)!
-                                .searchList!
-                                .data
-                                .length,
-                            itemBuilder: (context, index) => Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: SearchItemWidget(
-                                propertyDetailsModel: SearchCubit.get(context)!
-                                    .searchList!
-                                    .data[index],
-                              ),
-                            ),
-                          ),
+                // Padding(
+                //   padding: const EdgeInsets.all(8.0),
+                //   child: ListView.separated(
+                //     separatorBuilder: (context, index) {
+                //       return const Padding(
+                //         padding: EdgeInsets.symmetric(horizontal: 12),
+                //         child: Divider(),
+                //       );
+                //     },
+                //     padding: EdgeInsets.zero,
+                //     shrinkWrap: true,
+                //     physics: const NeverScrollableScrollPhysics(),
+                //     itemCount: 3,
+                //     itemBuilder: (context, index) {
+                //       return Row(
+                //         children: [
+                //           InkWell(
+                //             onTap: () {},
+                //             child: const Icon(
+                //               Icons.replay_outlined,
+                //               color: Colors.grey,
+                //               size: 20,
+                //             ),
+                //           ),
+                //           SizedBox(
+                //             width: 10.w,
+                //           ),
+                //           Text('Modern villa in Villas',
+                //               style: Theme.of(context).textTheme.headlineMedium)
+                //         ],
+                //       );
+                //     },
+                //   ),
+                // ),
+                // state is SearchLoading
+                //     ? const Center(
+                //         child: CircularProgressIndicator(
+                //         color: AppColors.primaryColor,
+                //       ))
+                //     : SearchCubit.get(context)!.searchList == null
+                //         ? const Center(child: Text('No Data Found'))
+                //         : ListView.builder(
+                //             scrollDirection: Axis.vertical,
+                //             shrinkWrap: true,
+                //             itemCount: SearchCubit.get(context)!
+                //                 .searchList!
+                //                 .data
+                //                 .length,
+                //             itemBuilder: (context, index) => Padding(
+                //               padding: const EdgeInsets.all(8.0),
+                //               child: SearchItemWidget(
+                //                 propertyDetailsModel: SearchCubit.get(context)!
+                //                     .searchList!
+                //                     .data[index],
+                //               ),
+                //             ),
+                //           ),
               ],
             ),
           ),

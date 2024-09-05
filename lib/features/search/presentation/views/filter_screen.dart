@@ -2,42 +2,28 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:resido_app/core/utils/app_colors.dart';
+import 'package:resido_app/core/utils/app_router.dart';
 import 'package:resido_app/core/utils/widgets/custom_app_bar.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:resido_app/core/utils/widgets/custom_button_large.dart';
 import 'package:resido_app/core/utils/widgets/custom_form_field.dart';
+import 'package:resido_app/core/utils/widgets/custom_go_navigator.dart';
 import 'package:resido_app/features/search/presentation/managers/cubit/search_cubit.dart';
 import 'package:resido_app/features/search/presentation/widgets/custom_property_listView.dart';
 import 'package:resido_app/features/search/presentation/widgets/switcher_container.dart';
 
-class FilterScreen extends StatefulWidget {
+class FilterScreen extends StatelessWidget {
   const FilterScreen({super.key});
-
-  @override
-  State<FilterScreen> createState() => _FilterScreenState();
-}
-
-class _FilterScreenState extends State<FilterScreen> {
-  late SearchCubit _searchCubit;
-
-  @override
-  void initState() {
-    super.initState();
-    _searchCubit = BlocProvider.of<SearchCubit>(context);
-  }
-
-  @override
-  void dispose() {
-    // TODO: implement dispose
-    _searchCubit.clearFilterData();
-
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<SearchCubit, SearchState>(
-      listener: (context, state) {},
+      listener: (context, state) {
+        if (state is FilterSuccess) {
+          customJustGoNavigate(
+              context: context, path: AppRouter.kFilterResultsScreen);
+        }
+      },
       builder: (context, state) {
         return Scaffold(
             appBar: CustomAppBar(
@@ -50,7 +36,9 @@ class _FilterScreenState extends State<FilterScreen> {
               padding: const EdgeInsets.all(8.0),
               child: CustomButtonLarge(
                 text: AppLocalizations.of(context)!.applyFilter,
-                function: () {},
+                function: () {
+                  SearchCubit.get(context)!.filter(1);
+                },
                 textColor: Colors.white,
               ),
             ),
@@ -89,7 +77,7 @@ class _FilterScreenState extends State<FilterScreen> {
                           child: CustomFormField(
                               controller: SearchCubit.get(context)!
                                   .filterMinToBudgetController,
-                              hintText: 'Min',
+                              hintText: 'Max',
                               textInputType: TextInputType.number),
                         ),
                       ],

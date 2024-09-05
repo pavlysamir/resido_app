@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:resido_app/core/utils/app_colors.dart';
-import 'package:resido_app/features/search/data/models/category_item_model.dart';
+import 'package:resido_app/features/search/data/models/sub-category_model.dart';
 import 'package:resido_app/features/search/presentation/managers/cubit/search_cubit.dart';
 
 class CustomItemProbirty extends StatelessWidget {

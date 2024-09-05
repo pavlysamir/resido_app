@@ -117,7 +117,7 @@ class HomeCubit extends Cubit<HomeState> {
     response.fold(
       (errMessage) => emit(MakeLikeFailure(message: errMessage)),
       (liked) {
-        likes[apartmentId] = !likes[apartmentId]!;
+        // likes[apartmentId] = !likes[apartmentId]!;
         emit(MakeLikeSuccess());
       },
     );

@@ -1,8 +1,7 @@
 import 'package:bloc/bloc.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:resido_app/features/search/data/models/category_item_model.dart';
+import 'package:resido_app/features/search/data/models/sub-category_model.dart';
 import 'package:resido_app/features/search/data/models/unit_data_model.dart';
 import 'package:resido_app/features/search/data/repo/search_repo.dart';
 
@@ -41,7 +40,7 @@ class SearchCubit extends Cubit<SearchState> {
   int? count;
   search(int pageNumber) async {
     if (pageNumber == 1) {
-      searchList!.data.clear();
+      //searchList!.data.clear();
     }
 
     if (pageNumber == 1) {
@@ -67,19 +66,25 @@ class SearchCubit extends Cubit<SearchState> {
         } else {
           emit(GetMoreSearchedSuccess());
         }
-
-        searchList = search;
-        emit(SearchSuccess());
       },
     );
   }
 
   PaginatedProperties? filterList;
+  int? countFilter;
 
-  filter() async {
+  filter(int pageNumber) async {
+    if (pageNumber == 1) {
+      emit(FilterLoading());
+    } else {
+      emit(GetMoreSearchLoading());
+    }
     emit(FilterLoading());
+    print(toggleMapType.keys.first);
+    print(selectedMapCategory.keys.first);
+
     final response = await searchRepo.filter(
-      typeId,
+      toggleMapType.isEmpty ? null : toggleMapType.keys.first,
       selectedMapCategory.isEmpty ? null : selectedMapCategory.keys.first,
       filterMinBudgetController.text,
       filterMinToBudgetController.text,
@@ -91,21 +96,29 @@ class SearchCubit extends Cubit<SearchState> {
     response.fold(
       (errMessage) => emit(FilterFailure(message: errMessage)),
       (filter) {
+        if (pageNumber == 1) {
+          countFilter = filter.total;
+        }
+
         filterList = filter;
-        emit(FilterSuccess());
+        if (pageNumber == 1) {
+          emit(FilterSuccess());
+        } else {
+          emit(GetMoreSearchedSuccess());
+        }
       },
     );
   }
 
-  List<DataItem> categoryItems = [];
-  getCategory() async {
+  List<DataItem> subCategoryItems = [];
+  getSubCategory() async {
     emit(GetCategoryLoading());
-    final response = await searchRepo.getCategory();
+    final response = await searchRepo.getSubCategory();
 
     response.fold(
       (errMessage) => emit(GetCategoryFailure(message: errMessage)),
       (categories) {
-        categoryItems = categories.data;
+        subCategoryItems = categories.data;
         emit(GetCategorySuccess());
       },
     );

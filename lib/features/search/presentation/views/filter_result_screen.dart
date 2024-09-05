@@ -1,25 +1,62 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:resido_app/core/utils/app_colors.dart';
-import 'package:resido_app/core/utils/app_router.dart';
 import 'package:resido_app/core/utils/widgets/custom_app_bar.dart';
-import 'package:resido_app/core/utils/widgets/custom_go_navigator.dart';
 import 'package:resido_app/features/search/presentation/managers/cubit/search_cubit.dart';
 import 'package:resido_app/features/search/presentation/widgets/search_item_widget.dart';
 
-class FilterResultScreen extends StatelessWidget {
+class FilterResultScreen extends StatefulWidget {
   const FilterResultScreen({super.key});
+
+  @override
+  State<FilterResultScreen> createState() => _FilterResultScreenState();
+}
+
+class _FilterResultScreenState extends State<FilterResultScreen> {
+  ScrollController? _scrollController;
+  bool isLoading = false;
+  int pageNum = 1;
+  @override
+  void initState() {
+    super.initState();
+    _scrollController = ScrollController();
+    // HomeCubit.get(context)!
+    //     .getAllUsers(pageNumber: pageNum); // Fetch initial data
+    _scrollController!.addListener(_scrollListener);
+  }
+
+  @override
+  void dispose() {
+    _scrollController?.dispose();
+    //_searchCubit.clearData();
+
+    super.dispose();
+  }
+
+  void _scrollListener() async {
+    if (_scrollController!.position.pixels >=
+            0.7 * _scrollController!.position.maxScrollExtent &&
+        !isLoading) {
+      if (SearchCubit.get(context)!.countFilter! !=
+          SearchCubit.get(context)!.filterList!.data.length) {
+        isLoading = true;
+        if (kDebugMode) {
+          print("bavlyyyyyyyyyyyyyy${++pageNum}");
+        }
+        await SearchCubit.get(context)!.filter(pageNum++);
+        isLoading = false;
+      } else {
+        null;
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<SearchCubit, SearchState>(
-      listener: (context, state) {
-        if (state is FilterSuccess) {
-          return customJustGoNavigate(
-              context: context, path: AppRouter.kFilterResultsScreen);
-        }
-      },
+      listener: (context, state) {},
       builder: (context, state) {
         return Scaffold(
             appBar: CustomAppBar(

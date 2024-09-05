@@ -1,16 +1,16 @@
-class DataItem {
+class DataItemCategory {
   final int id;
   final String name;
   final String image;
 
-  DataItem({
+  DataItemCategory({
     required this.id,
     required this.name,
     required this.image,
   });
 
-  factory DataItem.fromJson(Map<String, dynamic> json) {
-    return DataItem(
+  factory DataItemCategory.fromJson(Map<String, dynamic> json) {
+    return DataItemCategory(
       id: json['id'],
       name: json['title'],
       image: json['image'],
@@ -27,7 +27,7 @@ class DataItem {
 }
 
 class DataCategoryResponse {
-  final List<DataItem> data;
+  final List<DataItemCategory> data;
 
   DataCategoryResponse({
     required this.data,
@@ -35,7 +35,8 @@ class DataCategoryResponse {
 
   factory DataCategoryResponse.fromJson(Map<String, dynamic> json) {
     var list = json['data'] as List;
-    List<DataItem> dataList = list.map((i) => DataItem.fromJson(i)).toList();
+    List<DataItemCategory> dataList =
+        list.map((i) => DataItemCategory.fromJson(i)).toList();
 
     return DataCategoryResponse(
       data: dataList,
