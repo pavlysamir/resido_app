@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:resido_app/features/favourite/data/repository/favorite_model.dart';
+import 'package:resido_app/features/favourite/data/models/favorite_model.dart';
 
 import '../../data/repository/favorite_repository.dart';
 

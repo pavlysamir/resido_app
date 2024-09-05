@@ -9,6 +9,7 @@ class EndPoint {
   static String getProfileEndPoint = "profile";
   static String getFavoriteDataEndPoint = "like-user";
   static String getFavorite = "favorite";
+  static String getMostLikePropertiesAll = "mlikes-all";
   static String getCurrentUserSorted = "Home/GetCurrentUserSorted";
 
   static String getAllUsers = "Home/GetAllUsers";

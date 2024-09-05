@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:resido_app/features/favourite/logic/cubit/favorite_cubit.dart';
 import 'package:shimmer/shimmer.dart';
 import '../../../../core/utils/app_colors.dart';
-import '../../../favourite/data/repository/favorite_model.dart';
+import '../../data/models/favorite_model.dart';
 
 class FavoriteItem extends StatelessWidget {
   final Data favoriteData;

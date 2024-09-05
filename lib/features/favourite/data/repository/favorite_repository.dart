@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:logger/logger.dart';
-import 'package:resido_app/features/favourite/data/repository/favorite_model.dart';
+import 'package:resido_app/features/favourite/data/models/favorite_model.dart';
 
 import '../../../../core/api/api_consumer.dart';
 import '../../../../core/api/end_ponits.dart';
