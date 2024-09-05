@@ -42,10 +42,10 @@ class SearchRepoImpl implements SearchRepo {
       final response = await api.post(EndPoint.filter, data: {
         if (typeId != null) "type_id": typeId,
         if (categoryId != null) "sub_id": categoryId,
-        if (priceFrom != null) "price_min": priceFrom as int,
-        if (priceTo != null) "price_max": priceTo as int,
-        if (areaFrom != null) "area_min": areaFrom as int,
-        if (areaTo != null) "area_max": areaTo as int,
+        if (priceFrom != null) "price_min": priceFrom,
+        if (priceTo != null) "price_max": priceTo,
+        if (areaFrom != null) "area_min": areaFrom,
+        if (areaTo != null) "area_max": areaTo,
         if (address != null) "address": address,
       }, queryParameters: {
         'page': pageNumber,

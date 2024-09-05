@@ -14,7 +14,12 @@ class CustomPropertyHomeListview extends StatelessWidget {
       builder: (context, state) {
         return SizedBox(
           height: 50.h,
-          child: ListView.builder(
+          child: ListView.separated(
+              separatorBuilder: (context, index) {
+                return SizedBox(
+                  width: 8.w,
+                );
+              },
               shrinkWrap: true,
               // physics: const NeverScrollableScrollPhysics(),
               itemCount: HomeCubit.get(context)!.categoryItems.length,
