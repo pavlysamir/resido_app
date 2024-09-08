@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:resido_app/constance.dart';
 import 'package:resido_app/core/Theme/Teme_data.dart';
 import 'package:resido_app/core/utils/app_router.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -66,19 +67,23 @@ class ResidoApp extends StatelessWidget {
         designSize: const Size(390, 844),
         minTextAdapt: true,
         splitScreenMode: true,
-        child: MaterialApp.router(
-          key: globalKey,
-          debugShowCheckedModeBanner: false,
-          locale: const Locale('en'),
-          localizationsDelegates: const [
-            AppLocalizations.delegate,
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-          ],
-          supportedLocales: L10n.all,
-          routerConfig: AppRouter.router,
-          theme: AppTheme.lightTheme,
+        child: BlocBuilder<ProfileCubit, ProfileState>(
+          builder: (context, state) {
+            return MaterialApp.router(
+              key: globalKey,
+              debugShowCheckedModeBanner: false,
+              locale: isEnglish ? const Locale('en') : const Locale('ar'),
+              localizationsDelegates: const [
+                AppLocalizations.delegate,
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+              ],
+              supportedLocales: L10n.all,
+              routerConfig: AppRouter.router,
+              theme: isDark ? AppTheme.darkTheme : AppTheme.lightTheme,
+            );
+          },
         ),
       ),
     );

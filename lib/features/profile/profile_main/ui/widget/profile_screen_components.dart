@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_speed_dial/flutter_speed_dial.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:logger/logger.dart';
 import 'package:resido_app/core/utils/app_colors.dart';
 import 'package:resido_app/core/utils/widgets/pop_up_dialog.dart';
+import 'package:resido_app/features/profile/profile_main/logic/profile_cubit.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../../../core/utils/app_router.dart';
@@ -24,7 +26,7 @@ Map<String, VoidCallback> getActionsMap(BuildContext context) {
           },
           context: context,
           function: () {
-            //   SettingsCubit.get(context).changeLanguage();
+            ProfileCubit.get(context).changeLanguage();
             Navigator.pop(context);
           },
           title: AppLocalizations.of(context)!.confirmChangeLng,
@@ -36,8 +38,9 @@ Map<String, VoidCallback> getActionsMap(BuildContext context) {
         ),
       );
     },
+
     'Dark Theme': () {
-      // Add your dark theme toggle logic here
+      // Add your dark theme toggle logic here if needed
     },
     // 'Notifications': () => Navigator.pushNamed(context, '/notifications'),
     // 'Articles': () => Navigator.pushNamed(context, '/articles'),
@@ -109,7 +112,13 @@ class CustomInkWell extends StatelessWidget {
                 ),
                 const Spacer(),
                 items[index]['title'] == 'Dark Theme'
-                    ? SpeedDial()
+                    ? Switch(
+                        value: Theme.of(context).brightness == Brightness.dark,
+                        onChanged: (value) {
+                          Logger().i('value: $value');
+                          context.read<ProfileCubit>().setThemeMode();
+                        },
+                      )
                     : Container(
                         decoration: BoxDecoration(
                           color: Theme.of(context).appBarTheme.backgroundColor,

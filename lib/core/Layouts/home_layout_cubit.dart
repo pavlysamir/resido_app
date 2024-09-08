@@ -13,7 +13,12 @@ class HomeLayoutCubit extends Cubit<HomeLayoutState> {
   static HomeLayoutCubit get(context) => BlocProvider.of(context);
 
   int currentIndex = 0;
-  List screens = [const HomeScreen(), FavoritesScreen(), ProfileScreen()];
+  List screens = [
+    const HomeScreen(),
+    FavoritesScreen(),
+    //   const ChatScreen(),
+    ProfileScreen()
+  ];
 
   void changeBottomNavBar(int index) {
     currentIndex = index;

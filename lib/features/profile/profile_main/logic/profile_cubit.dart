@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
 import 'package:meta/meta.dart';
 import 'package:resido_app/constance.dart';
+import 'package:resido_app/core/constants.dart';
 import 'package:resido_app/core/errors/exceptions.dart';
 import 'package:resido_app/core/utils/service_locator.dart';
 import 'package:resido_app/features/profile/profile_main/data/repository/profile_main_repository.dart';
@@ -22,6 +23,15 @@ class ProfileCubit extends Cubit<ProfileState> {
   ProfileCubit(this.profileMainRepository) : super(ProfileInitial());
 
   static ProfileCubit get(context) => BlocProvider.of(context);
+
+  Future<void> initializedThemeMode() async {
+    try {
+      isDark = await getIt
+              .get<CashHelperSharedPreferences>()
+              .getData(key: Constants.themeKey) ??
+          false;
+    } catch (e) {}
+  }
 
   // List of items to be displayed in the profile screen
   final List<Map<String, dynamic>> items = [
@@ -111,7 +121,7 @@ class ProfileCubit extends Cubit<ProfileState> {
     getIt
         .get<CashHelperSharedPreferences>()
         .saveData(
-          key: 'isEnglishh',
+          key: Constants.isEnglishKey,
           value: isEnglish,
         )
         .then((value) {
@@ -125,12 +135,25 @@ class ProfileCubit extends Cubit<ProfileState> {
     // Retrieve the saved language preference when the app starts.
     final bool? savedIsEnglish =
         getIt.get<CashHelperSharedPreferences>().getData(
-              key: 'isEnglishh',
+              key: Constants.isEnglishKey,
             );
 
     // Update the isEnglish variable.
     if (savedIsEnglish != null) {
       isEnglish = savedIsEnglish;
+    }
+  }
+
+  void setThemeMode() async {
+    try {
+      isDark = !isDark!;
+      await getIt.get<CashHelperSharedPreferences>().saveData(
+            key: Constants.themeKey,
+            value: isDark,
+          );
+      emit(ProfileThemeModeChanged(isDark!));
+    } catch (e) {
+      emit(ProfileFailedToChangeThemeMode(e.toString()));
     }
   }
 }
