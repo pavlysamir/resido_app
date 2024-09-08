@@ -452,4 +452,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get backTo => 'العودة للخلف';
+
+  @override
+  String get confirmChangeLng => 'تأكيد تغغير اللغه';
+
+  @override
+  String get doChangeLanguage => 'هل تريد تغيير اللغه';
 }

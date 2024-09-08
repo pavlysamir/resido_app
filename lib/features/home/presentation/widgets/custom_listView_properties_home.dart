@@ -14,7 +14,7 @@ class CustomPropertyHomeListview extends StatelessWidget {
       listener: (context, state) {},
       builder: (context, state) {
         var cubit = HomeCubit.get(context);
-        if (cubit!.categoryItems == null || cubit.categoryItems.isEmpty) {
+        if (cubit!.categoryItems == [] || cubit.categoryItems.isEmpty) {
           return SizedBox(
             height: 50.h,
             child: ListView.builder(

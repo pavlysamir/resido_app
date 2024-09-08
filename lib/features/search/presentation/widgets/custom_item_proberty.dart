@@ -27,34 +27,40 @@ class CustomItemProbirty extends StatelessWidget {
             child: Container(
               width: 90.w,
               decoration: BoxDecoration(
-                color: SearchCubit.get(context)!
-                            .selectedMapCategory[dataItem.id] ==
-                        true
-                    ? AppColors.primaryColor
-                    : Theme.of(context).cardColor,
+                color: SearchCubit.get(context)!.selectedMapCategory == null
+                    ? Theme.of(context).cardColor
+                    : SearchCubit.get(context)!
+                                .selectedMapCategory![dataItem.id] ==
+                            true
+                        ? AppColors.primaryColor
+                        : Theme.of(context).cardColor,
                 borderRadius: BorderRadius.circular(10),
                 border: Border.all(color: Colors.grey[300]!),
               ),
               child: Center(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    CircleAvatar(
-                        radius: 15.r,
-                        backgroundColor: AppColors.white,
-                        child: CachedNetworkImage(imageUrl: dataItem.image)),
-                    SizedBox(
-                      width: 3.w,
-                    ),
-                    Expanded(
-                      child: Text(
-                        dataItem.name,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: Theme.of(context).textTheme.bodySmall!,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CircleAvatar(
+                          radius: 15.r,
+                          backgroundColor: AppColors.white,
+                          child: CachedNetworkImage(imageUrl: dataItem.image)),
+                      SizedBox(
+                        width: 3.w,
                       ),
-                    ),
-                  ],
+                      Expanded(
+                        flex: 1,
+                        child: Text(
+                          dataItem.name,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: Theme.of(context).textTheme.bodySmall!,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

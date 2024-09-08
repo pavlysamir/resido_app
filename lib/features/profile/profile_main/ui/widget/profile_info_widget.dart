@@ -58,7 +58,7 @@ class ProfileInfoWidget extends StatelessWidget {
                     ),
                     Text(
                       email ?? "",
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 14.0,
                         color: Colors.grey,
                       ),

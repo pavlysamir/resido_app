@@ -65,9 +65,9 @@ class ProfileImageWidget extends StatelessWidget {
                             image: cubit.file != null &&
                                     cubit.file!.path.isNotEmpty
                                 ? FileImage(File(cubit.file!.path))
-                                : cubit.imageController.text.isNotEmpty
+                                : cubit.imageController.text == ''
                                     ? NetworkImage(cubit.imageController.text)
-                                    : NetworkImage(
+                                    : const NetworkImage(
                                         'https://pmptraining.com.my/new/wp-content/uploads/2023/11/person-pmp.jpg'), // Placeholder image
                           )),
                     )

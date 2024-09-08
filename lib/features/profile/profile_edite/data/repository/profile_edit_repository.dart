@@ -1,7 +1,4 @@
-import 'dart:io';
-
 import 'package:dartz/dartz.dart';
-import 'package:dio/dio.dart';
 import 'package:resido_app/core/errors/exceptions.dart';
 import '../../../../../core/api/api_consumer.dart';
 import '../../../../../core/api/end_ponits.dart';
@@ -35,7 +32,7 @@ class ProfileEditRepositoryImpl extends ProfileEditRepository {
       String? name, String? phone, String? address, String? image) async {
     try {
       final response =
-          await api.put((EndPoint.updateUserProfile), queryParameters: {
+          await api.put((EndPoint.updateUserProfile), isFromData: true, data: {
         'name': name,
         // 'email': email,
         'phone': phone,

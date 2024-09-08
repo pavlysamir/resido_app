@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:logger/logger.dart';
+import 'package:resido_app/core/utils/app_colors.dart';
+import 'package:resido_app/core/utils/widgets/pop_up_dialog.dart';
+import 'package:resido_app/features/profile/profile_main/logic/profile_cubit.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../../../../../core/Assets/assets.dart';
-import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_router.dart';
-import '../../../../../core/utils/styles.dart';
 import '../../../../../core/utils/widgets/custom_go_navigator.dart';
-import '../../logic/profile_cubit.dart';
-import 'account_dialog_widget.dart';
+
 import 'delete_account_dialog.dart';
 
 Map<String, VoidCallback> getActionsMap(BuildContext context) {
@@ -18,10 +17,30 @@ Map<String, VoidCallback> getActionsMap(BuildContext context) {
     // 'My Advertisements': () => Navigator.pushNamed(context, '/myAdvertisements'),
     // 'Subscription': () => Navigator.pushNamed(context, '/subscription'),
     // 'Transaction History': () => Navigator.pushNamed(context, '/transactionHistory'),
-    // 'Language': () => Navigator.pushNamed(context, '/language'),
+    'Language': () {
+      showDialog(
+        context: context,
+        builder: (BuildContext context) => PopUpDialog(
+          function2: () {
+            Navigator.pop(context);
+          },
+          context: context,
+          function: () {
+            ProfileCubit.get(context).changeLanguage();
+            Navigator.pop(context);
+          },
+          title: AppLocalizations.of(context)!.confirmChangeLng,
+          subTitle: AppLocalizations.of(context)!.doChangeLanguage,
+          colorButton1: Colors.white,
+          colorButton2: AppColors.primaryColor,
+          textColortcolor1: AppColors.primaryColor,
+          textColortcolor2: Colors.white,
+        ),
+      );
+    },
+
     'Dark Theme': () {
       // Add your dark theme toggle logic here if needed
-
     },
     // 'Notifications': () => Navigator.pushNamed(context, '/notifications'),
     // 'Articles': () => Navigator.pushNamed(context, '/articles'),
@@ -53,11 +72,11 @@ class CustomInkWell extends StatelessWidget {
   final List<Map<String, dynamic>> items;
 
   const CustomInkWell({
-    Key? key,
+    super.key,
     required this.context,
     required this.index,
     required this.items,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -94,12 +113,12 @@ class CustomInkWell extends StatelessWidget {
                 const Spacer(),
                 items[index]['title'] == 'Dark Theme'
                     ? Switch(
-                  value: Theme.of(context).brightness == Brightness.dark,
-                  onChanged: (value) {
-                    Logger().i('value: $value');
-                    context.read<ProfileCubit>().setThemeMode();
-                  },
-                )
+                        value: Theme.of(context).brightness == Brightness.dark,
+                        onChanged: (value) {
+                          Logger().i('value: $value');
+                          context.read<ProfileCubit>().setThemeMode();
+                        },
+                      )
                     : Container(
                         decoration: BoxDecoration(
                           color: Theme.of(context).appBarTheme.backgroundColor,

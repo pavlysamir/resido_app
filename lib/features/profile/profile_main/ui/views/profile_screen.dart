@@ -7,7 +7,7 @@ import '../widget/profile_info_widget.dart';
 import '../widget/profile_screen_components.dart';
 
 class ProfileScreen extends StatelessWidget {
-  ProfileScreen({super.key});
+  const ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

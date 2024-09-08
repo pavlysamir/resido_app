@@ -13,9 +13,19 @@ Map<String, dynamic> selecties = {};
 
 Map<String, int> ss = {};
 
+bool isEnglish = false;
+
+// String? token = '';
 // String? token = '';
 Future<void> getThemeMode() async {
   isDark= await getIt.get<CashHelperSharedPreferences>().getData(key: Constants.themeKey) ?? false;
  // Logger().i(' result is $isDark');
+  isDark = await getIt
+          .get<CashHelperSharedPreferences>()
+          .getData(key: Constants.themeKey) ??
+      false;
+  Logger().i(' result is $isDark');
 }
-bool? isDark = false;
+
+bool isDark = false;
+

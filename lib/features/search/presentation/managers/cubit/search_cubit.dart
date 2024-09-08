@@ -81,13 +81,11 @@ class SearchCubit extends Cubit<SearchState> {
       } else {
         emit(GetMoreSearchLoading());
       }
-      print(toggleMapType.keys.first);
-      print(selectedMapCategory.keys.first);
       // Check if toggleMapType and selectedMapCategory are not empty before accessing first element
       final toggleMapTypeKey =
           toggleMapType.isNotEmpty ? toggleMapType.keys.first : null;
       final selectedMapCategoryKey =
-          selectedMapCategory == {} ? null : selectedMapCategory.keys.first;
+          selectedMapCategory == null ? null : selectedMapCategory!.keys.first;
 
       final response = await searchRepo.filter(
         toggleMapTypeKey,
@@ -145,25 +143,25 @@ class SearchCubit extends Cubit<SearchState> {
     filterAreafromController.clear();
     filterAreaToController.clear();
     location.clear();
-    selectedMapCategory.clear();
+    selectedMapCategory!.clear();
     filterList == null;
     typeId = null;
 
     emit(ClearFilterData());
   }
 
-  Map<int, bool> selectedMapCategory = {};
+  Map<int, bool>? selectedMapCategory;
 
   selectCategory(int index) {
-    if (selectedMapCategory[index] == true) {
-      selectedMapCategory.clear();
+    if (selectedMapCategory![index] == true) {
+      selectedMapCategory!.clear();
 
       emit(SelectCategoryId());
 
       print(selectedMapCategory);
     } else {
-      selectedMapCategory.clear();
-      selectedMapCategory[index] = true;
+      selectedMapCategory!.clear();
+      selectedMapCategory![index] = true;
       emit(SelectCategoryId());
       print(selectedMapCategory);
     }

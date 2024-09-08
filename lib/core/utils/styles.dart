@@ -50,7 +50,7 @@ abstract class Styles {
       fontSize: 12, fontWeight: FontWeight.bold, color: Colors.grey);
 
   static TextStyle textStyle12Blue = GoogleFonts.almarai(
-      fontSize: 12, fontWeight: FontWeight.bold, color: AppColors.black);
+      fontSize: 12, fontWeight: FontWeight.normal, color: AppColors.black);
 
   static TextStyle textStyle12WhiteBoldPoppings = GoogleFonts.poppins(
       fontSize: 12, fontWeight: FontWeight.bold, color: Colors.white);

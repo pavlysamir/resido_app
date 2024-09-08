@@ -35,8 +35,8 @@ class CustomItemCompound extends StatelessWidget {
               child: CachedNetworkImage(
                 fit: BoxFit.cover,
                 imageUrl:
-                'https://www.shutterstock.com/image-photo/residential-area-ecological-sustainable-green-600nw-1888460134.jpg',
-                //compoundModel.image,
+                    // 'https://www.shutterstock.com/image-photo/residential-area-ecological-sustainable-green-600nw-1888460134.jpg',
+                    compoundModel.image,
                 height: 200.h,
                 width: 300.w,
                 placeholder: (context, url) => Shimmer.fromColors(
@@ -48,7 +48,7 @@ class CustomItemCompound extends StatelessWidget {
                     color: Colors.white,
                   ),
                 ),
-                errorWidget: (context, url, error) => Icon(Icons.error),
+                errorWidget: (context, url, error) => const Icon(Icons.error),
               ),
             ),
             Positioned(
@@ -64,9 +64,9 @@ class CustomItemCompound extends StatelessWidget {
                         color: Colors.white.withOpacity(0.5)),
                     child: Center(
                         child: Text(
-                          'sell',
-                          style: Theme.of(context).textTheme.titleSmall,
-                        )),
+                      'sell',
+                      style: Theme.of(context).textTheme.titleSmall,
+                    )),
                   ),
                 )),
             Positioned(

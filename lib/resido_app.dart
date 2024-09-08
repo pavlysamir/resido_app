@@ -53,7 +53,7 @@ class ResidoApp extends StatelessWidget {
         BlocProvider(
             create: (context) =>
                 ProfileCubit(getIt.get<ProfileMainRepositoryImpl>())
-                  ..initializedThemeMode()),
+                  ..initializeLanguage()),
         BlocProvider(
             create: (context) =>
                 ProfileEditCubit(getIt.get<ProfileEditRepositoryImpl>())
@@ -72,7 +72,7 @@ class ResidoApp extends StatelessWidget {
             return MaterialApp.router(
               key: globalKey,
               debugShowCheckedModeBanner: false,
-              locale: const Locale('en'),
+              locale: isEnglish ? const Locale('en') : const Locale('ar'),
               localizationsDelegates: const [
                 AppLocalizations.delegate,
                 GlobalMaterialLocalizations.delegate,
@@ -81,7 +81,7 @@ class ResidoApp extends StatelessWidget {
               ],
               supportedLocales: L10n.all,
               routerConfig: AppRouter.router,
-              theme: isDark! ? AppTheme.darkTheme : AppTheme.lightTheme,
+              theme: isDark ? AppTheme.darkTheme : AppTheme.lightTheme,
             );
           },
         ),

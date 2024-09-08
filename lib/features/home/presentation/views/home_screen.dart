@@ -93,7 +93,8 @@ class HomeScreen extends StatelessWidget {
                   GestureDetector(
                     onTap: () {
                       customJustGoNavigate(
-                          context: context, path: AppRouter.KMostLikedProperties);
+                          context: context,
+                          path: AppRouter.KMostLikedProperties);
                     },
                     child: Text(
                       AppLocalizations.of(context)!.seeMore,
