@@ -150,7 +150,7 @@ class SearchCubit extends Cubit<SearchState> {
     emit(ClearFilterData());
   }
 
-  Map<int, bool>? selectedMapCategory;
+  Map<int, bool>? selectedMapCategory = {1: true};
 
   selectCategory(int index) {
     if (selectedMapCategory![index] == true) {
@@ -160,8 +160,8 @@ class SearchCubit extends Cubit<SearchState> {
 
       print(selectedMapCategory);
     } else {
-      selectedMapCategory!.clear();
-      selectedMapCategory![index] = true;
+      selectedMapCategory?.clear();
+      selectedMapCategory?[index] = true;
       emit(SelectCategoryId());
       print(selectedMapCategory);
     }

@@ -24,9 +24,7 @@ class _CustomSearchBarState extends State<CustomSearchBar> {
     final searchCubit = BlocProvider.of<SearchCubit>(context);
 
     return BlocConsumer<SearchCubit, SearchState>(
-      listener: (context, state) {
-        // TODO: implement listener
-      },
+      listener: (context, state) {},
       builder: (context, state) {
         return Scaffold(
           body: SizedBox(
@@ -56,7 +54,7 @@ class _CustomSearchBarState extends State<CustomSearchBar> {
                 decoration: InputDecoration(
                   contentPadding: const EdgeInsets.fromLTRB(10, 8, 10, 10),
                   filled: true,
-                  fillColor: Colors.white,
+                  fillColor: Theme.of(context).bottomAppBarTheme.color,
                   enabledBorder: outlineInputBorder(context),
                   focusedBorder: outlineInputBorder(context),
                   hintText: AppLocalizations.of(context)!.searchByName,

@@ -33,10 +33,7 @@ class HomeScreen extends StatelessWidget {
               ),
               //const CustomBannerHome(),
 
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 18),
-                child: CustomCarouselSliderHome(),
-              ),
+              const CustomCarouselSliderHome(),
               SizedBox(
                 height: 14.h,
               ),
@@ -94,7 +91,7 @@ class HomeScreen extends StatelessWidget {
                     onTap: () {
                       customJustGoNavigate(
                           context: context,
-                          path: AppRouter.KMostLikedProperties);
+                          path: AppRouter.kMostLikedProperties);
                     },
                     child: Text(
                       AppLocalizations.of(context)!.seeMore,

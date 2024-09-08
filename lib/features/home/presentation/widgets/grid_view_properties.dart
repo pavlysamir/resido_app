@@ -8,9 +8,9 @@ class GridViewMostLikedProperties extends StatefulWidget {
   const GridViewMostLikedProperties({super.key});
 
   @override
-  State<GridViewMostLikedProperties> createState() => _GridViewMostLikedPropertiesState();
+  State<GridViewMostLikedProperties> createState() =>
+      _GridViewMostLikedPropertiesState();
 }
-
 
 class _GridViewMostLikedPropertiesState
     extends State<GridViewMostLikedProperties> {
@@ -19,7 +19,6 @@ class _GridViewMostLikedPropertiesState
     // TODO: implement initState
     super.initState();
     HomeCubit.get(context)?.getMostLike();
-
   }
 
   @override
@@ -64,7 +63,7 @@ class _GridViewMostLikedPropertiesState
                 baseColor: Colors.grey[300]!,
                 highlightColor: Colors.grey[100]!,
                 child: Container(
-                  margin: EdgeInsets.all(8.0),
+                  margin: const EdgeInsets.all(8.0),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(10.0),

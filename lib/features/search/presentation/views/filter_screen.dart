@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:resido_app/core/utils/app_colors.dart';
 import 'package:resido_app/core/utils/app_router.dart';
 import 'package:resido_app/core/utils/widgets/custom_app_bar.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -128,7 +127,7 @@ class FilterScreen extends StatelessWidget {
                               controller: SearchCubit.get(context)!.location,
                               hintText:
                                   AppLocalizations.of(context)!.selectLocation,
-                              textInputType: TextInputType.number),
+                              textInputType: TextInputType.text),
                         ),
                         // SizedBox(width: 14.w),
                         // Expanded(
