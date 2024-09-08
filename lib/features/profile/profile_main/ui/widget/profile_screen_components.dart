@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:logger/logger.dart';
 
 import '../../../../../core/Assets/assets.dart';
 import '../../../../../core/utils/app_colors.dart';
@@ -18,9 +19,10 @@ Map<String, VoidCallback> getActionsMap(BuildContext context) {
     // 'Subscription': () => Navigator.pushNamed(context, '/subscription'),
     // 'Transaction History': () => Navigator.pushNamed(context, '/transactionHistory'),
     // 'Language': () => Navigator.pushNamed(context, '/language'),
-    // 'Dark Theme': () {
-    //   // Add your dark theme toggle logic here
-    // },
+    'Dark Theme': () {
+      // Add your dark theme toggle logic here if needed
+
+    },
     // 'Notifications': () => Navigator.pushNamed(context, '/notifications'),
     // 'Articles': () => Navigator.pushNamed(context, '/articles'),
     // 'Area Converter': () => Navigator.pushNamed(context, '/areaConverter'),
@@ -91,10 +93,13 @@ class CustomInkWell extends StatelessWidget {
                 ),
                 const Spacer(),
                 items[index]['title'] == 'Dark Theme'
-                    ? Image.asset(
-                        'assets/images/toggle.png',
-                        fit: BoxFit.cover,
-                      )
+                    ? Switch(
+                  value: Theme.of(context).brightness == Brightness.dark,
+                  onChanged: (value) {
+                    Logger().i('value: $value');
+                    context.read<ProfileCubit>().setThemeMode();
+                  },
+                )
                     : Container(
                         decoration: BoxDecoration(
                           color: Theme.of(context).appBarTheme.backgroundColor,

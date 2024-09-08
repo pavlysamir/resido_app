@@ -1,4 +1,4 @@
-#Thu Sep 05 17:27:34 EEST 2024
+#Sun Sep 08 12:52:48 EEST 2024
 base.0=E\:\\resido_app\\build\\app\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 base.1=E\:\\resido_app\\build\\app\\intermediates\\dex\\debug\\mergeLibDexDebug\\0\\classes.dex
 base.2=E\:\\resido_app\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex

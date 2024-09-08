@@ -31,3 +31,12 @@ final class ProfileFailedDeleteAccount extends ProfileState {
     final String error;
     ProfileFailedDeleteAccount(this.error);
 }
+// mode theme state
+final class ProfileThemeModeChanged extends ProfileState {
+    final bool isDarkMode;
+    ProfileThemeModeChanged(this.isDarkMode);
+}
+final class ProfileFailedToChangeThemeMode extends ProfileState {
+    final String error;
+    ProfileFailedToChangeThemeMode(this.error);
+}

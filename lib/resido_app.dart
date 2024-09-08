@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:resido_app/constance.dart';
 import 'package:resido_app/core/Theme/Teme_data.dart';
 import 'package:resido_app/core/utils/app_router.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -23,7 +24,9 @@ import 'features/favourite/data/repository/favorite_repository.dart';
 import 'features/profile/profile_edite/logic/profile_edit_cubit.dart';
 import 'features/profile/profile_main/data/repository/profile_main_repository.dart';
 import 'features/profile/profile_main/logic/profile_cubit.dart';
+
 GlobalKey globalKey = GlobalKey();
+
 class ResidoApp extends StatelessWidget {
   const ResidoApp({super.key});
 
@@ -38,8 +41,7 @@ class ResidoApp extends StatelessWidget {
               ..getFeatureProparties()
               ..getCategory()
               ..getCompounds()
-                ..getMostLike()
-        ),
+              ..getMostLike()),
         BlocProvider(
             create: (context) => LoginCubit(getIt.get<AuthRepoImpl>())),
         BlocProvider(
@@ -50,7 +52,8 @@ class ResidoApp extends StatelessWidget {
         BlocProvider(create: (context) => ChatCubit()),
         BlocProvider(
             create: (context) =>
-                ProfileCubit(getIt.get<ProfileMainRepositoryImpl>())),
+                ProfileCubit(getIt.get<ProfileMainRepositoryImpl>())
+                  ..initializedThemeMode()),
         BlocProvider(
             create: (context) =>
                 ProfileEditCubit(getIt.get<ProfileEditRepositoryImpl>())
@@ -64,19 +67,23 @@ class ResidoApp extends StatelessWidget {
         designSize: const Size(390, 844),
         minTextAdapt: true,
         splitScreenMode: true,
-        child: MaterialApp.router(
-          key: globalKey,
-          debugShowCheckedModeBanner: false,
-          locale: const Locale('en'),
-          localizationsDelegates: const [
-            AppLocalizations.delegate,
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-          ],
-          supportedLocales: L10n.all,
-          routerConfig: AppRouter.router,
-          theme: AppTheme.lightTheme,
+        child: BlocBuilder<ProfileCubit, ProfileState>(
+          builder: (context, state) {
+            return MaterialApp.router(
+              key: globalKey,
+              debugShowCheckedModeBanner: false,
+              locale: const Locale('en'),
+              localizationsDelegates: const [
+                AppLocalizations.delegate,
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+              ],
+              supportedLocales: L10n.all,
+              routerConfig: AppRouter.router,
+              theme: isDark! ? AppTheme.darkTheme : AppTheme.lightTheme,
+            );
+          },
         ),
       ),
     );

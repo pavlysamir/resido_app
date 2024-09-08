@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
 import 'package:meta/meta.dart';
+import 'package:resido_app/constance.dart';
+import 'package:resido_app/core/constants.dart';
 import 'package:resido_app/core/errors/exceptions.dart';
 import 'package:resido_app/core/utils/service_locator.dart';
 import 'package:resido_app/features/profile/profile_main/data/repository/profile_main_repository.dart';
@@ -23,6 +25,13 @@ class ProfileCubit extends Cubit<ProfileState> {
 
   static ProfileCubit get(context) => BlocProvider.of(context);
 
+  Future<void> initializedThemeMode() async {
+    try {
+      isDark = await getIt.get<CashHelperSharedPreferences>().getData(key: Constants.themeKey) ?? false;
+    } catch (e) {
+
+    }
+  }
   // List of items to be displayed in the profile screen
   final List<Map<String, dynamic>> items = [
     {'title': 'My Enquiry', 'asset': AssetsData.myEnquiry},
@@ -92,6 +101,18 @@ class ProfileCubit extends Cubit<ProfileState> {
       );
     } on ServerException catch (error) {
       emit(ProfileFailedDeleteAccount(error.errModel.errorMessage![0] ?? 'Server error'));
+    }
+  }
+  void setThemeMode() async {
+    try {
+      isDark =! isDark!;
+      await getIt.get<CashHelperSharedPreferences>().saveData(
+        key: Constants.themeKey,
+        value: isDark,
+      );
+      emit(ProfileThemeModeChanged(isDark!));
+    } catch (e) {
+      emit(ProfileFailedToChangeThemeMode(e.toString()));
     }
   }
 }
