@@ -1,23 +1,21 @@
 // lib/features/favourite/ui/widgets/favorites_item_widget.dart
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:resido_app/features/favourite/logic/cubit/favorite_cubit.dart';
+import 'package:shimmer/shimmer.dart';
 import '../../../../core/utils/app_colors.dart';
-import '../../data/models/DataFavoriteModel.dart';
+import '../../data/models/favorite_model.dart';
 
-class FavoriteItem extends StatefulWidget {
-  final FavoriteData favoriteData;
+class FavoriteItem extends StatelessWidget {
+  final Data favoriteData;
 
-  const FavoriteItem({super.key, required this.favoriteData});
-
-  @override
-  _FavoriteItemState createState() => _FavoriteItemState();
-}
-
-class _FavoriteItemState extends State<FavoriteItem> {
-  bool isFavorite = false;
+  const FavoriteItem({
+    super.key, required this.favoriteData,});
 
   @override
   Widget build(BuildContext context) {
+    final cubit = FavoriteCubit.get(context);
     return Container(
       height: 150.h,
       width: double.infinity,
@@ -34,7 +32,7 @@ class _FavoriteItemState extends State<FavoriteItem> {
                 width: 170.w,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: NetworkImage(widget.favoriteData.apartment.image),
+                      image: NetworkImage(favoriteData.image),
                       fit: BoxFit.cover),
                   borderRadius: BorderRadius.circular(10),
                 ),
@@ -52,9 +50,9 @@ class _FavoriteItemState extends State<FavoriteItem> {
                         color: Colors.white.withOpacity(0.5)),
                     child: Center(
                         child: Text(
-                      'Sell',
-                      style: Theme.of(context).textTheme.titleSmall,
-                    )),
+                          favoriteData.type.title.toString(),
+                          style: Theme.of(context).textTheme.titleSmall,
+                        )),
                   ),
                 ),
               ),
@@ -80,38 +78,40 @@ class _FavoriteItemState extends State<FavoriteItem> {
                         size: 18,
                       ),
                       Text(
-                        widget.favoriteData.apartment.title ?? '',
+                        favoriteData.title ?? '',
                         style: Theme.of(context).textTheme.titleSmall,
                       ),
                       const Spacer(),
                       GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            isFavorite = !isFavorite;
-                          });
+                        onTap:() {
+                          cubit?.removeItemFromFavorites(favoriteData.id);
                         },
                         child: CircleAvatar(
-                          child: Icon(
-                            isFavorite
-                                ? Icons.favorite
-                                : Icons.favorite_outline,
-                            color: isFavorite
-                                ? Color(0xFF53ADAE)
-                                : AppColors.primaryColor,
+                          backgroundColor: Theme.of(context).cardColor,
+                          child: BlocBuilder<FavoriteCubit, FavoriteState>(
+                            builder: (context, state) {
+                              final isFavorite = cubit?.isFavorites[
+                              favoriteData.id
+                              ] ?? false;
+                              return const Icon(
+                                Icons.favorite,
+                                color: AppColors.primaryColor,
+                              );
+                            },
                           ),
                         ),
                       ),
                     ],
                   ),
                   Text(
-                    widget.favoriteData.apartment.price,
+                    favoriteData.price,
                     style: Theme.of(context)
                         .textTheme
                         .labelLarge!
                         .copyWith(color: AppColors.primaryColor),
                   ),
                   Text(
-                    widget.favoriteData.apartment.description ?? '',
+                    favoriteData.description ?? '',
                     style: Theme.of(context).textTheme.labelMedium,
                   ),
                   const Spacer(),
@@ -127,7 +127,7 @@ class _FavoriteItemState extends State<FavoriteItem> {
                       Expanded(
                         flex: 9,
                         child: Text(
-                          widget.favoriteData.apartment.address ?? '',
+                          favoriteData.address ?? '',
                           style: Theme.of(context).textTheme.bodyMedium,
                           overflow: TextOverflow.ellipsis,
                           maxLines: 1,
@@ -144,3 +144,4 @@ class _FavoriteItemState extends State<FavoriteItem> {
     );
   }
 }
+

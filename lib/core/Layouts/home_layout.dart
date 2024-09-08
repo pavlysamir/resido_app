@@ -39,12 +39,6 @@ class _HomeLayoutState extends State<HomeLayout> {
                 ),
                 BottomNavigationBarItem(
                   icon: const Icon(
-                    IconlyLight.chat,
-                  ),
-                  label: AppLocalizations.of(context)!.chat,
-                ),
-                BottomNavigationBarItem(
-                  icon: const Icon(
                     IconlyLight.profile,
                   ),
                   label: AppLocalizations.of(context)!.profile,

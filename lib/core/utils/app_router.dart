@@ -8,6 +8,7 @@ import 'package:resido_app/features/authentications/presentation/views/forget_pa
 import 'package:resido_app/features/home/presentation/views/add_prop_screens/add_properties_screen.dart';
 import 'package:resido_app/features/home/presentation/views/add_prop_screens/add_properties_second_screen.dart';
 import 'package:resido_app/features/home/presentation/views/feature_prop_screen.dart';
+import 'package:resido_app/features/most_like_properties_all/ui/views/most_like_properties_screen.dart';
 import 'package:resido_app/features/search/presentation/views/filter_result_screen.dart';
 import 'package:resido_app/features/search/presentation/views/filter_screen.dart';
 import 'package:resido_app/features/search/presentation/views/serach_result_screen.dart';
@@ -37,6 +38,7 @@ abstract class AppRouter {
   static const kAllFeaturePropScreen = '/AllFeaturePropScreen';
   static const kResetPasswordScreen = '/ResetPasswordScreen';
   static const kSearchResultScreen = '/SearchResultScreen';
+  static const KMostLikedProperties = '/MostLikedProperties';
 
   static final router = GoRouter(
       navigatorKey: navigatorKey,
@@ -50,6 +52,7 @@ abstract class AppRouter {
           path: kHomeLayout,
           builder: (context, state) => const HomeLayout(),
         ),
+        GoRoute(path: KMostLikedProperties, builder: (context, state) => MostLikePropertiesScreen()),
         GoRoute(
           path: kAddProperties,
           builder: (context, state) => const AddPropertiesScreen(),

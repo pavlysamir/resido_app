@@ -155,6 +155,9 @@
 "forgetpass":"Forgot Password?",
 "yourEmail":"Your Email",
 "noWorry":"No worries , we”ll send a recovery link to your email.",
-"backTo":"Back To"
+"backTo":"Back To",
+"confirmChangeLng":"Confirm Change langeuage",
+"doChangeLanguage":"Do you want change language"
+
 
   }

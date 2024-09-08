@@ -8,9 +8,9 @@ class GridViewMostLikedProperties extends StatefulWidget {
   const GridViewMostLikedProperties({super.key});
 
   @override
-  State<GridViewMostLikedProperties> createState() =>
-      _GridViewMostLikedPropertiesState();
+  State<GridViewMostLikedProperties> createState() => _GridViewMostLikedPropertiesState();
 }
+
 
 class _GridViewMostLikedPropertiesState
     extends State<GridViewMostLikedProperties> {
@@ -18,7 +18,8 @@ class _GridViewMostLikedPropertiesState
   void initState() {
     // TODO: implement initState
     super.initState();
-    HomeCubit.get(context)!.getMostLike();
+    HomeCubit.get(context)?.getMostLike();
+
   }
 
   @override

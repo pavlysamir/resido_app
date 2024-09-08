@@ -444,4 +444,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get backTo => 'Back To';
+
+  @override
+  String get confirmChangeLng => 'Confirm Change langeuage';
+
+  @override
+  String get doChangeLanguage => 'Do you want change language';
 }

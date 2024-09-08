@@ -91,7 +91,11 @@ class HomeScreen extends StatelessWidget {
                     style: Theme.of(context).textTheme.headlineSmall,
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      customJustGoNavigate(
+                          context: context,
+                          path: AppRouter.KMostLikedProperties);
+                    },
                     child: Text(
                       AppLocalizations.of(context)!.seeMore,
                       style: Theme.of(context).textTheme.bodySmall!.copyWith(

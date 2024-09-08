@@ -8,4 +8,7 @@ Map<String, dynamic> selecties = {};
 
 Map<String, int> ss = {};
 
+bool isEnglish = false;
+
+
 // String? token = '';

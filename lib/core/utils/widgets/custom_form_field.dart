@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:resido_app/core/utils/app_colors.dart';
 
 import '../../../../../core/utils/styles.dart';
 

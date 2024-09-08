@@ -12,6 +12,7 @@ class CustomListviewCompound extends StatelessWidget {
     return BlocConsumer<HomeCubit, HomeState>(
       listener: (context, state) {},
       builder: (context, state) {
+        var cubit = HomeCubit.get(context);
         return SizedBox(
           height: 200.h,
           child: ListView.separated(
@@ -22,11 +23,11 @@ class CustomListviewCompound extends StatelessWidget {
               },
               shrinkWrap: true,
               // physics: const NeverScrollableScrollPhysics(),
-              itemCount: HomeCubit.get(context)!.copoundList.length,
+              itemCount: cubit!.copoundList.length,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
                 return CustomItemCompound(
-                  compoundModel: HomeCubit.get(context)!.copoundList[index],
+                  compoundModel: cubit.copoundList[index],
                 );
               }),
         );

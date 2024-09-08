@@ -24,6 +24,8 @@ import 'features/profile/profile_edite/logic/profile_edit_cubit.dart';
 import 'features/profile/profile_main/data/repository/profile_main_repository.dart';
 import 'features/profile/profile_main/logic/profile_cubit.dart';
 
+GlobalKey globalKey = GlobalKey();
+
 class ResidoApp extends StatelessWidget {
   const ResidoApp({super.key});
 
@@ -38,8 +40,7 @@ class ResidoApp extends StatelessWidget {
               ..getFeatureProparties()
               ..getCategory()
               ..getCompounds()
-                ..getMostLike()
-        ),
+              ..getMostLike()),
         BlocProvider(
             create: (context) => LoginCubit(getIt.get<AuthRepoImpl>())),
         BlocProvider(
@@ -50,7 +51,8 @@ class ResidoApp extends StatelessWidget {
         BlocProvider(create: (context) => ChatCubit()),
         BlocProvider(
             create: (context) =>
-                ProfileCubit(getIt.get<ProfileMainRepositoryImpl>())),
+                ProfileCubit(getIt.get<ProfileMainRepositoryImpl>())
+                  ..initializeLanguage()),
         BlocProvider(
             create: (context) =>
                 ProfileEditCubit(getIt.get<ProfileEditRepositoryImpl>())
@@ -65,6 +67,7 @@ class ResidoApp extends StatelessWidget {
         minTextAdapt: true,
         splitScreenMode: true,
         child: MaterialApp.router(
+          key: globalKey,
           debugShowCheckedModeBanner: false,
           locale: const Locale('en'),
           localizationsDelegates: const [

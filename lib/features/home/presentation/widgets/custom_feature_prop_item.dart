@@ -1,11 +1,14 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:resido_app/core/utils/app_colors.dart';
 import 'package:resido_app/core/utils/widgets/custom_sell_container.dart';
 import 'package:resido_app/features/home/data/models/features_model.dart';
 import 'package:resido_app/features/home/presentation/views/property_details_screen.dart';
+
+import '../managers/home_cubit/home_cubit.dart';
 
 class CustomprobFeaturedItem extends StatelessWidget {
   const CustomprobFeaturedItem({
@@ -16,6 +19,7 @@ class CustomprobFeaturedItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cubit = HomeCubit.get(context);
     return GestureDetector(
       onTap: () {
         Navigator.push(context, MaterialPageRoute(builder: (context) {
@@ -28,32 +32,43 @@ class CustomprobFeaturedItem extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Stack(alignment: Alignment.bottomRight, children: [
-            CachedNetworkImage(
-              fit: BoxFit.cover,
-              imageUrl: featureProperty.image,
-              height: 150.h,
-              width: 250.w,
-              placeholder: (context, url) => Shimmer.fromColors(
-                baseColor: Colors.grey[300]!,
-                highlightColor: Colors.grey[100]!,
-                child: Container(
-                  width: 250.w,
-                  height: 150.h,
-                  color: Colors.white,
+            ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: CachedNetworkImage(
+                fit: BoxFit.cover,
+                imageUrl: featureProperty.image,
+                height: 160.h,
+                width: 260.w,
+                placeholder: (context, url) => Shimmer.fromColors(
+                  baseColor: Colors.grey[300]!,
+                  highlightColor: Colors.grey[100]!,
+                  child: Container(
+                    width: 250.w,
+                    height: 160.h,
+                    color: Colors.white,
+                  ),
                 ),
+                errorWidget: (context, url, error) => const Icon(Icons.error),
               ),
-              errorWidget: (context, url, error) => Icon(Icons.error),
             ),
             Positioned(
               bottom: 10,
               right: 10,
-              child: InkWell(
-                onTap: () {},
+              child: GestureDetector(
+                onTap: () {
+                  cubit?.addPropertyToFavorites(featureProperty.id);
+                },
                 child: CircleAvatar(
                   backgroundColor: Theme.of(context).cardColor,
-                  child: const Icon(
-                    Icons.favorite_outline,
-                    color: AppColors.primaryColor,
+                  child: BlocBuilder<HomeCubit, HomeState>(
+                    builder: (context, state) {
+                      final isFavorite =
+                          cubit?.isFavorites[featureProperty.id] ?? false;
+                      return Icon(
+                        isFavorite ? Icons.favorite : Icons.favorite_outline,
+                        color: AppColors.primaryColor,
+                      );
+                    },
                   ),
                 ),
               ),
@@ -63,7 +78,7 @@ class CustomprobFeaturedItem extends StatelessWidget {
             ),
           ]),
           Container(
-            width: 250.w,
+            width: 260.w,
             decoration: BoxDecoration(
               color: Theme.of(context).cardColor,
               borderRadius: BorderRadius.only(

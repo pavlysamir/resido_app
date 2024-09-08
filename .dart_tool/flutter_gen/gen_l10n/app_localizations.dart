@@ -974,6 +974,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Back To'**
   String get backTo;
+
+  /// No description provided for @confirmChangeLng.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm Change langeuage'**
+  String get confirmChangeLng;
+
+  /// No description provided for @doChangeLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'Do you want change language'**
+  String get doChangeLanguage;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
