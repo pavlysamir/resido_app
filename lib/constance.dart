@@ -15,7 +15,7 @@ Map<String, int> ss = {};
 
 // String? token = '';
 Future<void> getThemeMode() async {
-  isDark= await getIt.get<CashHelperSharedPreferences>().getData(key: Constants.themeKey) ;
-  Logger().i(' result is $isDark');
+  isDark= await getIt.get<CashHelperSharedPreferences>().getData(key: Constants.themeKey) ?? false;
+ // Logger().i(' result is $isDark');
 }
 bool? isDark = false;

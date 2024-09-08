@@ -4,11 +4,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:logger/logger.dart';
 import 'package:meta/meta.dart';
+import 'package:path/path.dart';
 import 'package:resido_app/constance.dart';
 import 'package:resido_app/core/constants.dart';
 import 'package:resido_app/core/errors/exceptions.dart';
 import 'package:resido_app/core/utils/service_locator.dart';
 import 'package:resido_app/features/profile/profile_main/data/repository/profile_main_repository.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:resido_app/resido_app.dart';
 
 import '../../../../core/Assets/assets.dart';
 import '../../../../core/api/end_ponits.dart';
@@ -34,7 +37,8 @@ class ProfileCubit extends Cubit<ProfileState> {
   }
   // List of items to be displayed in the profile screen
   final List<Map<String, dynamic>> items = [
-    {'title': 'My Enquiry', 'asset': AssetsData.myEnquiry},
+    {'title': AppLocalizations.of(globalKey.currentContext!)!.myEnquiry, 'asset': AssetsData.myEnquiry},
+
     {'title': 'My Advertisements', 'asset': AssetsData.myAdvertisement},
     {'title': 'Subscription', 'asset': AssetsData.subscription},
     {'title': 'Transaction History', 'asset': AssetsData.transaction},

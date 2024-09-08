@@ -119,6 +119,18 @@ abstract class AppLocalizations {
   /// **'Buy, Sell & Rent Properties'**
   String get onBording_3;
 
+  /// No description provided for @darkTheme.
+  ///
+  /// In en, this message translates to:
+  /// **'Dark Theme'**
+  String get darkTheme;
+
+  /// No description provided for @myEnquiry.
+  ///
+  /// In en, this message translates to:
+  /// **'My Enquiry'**
+  String get myEnquiry;
+
   /// No description provided for @description_onBording_1.
   ///
   /// In en, this message translates to:

@@ -19,6 +19,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get onBording_3 => 'Buy, Sell & Rent Properties';
 
   @override
+  String get darkTheme => 'Dark Theme';
+
+  @override
+  String get myEnquiry => 'My Enquiry';
+
+  @override
   String get description_onBording_1 => 'Find the ideal place according to your needs and expectations.';
 
   @override
