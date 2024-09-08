@@ -2,7 +2,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:resido_app/core/Assets/assets.dart';
 import 'package:resido_app/core/utils/app_colors.dart';
 import 'package:resido_app/core/utils/widgets/custom_sell_container.dart';
 import 'package:shimmer/shimmer.dart';
@@ -25,15 +24,15 @@ class GridViewPropertiesItem extends StatelessWidget {
         Stack(alignment: Alignment.bottomRight, children: [
           CachedNetworkImage(
             imageUrl: item.image,
-            width: 250.w,
+            width: 215.w,
             height: 100.h,
             fit: BoxFit.cover,
             placeholder: (context, url) => Shimmer.fromColors(
               baseColor: Colors.grey[300]!,
               highlightColor: Colors.grey[100]!,
               child: Container(
-                width: 250.w,
-                height: 150.h,
+                width: 215.w,
+                height: 215.h,
                 color: Colors.white,
               ),
             ),
@@ -61,7 +60,7 @@ class GridViewPropertiesItem extends StatelessWidget {
           ),
         ]),
         Container(
-          width: 250.w,
+          width: 215.w,
           decoration: BoxDecoration(
             color: Theme.of(context).appBarTheme.backgroundColor,
             borderRadius: BorderRadius.circular(5.r),

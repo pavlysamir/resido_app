@@ -1,7 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:resido_app/core/utils/app_colors.dart';
+import 'package:resido_app/core/utils/app_router.dart';
+import 'package:resido_app/core/utils/widgets/custom_go_navigator.dart';
 import 'package:resido_app/features/home/data/models/category_item_model.dart';
 
 class CustomItemProbirtyHome extends StatelessWidget {
@@ -14,51 +15,53 @@ class CustomItemProbirtyHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 3),
-      child: Container(
-        width: 130.w,
-        height: 100,
-        decoration: BoxDecoration(
-          color: Theme.of(context).appBarTheme.backgroundColor,
-          borderRadius: BorderRadius.circular(10),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.1),
-              spreadRadius: 2,
-              blurRadius: 4,
-              offset: const Offset(0, 10), // changes position of shadow
-            ),
-          ], // changes position of shadow
-        ),
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                CircleAvatar(
-                  radius: 15.r,
-                  backgroundColor: AppColors.white,
-                  child: CachedNetworkImage(
+    return GestureDetector(
+      onTap: () {
+        customJustGoNavigate(
+            context: context, path: AppRouter.kCateegoryDeatilsScreen);
+      },
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 3),
+        child: Container(
+          width: 130.w,
+          height: 100,
+          decoration: BoxDecoration(
+            color: Theme.of(context).appBarTheme.backgroundColor,
+            borderRadius: BorderRadius.circular(10),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.1),
+                spreadRadius: 2,
+                blurRadius: 4,
+                offset: const Offset(0, 10), // changes position of shadow
+              ),
+            ], // changes position of shadow
+          ),
+          child: Center(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CachedNetworkImage(
                     imageUrl: category.image,
                     height: 25.h,
                     width: 25.w,
                     fit: BoxFit.cover,
                   ),
-                ),
-                SizedBox(
-                  width: 3.w,
-                ),
-                Expanded(
-                  child: Text(
-                    category.title,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: Theme.of(context).textTheme.bodySmall!,
+                  SizedBox(
+                    width: 3.w,
                   ),
-                ),
-              ],
+                  Expanded(
+                    child: Text(
+                      category.title,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: Theme.of(context).textTheme.bodySmall!,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
