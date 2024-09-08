@@ -20,6 +20,7 @@ class ProfileInfoWidget extends StatelessWidget {
                 context: context, path: AppRouter.kProfileEditScreen);
           },
           child: Container(
+
             padding:
                 const EdgeInsets.symmetric(horizontal: 20.0, vertical: 30.0),
             margin: const EdgeInsets.symmetric(horizontal: 16.0),
