@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../../../core/Assets/assets.dart';
 import '../../../../../core/utils/app_router.dart';
@@ -39,9 +40,9 @@ class LogoutButton extends StatelessWidget {
               color: Color(0xFF087C7C), // Set icon color
             ),
           ),
-          label: const Text(
-            'Logout',
-            style: TextStyle(
+          label: Text(
+            AppLocalizations.of(context)!.logout,
+            style: const TextStyle(
               color: Colors.white, // Set text color to white
             ),
           ),
@@ -60,9 +61,9 @@ class LogoutDialog extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return AccountDialogWidget(
-          title: 'Logout Confirmation',
+          title: AppLocalizations.of(context)!.logoutConfirmation,
           imagePath: AssetsData.logOutConfirmation,
-          message: 'Are you sure you want to logout?',
+          message: AppLocalizations.of(context)!.areYouSureWantLogout,
           actions: [
             Expanded(
               child: Padding(
@@ -76,9 +77,9 @@ class LogoutDialog extends StatelessWidget {
                     onPressed: () {
                       Navigator.of(context).pop();
                     },
-                    child: const Text(
-                      'Cancel',
-                      style: TextStyle(color: Color(0xFF087C7C)),
+                    child: Text(
+                      AppLocalizations.of(context)!.cancel,
+                      style: const TextStyle(color: Color(0xFF087C7C)),
                     ),
                   ),
                 ),
@@ -106,7 +107,7 @@ class LogoutDialog extends StatelessWidget {
                           getIt.get<CashHelperSharedPreferences>().clearData();
                           customJustGoNavigate(context: context, path: AppRouter.kLoginScreen);
                         },
-                        child: const Text('Logout', style: TextStyle(
+                        child: Text(AppLocalizations.of(context)!.logout, style: const TextStyle(
                             color: Colors.white)),
                       ),
                     ),

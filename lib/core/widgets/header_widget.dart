@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HeaderWidget extends StatelessWidget {
   final String title;
@@ -22,7 +23,7 @@ class HeaderWidget extends StatelessWidget {
         ),
       ),
       alignment: Alignment.bottomLeft,
-      padding: const EdgeInsets.only(left: 16.0, bottom: 15.0),
+      padding: const EdgeInsets.only(left: 16.0, bottom: 15.0,right:16.0 ),
       child: Row(
         children: [
           if (showArrow)

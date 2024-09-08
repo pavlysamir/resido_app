@@ -36,30 +36,7 @@ class ProfileCubit extends Cubit<ProfileState> {
     } catch (e) {}
   }
 
-  // List of items to be displayed in the profile screen
-  final List<Map<String, dynamic>> items = [
-    {'title': AppLocalizations.of(globalKey.currentContext!)!.myEnquiry, 'asset': AssetsData.myEnquiry},
 
-    {'title': 'My Advertisements', 'asset': AssetsData.myAdvertisement},
-    {'title': 'Subscription', 'asset': AssetsData.subscription},
-    {'title': 'Transaction History', 'asset': AssetsData.transaction},
-    {'title': 'Language', 'asset': AssetsData.language},
-    {'title': 'Dark Theme', 'asset': AssetsData.mode},
-    {'title': 'Notifications', 'asset': AssetsData.notification},
-    {'title': 'Articles', 'asset': AssetsData.articles},
-    {'title': 'Area Converter', 'asset': AssetsData.areaConverter},
-    {'title': 'Share this App', 'asset': AssetsData.share},
-    {'title': 'Rate us', 'asset': AssetsData.rate},
-    {'title': 'Contact us', 'asset': AssetsData.contactUs},
-    {'title': 'About us', 'asset': AssetsData.aboutUs},
-    {'title': 'Terms & Conditions', 'asset': AssetsData.termsAndConditions},
-    {'title': 'Privacy Policy', 'asset': AssetsData.privacyPolicy},
-    {
-      'title': 'Delete Account',
-      'asset': AssetsData.deleteAccount,
-      'function': () {}
-    },
-  ];
   String? name =
       getIt.get<CashHelperSharedPreferences>().getData(key: ApiKey.userName) ??
           "";

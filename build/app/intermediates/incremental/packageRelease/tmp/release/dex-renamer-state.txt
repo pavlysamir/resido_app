@@ -1,4 +1,0 @@
-#Sun Sep 08 14:36:13 EEST 2024
-base.0=E\:\\resido_app\\build\\app\\intermediates\\dex\\release\\minifyReleaseWithR8\\classes.dex
-path.0=classes.dex
-renamed.0=classes.dex

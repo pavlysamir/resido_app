@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../../../core/Assets/assets.dart';
 import '../../../../../core/utils/app_router.dart';
@@ -11,9 +12,9 @@ class DeleteAccountDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AccountDialogWidget(
-      title: 'Delete Account?',
+      title: AppLocalizations.of(context)!.deleteAccount,
       imagePath: AssetsData.deleteAccountAlertDialog,
-      message: "You won't be able to rollback it. You will be logged out and all active sessions will be terminated",
+      message: AppLocalizations.of(context)!.deleteAccountMessage,
       actions: [
         Expanded(
           child: Padding(
@@ -27,9 +28,9 @@ class DeleteAccountDialog extends StatelessWidget {
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
-                child: const Text(
-                  'Cancel',
-                  style: TextStyle(color: Color(0xFF087C7C)),
+                child: Text(
+                  AppLocalizations.of(context)!.cancel,
+                  style: const TextStyle(color: Color(0xFF087C7C)),
                 ),
               ),
             ),
@@ -50,7 +51,7 @@ class DeleteAccountDialog extends StatelessWidget {
                         context: context, path: AppRouter.kLoginScreen);
                   });
                 },
-                child: const Text('Delete', style: TextStyle(color: Colors.white)),
+                child: Text(AppLocalizations.of(context)!.delete, style: const TextStyle(color: Colors.white)),
               ),
             ),
           ),

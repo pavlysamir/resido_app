@@ -25,6 +25,69 @@ class AppLocalizationsAr extends AppLocalizations {
   String get myEnquiry => 'استفساري';
 
   @override
+  String get subscription => 'الاشتراك';
+
+  @override
+  String get transactionHistory => 'تاريخ المعاملات';
+
+  @override
+  String get language => 'اللغة';
+
+  @override
+  String get myAds => 'اعلاناتي';
+
+  @override
+  String get myProfile => 'ملفي الشخصي';
+
+  @override
+  String get notification => 'الاشعارات';
+
+  @override
+  String get articles => 'المقالات';
+
+  @override
+  String get areaConverter => 'محول المساحة';
+
+  @override
+  String get shareThisApp => 'شارك هذا التطبيق';
+
+  @override
+  String get rateUs => 'قيمنا';
+
+  @override
+  String get contactUs => 'تواصل معنا';
+
+  @override
+  String get aboutUs => 'عنا';
+
+  @override
+  String get termsConditions => 'الشروط والاحكام';
+
+  @override
+  String get privacyPolicy => 'سياسة الخصوصية';
+
+  @override
+  String get delete => 'حذف';
+
+  @override
+  String get deleteAccount => 'حذف الحساب';
+
+  @override
+  String get deleteAccountMessage => 'لن تتمكن من التراجع عن ذلك. سيتم تسجيل خروجك وإنهاء جميع الجلسات النشطة';
+
+  @override
+  String get logout => 'تسجيل الخروج';
+
+  @override
+  String get logoutConfirmation => 'تأكيد تسجيل الخروج';
+
+  @override
+  String get areYouSureWantLogout => 'هل تريد تسجيل الخروج؟';
+
+  @override
+  String get cancel => 'الغاء';
+
+  @override
   String get description_onBording_1 => 'Find the ideal place according to your needs and expectations.';
 
   @override
@@ -32,9 +95,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get description_onBording_3 => 'Buy & sell your expected house from phone with eBroker';
-
-  @override
-  String get contactUs => 'تواصل معنا';
 
   @override
   String get callUs => 'اتصل';
@@ -205,9 +265,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get state => 'الحالة';
 
   @override
-  String get notification => 'الاشعارات';
-
-  @override
   String get welcom => 'مرحبا بك';
 
   @override
@@ -221,9 +278,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get editProfile => 'تعديل البروفايل';
-
-  @override
-  String get deleteAccount => 'حذف الحساب';
 
   @override
   String get logOut => 'تسجيل الخروج';
@@ -454,7 +508,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get backTo => 'العودة للخلف';
 
   @override
-  String get confirmChangeLng => 'تأكيد تغغير اللغه';
+  String get confirmChangeLng => 'تأكيد تغيير اللغه';
 
   @override
   String get doChangeLanguage => 'هل تريد تغيير اللغه';

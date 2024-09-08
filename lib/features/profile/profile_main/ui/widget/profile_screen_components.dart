@@ -17,7 +17,7 @@ Map<String, VoidCallback> getActionsMap(BuildContext context) {
     // 'My Advertisements': () => Navigator.pushNamed(context, '/myAdvertisements'),
     // 'Subscription': () => Navigator.pushNamed(context, '/subscription'),
     // 'Transaction History': () => Navigator.pushNamed(context, '/transactionHistory'),
-    'Language': () {
+    AppLocalizations.of(context)!.language: () {
       showDialog(
         context: context,
         builder: (BuildContext context) => PopUpDialog(
@@ -39,7 +39,7 @@ Map<String, VoidCallback> getActionsMap(BuildContext context) {
       );
     },
 
-    'Dark Theme': () {
+    AppLocalizations.of(context)!.darkTheme: () {
       // Add your dark theme toggle logic here if needed
     },
     // 'Notifications': () => Navigator.pushNamed(context, '/notifications'),
@@ -48,14 +48,14 @@ Map<String, VoidCallback> getActionsMap(BuildContext context) {
     // 'Share this App': () {
     //   // Add your share logic here
     // },
-    'Rate us': () {},
-    'Contact us': () {
+    AppLocalizations.of(context)!.rateUs: () {},
+    AppLocalizations.of(context)!.contactUs: () {
       customJustGoNavigate(context: context, path: AppRouter.kAboutUs);
     },
-    'About us': () {},
+    AppLocalizations.of(context)!.aboutUs: () {},
     // 'Terms & Conditions': () => Navigator.pushNamed(context, '/termsAndConditions'),
     // 'Privacy Policy': () => Navigator.pushNamed(context, '/privacyPolicy'),
-    'Delete Account': () {
+    AppLocalizations.of(context)!.deleteAccount: () {
       showDialog(
         context: context,
         builder: (BuildContext context) {
@@ -111,7 +111,7 @@ class CustomInkWell extends StatelessWidget {
                   style: Theme.of(context).textTheme.labelMedium,
                 ),
                 const Spacer(),
-                items[index]['title'] == 'Dark Theme'
+                items[index]['title'] == AppLocalizations.of(context)!.darkTheme
                     ? Switch(
                         value: Theme.of(context).brightness == Brightness.dark,
                         onChanged: (value) {
@@ -136,7 +136,7 @@ class CustomInkWell extends StatelessWidget {
               ],
             ),
           ),
-          if (items[index]['title'] != 'Delete Account') const Divider(),
+          if (items[index]['title'] != AppLocalizations.of(context)!.deleteAccount) const Divider(),
         ],
       ),
     );
