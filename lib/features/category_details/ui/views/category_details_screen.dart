@@ -46,6 +46,7 @@ class CategoryDetailsScreen extends StatelessWidget {
                       ),
                       GridView.builder(
                         physics: const NeverScrollableScrollPhysics(),
+
                         shrinkWrap: true,
                         padding: EdgeInsets.symmetric(
                             horizontal: 12.w),
