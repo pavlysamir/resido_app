@@ -7,7 +7,7 @@ import 'package:resido_app/core/utils/shared_preferences_cash_helper.dart';
 import 'package:resido_app/features/authentications/presentation/views/forget_password_screen.dart';
 import 'package:resido_app/features/home/presentation/views/add_prop_screens/add_properties_screen.dart';
 import 'package:resido_app/features/home/presentation/views/add_prop_screens/add_properties_second_screen.dart';
-import 'package:resido_app/features/home/presentation/views/category_details_screen.dart';
+import 'package:resido_app/features/category_details/ui/views/category_details_screen.dart';
 import 'package:resido_app/features/home/presentation/views/feature_prop_screen.dart';
 import 'package:resido_app/features/most_like_properties_all/ui/views/most_like_properties_screen.dart';
 import 'package:resido_app/features/search/presentation/views/filter_result_screen.dart';
@@ -115,7 +115,7 @@ abstract class AppRouter {
         ),
         GoRoute(
           path: kCateegoryDeatilsScreen,
-          builder: (context, state) => const CategoryDetailsScreen(),
+          builder: (context, state) => CategoryDetailsScreen(idOFCategory:state.extra as int),
         )
       ]);
 }

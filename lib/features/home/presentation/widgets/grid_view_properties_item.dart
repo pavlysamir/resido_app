@@ -20,11 +20,11 @@ class GridViewPropertiesItem extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Stack(alignment: Alignment.bottomRight, children: [
+        Stack(alignment: Alignment.topRight, children: [
           CachedNetworkImage(
             imageUrl: item.image,
             width: 215.w,
-            height: 100.h,
+            height: 150.h,
             fit: BoxFit.cover,
             placeholder: (context, url) => Shimmer.fromColors(
               baseColor: Colors.grey[300]!,
@@ -41,22 +41,25 @@ class GridViewPropertiesItem extends StatelessWidget {
             onTap: () {
               cubit?.addPropertyToFavorites(item.id);
             },
-            child: CircleAvatar(
-              backgroundColor: Theme.of(context).cardColor,
-              child: BlocBuilder<HomeCubit, HomeState>(
-                builder: (context, state) {
-                  final isFavorite = cubit?.isFavorites[item.id] ?? false;
-                  return Icon(
-                    isFavorite ? Icons.favorite : Icons.favorite_outline,
-                    color: AppColors.primaryColor,
-                  );
-                },
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
+              child: CircleAvatar(
+                backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+                child: BlocBuilder<HomeCubit, HomeState>(
+                  builder: (context, state) {
+                    final isFavorite = cubit?.isFavorites[item.id] ?? false;
+                    return Icon(
+                      isFavorite ? Icons.favorite : Icons.favorite_outline,
+                      color: AppColors.primaryColor,
+                    );
+                  },
+                ),
               ),
             ),
           ),
-          CustomSellContainer(
-            text: item.type.title,
-          ),
+          // CustomSellContainer(
+          //   text: item.type.title,
+          // ),
         ]),
         Container(
           width: 215.w,
@@ -71,32 +74,54 @@ class GridViewPropertiesItem extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    const Icon(
-                      Icons.business,
-                      size: 18,
-                    ),
+                    // const Icon(
+                    //   Icons.business,
+                    //   size: 18,
+                    // ),
                     Text(
                       item.sub.name.toString(),
                       style: Theme.of(context).textTheme.titleSmall,
                     ),
                   ],
                 ),
-                Text(
-                  item.price.toString(),
-                  style: Theme.of(context)
-                      .textTheme
-                      .labelLarge!
-                      .copyWith(color: AppColors.primaryColor),
+                Row(
+                  children: [
+                    Icon(
+                      Icons.add_business_sharp,
+                      size: 18.h,
+                      color:AppColors.primaryColor ,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 5),
+                      child: Text(
+                        item.price.toString(),
+                        style: Theme.of(context)
+                            .textTheme
+                            .labelLarge!
+                            .copyWith(color: AppColors.primaryColor),
+                      ),
+                    ),
+                  ],
                 ),
-                Text(item.title.toString(),
-                    style: Theme.of(context).textTheme.labelMedium),
+                Row(
+                  children: [
+                    Icon(
+                      Icons.business_sharp,
+                      size: 18.h,
+                      color: AppColors.primaryColor,
+                    ),
+                    Text(item.title.toString(),
+                        style: Theme.of(context).textTheme.labelMedium),
+                  ],
+                ),
                 Row(
                   children: [
                     const Expanded(
                       flex: 1,
                       child: Icon(
-                        Icons.location_on_outlined,
+                        Icons.place,
                         size: 18,
+                        color: AppColors.primaryColor,
                       ),
                     ),
                     Expanded(

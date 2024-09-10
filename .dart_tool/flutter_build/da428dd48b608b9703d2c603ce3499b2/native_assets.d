@@ -1,0 +1,1 @@
+ E:\\resido_app\\.dart_tool\\flutter_build\\da428dd48b608b9703d2c603ce3499b2\\native_assets.yaml: 

@@ -1,4 +1,0 @@
-#Sun Sep 08 17:17:27 EET 2024
-base.0=D\:\\chrome download\\resido-app\\build\\app\\intermediates\\dex\\release\\minifyReleaseWithR8\\classes.dex
-renamed.0=classes.dex
-path.0=classes.dex

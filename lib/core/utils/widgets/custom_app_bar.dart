@@ -7,7 +7,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final List<Widget>? actions;
   final Function() function;
 
-  const CustomAppBar({
+  const
+  CustomAppBar({
     super.key,
     required this.title,
     this.showBackButton = true,
@@ -17,20 +18,30 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      forceMaterialTransparency: true,
-      backgroundColor: AppColors.white,
-      title: Text(
-        title,
-        style: Theme.of(context).textTheme.displayMedium,
+    return Container(
+      decoration: BoxDecoration(
+        color: Theme.of(context).appBarTheme.backgroundColor,
+        borderRadius: const BorderRadius.only(
+          bottomLeft: Radius.circular(20.0),
+          bottomRight: Radius.circular(20.0),
+        ),
       ),
-      leading: showBackButton
-          ? IconButton(
-              icon: const Icon(Icons.arrow_back, color: AppColors.primaryColor),
-              onPressed: function,
-            )
-          : null,
-      actions: actions,
+      alignment: Alignment.bottomLeft,
+      child: AppBar(
+        forceMaterialTransparency: true,
+        backgroundColor: AppColors.white,
+        title: Text(
+          title,
+          style: Theme.of(context).textTheme.displayMedium,
+        ),
+        leading: showBackButton
+            ? IconButton(
+                icon: const Icon(Icons.arrow_back, color: AppColors.primaryColor),
+                onPressed: function,
+              )
+            : null,
+        actions: actions,
+      ),
     );
   }
 

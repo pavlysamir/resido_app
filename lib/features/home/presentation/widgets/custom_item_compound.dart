@@ -15,7 +15,7 @@ class CustomItemCompound extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: () {
         // customJustGoNavigate(
         //     context: context, path: AppRouter.kPropertyDetails);

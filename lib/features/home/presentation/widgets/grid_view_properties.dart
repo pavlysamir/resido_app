@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:resido_app/features/home/presentation/managers/home_cubit/home_cubit.dart';
 import 'package:resido_app/features/home/presentation/widgets/grid_view_properties_item.dart';
@@ -36,11 +37,11 @@ class _GridViewMostLikedPropertiesState
           return GridView.builder(
             physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
-              childAspectRatio: 3 / 4,
-              crossAxisSpacing: 12.0,
-              mainAxisSpacing: 2.0,
+              childAspectRatio: 3.w / 4.4.h,
+              crossAxisSpacing: 10.w,
+              mainAxisSpacing: 2.0.h,
             ),
             itemCount: mostLikeList.length,
             itemBuilder: (BuildContext context, int index) {

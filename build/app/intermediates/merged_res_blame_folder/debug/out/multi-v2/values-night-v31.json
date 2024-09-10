@@ -4,14 +4,14 @@
             "outputFile": "com.example.resido_app-mergeDebugResources-27:/values-night-v31/values-night-v31.xml",
             "map": [
                 {
-                    "source": "D:\\chrome download\\resido-app\\android\\app\\src\\main\\res\\values-night-v31\\styles.xml",
+                    "source": "E:\\resido_app\\android\\app\\src\\main\\res\\values-night-v31\\styles.xml",
                     "from": {
                         "startLines": "3,17",
                         "startColumns": "4,4",
-                        "startOffsets": "172,1046",
+                        "startOffsets": "175,1063",
                         "endLines": "10,19",
                         "endColumns": "12,12",
-                        "endOffsets": "695,1210"
+                        "endOffsets": "705,1229"
                     },
                     "to": {
                         "startLines": "2,10",

@@ -18,7 +18,7 @@ class CustomItemProbirtyHome extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         customJustGoNavigate(
-            context: context, path: AppRouter.kCateegoryDeatilsScreen);
+            context: context, path: AppRouter.kCateegoryDeatilsScreen,data: category.id);
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 3),
