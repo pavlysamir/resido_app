@@ -22,55 +22,56 @@ class _CustomCarouselSliderHomeState extends State<CustomCarouselSliderHome> {
       listener: (context, state) {},
       builder: (context, state) {
         final bannerList = HomeCubit.get(context)!.bannerList;
-        if (bannerList.isEmpty) {
-          return Shimmer.fromColors(
-            baseColor: Colors.grey[300]!,
-            highlightColor: Colors.grey[100]!,
-            child: Container(
-              width: double.infinity,
-              height: MediaQuery.of(context).size.height * 0.2,
-              color: Colors.white,
-            ),
-          );
-        }
+        // if (bannerList.isEmpty) {
+        //   return Shimmer.fromColors(
+        //     baseColor: Colors.grey[300]!,
+        //     highlightColor: Colors.grey[100]!,
+        //     child: Container(
+        //       width: double.infinity,
+        //       height: MediaQuery.of(context).size.height * 0.2,
+        //       color: Colors.white,
+        //     ),
+        //   );
+        // }
         return Column(
           children: [
-            state is GetBannerLoading
-                ? Shimmer.fromColors(
-                    baseColor: Colors.grey[300]!,
-                    highlightColor: Colors.grey[100]!,
-                    child: Container(
-                      width: double.infinity,
-                      height: MediaQuery.of(context).size.height * 0.2,
-                      color: Colors.white,
+            // state is GetBannerLoading
+            //     ? Shimmer.fromColors(
+            //         baseColor: Colors.grey[300]!,
+            //         highlightColor: Colors.grey[100]!,
+            //         child: Container(
+            //           width: double.infinity,
+            //           height: MediaQuery.of(context).size.height * 0.2,
+            //           color: Colors.white,
+            //         ),
+            //       )
+            //     :
+            CarouselSlider(
+              items: bannerList
+                  .map(
+                    (e) => CustomBannerHome(
+                      imageUrl: e.image,
                     ),
                   )
-                : CarouselSlider(
-                    items: bannerList
-                        .map(
-                          (e) => CustomBannerHome(
-                            imageUrl: e.image,
-                          ),
-                        )
-                        .toList(),
-                    options: CarouselOptions(
-                      autoPlay: true,
-                      onPageChanged: (index, reason) {
-                        setState(() {
-                          activeIndex = index;
-                        });
-                      },
-                      height: MediaQuery.of(context).size.height * 0.2,
-                      initialPage: 0,
-                      scrollPhysics: const BouncingScrollPhysics(),
-                      enableInfiniteScroll: false,
-                      reverse: false,
-                      autoPlayCurve: Curves.fastOutSlowIn,
-                      viewportFraction: 1,
-                      autoPlayAnimationDuration: const Duration(seconds: 1),
-                      enlargeCenterPage: true,
-                    ),
-                  ),
+                  .toList(),
+              options: CarouselOptions(
+                autoPlay: true,
+                onPageChanged: (index, reason) {
+                  setState(() {
+                    activeIndex = index;
+                  });
+                },
+                height: MediaQuery.of(context).size.height * 0.2,
+                initialPage: 0,
+                scrollPhysics: const BouncingScrollPhysics(),
+                enableInfiniteScroll: false,
+                reverse: false,
+                autoPlayCurve: Curves.fastOutSlowIn,
+                viewportFraction: 1,
+                autoPlayAnimationDuration: const Duration(seconds: 1),
+                enlargeCenterPage: true,
+              ),
+            ),
             const SizedBox(
               height: 5,
             ),

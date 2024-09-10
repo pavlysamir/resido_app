@@ -1,0 +1,1 @@
+ D:\\chrome\ download\\resido-app\\.dart_tool\\flutter_build\\e56ea657c508a3afaeb3199bbf97a009\\native_assets.yaml: 
