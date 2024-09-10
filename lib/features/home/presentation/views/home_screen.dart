@@ -41,9 +41,28 @@ class HomeScreen extends StatelessWidget {
               SizedBox(
                 height: 18.h,
               ),
-              Text(
-                AppLocalizations.of(context)!.compounds,
-                style: Theme.of(context).textTheme.headlineSmall,
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    AppLocalizations.of(context)!.compounds,
+                    style: Theme.of(context).textTheme.labelMedium,
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      // customJustGoNavigate(
+                      //     context: context,
+                      //     path: AppRouter.kAllFeaturePropScreen);
+                    },
+                    child: Text(
+                      AppLocalizations.of(context)!.seeMore,
+                      style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                          decoration: TextDecoration.underline,
+                          color: AppColors.primaryColor),
+                    ),
+                  ),
+                ],
               ),
               SizedBox(
                 height: 18.h,
@@ -57,7 +76,7 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   Text(
                     AppLocalizations.of(context)!.featureProb,
-                    style: Theme.of(context).textTheme.headlineSmall,
+                    style: Theme.of(context).textTheme.labelMedium,
                   ),
                   GestureDetector(
                     onTap: () {
@@ -85,7 +104,7 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   Text(
                     AppLocalizations.of(context)!.mostLikedProp,
-                    style: Theme.of(context).textTheme.headlineSmall,
+                    style: Theme.of(context).textTheme.labelMedium,
                   ),
                   GestureDetector(
                     onTap: () {

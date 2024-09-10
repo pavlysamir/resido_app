@@ -18,6 +18,7 @@ class CustomPropertyHomeListview extends StatelessWidget {
           return SizedBox(
             height: 50.h,
             child: ListView.builder(
+              padding: EdgeInsets.zero,
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
               itemCount: 5, // Number of shimmer items

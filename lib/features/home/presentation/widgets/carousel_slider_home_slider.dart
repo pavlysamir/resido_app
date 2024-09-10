@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:resido_app/features/home/presentation/managers/home_cubit/home_cubit.dart';
 import 'package:resido_app/features/home/presentation/widgets/custom_banner_home.dart';
 import 'package:resido_app/features/home/presentation/widgets/custom_smooth_indicaror.dart';
-import 'package:shimmer/shimmer.dart';
 
 class CustomCarouselSliderHome extends StatefulWidget {
   const CustomCarouselSliderHome({super.key});

@@ -13,11 +13,11 @@ class CustomUnitListview extends StatelessWidget {
       listener: (context, state) {},
       builder: (context, state) {
         return SizedBox(
-          height: 280.h,
+          height: 200.h,
           child: ListView.separated(
               separatorBuilder: (context, index) {
-                return const SizedBox(
-                  width: 20,
+                return SizedBox(
+                  width: 5.w,
                 );
               },
               shrinkWrap: true,

@@ -11,15 +11,26 @@ class CustomBannerHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CachedNetworkImage(
-      width: double.infinity,
-      imageUrl: imageUrl,
-      placeholder: (context, url) => Shimmer.fromColors(
-        baseColor: Colors.grey[300]!,
-        highlightColor: Colors.grey[100]!,
-        child: Container(
-          width: double.infinity,
-          color: Colors.white,
+    return Container(
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          boxShadow: const [
+            BoxShadow(
+              offset: Offset(2.0, 2.0),
+              blurRadius: 10.0,
+              color: Colors.black12,
+            ),
+          ]),
+      child: CachedNetworkImage(
+        width: double.infinity,
+        imageUrl: imageUrl,
+        placeholder: (context, url) => Shimmer.fromColors(
+          baseColor: Colors.grey[300]!,
+          highlightColor: Colors.grey[100]!,
+          child: Container(
+            width: double.infinity,
+            color: Colors.white,
+          ),
         ),
       ),
     );
