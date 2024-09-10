@@ -6,7 +6,6 @@ import 'package:resido_app/core/utils/app_colors.dart';
 import 'package:resido_app/core/utils/widgets/custom_sell_container.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:resido_app/features/home/presentation/managers/home_cubit/home_cubit.dart';
-
 import '../../data/models/most_like_model.dart';
 
 class GridViewPropertiesItem extends StatelessWidget {
