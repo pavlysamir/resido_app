@@ -100,23 +100,23 @@ class AppTheme {
     primaryColor: AppColors.primaryColor, // Change primary color as needed
     // Change accent color as needed
     textTheme: TextTheme(
-        bodySmall: Styles.textStyle12Blue,
-        displayLarge: Styles.textStyle32Blue,
-        displayMedium: Styles.textStyle18Black,
-        bodyLarge: Styles.textStyle12Black,
-        bodyMedium: Styles.textStyle12BoldGrey,
-        titleMedium: const TextStyle(color: Colors.black),
-        titleSmall: Styles.textStyle12Black,
-        displaySmall: Styles.textStyle20Black,
-        headlineMedium: Styles.textStyle14Grey,
-        headlineSmall: Styles.textStyle14Blck,
-        titleLarge: Styles.textStyle24BoldBlack,
-        labelLarge: Styles.textStyle16White,
-        labelMedium: Styles.textStyle16Black,
-        headlineLarge: Styles.textStyle16Black
+      bodySmall: Styles.textStyle12Blue,
+      displayLarge: Styles.textStyle32Blue,
+      displayMedium: Styles.textStyle18Black,
+      bodyLarge: Styles.textStyle12Black,
+      bodyMedium: Styles.textStyle12BoldGrey,
+      titleMedium: const TextStyle(color: Colors.black),
+      titleSmall: Styles.textStyle12Black,
+      displaySmall: Styles.textStyle20Black,
+      headlineMedium: Styles.textStyle14Grey,
+      headlineSmall: Styles.textStyle14Blck,
+      titleLarge: Styles.textStyle24BoldBlack,
+      labelLarge: Styles.textStyle16White,
+      labelMedium: Styles.textStyle16Black,
+      headlineLarge: Styles.textStyle16Black,
 
-        // Text color for light mode
-        ),
+      // Text color for light mode
+    ),
     inputDecorationTheme: InputDecorationTheme(
       fillColor: Colors.white,
       enabledBorder: OutlineInputBorder(

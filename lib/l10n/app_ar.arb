@@ -176,7 +176,13 @@
 "confirmChangeLng":"تأكيد تغيير اللغه",
 "deleteAccountMessage":"لن تتمكن من التراجع عن ذلك. سيتم تسجيل خروجك وإنهاء جميع الجلسات النشطة",
 "delete":"حذف",
-"doChangeLanguage":"هل تريد تغيير اللغه"
+"doChangeLanguage":"هل تريد تغيير اللغه",
+"startPrice":"السعر الأولي:",
+"zone":"المنطقة",
+"aboutThisCompound":"عن المجموعة",
+"photoGallary":"صور المجموعة",
+"availableApartments":"الشقق المتاحة",
+"models":"الموديلات"
 
 
 

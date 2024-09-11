@@ -7,7 +7,9 @@ import 'package:resido_app/core/utils/shared_preferences_cash_helper.dart';
 import 'package:resido_app/features/authentications/presentation/views/forget_password_screen.dart';
 import 'package:resido_app/features/home/presentation/views/add_prop_screens/add_properties_screen.dart';
 import 'package:resido_app/features/home/presentation/views/add_prop_screens/add_properties_second_screen.dart';
-import 'package:resido_app/features/home/presentation/views/category_details_screen.dart';
+import 'package:resido_app/features/category_details/ui/views/category_details_screen.dart';
+import 'package:resido_app/features/home/presentation/views/compound_details_screen.dart';
+import 'package:resido_app/features/home/presentation/views/compound_screen.dart';
 import 'package:resido_app/features/home/presentation/views/feature_prop_screen.dart';
 import 'package:resido_app/features/most_like_properties_all/ui/views/most_like_properties_screen.dart';
 import 'package:resido_app/features/search/presentation/views/filter_result_screen.dart';
@@ -41,6 +43,8 @@ abstract class AppRouter {
   static const kSearchResultScreen = '/SearchResultScreen';
   static const kMostLikedProperties = '/MostLikedProperties';
   static const kCateegoryDeatilsScreen = '/CateegoryDeatilsScreen';
+  static const kAllCompoundScreen = '/CompoundScreen';
+  static const kCompoundDetailsScreen = '/CompoundDeaatilsScreen';
 
   static final router = GoRouter(
       navigatorKey: navigatorKey,
@@ -115,7 +119,16 @@ abstract class AppRouter {
         ),
         GoRoute(
           path: kCateegoryDeatilsScreen,
-          builder: (context, state) => const CategoryDetailsScreen(),
+          builder: (context, state) =>
+              CategoryDetailsScreen(idOFCategory: state.extra as int),
+        ),
+        GoRoute(
+          path: kAllCompoundScreen,
+          builder: (context, state) => const CompoundScreen(),
+        ),
+        GoRoute(
+          path: kCompoundDetailsScreen,
+          builder: (context, state) => const CompoundDetailsScreen(),
         )
       ]);
 }

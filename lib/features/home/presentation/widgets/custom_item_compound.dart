@@ -1,6 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:resido_app/core/utils/app_router.dart';
+import 'package:resido_app/core/utils/widgets/custom_go_navigator.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:resido_app/core/utils/app_colors.dart';
 import 'package:resido_app/features/home/data/models/compound_model.dart';
@@ -15,10 +17,10 @@ class CustomItemCompound extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
         onTap: () {
-          // customJustGoNavigate(
-          //     context: context, path: AppRouter.kPropertyDetails);
+          customJustGoNavigate(
+              context: context, path: AppRouter.kCompoundDetailsScreen);
 
           // Navigator.push(context, MaterialPageRoute(builder: (context) {
           //   return PropertyDetailes(

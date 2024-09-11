@@ -26,7 +26,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       alignment: Alignment.bottomLeft,
-      padding: const EdgeInsets.only(left: 16.0, bottom: 15.0, right: 16.0),
       child: AppBar(
         forceMaterialTransparency: true,
         backgroundColor: AppColors.white,

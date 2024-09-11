@@ -14,12 +14,12 @@ abstract class Styles {
     color: Colors.black,
   );
 
-  static TextStyle textStyle18Black = GoogleFonts.manrope(
+  static TextStyle textStyle18Black = GoogleFonts.inter(
     fontSize: 18,
     fontWeight: FontWeight.normal,
-    color: AppColors.black,
+    color: AppColors.lightBlack,
   );
-  static TextStyle textStyle18White = GoogleFonts.manrope(
+  static TextStyle textStyle18White = GoogleFonts.inter(
     fontSize: 18,
     fontWeight: FontWeight.bold,
     color: Colors.white,
@@ -83,13 +83,16 @@ abstract class Styles {
     fontWeight: FontWeight.bold,
     color: Colors.white,
   );
-  static TextStyle textStyle14Grey = GoogleFonts.poppins(
+  static TextStyle textStyle14Grey = GoogleFonts.inter(
     fontSize: 14,
     fontWeight: FontWeight.w500,
     color: Colors.grey,
   );
-  static TextStyle textStyle14Blck = const TextStyle(
-      fontSize: 14, fontWeight: FontWeight.normal, color: Colors.black);
+  static TextStyle textStyle14Blck = GoogleFonts.inter(
+    fontSize: 14,
+    fontWeight: FontWeight.normal,
+    color: Colors.black,
+  );
 
   static TextStyle textStyle14White = const TextStyle(
       fontSize: 14, fontWeight: FontWeight.normal, color: Colors.white);
