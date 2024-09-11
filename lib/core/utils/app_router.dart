@@ -17,6 +17,7 @@ import 'package:resido_app/features/search/presentation/views/filter_screen.dart
 import 'package:resido_app/features/search/presentation/views/serach_result_screen.dart';
 import '../../features/authentications/presentation/views/login_screen.dart';
 import '../../features/authentications/presentation/views/register_screen.dart';
+import '../../features/category_filter/ui/views/category_filter_screen.dart';
 import '../../features/home/presentation/views/add_prop_screens/add_proparties_third_screen.dart';
 import '../../features/profile/contact_us/ui/views/contact_us.dart';
 import '../../features/profile/profile_edite/ui/views/profile_edite_screen.dart';
@@ -45,6 +46,7 @@ abstract class AppRouter {
   static const kCateegoryDeatilsScreen = '/CateegoryDeatilsScreen';
   static const kAllCompoundScreen = '/CompoundScreen';
   static const kCompoundDetailsScreen = '/CompoundDeaatilsScreen';
+  static const KCategoryFilterScreen = '/CategoryFilterScreen';
 
   static final router = GoRouter(
       navigatorKey: navigatorKey,
@@ -129,6 +131,10 @@ abstract class AppRouter {
         GoRoute(
           path: kCompoundDetailsScreen,
           builder: (context, state) => const CompoundDetailsScreen(),
-        )
+        ),
+        GoRoute(
+          path: KCategoryFilterScreen,
+          builder: (context, state) => const CategoryFilterScreen(),
+        ),
       ]);
 }
