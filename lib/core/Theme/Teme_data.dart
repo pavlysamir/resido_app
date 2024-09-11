@@ -120,9 +120,11 @@ class AppTheme {
     inputDecorationTheme: InputDecorationTheme(
       fillColor: Colors.white,
       enabledBorder: OutlineInputBorder(
-        borderSide: const BorderSide(color: Colors.grey),
+        borderSide: BorderSide(color: Colors.grey.shade300
+        ),
         borderRadius: BorderRadius.circular(10.0),
       ),
+
       border: OutlineInputBorder(
         borderSide: const BorderSide(
             color: Colors.white), // Border color for light mode

@@ -36,6 +36,7 @@ class GridViewPropertiesItem extends StatelessWidget {
               ),
             ),
             errorWidget: (context, url, error) => const Icon(Icons.error),
+
           ),
           GestureDetector(
             onTap: () {
@@ -92,7 +93,7 @@ class GridViewPropertiesItem extends StatelessWidget {
                       color:AppColors.primaryColor ,
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 5),
+                      padding:  EdgeInsets.symmetric(horizontal: 4.w),
                       child: Text(
                         item.price.toString(),
                         style: Theme.of(context)
@@ -110,22 +111,23 @@ class GridViewPropertiesItem extends StatelessWidget {
                       size: 18.h,
                       color: AppColors.primaryColor,
                     ),
-                    Text(item.title.toString(),
-                        style: Theme.of(context).textTheme.labelMedium),
+
+                    Padding(
+                      padding:  EdgeInsets.symmetric(horizontal: 4.w),
+                      child: Text(item.title.toString(),
+                          style: Theme.of(context).textTheme.labelMedium),
+                    ),
                   ],
                 ),
                 Row(
                   children: [
-                    const Expanded(
-                      flex: 1,
-                      child: Icon(
-                        Icons.place,
-                        size: 18,
-                        color: AppColors.primaryColor,
-                      ),
+                    const Icon(
+                      Icons.place,
+                      size: 18,
+                      color: AppColors.primaryColor,
                     ),
-                    Expanded(
-                      flex: 9,
+                    Padding(
+                      padding:  EdgeInsets.symmetric(horizontal: 4.w),
                       child: Text(
                         item.address.toString(),
                         style: Theme.of(context).textTheme.bodyMedium,

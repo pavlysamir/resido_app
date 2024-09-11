@@ -46,4 +46,6 @@ void setUpServiceLocator() {
   getIt.registerSingleton<ProfileMainRepositoryImpl>(ProfileMainRepositoryImpl(
     api: getIt.get<DioConsumer>(),
   ));
+  // categoryDetailsCubit
+
 }
