@@ -19,6 +19,8 @@ import '../../../search/presentation/managers/cubit/search_cubit.dart';
 import '../../../search/presentation/widgets/custom_property_listView.dart';
 import '../../logic/cubit/category_details_cubit.dart';
 import '../widgets/category_details_item.dart';
+import '../widgets/property_list_view.dart';
+
 /// ya gamal a9ml icon padding of grid view properties item
 class CategoryDetailsScreen extends StatelessWidget {
   final Category category;
@@ -44,11 +46,13 @@ class CategoryDetailsScreen extends StatelessWidget {
         } else if (state is CategoryDetailsError) {
           return Scaffold(
             body: Center(
-              child: Text(state.message),
+              child: Text("no data",
+                  style: Theme.of(context).textTheme.headlineSmall),
             ),
           );
         } else {
-          final categoryDetails = CategoryDetailsCubit.get(context)!.dataCategoryDetailsModel;
+          final categoryDetails =
+              CategoryDetailsCubit.get(context)!.dataCategoryDetailsModel;
 
           return Scaffold(
             appBar: CustomAppBar(
@@ -59,7 +63,8 @@ class CategoryDetailsScreen extends StatelessWidget {
               },
               actions: [
                 IconButton(
-                  icon: const Icon(Icons.filter_list, color: AppColors.primaryColor),
+                  icon: const Icon(Icons.filter_list,
+                      color: AppColors.primaryColor),
                   onPressed: () {
                     showModalBottomSheet(
                       isScrollControlled: true,
@@ -70,8 +75,8 @@ class CategoryDetailsScreen extends StatelessWidget {
                           child: SingleChildScrollView(
                             child: Padding(
                               padding: EdgeInsets.only(
-                                //  bottom: MediaQuery.of(context).viewInsets.bottom,
-                              ),
+                                  //  bottom: MediaQuery.of(context).viewInsets.bottom,
+                                  ),
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
@@ -81,7 +86,8 @@ class CategoryDetailsScreen extends StatelessWidget {
                                       padding: const EdgeInsets.all(8.0),
                                       child: Container(
                                         child: IconButton(
-                                          icon: const Icon(Icons.close, color: AppColors.primaryColor),
+                                          icon: const Icon(Icons.close,
+                                              color: AppColors.primaryColor),
                                           onPressed: () {
                                             Navigator.of(context).pop();
                                           },
@@ -90,42 +96,53 @@ class CategoryDetailsScreen extends StatelessWidget {
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 16),
                                     child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
                                         //SizedBox(height: 20.h),
                                         const ContainerSwitcher(),
                                         SizedBox(height: 20.h),
                                         Text(
-                                          AppLocalizations.of(context)!.typeOfProperty,
-                                          style: Theme.of(context).textTheme.headlineSmall,
+                                          AppLocalizations.of(context)!
+                                              .typeOfProperty,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .headlineSmall,
                                         ),
                                         SizedBox(height: 20.h),
-                                        const CustomPropertyListview(),
+                                        const CategoryFilterListview(),
                                         SizedBox(height: 20.h),
                                         Text(
                                           AppLocalizations.of(context)!.budget,
-                                          style: Theme.of(context).textTheme.headlineSmall,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .headlineSmall,
                                         ),
                                         SizedBox(height: 20.h),
                                         Row(
                                           children: [
                                             Expanded(
                                               child: CustomFormField(
-                                                controller: CategoryDetailsCubit.get(context)!
+                                                controller: CategoryDetailsCubit
+                                                        .get(context)!
                                                     .filterMinBudgetController,
                                                 hintText: 'Min',
-                                                textInputType: TextInputType.number,
+                                                textInputType:
+                                                    TextInputType.number,
                                               ),
                                             ),
                                             SizedBox(width: 14.w),
                                             Expanded(
                                               child: CustomFormField(
-                                                controller: CategoryDetailsCubit.get(context)!
+                                                controller: CategoryDetailsCubit
+                                                        .get(context)!
                                                     .filterMinToBudgetController,
                                                 hintText: 'Max',
-                                                textInputType: TextInputType.number,
+                                                textInputType:
+                                                    TextInputType.number,
                                               ),
                                             ),
                                           ],
@@ -133,34 +150,44 @@ class CategoryDetailsScreen extends StatelessWidget {
                                         SizedBox(height: 20.h),
                                         Text(
                                           AppLocalizations.of(context)!.area,
-                                          style: Theme.of(context).textTheme.headlineSmall,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .headlineSmall,
                                         ),
                                         SizedBox(height: 20.h),
                                         Row(
                                           children: [
                                             Expanded(
                                               child: CustomFormField(
-                                                controller: CategoryDetailsCubit.get(context)!
-                                                    .filterAreaToController,
+                                                controller:
+                                                    CategoryDetailsCubit.get(
+                                                            context)!
+                                                        .filterAreaToController,
                                                 hintText: 'to',
-                                                textInputType: TextInputType.number,
+                                                textInputType:
+                                                    TextInputType.number,
                                               ),
                                             ),
                                             SizedBox(width: 14.w),
                                             Expanded(
                                               child: CustomFormField(
-                                                controller: CategoryDetailsCubit.get(context)!
+                                                controller: CategoryDetailsCubit
+                                                        .get(context)!
                                                     .filterAreaFromController,
                                                 hintText: 'from',
-                                                textInputType: TextInputType.number,
+                                                textInputType:
+                                                    TextInputType.number,
                                               ),
                                             ),
                                           ],
                                         ),
                                         SizedBox(height: 20.h),
                                         Text(
-                                          AppLocalizations.of(context)!.location,
-                                          style: Theme.of(context).textTheme.headlineSmall,
+                                          AppLocalizations.of(context)!
+                                              .location,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .headlineSmall,
                                         ),
                                         SizedBox(height: 20.h),
                                         Row(
@@ -168,22 +195,36 @@ class CategoryDetailsScreen extends StatelessWidget {
                                             Expanded(
                                               flex: 4,
                                               child: CustomFormField(
-                                                controller: CategoryDetailsCubit.get(context)!.location,
-                                                hintText: AppLocalizations.of(context)!.selectLocation,
-                                                textInputType: TextInputType.text,
+                                                controller:
+                                                    CategoryDetailsCubit.get(
+                                                            context)!
+                                                        .location,
+                                                hintText: AppLocalizations.of(
+                                                        context)!
+                                                    .selectLocation,
+                                                textInputType:
+                                                    TextInputType.text,
                                               ),
                                             ),
                                           ],
                                         ),
                                         SizedBox(height: 20.h),
                                         Padding(
-                                          padding: EdgeInsets.symmetric(vertical: 12.h),
+                                          padding: EdgeInsets.symmetric(
+                                              vertical: 12.h),
                                           child: CustomButtonLarge(
-                                            text: AppLocalizations.of(context)!.applyFilter,
+                                            text: AppLocalizations.of(context)!
+                                                .applyFilter,
                                             function: () {
-                                              //  SearchCubit.get(context)!.filter(1);
+                                              SearchCubit.get(context)!
+                                                  .filter(1);
                                               customJustGoNavigate(
-                                                  context: context, path: AppRouter.KCategoryFilterScreen);
+                                                  context: context,
+                                                  path: AppRouter
+                                                      .KCategoryFilterScreen,
+                                                  data: category
+                                              );
+                                              // print in log the values of the filters
                                             },
                                             textColor: Colors.white,
                                           ),
@@ -211,17 +252,15 @@ class CategoryDetailsScreen extends StatelessWidget {
                   GridView.builder(
                     physics: const BouncingScrollPhysics(),
                     shrinkWrap: true,
-                    padding: EdgeInsets.symmetric(
-                        horizontal: 12.w),
-                    gridDelegate:
-                    SliverGridDelegateWithFixedCrossAxisCount(
+                    padding: EdgeInsets.symmetric(horizontal: 12.w),
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
-                      childAspectRatio: 3.w /4.3.h,
+                      childAspectRatio: 3.w / 4.3.h,
                       crossAxisSpacing: 10.h,
                       mainAxisSpacing: 2.w,
                     ),
-                    itemCount:
-                    categoryDetails?.data.length, // dynamically set itemCount
+                    itemCount: categoryDetails
+                        ?.data.length, // dynamically set itemCount
                     itemBuilder: (BuildContext context, int index) {
                       return CategoryDetailsItem(
                           item: categoryDetails!.data[index]);

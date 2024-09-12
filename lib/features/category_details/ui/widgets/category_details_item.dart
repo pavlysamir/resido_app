@@ -2,11 +2,13 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:resido_app/constance.dart';
 import 'package:resido_app/core/utils/app_colors.dart';
 import 'package:resido_app/core/utils/widgets/custom_sell_container.dart';
 import 'package:resido_app/features/category_details/logic/cubit/category_details_cubit.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:resido_app/features/home/presentation/managers/home_cubit/home_cubit.dart';
+import '../../../../core/utils/widgets/custom_botton_sheet_guest.dart';
 import '../../../category_details/data/models/category_details_model.dart';
 
 class CategoryDetailsItem extends StatelessWidget {
@@ -43,6 +45,14 @@ class CategoryDetailsItem extends StatelessWidget {
           GestureDetector(
             onTap: () {
            //   cubit?.addPropertyToFavorites(item.id ?? 0);
+              if(token == null){
+                showModalBottomSheet(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return const CustomBottomSheetGuest();
+                  },
+                );
+              }
             },
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
