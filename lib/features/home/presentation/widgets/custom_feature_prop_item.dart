@@ -1,13 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:resido_app/core/utils/app_colors.dart';
-import 'package:resido_app/core/utils/widgets/custom_sell_container.dart';
 import 'package:resido_app/features/home/data/models/features_model.dart';
 import 'package:resido_app/features/home/presentation/views/property_details_screen.dart';
-
 import '../managers/home_cubit/home_cubit.dart';
 
 class CustomprobFeaturedItem extends StatelessWidget {
@@ -42,7 +39,7 @@ class CustomprobFeaturedItem extends StatelessWidget {
                 borderRadius: BorderRadius.circular(4),
                 child: CachedNetworkImage(
                     fit: BoxFit.cover,
-                    imageUrl: featureProperty.image,
+                    imageUrl: featureProperty.image!,
                     height: 88.h,
                     width: 260.w,
                     placeholder: (context, url) => Shimmer.fromColors(
@@ -75,7 +72,7 @@ class CustomprobFeaturedItem extends StatelessWidget {
                       width: 5.w,
                     ),
                     Text(
-                      featureProperty.title ?? '',
+                      featureProperty.name ?? '',
                       style: Theme.of(context)
                           .textTheme
                           .bodySmall!
@@ -97,7 +94,7 @@ class CustomprobFeaturedItem extends StatelessWidget {
                       width: 5.w,
                     ),
                     Text(
-                      featureProperty.sub.name ?? '',
+                      featureProperty.sub ?? '',
                       style: Theme.of(context)
                           .textTheme
                           .bodySmall!

@@ -18,6 +18,7 @@ class MostLikeModel {
 
 class Data {
   int id;
+  int compoundId;
   String image;
   String price;
   String bedrooms;
@@ -33,7 +34,6 @@ class Data {
   String grage;
   int statusId;
   int typeId;
-  int compoundId;
   int userId;
   int subId;
   String createdAt;
@@ -46,6 +46,7 @@ class Data {
 
   Data({
     required this.id,
+    required this.compoundId,
     required this.image,
     required this.price,
     required this.bedrooms,
@@ -61,7 +62,6 @@ class Data {
     required this.grage,
     required this.statusId,
     required this.typeId,
-    required this.compoundId,
     required this.userId,
     required this.subId,
     required this.createdAt,
@@ -76,6 +76,7 @@ class Data {
   factory Data.fromJson(Map<String, dynamic> json) {
     return Data(
       id: json['id'],
+      compoundId: json['compound_id'],
       image: json['image'],
       price: json['price'],
       bedrooms: json['bedrooms'],
@@ -91,7 +92,6 @@ class Data {
       grage: json['grage'],
       statusId: json['status_id'],
       typeId: json['type_id'],
-      compoundId: json['compound_id'],
       userId: json['user_id'],
       subId: json['sub_id'],
       createdAt: json['created_at'],

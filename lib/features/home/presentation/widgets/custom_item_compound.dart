@@ -42,7 +42,7 @@ class CustomItemCompound extends StatelessWidget {
                 borderRadius: BorderRadius.circular(4),
                 child: CachedNetworkImage(
                     fit: BoxFit.cover,
-                    imageUrl: compoundModel.image,
+                    imageUrl: compoundModel.image ?? '',
                     height: 88.h,
                     width: 260.w,
                     placeholder: (context, url) => Shimmer.fromColors(

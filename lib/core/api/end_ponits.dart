@@ -34,7 +34,7 @@ class EndPoint {
   static String getSubCategories = "sub-categories";
 
   static String getCompound = "compounds";
-  static String mostLike = "mlikes";
+  static String mostLike = "most-liked";
 
   static String verifyMobileNum = "Account/VerifyMobileNumber";
   static String verifyOtpMobileNum = "Account/verify-otp";
@@ -57,11 +57,11 @@ class EndPoint {
 
   static String banners = "banners";
 
-  static String getFeatures = "featured";
+  static String getFeatures = "feauters";
 
   static String makeLike = "favorite";
 
-  static String getAllFeatures = "featured-all";
+  static String getAllFeatures = "feauters/see-more";
 
   static const String contentType = 'application/json';
 
@@ -93,7 +93,7 @@ class EndPoint {
   }
 
   static String getApartmentDeatails(id) {
-    return "apartments/$id";
+    return "apartment/$id";
   }
 
   static String plans = "/plans";

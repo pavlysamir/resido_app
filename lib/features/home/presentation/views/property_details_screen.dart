@@ -50,7 +50,7 @@ class _PropertyDetailesState extends State<PropertyDetailes> {
       ExpandedIconsWithTextModel(
           iconOne: Icons.bed_outlined,
           name: 'Bedrooms',
-          num: widget.featureProperty.bedrooms),
+          num: widget.featureProperty.masterBedroom),
     ];
 
     return BlocConsumer<HomeCubit, HomeState>(
@@ -79,7 +79,7 @@ class _PropertyDetailesState extends State<PropertyDetailes> {
                               borderRadius: BorderRadius.circular(10),
                               child: CachedNetworkImage(
                                 height: 250.h,
-                                imageUrl: widget.featureProperty.image,
+                                imageUrl: widget.featureProperty.image!,
                                 fit: BoxFit.fill,
                               ),
                             ),
@@ -100,7 +100,7 @@ class _PropertyDetailesState extends State<PropertyDetailes> {
                               ),
                             ),
                             CustomSellContainer(
-                              text: widget.featureProperty.type.title,
+                              text: widget.featureProperty.type.name,
                             ),
                             Positioned(
                               bottom: 10,
@@ -130,7 +130,7 @@ class _PropertyDetailesState extends State<PropertyDetailes> {
                                 width: 5.w,
                               ),
                               Text(
-                                widget.featureProperty.sub.name,
+                                widget.featureProperty.sub ?? '',
                                 style: Theme.of(context).textTheme.bodyMedium,
                               ),
                               const Spacer(),
@@ -142,7 +142,7 @@ class _PropertyDetailesState extends State<PropertyDetailes> {
                                     color: AppColors.primaryColor),
                                 child: Center(
                                   child: Text(
-                                    widget.featureProperty.type.title,
+                                    widget.featureProperty.type.name,
                                     style: const TextStyle(
                                         color: Colors.white, fontSize: 15),
                                   ),
@@ -151,13 +151,13 @@ class _PropertyDetailesState extends State<PropertyDetailes> {
                             ],
                           ),
                         ),
-                        Text(widget.featureProperty.title ?? '',
+                        Text(widget.featureProperty.name ?? '',
                             style: Theme.of(context).textTheme.labelMedium),
                         SizedBox(
                           height: 8.h,
                         ),
                         Text(
-                          '${widget.featureProperty.price} EGP',
+                          '${widget.featureProperty.priceFrom} EGP',
                           overflow: TextOverflow.ellipsis,
                           style: const TextStyle(
                               fontWeight: FontWeight.w500,

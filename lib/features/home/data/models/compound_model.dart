@@ -1,6 +1,6 @@
 class CompoundModel {
   int id;
-  String image;
+  String? image;
   String priceMin;
   String priceMax;
   String areaMin;
@@ -15,7 +15,7 @@ class CompoundModel {
 
   CompoundModel({
     required this.id,
-    required this.image,
+    this.image,
     required this.priceMin,
     required this.priceMax,
     required this.areaMin,
