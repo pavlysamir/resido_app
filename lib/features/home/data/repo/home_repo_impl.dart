@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:logger/logger.dart';
 import 'package:resido_app/core/api/api_consumer.dart';
 import 'package:resido_app/core/api/end_ponits.dart';
 import 'package:resido_app/core/errors/exceptions.dart';
@@ -129,7 +128,7 @@ class HomeRepoImpl implements HomeRepo {
   }
 
   @override
-  Future<Either<String, MostLikeModel>> getMostLike()  async{
+  Future<Either<String, MostLikeModel>> getMostLike() async {
     try {
       final response = await api.get(
         EndPoint.mostLike,

@@ -1,11 +1,10 @@
 class EndPoint {
-  static String baseUrl = "https://ai.w-manage.org/api/";
+  static String baseUrl = "https://me.w-manage.org/api/app/";
 
   static String getAllGradesRegistration =
       "api/BaseLookup/GetAllRegistrationGrade";
   static String getAllAvailabilityWork =
       "api/BaseLookup/GetAllAvailabilityWork";
-
 
   static String getProfileEndPoint = "profile";
   static String getFavoriteDataEndPoint = "like-user";
@@ -56,14 +55,13 @@ class EndPoint {
 
   static String filter = "filter-apartments";
 
-  static String banners = "banner";
+  static String banners = "banners";
 
   static String getFeatures = "featured";
 
   static String makeLike = "favorite";
 
   static String getAllFeatures = "featured-all";
-
 
   static const String contentType = 'application/json';
 

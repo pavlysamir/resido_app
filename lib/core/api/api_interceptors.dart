@@ -13,7 +13,7 @@ class ApiInterceptor extends Interceptor {
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     // Get the token from SharedPreferences
 
-    String apiKey = 'base64:vDsGZjXJlDcXVKkrV3xYe8xUiL6TMf5D6Pqf6QPSw5c=';
+    String apiKey = 'base64:7+4+S0ntVJXJgJWh8A1axdkJZuNRGfJZOu2pDL1zloA=';
 
     String? token =
         getIt.get<CashHelperSharedPreferences>().getData(key: ApiKey.token);
