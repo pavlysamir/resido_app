@@ -83,6 +83,7 @@ class HomeRepoImpl implements HomeRepo {
     } on ServerException catch (e) {
       return Left(e.errModel.errorMessage![0] ?? 'Server error');
     }
+
   }
 
   @override
