@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:resido_app/core/api/dio_consumer.dart';
 import 'package:resido_app/features/authentications/data/repo/auth_repo_impl.dart';
+import 'package:resido_app/features/category_details/data/repository/category_details_repository.dart';
 import 'package:resido_app/features/favourite/data/repository/favorite_repository.dart';
 import 'package:resido_app/features/home/data/repo/home_repo_impl.dart';
 import 'package:resido_app/features/profile/profile_main/data/repository/profile_main_repository.dart';
@@ -47,5 +48,7 @@ void setUpServiceLocator() {
     api: getIt.get<DioConsumer>(),
   ));
   // categoryDetailsCubit
-
+  getIt.registerSingleton<CategoryDetailsRepositoryImpl>(CategoryDetailsRepositoryImpl(
+    api: getIt.get<DioConsumer>(),
+  ));
 }

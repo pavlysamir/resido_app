@@ -8,8 +8,6 @@ import 'package:resido_app/features/authentications/presentation/views/forget_pa
 import 'package:resido_app/features/home/presentation/views/add_prop_screens/add_properties_screen.dart';
 import 'package:resido_app/features/home/presentation/views/add_prop_screens/add_properties_second_screen.dart';
 import 'package:resido_app/features/category_details/ui/views/category_details_screen.dart';
-import 'package:resido_app/features/home/presentation/views/compound_details_screen.dart';
-import 'package:resido_app/features/home/presentation/views/compound_screen.dart';
 import 'package:resido_app/features/home/presentation/views/feature_prop_screen.dart';
 import 'package:resido_app/features/most_like_properties_all/ui/views/most_like_properties_screen.dart';
 import 'package:resido_app/features/search/presentation/views/filter_result_screen.dart';
@@ -18,7 +16,10 @@ import 'package:resido_app/features/search/presentation/views/serach_result_scre
 import '../../features/authentications/presentation/views/login_screen.dart';
 import '../../features/authentications/presentation/views/register_screen.dart';
 import '../../features/category_filter/ui/views/category_filter_screen.dart';
+import '../../features/home/data/models/category_item_model.dart';
 import '../../features/home/presentation/views/add_prop_screens/add_proparties_third_screen.dart';
+import '../../features/home/presentation/views/compound_details_screen.dart';
+import '../../features/home/presentation/views/compound_screen.dart';
 import '../../features/profile/contact_us/ui/views/contact_us.dart';
 import '../../features/profile/profile_edite/ui/views/profile_edite_screen.dart';
 import '../../features/search/presentation/views/search_screen.dart';
@@ -44,17 +45,18 @@ abstract class AppRouter {
   static const kSearchResultScreen = '/SearchResultScreen';
   static const kMostLikedProperties = '/MostLikedProperties';
   static const kCateegoryDeatilsScreen = '/CateegoryDeatilsScreen';
+  static const KCategoryFilterScreen = '/CategoryFilterScreen';
   static const kAllCompoundScreen = '/CompoundScreen';
   static const kCompoundDetailsScreen = '/CompoundDeaatilsScreen';
-  static const KCategoryFilterScreen = '/CategoryFilterScreen';
 
   static final router = GoRouter(
       navigatorKey: navigatorKey,
       initialLocation:
-          getIt.get<CashHelperSharedPreferences>().getData(key: ApiKey.token) ==
-                  null
-              ? kLoginScreen
-              : kHomeLayout,
+          // getIt.get<CashHelperSharedPreferences>().getData(key: ApiKey.token) ==
+          //         null
+          //     ? kLoginScreen
+          //     :
+          kHomeLayout,
       routes: [
         GoRoute(
           path: kHomeLayout,
@@ -121,8 +123,11 @@ abstract class AppRouter {
         ),
         GoRoute(
           path: kCateegoryDeatilsScreen,
-          builder: (context, state) =>
-              CategoryDetailsScreen(idOFCategory: state.extra as int),
+          builder: (context, state) => CategoryDetailsScreen(category:state.extra as Category,),
+        ),
+        GoRoute(
+          path: KCategoryFilterScreen,
+          builder: (context, state) => CategoryFilterScreen(),
         ),
         GoRoute(
           path: kAllCompoundScreen,
@@ -131,10 +136,6 @@ abstract class AppRouter {
         GoRoute(
           path: kCompoundDetailsScreen,
           builder: (context, state) => const CompoundDetailsScreen(),
-        ),
-        GoRoute(
-          path: KCategoryFilterScreen,
-          builder: (context, state) => const CategoryFilterScreen(),
         ),
       ]);
 }

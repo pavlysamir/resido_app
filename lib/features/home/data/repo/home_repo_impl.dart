@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:logger/logger.dart';
 import 'package:resido_app/core/api/api_consumer.dart';
 import 'package:resido_app/core/api/end_ponits.dart';
 import 'package:resido_app/core/errors/exceptions.dart';
@@ -74,6 +75,7 @@ class HomeRepoImpl implements HomeRepo {
       final response = await api.get(
         EndPoint.getCategories,
       );
+      Logger().i(response);
 
       var data = CategoryList.fromJson(response);
 
@@ -81,6 +83,7 @@ class HomeRepoImpl implements HomeRepo {
     } on ServerException catch (e) {
       return Left(e.errModel.errorMessage![0] ?? 'Server error');
     }
+
   }
 
   @override

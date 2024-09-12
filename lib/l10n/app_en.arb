@@ -184,9 +184,13 @@
 "startPrice":"Start Price:",
 "zone":"Zone:",
 "aboutThisCompound":"About This Compound",
+"aboutThisproberty":"About This Property",
 "photoGallary":"Photo Gallery",
 "availableApartments":"Available Apartments",
-"models":"Model:"
+"models":"Model:",
+"paymentPlay":"Payment Play",
+"outdoorFacility":"Outdoor facilities"
+
 
 
   }

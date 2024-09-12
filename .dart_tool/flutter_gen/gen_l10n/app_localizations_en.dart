@@ -523,6 +523,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get aboutThisCompound => 'About This Compound';
 
   @override
+  String get aboutThisproberty => 'About This Property';
+
+  @override
   String get photoGallary => 'Photo Gallery';
 
   @override
@@ -530,4 +533,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get models => 'Model:';
+
+  @override
+  String get paymentPlay => 'Payment Play';
+
+  @override
+  String get outdoorFacility => 'Outdoor facilities';
 }

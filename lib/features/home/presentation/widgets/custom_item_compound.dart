@@ -97,7 +97,7 @@ class CustomItemCompound extends StatelessWidget {
                       width: 5.w,
                     ),
                     Text(
-                      compoundModel.address ?? '',
+                      compoundModel.name ?? '',
                       style: Theme.of(context)
                           .textTheme
                           .bodySmall!
@@ -107,7 +107,7 @@ class CustomItemCompound extends StatelessWidget {
                     ),
                     //const Spacer(),
                     SizedBox(
-                      width: 140.w,
+                      width: 120.w,
                     ),
                     Text(
                       'dddddd',

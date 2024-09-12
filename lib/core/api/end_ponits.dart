@@ -35,6 +35,7 @@ class EndPoint {
 
   static String getCompound = "compounds";
   static String mostLike = "most-liked";
+  static String getCompoundDetails = "get-apartment-by-id";
 
   static String verifyMobileNum = "Account/VerifyMobileNumber";
   static String verifyOtpMobileNum = "Account/verify-otp";
