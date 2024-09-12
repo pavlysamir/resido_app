@@ -34,6 +34,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get language => 'اللغة';
 
   @override
+  String get registerNow => 'سجل الان';
+
+  @override
   String get myAds => 'اعلاناتي';
 
   @override

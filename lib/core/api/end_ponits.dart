@@ -31,7 +31,7 @@ class EndPoint {
 
   static String getCategories = "categories";
 
-  static String getSubCategories = "sub-categories";
+  static String getSubCategories = "subcategories";
 
   static String getCompound = "compounds";
   static String mostLike = "most-liked";

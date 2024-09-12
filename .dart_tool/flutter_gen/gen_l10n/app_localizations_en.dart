@@ -34,6 +34,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get language => 'Language';
 
   @override
+  String get registerNow => 'Register Now';
+
+  @override
   String get myAds => 'My Ads';
 
   @override

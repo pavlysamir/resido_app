@@ -12,7 +12,8 @@ import '../../../home/presentation/widgets/grid_view_properties_item.dart';
 import '../../logic/cubit/category_filter_cubit.dart';
 
 class CategoryFilterScreen extends StatelessWidget {
-  const CategoryFilterScreen({super.key});
+  final dynamic modelOfCategoryFilter;
+  const CategoryFilterScreen({super.key, this.modelOfCategoryFilter});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class CategoryFilterScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: CustomAppBar(
-        title: 'i want response 2',
+        title: modelOfCategoryFilter.name,
         showBackButton: true,
         function: () {
 

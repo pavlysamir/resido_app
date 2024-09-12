@@ -20,3 +20,13 @@ final class CategoryDetailsSuccess extends CategoryDetailsState {
   final CategoryDetailsModel categoryDetailsModel;
   CategoryDetailsSuccess(this.categoryDetailsModel);
 }
+// get category properties
+final class CategoryPropertiesLoading extends CategoryDetailsState {}
+final class CategoryPropertiesError extends CategoryDetailsState {
+  final String message;
+  CategoryPropertiesError(this.message);
+}
+final class CategoryPropertiesSuccess extends CategoryDetailsState {
+  final CategoryPropertiesModel categoryPropertiesModel;
+  CategoryPropertiesSuccess(this.categoryPropertiesModel);
+}

@@ -149,6 +149,12 @@ abstract class AppLocalizations {
   /// **'Language'**
   String get language;
 
+  /// No description provided for @registerNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Register Now'**
+  String get registerNow;
+
   /// No description provided for @myAds.
   ///
   /// In en, this message translates to:

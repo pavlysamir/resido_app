@@ -6,6 +6,8 @@ import 'package:resido_app/core/errors/exceptions.dart';
 import 'package:resido_app/features/category_details/data/models/category_details_model.dart';
 import 'package:resido_app/features/category_details/data/repository/category_details_repository.dart';
 
+import '../../data/models/category_properties_filter_model.dart';
+
 part 'category_details_state.dart';
 
 class CategoryDetailsCubit extends Cubit<CategoryDetailsState> {
@@ -13,7 +15,6 @@ class CategoryDetailsCubit extends Cubit<CategoryDetailsState> {
   CategoryDetailsCubit(this.categoryDetailsRepository) : super(CategoryDetailsInitial());
   static CategoryDetailsCubit? get(context) => BlocProvider.of(context);
 
-  final TextEditingController searchController = TextEditingController();
   final TextEditingController filterMinBudgetController =
   TextEditingController();
   final TextEditingController filterMinToBudgetController =
@@ -106,5 +107,34 @@ class CategoryDetailsCubit extends Cubit<CategoryDetailsState> {
   //     }
   //   }
   // }
+  List<CategoryData> subCategoryItems = [];
+  getSubCategory() async {
+    emit(CategoryPropertiesLoading());
+    final response = await categoryDetailsRepository.getCategoryProperties(1);
+
+    response.fold(
+          (errMessage) => emit(CategoryPropertiesError(
+            errMessage.toString(),
+          )),
+          (categories) {
+        subCategoryItems = categories.data;
+        emit(CategoryPropertiesSuccess(categories));
+      },
+    );
+  }
+
+  Future<void> clearFilterData() async {
+    // filterMinBudgetController.clear();
+    // filterMinToBudgetController.clear();
+    // filterAreafromController.clear();
+    // filterAreaToController.clear();
+    // location.clear();
+    // selectedMapCategory!.clear();
+    // filterList == null;
+    // typeId = null;
+    //
+    // emit(ClearFilterData());
+  }
+
 }
 
