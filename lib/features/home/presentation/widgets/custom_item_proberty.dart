@@ -18,13 +18,12 @@ class CustomItemProbirtyHome extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         customJustGoNavigate(
-            context: context, path: AppRouter.kCateegoryDeatilsScreen,data: category.id);
+            context: context, path: AppRouter.kCateegoryDeatilsScreen,data: category);
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 3),
         child: Container(
-          width: 130.w,
-          height: 100,
+          width: 100,
           decoration: BoxDecoration(
             color: Theme.of(context).appBarTheme.backgroundColor,
             borderRadius: BorderRadius.circular(10),
@@ -43,21 +42,24 @@ class CustomItemProbirtyHome extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  CachedNetworkImage(
-                    imageUrl: category.image,
-                    height: 25.h,
-                    width: 25.w,
-                    fit: BoxFit.cover,
-                  ),
+                  if (category.image != null && category.image!.isNotEmpty)
+                    CachedNetworkImage(
+                      imageUrl: category.image!,
+                      height: 25.h,
+                      width: 25.w,
+                      fit: BoxFit.cover,
+                    ),
                   SizedBox(
                     width: 3.w,
                   ),
                   Expanded(
-                    child: Text(
-                      category.title,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: Theme.of(context).textTheme.bodySmall!,
+                    child: Center(
+                      child: Text(
+                        category.name ?? '',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: Theme.of(context).textTheme.bodySmall!,
+                      ),
                     ),
                   ),
                 ],

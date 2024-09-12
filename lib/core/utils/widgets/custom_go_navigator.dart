@@ -7,6 +7,6 @@ void customGoAndDeleteNavigate(
 }
 
 void customJustGoNavigate(
-    {required BuildContext context, required String path, dynamic data}) {
+    {required BuildContext context, required String path, dynamic data }) {
   GoRouter.of(context).push(path,extra:  data);
 }

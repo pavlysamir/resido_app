@@ -13,20 +13,20 @@ class ApiInterceptor extends Interceptor {
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     // Get the token from SharedPreferences
 
-    String apiKey = 'base64:vDsGZjXJlDcXVKkrV3xYe8xUiL6TMf5D6Pqf6QPSw5c=';
+    String apiKey = 'base64:7+4+S0ntVJXJgJWh8A1axdkJZuNRGfJZOu2pDL1zloA=';
 
-    String? token =
-        getIt.get<CashHelperSharedPreferences>().getData(key: ApiKey.token);
-    if (kDebugMode) {
-      print('token: $token');
-    }
+    // String? token =
+    //     getIt.get<CashHelperSharedPreferences>().getData(key: ApiKey.token);
+    // if (kDebugMode) {
+    //   print('token: $token');
+    // }
 
     // If token is not null, add it to the request headers as a Bearer token
     options.headers['APP_KEY'] = apiKey;
 
-    if (token != null) {
-      options.headers['Authorization'] = 'Bearer $token';
-    }
+    // if (token != null) {
+    //   options.headers['Authorization'] = 'Bearer $token';
+    // }
 
     super.onRequest(options, handler);
   }

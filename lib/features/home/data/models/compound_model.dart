@@ -1,49 +1,82 @@
 class CompoundModel {
   int id;
-  String image;
-  String priceMin;
-  String priceMax;
-  String areaMin;
-  String areaMax;
-  int zoneId;
+  String? image;
+  String priceFrom;
+  String priceTo;
   int userId;
-  String createdAt;
-  String updatedAt;
+  int zoneId;
+  String numberOfUnits;
+  String status;
+  String views;
   String name;
   String description;
-  String address;
+  Zone zone;
 
   CompoundModel({
     required this.id,
-    required this.image,
-    required this.priceMin,
-    required this.priceMax,
-    required this.areaMin,
-    required this.areaMax,
-    required this.zoneId,
+    this.image,
+    required this.priceFrom,
+    required this.priceTo,
     required this.userId,
-    required this.createdAt,
-    required this.updatedAt,
+    required this.zoneId,
+    required this.numberOfUnits,
+    required this.status,
+    required this.views,
     required this.name,
     required this.description,
-    required this.address,
+    required this.zone,
   });
 
   factory CompoundModel.fromJson(Map<String, dynamic> json) {
     return CompoundModel(
       id: json['id'],
       image: json['image'],
-      priceMin: json['price_min'],
-      priceMax: json['price_max'],
-      areaMin: json['area_min'],
-      areaMax: json['area_max'],
-      zoneId: json['zone_id'],
+      priceFrom: json['price_from'],
+      priceTo: json['price_to'],
       userId: json['user_id'],
-      createdAt: json['created_at'],
-      updatedAt: json['updated_at'],
+      zoneId: json['zone_id'],
+      numberOfUnits: json['number_of_units'],
+      status: json['status'],
+      views: json['views'],
       name: json['name'],
       description: json['description'],
-      address: json['address'],
+      zone: Zone.fromJson(json['zone']),
+    );
+  }
+}
+class Zone {
+  int id;
+  String name;
+
+  Zone({
+    required this.id,
+    required this.name,
+  });
+
+  factory Zone.fromJson(Map<String, dynamic> json) {
+    return Zone(
+      id: json['id'],
+      name: json['name'],
+    );
+  }
+}
+class CompoundList {
+  List<CompoundModel> data;
+  String message;
+  bool status;
+
+  CompoundList({
+    required this.data,
+    required this.message,
+    required this.status,
+  });
+
+  factory CompoundList.fromJson(Map<String, dynamic> json) {
+    return CompoundList(
+      data: List<CompoundModel>.from(
+          json['data'].map((item) => CompoundModel.fromJson(item))),
+      message: json['message'],
+      status: json['status'],
     );
   }
 }

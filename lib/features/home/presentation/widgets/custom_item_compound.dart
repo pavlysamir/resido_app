@@ -30,13 +30,13 @@ class CustomItemCompound extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Stack(alignment: Alignment.bottomRight, children: [
-            ClipRRect(
+              ClipRRect(
               borderRadius: BorderRadius.circular(10),
               child: CachedNetworkImage(
                 fit: BoxFit.cover,
                 imageUrl:
                     // 'https://www.shutterstock.com/image-photo/residential-area-ecological-sustainable-green-600nw-1888460134.jpg',
-                    compoundModel.image,
+                    compoundModel.image ?? '',
                 height: 200.h,
                 width: 300.w,
 
@@ -107,7 +107,7 @@ class CustomItemCompound extends StatelessWidget {
                         width: 5.w,
                       ),
                       Text(
-                        compoundModel.address ?? '',
+                        compoundModel.zone.name ?? '',
                         style: Theme.of(context)
                             .textTheme
                             .bodyMedium!
@@ -117,7 +117,7 @@ class CustomItemCompound extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Text(compoundModel.priceMax,
+                  Text(compoundModel.priceTo,
                       style: Theme.of(context)
                           .textTheme
                           .labelMedium!

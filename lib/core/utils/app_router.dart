@@ -16,6 +16,7 @@ import 'package:resido_app/features/search/presentation/views/serach_result_scre
 import '../../features/authentications/presentation/views/login_screen.dart';
 import '../../features/authentications/presentation/views/register_screen.dart';
 import '../../features/category_filter/ui/views/category_filter_screen.dart';
+import '../../features/home/data/models/category_item_model.dart';
 import '../../features/home/presentation/views/add_prop_screens/add_proparties_third_screen.dart';
 import '../../features/profile/contact_us/ui/views/contact_us.dart';
 import '../../features/profile/profile_edite/ui/views/profile_edite_screen.dart';
@@ -47,10 +48,11 @@ abstract class AppRouter {
   static final router = GoRouter(
       navigatorKey: navigatorKey,
       initialLocation:
-          getIt.get<CashHelperSharedPreferences>().getData(key: ApiKey.token) ==
-                  null
-              ? kLoginScreen
-              : kHomeLayout,
+          // getIt.get<CashHelperSharedPreferences>().getData(key: ApiKey.token) ==
+          //         null
+          //     ? kLoginScreen
+          //     :
+          kHomeLayout,
       routes: [
         GoRoute(
           path: kHomeLayout,
@@ -117,7 +119,7 @@ abstract class AppRouter {
         ),
         GoRoute(
           path: kCateegoryDeatilsScreen,
-          builder: (context, state) => CategoryDetailsScreen(idOFCategory:state.extra as int),
+          builder: (context, state) => CategoryDetailsScreen(category:state.extra as Category,),
         ),
         GoRoute(
           path: KCategoryFilterScreen,

@@ -1,5 +1,5 @@
 class EndPoint {
-  static String baseUrl = "https://ai.w-manage.org/api/";
+  static String baseUrl = "https://me.w-manage.org/api/app/";
 
   static String getAllGradesRegistration =
       "api/BaseLookup/GetAllRegistrationGrade";
@@ -36,6 +36,7 @@ class EndPoint {
 
   static String getCompound = "compounds";
   static String mostLike = "mlikes";
+  static String getCompoundDetails = "get-apartment-by-id";
 
   static String verifyMobileNum = "Account/VerifyMobileNumber";
   static String verifyOtpMobileNum = "Account/verify-otp";

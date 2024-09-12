@@ -75,6 +75,7 @@ class HomeRepoImpl implements HomeRepo {
       final response = await api.get(
         EndPoint.getCategories,
       );
+      Logger().i(response);
 
       var data = CategoryList.fromJson(response);
 

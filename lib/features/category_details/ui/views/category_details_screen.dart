@@ -14,205 +14,225 @@ import '../../../../core/utils/widgets/custom_button_large.dart';
 import '../../../../core/utils/widgets/custom_form_field.dart';
 import '../../../../core/utils/widgets/custom_go_navigator.dart';
 import '../../../../core/widgets/header_widget.dart';
+import '../../../home/data/models/category_item_model.dart';
 import '../../../search/presentation/managers/cubit/search_cubit.dart';
 import '../../../search/presentation/widgets/custom_property_listView.dart';
 import '../../logic/cubit/category_details_cubit.dart';
+import '../widgets/category_details_item.dart';
 /// ya gamal a9ml icon padding of grid view properties item
 class CategoryDetailsScreen extends StatelessWidget {
-  final int idOFCategory;
-  const CategoryDetailsScreen({super.key, required this.idOFCategory});
+  final Category category;
+
+  const CategoryDetailsScreen({super.key, required this.category});
 
   @override
   Widget build(BuildContext context) {
-    final cubit = HomeCubit.get(context);
+    // Call the getCategoryDetails function when the widget is initialized
+    context.read<CategoryDetailsCubit>().getCategoryDetails(category.id);
 
-    return Scaffold(
-      appBar: CustomAppBar(
-        title: 'i want response',
-        showBackButton: true,
-        function: () {
-          Navigator.of(context).pop();
-        },
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.filter_list, color: AppColors.primaryColor),
-            onPressed: () {
-              showModalBottomSheet(
-                isScrollControlled: true,
-                context: context,
-                builder: (BuildContext context) {
-                  return Padding(
-                    padding: const EdgeInsets.all(0.0),
-                    child: SingleChildScrollView(
-                      child: Padding(
-                        padding: EdgeInsets.only(
-                        //  bottom: MediaQuery.of(context).viewInsets.bottom,
-                        ),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Align(
-                              alignment: Alignment.centerRight,
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Container(
-                                  child: IconButton(
-                                    icon: const Icon(Icons.close, color: AppColors.primaryColor),
-                                    onPressed: () {
-                                      Navigator.of(context).pop();
-                                    },
-                                  ),
-                                ),
+    return BlocConsumer<CategoryDetailsCubit, CategoryDetailsState>(
+      listener: (context, state) {
+        // Handle any additional state changes if needed
+      },
+      builder: (context, state) {
+        if (state is CategoryDetailsLoading) {
+          return const Scaffold(
+            body: Center(
+              child: CircularProgressIndicator(),
+            ),
+          );
+        } else if (state is CategoryDetailsError) {
+          return Scaffold(
+            body: Center(
+              child: Text(state.message),
+            ),
+          );
+        } else {
+          final categoryDetails = CategoryDetailsCubit.get(context)!.dataCategoryDetailsModel;
+
+          return Scaffold(
+            appBar: CustomAppBar(
+              title: category.name,
+              showBackButton: true,
+              function: () {
+                Navigator.of(context).pop();
+              },
+              actions: [
+                IconButton(
+                  icon: const Icon(Icons.filter_list, color: AppColors.primaryColor),
+                  onPressed: () {
+                    showModalBottomSheet(
+                      isScrollControlled: true,
+                      context: context,
+                      builder: (BuildContext context) {
+                        return Padding(
+                          padding: const EdgeInsets.all(0.0),
+                          child: SingleChildScrollView(
+                            child: Padding(
+                              padding: EdgeInsets.only(
+                                //  bottom: MediaQuery.of(context).viewInsets.bottom,
                               ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 16),
                               child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  //SizedBox(height: 20.h),
-                                  const ContainerSwitcher(),
-                                  SizedBox(height: 20.h),
-                                  Text(
-                                    AppLocalizations.of(context)!.typeOfProperty,
-                                    style: Theme.of(context).textTheme.headlineSmall,
-                                  ),
-                                  SizedBox(height: 20.h),
-                                  const CustomPropertyListview(),
-                                  SizedBox(height: 20.h),
-                                  Text(
-                                    AppLocalizations.of(context)!.budget,
-                                    style: Theme.of(context).textTheme.headlineSmall,
-                                  ),
-                                  SizedBox(height: 20.h),
-                                  Row(
-                                    children: [
-                                      Expanded(
-                                        child: CustomFormField(
-                                          controller: CategoryDetailsCubit.get(context)!
-                                              .filterMinBudgetController,
-                                          hintText: 'Min',
-                                          textInputType: TextInputType.number,
+                                  Align(
+                                    alignment: Alignment.centerRight,
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Container(
+                                        child: IconButton(
+                                          icon: const Icon(Icons.close, color: AppColors.primaryColor),
+                                          onPressed: () {
+                                            Navigator.of(context).pop();
+                                          },
                                         ),
                                       ),
-                                      SizedBox(width: 14.w),
-                                      Expanded(
-                                        child: CustomFormField(
-                                          controller: CategoryDetailsCubit.get(context)!
-                                              .filterMinToBudgetController,
-                                          hintText: 'Max',
-                                          textInputType: TextInputType.number,
-                                        ),
-                                      ),
-                                    ],
+                                    ),
                                   ),
-                                  SizedBox(height: 20.h),
-                                  Text(
-                                    AppLocalizations.of(context)!.area,
-                                    style: Theme.of(context).textTheme.headlineSmall,
-                                  ),
-                                  SizedBox(height: 20.h),
-                                  Row(
-                                    children: [
-                                      Expanded(
-                                        child: CustomFormField(
-                                          controller: CategoryDetailsCubit.get(context)!
-                                              .filterAreaToController,
-                                          hintText: 'to',
-                                          textInputType: TextInputType.number,
-                                        ),
-                                      ),
-                                      SizedBox(width: 14.w),
-                                      Expanded(
-                                        child: CustomFormField(
-                                          controller: CategoryDetailsCubit.get(context)!
-                                              .filterAreaFromController,
-                                          hintText: 'from',
-                                          textInputType: TextInputType.number,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(height: 20.h),
-                                  Text(
-                                    AppLocalizations.of(context)!.location,
-                                    style: Theme.of(context).textTheme.headlineSmall,
-                                  ),
-                                  SizedBox(height: 20.h),
-                                  Row(
-                                    children: [
-                                      Expanded(
-                                        flex: 4,
-                                        child: CustomFormField(
-                                          controller: CategoryDetailsCubit.get(context)!.location,
-                                          hintText: AppLocalizations.of(context)!.selectLocation,
-                                          textInputType: TextInputType.text,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(height: 20.h),
                                   Padding(
-                                    padding: EdgeInsets.symmetric(vertical: 12.h),
-                                    child: CustomButtonLarge(
-                                      text: AppLocalizations.of(context)!.applyFilter,
-                                      function: () {
-                                        //  SearchCubit.get(context)!.filter(1);
-                                        customJustGoNavigate(
-                                            context: context, path: AppRouter.KCategoryFilterScreen);
-                                      },
-                                      textColor: Colors.white,
+                                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        //SizedBox(height: 20.h),
+                                        const ContainerSwitcher(),
+                                        SizedBox(height: 20.h),
+                                        Text(
+                                          AppLocalizations.of(context)!.typeOfProperty,
+                                          style: Theme.of(context).textTheme.headlineSmall,
+                                        ),
+                                        SizedBox(height: 20.h),
+                                        const CustomPropertyListview(),
+                                        SizedBox(height: 20.h),
+                                        Text(
+                                          AppLocalizations.of(context)!.budget,
+                                          style: Theme.of(context).textTheme.headlineSmall,
+                                        ),
+                                        SizedBox(height: 20.h),
+                                        Row(
+                                          children: [
+                                            Expanded(
+                                              child: CustomFormField(
+                                                controller: CategoryDetailsCubit.get(context)!
+                                                    .filterMinBudgetController,
+                                                hintText: 'Min',
+                                                textInputType: TextInputType.number,
+                                              ),
+                                            ),
+                                            SizedBox(width: 14.w),
+                                            Expanded(
+                                              child: CustomFormField(
+                                                controller: CategoryDetailsCubit.get(context)!
+                                                    .filterMinToBudgetController,
+                                                hintText: 'Max',
+                                                textInputType: TextInputType.number,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        SizedBox(height: 20.h),
+                                        Text(
+                                          AppLocalizations.of(context)!.area,
+                                          style: Theme.of(context).textTheme.headlineSmall,
+                                        ),
+                                        SizedBox(height: 20.h),
+                                        Row(
+                                          children: [
+                                            Expanded(
+                                              child: CustomFormField(
+                                                controller: CategoryDetailsCubit.get(context)!
+                                                    .filterAreaToController,
+                                                hintText: 'to',
+                                                textInputType: TextInputType.number,
+                                              ),
+                                            ),
+                                            SizedBox(width: 14.w),
+                                            Expanded(
+                                              child: CustomFormField(
+                                                controller: CategoryDetailsCubit.get(context)!
+                                                    .filterAreaFromController,
+                                                hintText: 'from',
+                                                textInputType: TextInputType.number,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        SizedBox(height: 20.h),
+                                        Text(
+                                          AppLocalizations.of(context)!.location,
+                                          style: Theme.of(context).textTheme.headlineSmall,
+                                        ),
+                                        SizedBox(height: 20.h),
+                                        Row(
+                                          children: [
+                                            Expanded(
+                                              flex: 4,
+                                              child: CustomFormField(
+                                                controller: CategoryDetailsCubit.get(context)!.location,
+                                                hintText: AppLocalizations.of(context)!.selectLocation,
+                                                textInputType: TextInputType.text,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        SizedBox(height: 20.h),
+                                        Padding(
+                                          padding: EdgeInsets.symmetric(vertical: 12.h),
+                                          child: CustomButtonLarge(
+                                            text: AppLocalizations.of(context)!.applyFilter,
+                                            function: () {
+                                              //  SearchCubit.get(context)!.filter(1);
+                                              customJustGoNavigate(
+                                                  context: context, path: AppRouter.KCategoryFilterScreen);
+                                            },
+                                            textColor: Colors.white,
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   ),
                                 ],
                               ),
                             ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  );
-                },
-              );
-            },
-          ),
-        ],
-      ),
-      body: BlocConsumer<HomeCubit, HomeState>(
-        listener: (context, state) {},
-        builder: (context, state) {
-          final mostLikeList = cubit!.mostLike!.data;
-          return SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.02,
-                      ),
-                      GridView.builder(
-                        physics: const NeverScrollableScrollPhysics(),
-                        shrinkWrap: true,
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 12.w),
-                        gridDelegate:
-                             SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          childAspectRatio: 3.w /4.3.h,
-                          crossAxisSpacing: 10.h,
-                          mainAxisSpacing: 2.w,
-                        ),
-                        itemCount:
-                            mostLikeList.length, // dynamically set itemCount
-                        itemBuilder: (BuildContext context, int index) {
-                          return GridViewPropertiesItem(
-                              item: mostLikeList[index]);
-                        },
-                      ),
-                    ],
-
-                ),
-          );
+                          ),
+                        );
+                      },
+                    );
                   },
-      ),
+                ),
+              ],
+            ),
+            body: SingleChildScrollView(
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.02,
+                  ),
+                  GridView.builder(
+                    physics: const BouncingScrollPhysics(),
+                    shrinkWrap: true,
+                    padding: EdgeInsets.symmetric(
+                        horizontal: 12.w),
+                    gridDelegate:
+                    SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      childAspectRatio: 3.w /4.3.h,
+                      crossAxisSpacing: 10.h,
+                      mainAxisSpacing: 2.w,
+                    ),
+                    itemCount:
+                    categoryDetails?.data.length, // dynamically set itemCount
+                    itemBuilder: (BuildContext context, int index) {
+                      return CategoryDetailsItem(
+                          item: categoryDetails!.data[index]);
+                    },
+                  ),
+                ],
+              ),
+            ),
+          );
+        }
+      },
     );
   }
 }
