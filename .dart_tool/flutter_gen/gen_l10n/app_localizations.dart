@@ -1108,6 +1108,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Do you want change language'**
   String get doChangeLanguage;
+
+  /// No description provided for @startPrice.
+  ///
+  /// In en, this message translates to:
+  /// **'Start Price:'**
+  String get startPrice;
+
+  /// No description provided for @zone.
+  ///
+  /// In en, this message translates to:
+  /// **'Zone:'**
+  String get zone;
+
+  /// No description provided for @aboutThisCompound.
+  ///
+  /// In en, this message translates to:
+  /// **'About This Compound'**
+  String get aboutThisCompound;
+
+  /// No description provided for @photoGallary.
+  ///
+  /// In en, this message translates to:
+  /// **'Photo Gallery'**
+  String get photoGallary;
+
+  /// No description provided for @availableApartments.
+  ///
+  /// In en, this message translates to:
+  /// **'Available Apartments'**
+  String get availableApartments;
+
+  /// No description provided for @models.
+  ///
+  /// In en, this message translates to:
+  /// **'Model:'**
+  String get models;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -25,17 +25,16 @@ class CustomItemProbirtyHome extends StatelessWidget {
         child: Container(
           width: 100,
           decoration: BoxDecoration(
-            color: Theme.of(context).appBarTheme.backgroundColor,
-            borderRadius: BorderRadius.circular(10),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey.withOpacity(0.1),
-                spreadRadius: 2,
-                blurRadius: 4,
-                offset: const Offset(0, 10), // changes position of shadow
+              color: Theme.of(context).appBarTheme.backgroundColor,
+              borderRadius: BorderRadius.circular(10),
+              boxShadow: const [
+                BoxShadow(
+                  offset: Offset(2.0, 2.0),
+                  blurRadius: 10.0,
+                  color: Colors.black12,
+                ),
+              ] // changes position of shadow
               ),
-            ], // changes position of shadow
-          ),
           child: Center(
             child: Padding(
               padding: const EdgeInsets.all(8.0),

@@ -180,7 +180,13 @@
 "noWorry":"No worries , we”ll send a recovery link to your email.",
 "backTo":"Back To",
 "confirmChangeLng":"Confirm Change langeuage",
-"doChangeLanguage":"Do you want change language"
+"doChangeLanguage":"Do you want change language",
+"startPrice":"Start Price:",
+"zone":"Zone:",
+"aboutThisCompound":"About This Compound",
+"photoGallary":"Photo Gallery",
+"availableApartments":"Available Apartments",
+"models":"Model:"
 
 
   }

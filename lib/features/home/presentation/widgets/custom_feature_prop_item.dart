@@ -21,130 +21,251 @@ class CustomprobFeaturedItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final cubit = HomeCubit.get(context);
     return GestureDetector(
-      onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return PropertyDetailes(
-            featureProperty: featureProperty,
-          );
-        }));
-      },
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Stack(alignment: Alignment.bottomRight, children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(10),
-              child: CachedNetworkImage(
-                fit: BoxFit.cover,
-                imageUrl: featureProperty.image,
-                height: 160.h,
-                width: 260.w,
-                placeholder: (context, url) => Shimmer.fromColors(
-                  baseColor: Colors.grey[300]!,
-                  highlightColor: Colors.grey[100]!,
-                  child: Container(
-                    width: 250.w,
-                    height: 160.h,
-                    color: Colors.white,
-                  ),
-                ),
-                errorWidget: (context, url, error) => const Icon(Icons.error),
-              ),
+        onTap: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) {
+            return PropertyDetailes(
+              featureProperty: featureProperty,
+            );
+          }));
+        },
+        child: Card(
+            clipBehavior: Clip.none,
+            shadowColor: AppColors.grey,
+            elevation: 5,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(4),
             ),
-            Positioned(
-              bottom: 10,
-              right: 10,
-              child: GestureDetector(
-                onTap: () {
-                  cubit?.addPropertyToFavorites(featureProperty.id);
-                },
-                child: CircleAvatar(
-                  backgroundColor: Theme.of(context).cardColor,
-                  child: BlocBuilder<HomeCubit, HomeState>(
-                    builder: (context, state) {
-                      final isFavorite =
-                          cubit?.isFavorites[featureProperty.id] ?? false;
-                      return Icon(
-                        isFavorite ? Icons.favorite : Icons.favorite_outline,
+            color: AppColors.white,
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(4),
+                child: CachedNetworkImage(
+                    fit: BoxFit.cover,
+                    imageUrl: featureProperty.image,
+                    height: 88.h,
+                    width: 260.w,
+                    placeholder: (context, url) => Shimmer.fromColors(
+                        baseColor: Colors.grey[300]!,
+                        highlightColor: Colors.grey[100]!,
+                        child: SizedBox(
+                          width: 300.w,
+                          height: 184.h,
+                        ))),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 8, top: 4),
+                child: Text(
+                  'start from',
+                  style: Theme.of(context).textTheme.bodySmall!.copyWith(
                         color: AppColors.primaryColor,
-                      );
-                    },
-                  ),
+                      ),
                 ),
               ),
-            ),
-            CustomSellContainer(
-              text: featureProperty.type.title,
-            ),
-          ]),
-          Container(
-            width: 260.w,
-            decoration: BoxDecoration(
-              color: Theme.of(context).cardColor,
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(3.r),
-                bottomRight: Radius.circular(3.r),
+              Padding(
+                padding: const EdgeInsets.only(left: 8, top: 4),
+                child: Row(
+                  children: [
+                    const Icon(
+                      Icons.business,
+                      size: 18,
+                      color: AppColors.primaryColor,
+                    ),
+                    SizedBox(
+                      width: 5.w,
+                    ),
+                    Text(
+                      featureProperty.title ?? '',
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodySmall!
+                          .copyWith(color: AppColors.primaryColor),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      const Icon(
-                        Icons.business,
-                        size: 18,
-                      ),
-                      SizedBox(
-                        width: 10.w,
-                      ),
-                      Expanded(
-                        child: Text(
-                          featureProperty.sub.name,
-                          style: Theme.of(context).textTheme.titleSmall,
-                        ),
-                      ),
-                    ],
-                  ),
-                  Text(
-                    featureProperty.price,
-                    style: Theme.of(context)
-                        .textTheme
-                        .labelLarge!
-                        .copyWith(color: AppColors.primaryColor),
-                  ),
-                  Text(
-                    featureProperty.title ?? '',
-                    style: Theme.of(context).textTheme.labelMedium,
-                  ),
-                  Row(
-                    children: [
-                      const Expanded(
-                        flex: 1,
-                        child: Icon(
-                          Icons.location_on_outlined,
-                          size: 18,
-                        ),
-                      ),
-                      Expanded(
-                        flex: 9,
-                        child: Text(
-                          featureProperty.address ?? '',
-                          style: Theme.of(context).textTheme.bodyMedium,
-                          overflow: TextOverflow.ellipsis,
-                          maxLines: 1,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
+              Padding(
+                padding: const EdgeInsets.only(left: 8, top: 4),
+                child: Row(
+                  children: [
+                    const Icon(
+                      Icons.business,
+                      size: 18,
+                      color: AppColors.primaryColor,
+                    ),
+                    SizedBox(
+                      width: 5.w,
+                    ),
+                    Text(
+                      featureProperty.sub.name ?? '',
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodySmall!
+                          .copyWith(color: AppColors.primaryColor),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          )
-        ],
-      ),
-    );
+              Padding(
+                padding: const EdgeInsets.only(left: 8, top: 4),
+                child: Row(
+                  children: [
+                    const Icon(
+                      Icons.location_on_outlined,
+                      size: 18,
+                      color: AppColors.primaryColor,
+                    ),
+                    SizedBox(
+                      width: 5.w,
+                    ),
+                    Text(
+                      featureProperty.address ?? '',
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodySmall!
+                          .copyWith(color: AppColors.primaryColor),
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
+                    ),
+                    //const Spacer(),
+                    SizedBox(
+                      width: 120.w,
+                    ),
+                    Text(
+                      'dddddd',
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodySmall!
+                          .copyWith(color: AppColors.primaryColor),
+                    ),
+                  ],
+                ),
+              ),
+            ])));
   }
 }
+
+
+
+
+
+
+
+
+// Column(
+//         crossAxisAlignment: CrossAxisAlignment.start,
+//         children: [
+//           Stack(alignment: Alignment.bottomRight, children: [
+//             ClipRRect(
+//               borderRadius: BorderRadius.circular(10),
+//               child: CachedNetworkImage(
+//                 fit: BoxFit.cover,
+//                 imageUrl: featureProperty.image,
+//                 height: 160.h,
+//                 width: 260.w,
+//                 placeholder: (context, url) => Shimmer.fromColors(
+//                   baseColor: Colors.grey[300]!,
+//                   highlightColor: Colors.grey[100]!,
+//                   child: Container(
+//                     width: 250.w,
+//                     height: 160.h,
+//                     color: Colors.white,
+//                   ),
+//                 ),
+//                 errorWidget: (context, url, error) => const Icon(Icons.error),
+//               ),
+//             ),
+//             Positioned(
+//               bottom: 10,
+//               right: 10,
+//               child: GestureDetector(
+//                 onTap: () {
+//                   cubit?.addPropertyToFavorites(featureProperty.id);
+//                 },
+//                 child: CircleAvatar(
+//                   backgroundColor: Theme.of(context).cardColor,
+//                   child: BlocBuilder<HomeCubit, HomeState>(
+//                     builder: (context, state) {
+//                       final isFavorite =
+//                           cubit?.isFavorites[featureProperty.id] ?? false;
+//                       return Icon(
+//                         isFavorite ? Icons.favorite : Icons.favorite_outline,
+//                         color: AppColors.primaryColor,
+//                       );
+//                     },
+//                   ),
+//                 ),
+//               ),
+//             ),
+//             CustomSellContainer(
+//               text: featureProperty.type.title,
+//             ),
+//           ]),
+//           Container(
+//             width: 260.w,
+//             decoration: BoxDecoration(
+//               color: Theme.of(context).cardColor,
+//               borderRadius: BorderRadius.only(
+//                 bottomLeft: Radius.circular(3.r),
+//                 bottomRight: Radius.circular(3.r),
+//               ),
+//             ),
+//             child: Padding(
+//               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+//               child: Column(
+//                 crossAxisAlignment: CrossAxisAlignment.start,
+//                 children: [
+//                   Row(
+//                     children: [
+//                       const Icon(
+//                         Icons.business,
+//                         size: 18,
+//                       ),
+//                       SizedBox(
+//                         width: 10.w,
+//                       ),
+//                       Expanded(
+//                         child: Text(
+//                           featureProperty.sub.name,
+//                           style: Theme.of(context).textTheme.titleSmall,
+//                         ),
+//                       ),
+//                     ],
+//                   ),
+//                   Text(
+//                     featureProperty.price,
+//                     style: Theme.of(context)
+//                         .textTheme
+//                         .labelLarge!
+//                         .copyWith(color: AppColors.primaryColor),
+//                   ),
+//                   Text(
+//                     featureProperty.title ?? '',
+//                     style: Theme.of(context).textTheme.labelMedium,
+//                   ),
+//                   Row(
+//                     children: [
+//                       const Expanded(
+//                         flex: 1,
+//                         child: Icon(
+//                           Icons.location_on_outlined,
+//                           size: 18,
+//                         ),
+//                       ),
+//                       Expanded(
+//                         flex: 9,
+//                         child: Text(
+//                           featureProperty.address ?? '',
+//                           style: Theme.of(context).textTheme.bodyMedium,
+//                           overflow: TextOverflow.ellipsis,
+//                           maxLines: 1,
+//                         ),
+//                       ),
+//                     ],
+//                   ),
+//                 ],
+//               ),
+//             ),
+//           )
+//         ],
+//       ),

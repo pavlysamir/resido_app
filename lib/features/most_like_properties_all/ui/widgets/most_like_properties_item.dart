@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:resido_app/features/favourite/logic/cubit/favorite_cubit.dart';
-import 'package:shimmer/shimmer.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../favourite/data/models/favorite_model.dart';
 
@@ -11,7 +10,9 @@ class MostLikePropertiesItem extends StatelessWidget {
   final Data favoriteData;
 
   const MostLikePropertiesItem({
-    super.key, required this.favoriteData,});
+    super.key,
+    required this.favoriteData,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -50,9 +51,9 @@ class MostLikePropertiesItem extends StatelessWidget {
                         color: Colors.white.withOpacity(0.5)),
                     child: Center(
                         child: Text(
-                          favoriteData.type.title.toString(),
-                          style: Theme.of(context).textTheme.titleSmall,
-                        )),
+                      favoriteData.type.title.toString(),
+                      style: Theme.of(context).textTheme.titleSmall,
+                    )),
                   ),
                 ),
               ),
@@ -83,16 +84,15 @@ class MostLikePropertiesItem extends StatelessWidget {
                       ),
                       const Spacer(),
                       GestureDetector(
-                        onTap:() {
+                        onTap: () {
                           cubit?.removeItemFromFavorites(favoriteData.id);
                         },
                         child: CircleAvatar(
                           backgroundColor: Theme.of(context).cardColor,
                           child: BlocBuilder<FavoriteCubit, FavoriteState>(
                             builder: (context, state) {
-                              final isFavorite = cubit?.isFavorites[
-                              favoriteData.id
-                              ] ?? false;
+                              final isFavorite =
+                                  cubit?.isFavorites[favoriteData.id] ?? false;
                               return const Icon(
                                 Icons.favorite,
                                 color: AppColors.primaryColor,
@@ -144,4 +144,3 @@ class MostLikePropertiesItem extends StatelessWidget {
     );
   }
 }
-

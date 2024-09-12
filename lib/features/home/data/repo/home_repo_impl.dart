@@ -130,7 +130,7 @@ class HomeRepoImpl implements HomeRepo {
   }
 
   @override
-  Future<Either<String, MostLikeModel>> getMostLike()  async{
+  Future<Either<String, MostLikeModel>> getMostLike() async {
     try {
       final response = await api.get(
         EndPoint.mostLike,

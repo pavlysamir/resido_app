@@ -512,4 +512,22 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get doChangeLanguage => 'هل تريد تغيير اللغه';
+
+  @override
+  String get startPrice => 'السعر الأولي:';
+
+  @override
+  String get zone => 'المنطقة';
+
+  @override
+  String get aboutThisCompound => 'عن المجموعة';
+
+  @override
+  String get photoGallary => 'صور المجموعة';
+
+  @override
+  String get availableApartments => 'الشقق المتاحة';
+
+  @override
+  String get models => 'الموديلات';
 }

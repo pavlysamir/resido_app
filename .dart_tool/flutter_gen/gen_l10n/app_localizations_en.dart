@@ -512,4 +512,22 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get doChangeLanguage => 'Do you want change language';
+
+  @override
+  String get startPrice => 'Start Price:';
+
+  @override
+  String get zone => 'Zone:';
+
+  @override
+  String get aboutThisCompound => 'About This Compound';
+
+  @override
+  String get photoGallary => 'Photo Gallery';
+
+  @override
+  String get availableApartments => 'Available Apartments';
+
+  @override
+  String get models => 'Model:';
 }

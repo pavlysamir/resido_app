@@ -37,9 +37,9 @@ class _GridViewMostLikedPropertiesState
           return GridView.builder(
             physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
-            gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
-              childAspectRatio: 3.w / 4.4.h,
+              childAspectRatio: 3.w / 4.5.h,
               crossAxisSpacing: 10.w,
               mainAxisSpacing: 2.0.h,
             ),

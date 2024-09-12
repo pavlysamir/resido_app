@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:resido_app/core/utils/app_colors.dart';
-import 'package:resido_app/core/utils/widgets/custom_sell_container.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:resido_app/features/home/presentation/managers/home_cubit/home_cubit.dart';
 import '../../data/models/most_like_model.dart';
@@ -36,7 +35,6 @@ class GridViewPropertiesItem extends StatelessWidget {
               ),
             ),
             errorWidget: (context, url, error) => const Icon(Icons.error),
-
           ),
           GestureDetector(
             onTap: () {
@@ -90,10 +88,10 @@ class GridViewPropertiesItem extends StatelessWidget {
                     Icon(
                       Icons.add_business_sharp,
                       size: 18.h,
-                      color:AppColors.primaryColor ,
+                      color: AppColors.primaryColor,
                     ),
                     Padding(
-                      padding:  EdgeInsets.symmetric(horizontal: 4.w),
+                      padding: EdgeInsets.symmetric(horizontal: 4.w),
                       child: Text(
                         item.price.toString(),
                         style: Theme.of(context)
@@ -111,9 +109,8 @@ class GridViewPropertiesItem extends StatelessWidget {
                       size: 18.h,
                       color: AppColors.primaryColor,
                     ),
-
                     Padding(
-                      padding:  EdgeInsets.symmetric(horizontal: 4.w),
+                      padding: EdgeInsets.symmetric(horizontal: 4.w),
                       child: Text(item.title.toString(),
                           style: Theme.of(context).textTheme.labelMedium),
                     ),
@@ -127,7 +124,7 @@ class GridViewPropertiesItem extends StatelessWidget {
                       color: AppColors.primaryColor,
                     ),
                     Padding(
-                      padding:  EdgeInsets.symmetric(horizontal: 4.w),
+                      padding: EdgeInsets.symmetric(horizontal: 4.w),
                       child: Text(
                         item.address.toString(),
                         style: Theme.of(context).textTheme.bodyMedium,

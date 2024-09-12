@@ -6,7 +6,6 @@ class EndPoint {
   static String getAllAvailabilityWork =
       "api/BaseLookup/GetAllAvailabilityWork";
 
-
   static String getProfileEndPoint = "profile";
   static String getFavoriteDataEndPoint = "like-user";
   static String getFavorite = "favorite";
@@ -57,14 +56,13 @@ class EndPoint {
 
   static String filter = "filter-apartments";
 
-  static String banners = "banner";
+  static String banners = "banners";
 
   static String getFeatures = "featured";
 
   static String makeLike = "favorite";
 
   static String getAllFeatures = "featured-all";
-
 
   static const String contentType = 'application/json';
 

@@ -14,11 +14,12 @@ class CustomListviewCompound extends StatelessWidget {
       builder: (context, state) {
         var cubit = HomeCubit.get(context);
         return SizedBox(
-          height: 200.h,
+          height: 176.h,
           child: ListView.separated(
+              padding: EdgeInsets.zero,
               separatorBuilder: (context, index) {
-                return const SizedBox(
-                  width: 20,
+                return SizedBox(
+                  width: 5.w,
                 );
               },
               shrinkWrap: true,

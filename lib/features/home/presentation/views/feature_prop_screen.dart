@@ -16,7 +16,6 @@ class FeaturePropScreen extends StatefulWidget {
 class _FeaturePropScreenState extends State<FeaturePropScreen> {
   @override
   void initState() {
-    // TODO: implement initState
     HomeCubit.get(context)!.getAllFeatureProparties();
     super.initState();
   }
