@@ -1133,6 +1133,12 @@ abstract class AppLocalizations {
   /// **'About This Compound'**
   String get aboutThisCompound;
 
+  /// No description provided for @aboutThisproberty.
+  ///
+  /// In en, this message translates to:
+  /// **'About This Property'**
+  String get aboutThisproberty;
+
   /// No description provided for @photoGallary.
   ///
   /// In en, this message translates to:
@@ -1150,6 +1156,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Model:'**
   String get models;
+
+  /// No description provided for @paymentPlay.
+  ///
+  /// In en, this message translates to:
+  /// **'Payment Play'**
+  String get paymentPlay;
+
+  /// No description provided for @outdoorFacility.
+  ///
+  /// In en, this message translates to:
+  /// **'Outdoor facilities'**
+  String get outdoorFacility;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

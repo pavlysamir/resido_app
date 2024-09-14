@@ -526,6 +526,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get aboutThisCompound => 'عن المجموعة';
 
   @override
+  String get aboutThisproberty => 'About This Property';
+
+  @override
   String get photoGallary => 'صور المجموعة';
 
   @override
@@ -533,4 +536,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get models => 'الموديلات';
+
+  @override
+  String get paymentPlay => 'Payment Play';
+
+  @override
+  String get outdoorFacility => 'Outdoor facilities';
 }

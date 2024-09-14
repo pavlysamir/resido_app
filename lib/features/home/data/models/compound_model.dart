@@ -44,6 +44,7 @@ class CompoundModel {
     );
   }
 }
+
 class Zone {
   int id;
   String name;
@@ -60,6 +61,7 @@ class Zone {
     );
   }
 }
+
 class CompoundList {
   List<CompoundModel> data;
   String message;

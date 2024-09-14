@@ -107,7 +107,7 @@ class CustomItemCompound extends StatelessWidget {
                     ),
                     //const Spacer(),
                     SizedBox(
-                      width: 140.w,
+                      width: 120.w,
                     ),
                     Text(
                       'dddddd',

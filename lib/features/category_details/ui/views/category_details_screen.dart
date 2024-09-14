@@ -28,6 +28,7 @@ class CategoryDetailsScreen extends StatelessWidget {
 
   const CategoryDetailsScreen({super.key, required this.category});
 
+
   @override
   Widget build(BuildContext context) {
     var cubit = CategoryDetailsCubit.get(context);
