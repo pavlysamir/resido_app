@@ -24,6 +24,7 @@ import 'package:resido_app/l10n/l10n.dart';
 
 import 'features/category_details/data/repository/category_details_repository.dart';
 import 'features/category_details/logic/cubit/category_details_cubit.dart';
+import 'features/category_filter/data/repository/category_filter_repository.dart';
 import 'features/favourite/data/repository/favorite_repository.dart';
 import 'features/profile/profile_edite/logic/profile_edit_cubit.dart';
 import 'features/profile/profile_main/data/repository/profile_main_repository.dart';
@@ -70,7 +71,10 @@ class ResidoApp extends StatelessWidget {
         BlocProvider(create: (context)=> CategoryDetailsCubit(
           getIt.get<CategoryDetailsRepositoryImpl>()
         ) ),
-        BlocProvider(create: (context)=> CategoryFilterCubit() ),
+        BlocProvider(create: (context)=> CategoryFilterCubit(
+          getIt.get<CategoryFilterRepositoryImpl>()
+        ) ),
+
 
       ],
       child: ScreenUtilInit(

@@ -30,3 +30,13 @@ final class CategoryPropertiesSuccess extends CategoryDetailsState {
   final CategoryPropertiesModel categoryPropertiesModel;
   CategoryPropertiesSuccess(this.categoryPropertiesModel);
 }
+// pagination
+final class CategoryDetailsLoadingMore extends CategoryDetailsState {}
+final class CategoryDetailsErrorMore extends CategoryDetailsState {
+  final String message;
+  CategoryDetailsErrorMore(this.message);
+}
+final class CategoryDetailsSuccessMore extends CategoryDetailsState {
+  final CategoryDetailsModel categoryDetailsModel;
+  CategoryDetailsSuccessMore(this.categoryDetailsModel);
+}

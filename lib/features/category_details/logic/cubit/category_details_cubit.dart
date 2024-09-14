@@ -1,10 +1,13 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:resido_app/core/errors/exceptions.dart';
 import 'package:resido_app/features/category_details/data/models/category_details_model.dart';
 import 'package:resido_app/features/category_details/data/repository/category_details_repository.dart';
+import '../../../home/data/models/category_item_model.dart';
+import '../../logic/cubit/category_details_cubit.dart';
 
 import '../../data/models/category_properties_filter_model.dart';
 
@@ -12,21 +15,23 @@ part 'category_details_state.dart';
 
 class CategoryDetailsCubit extends Cubit<CategoryDetailsState> {
   final CategoryDetailsRepository categoryDetailsRepository;
-  CategoryDetailsCubit(this.categoryDetailsRepository) : super(CategoryDetailsInitial());
+  CategoryDetailsCubit(this.categoryDetailsRepository)
+      : super(CategoryDetailsInitial());
   static CategoryDetailsCubit? get(context) => BlocProvider.of(context);
 
   final TextEditingController filterMinBudgetController =
-  TextEditingController();
+      TextEditingController();
   final TextEditingController filterMinToBudgetController =
-  TextEditingController();
+      TextEditingController();
 
   final TextEditingController filterAreaToController = TextEditingController();
 
   final TextEditingController filterAreaFromController =
-  TextEditingController();
+      TextEditingController();
   final TextEditingController location = TextEditingController();
   Map<int, bool> toggleMapType = {1: true};
   bool isSwitched = false;
+  int? countFilter;
 
   toggleCategory(int index) {
     if (toggleMapType[index] == true) {
@@ -47,22 +52,33 @@ class CategoryDetailsCubit extends Cubit<CategoryDetailsState> {
     }
   }
 
-
-
   /// Fetches the favorite details from the repository and updates the state.
   CategoryDetailsModel? dataCategoryDetailsModel;
-  Future<CategoryDetailsModel> getCategoryDetails(int id) async {
+  Future<CategoryDetailsModel> getCategoryDetails(
+      int id, int pageNumber) async {
     emit(CategoryDetailsLoading());
     try {
+      if (pageNumber == 1) {
+        emit(CategoryDetailsLoading());
+      } else {
+        emit(CategoryDetailsLoadingMore());
+      }
       final response = await categoryDetailsRepository.getCategoryDetails(id);
       return response.fold(
-            (errMessage) {
+        (errMessage) {
           emit(CategoryDetailsError("Error: $errMessage"));
           throw Exception("Error: $errMessage");
         },
-            (success) {
+        (success) {
+          if (pageNumber == 1) {
+            countFilter = success.total;
+          }
           dataCategoryDetailsModel = success;
-          emit(CategoryDetailsSuccess(dataCategoryDetailsModel!));
+          if (pageNumber == 1) {
+            emit(CategoryDetailsSuccess(dataCategoryDetailsModel!));
+          } else {
+            emit(CategoryDetailsSuccessMore(dataCategoryDetailsModel!));
+          }
           return dataCategoryDetailsModel!;
         },
       );
@@ -71,7 +87,8 @@ class CategoryDetailsCubit extends Cubit<CategoryDetailsState> {
       throw Exception('Unexpected error: $e');
     }
   }
-  Map<int,bool> isFavorites = {};
+
+  Map<int, bool> isFavorites = {};
 
   // void removeItemFromFavorites(int id) async {
   //   emit(RemoveMostLikePropertiesLoading());
@@ -113,10 +130,10 @@ class CategoryDetailsCubit extends Cubit<CategoryDetailsState> {
     final response = await categoryDetailsRepository.getCategoryProperties(1);
 
     response.fold(
-          (errMessage) => emit(CategoryPropertiesError(
-            errMessage.toString(),
-          )),
-          (categories) {
+      (errMessage) => emit(CategoryPropertiesError(
+        errMessage.toString(),
+      )),
+      (categories) {
         subCategoryItems = categories.data;
         emit(CategoryPropertiesSuccess(categories));
       },
@@ -135,6 +152,16 @@ class CategoryDetailsCubit extends Cubit<CategoryDetailsState> {
     //
     // emit(ClearFilterData());
   }
-
+  Map<String, String> getControllerValues(
+      {required String id, required String name}) {
+    return {
+      'category_id': id,
+      'title': name,
+      'min_price': filterMinBudgetController.text,
+      'max_price': filterMinToBudgetController.text,
+      'max_weight': filterAreaToController.text,
+      'min_weight': filterAreaFromController.text,
+      'address': location.text,
+    };
+  }
 }
-

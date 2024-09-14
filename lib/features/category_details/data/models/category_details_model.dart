@@ -47,6 +47,15 @@ class CategoryDetailsModel {
       total: json['total'],
     );
   }
+
+  void addData(CategoryDetailsModel newData) {
+    data.addAll(newData.data);
+    currentPage = newData.currentPage;
+    nextPageUrl = newData.nextPageUrl;
+    prevPageUrl = newData.prevPageUrl;
+    to = newData.to;
+    total = newData.total;
+  }
 }
 class CategoryDetails {
   int id;

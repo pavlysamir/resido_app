@@ -128,7 +128,8 @@ abstract class AppRouter {
         GoRoute(
           path: KCategoryFilterScreen,
           builder: (context, state) => CategoryFilterScreen(
-            modelOfCategoryFilter: state.extra as dynamic,
+            listFilter: state.extra as Map<String, String>,
+
           ),
         ),
         GoRoute(
