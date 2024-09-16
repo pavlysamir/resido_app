@@ -1,5 +1,5 @@
 class ApartmentDaetails {
-  int id;
+  dynamic id;
   String image;
   String price;
   String bedrooms;
@@ -12,11 +12,11 @@ class ApartmentDaetails {
   String balconies;
   String likes;
   String grage;
-  int statusId;
-  int typeId;
-  int compoundId;
-  int userId;
-  int subId;
+  dynamic statusId;
+  dynamic typeId;
+  dynamic compoundId;
+  dynamic userId;
+  dynamic subId;
   DateTime createdAt;
   DateTime updatedAt;
   String title;
@@ -97,9 +97,9 @@ class ApartmentDaetails {
 }
 
 class SubCategory {
-  int id;
+  dynamic id;
   String? image;
-  int catId;
+  dynamic catId;
   String name;
 
   SubCategory({
@@ -120,7 +120,7 @@ class SubCategory {
 }
 
 class Type {
-  int id;
+  dynamic id;
   String title;
 
   Type({
@@ -137,7 +137,7 @@ class Type {
 }
 
 class Status {
-  int id;
+  dynamic id;
   String title;
 
   Status({
@@ -154,14 +154,14 @@ class Status {
 }
 
 class Compound {
-  int id;
+  dynamic id;
   String image;
   String priceMin;
   String priceMax;
   String areaMin;
   String areaMax;
-  int zoneId;
-  int userId;
+  dynamic zoneId;
+  dynamic userId;
   DateTime createdAt;
   DateTime updatedAt;
   String name;

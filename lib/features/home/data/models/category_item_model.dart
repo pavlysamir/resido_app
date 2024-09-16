@@ -1,4 +1,3 @@
-
 class CategoryList {
   List<Category> data;
   String message;
@@ -19,8 +18,9 @@ class CategoryList {
     );
   }
 }
+
 class Category {
-  int id;
+  dynamic id;
   String? image;
   String name;
 

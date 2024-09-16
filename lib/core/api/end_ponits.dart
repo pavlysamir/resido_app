@@ -32,6 +32,7 @@ class EndPoint {
   static String getCategories = "categories";
 
   static String getSubCategories = "subcategories";
+  static String getCategoryFilter = "filter-apartment-by-category";
 
   static String getCompound = "compounds";
   static String mostLike = "most-liked";

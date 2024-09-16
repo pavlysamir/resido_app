@@ -31,23 +31,25 @@ class CategoryFilterModel {
 
   factory CategoryFilterModel.fromJson(Map<String, dynamic> json) {
     return CategoryFilterModel(
-      currentPage: json['current_page'],
+      currentPage: json['current_page'] ?? 0,
       data: List<CategoryData>.from(
           json['data'].map((item) => CategoryData.fromJson(item))),
-      firstPageUrl: json['first_page_url'],
-      from: json['from'],
-      lastPage: json['last_page'],
-      lastPageUrl: json['last_page_url'],
+      firstPageUrl: json['first_page_url'] ?? '',
+      from: json['from'] ?? 0,
+      lastPage: json['last_page'] ?? 0,
+      lastPageUrl: json['last_page_url'] ?? '',
       links: List<Link>.from(json['links'].map((item) => Link.fromJson(item))),
       nextPageUrl: json['next_page_url'],
-      path: json['path'],
-      perPage: json['per_page'],
+      path: json['path'] ?? '',
+      perPage: json['per_page'] ?? 0,
       prevPageUrl: json['prev_page_url'],
-      to: json['to'],
-      total: json['total'],
+      to: json['to'] ?? 0,
+      total: json['total'] ?? 0,
     );
   }
-}class CategoryData {
+}
+
+class CategoryData {
   int id;
   int compoundId;
   String? image;
@@ -148,56 +150,58 @@ class CategoryFilterModel {
 
   factory CategoryData.fromJson(Map<String, dynamic> json) {
     return CategoryData(
-      id: json['id'],
-      compoundId: json['compound_id'],
+      id: json['id'] ?? 0,
+      compoundId: json['compound_id'] ?? 0,
       image: json['image'],
       floor: json['floor'],
-      modelId: json['model_id'],
+      modelId: json['model_id'] ?? 0,
       area: json['area'],
-      availability: json['availability'],
-      priceFrom: json['price_from'],
-      priceTo: json['price_to'],
-      weightFrom: json['weight_from'],
-      weightTo: json['weight_to'],
+      availability: json['availability'] ?? '',
+      priceFrom: json['price_from'] ?? '',
+      priceTo: json['price_to'] ?? '',
+      weightFrom: json['weight_from'] ?? '',
+      weightTo: json['weight_to'] ?? '',
       balcony: json['balcony'],
       rooms: json['rooms'],
       masterBedroom: json['master_bedroom'],
       bathrooms: json['bathrooms'],
       kitchens: json['kitchens'],
       balconies: json['balconies'],
-      parksAndGarden: json['parks_and_garden'],
-      airConditioning: json['air_conditioning'],
-      wifi: json['wifi'],
-      gym: json['gym'],
-      swimmingPool: json['swimming_pool'],
-      grage: json['grage'],
-      basketball: json['basketball'],
-      tennis: json['tennis'],
-      likey: json['likey'],
-      likes: json['likes'],
+      parksAndGarden: json['parks_and_garden'] ?? 0,
+      airConditioning: json['air_conditioning'] ?? 0,
+      wifi: json['wifi'] ?? 0,
+      gym: json['gym'] ?? 0,
+      swimmingPool: json['swimming_pool'] ?? 0,
+      grage: json['grage'] ?? 0,
+      basketball: json['basketball'] ?? 0,
+      tennis: json['tennis'] ?? 0,
+      likey: json['likey'] ?? 0,
+      likes: json['likes'] ?? '',
       deliveryIn: json['delivery_in'],
-      featured: json['featured'],
-      garden: json['garden'],
-      wellnessFacilities: json['wellness_facilities'],
-      transportation: json['transportation'],
-      waterFeatures: json['water_features'],
-      cafes: json['cafes'],
-      restaurant: json['restaurant'],
-      cctv: json['cctv'],
-      parking: json['parking'],
+      featured: json['featured'] ?? 0,
+      garden: json['garden'] ?? 0,
+      wellnessFacilities: json['wellness_facilities'] ?? 0,
+      transportation: json['transportation'] ?? 0,
+      waterFeatures: json['water_features'] ?? 0,
+      cafes: json['cafes'] ?? 0,
+      restaurant: json['restaurant'] ?? 0,
+      cctv: json['cctv'] ?? 0,
+      parking: json['parking'] ?? 0,
       floors: json['floors'],
-      statusId: json['status_id'],
-      typeId: json['type_id'],
-      subCategoryId: json['sub_category_id'],
-      categoryId: json['category_id'],
-      createdAt: json['created_at'],
-      updatedAt: json['updated_at'],
-      name: json['name'],
-      description: json['description'],
-      address: json['address'],
+      statusId: json['status_id'] ?? 0,
+      typeId: json['type_id'] ?? 0,
+      subCategoryId: json['sub_category_id'] ?? 0,
+      categoryId: json['category_id'] ?? 0,
+      createdAt: json['created_at'] ?? '',
+      updatedAt: json['updated_at'] ?? '',
+      name: json['name'] ?? '',
+      description: json['description'] ?? '',
+      address: json['address'] ?? '',
     );
   }
-}class Link {
+}
+
+class Link {
   String? url;
   String label;
   bool active;
@@ -211,8 +215,8 @@ class CategoryFilterModel {
   factory Link.fromJson(Map<String, dynamic> json) {
     return Link(
       url: json['url'],
-      label: json['label'],
-      active: json['active'],
+      label: json['label'] ?? '',
+      active: json['active'] ?? false,
     );
   }
 }

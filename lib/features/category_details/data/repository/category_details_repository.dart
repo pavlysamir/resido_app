@@ -9,9 +9,11 @@ import '../models/category_details_model.dart';
 import '../models/category_properties_filter_model.dart';
 
 abstract class CategoryDetailsRepository {
-  Future<Either<Failure, CategoryDetailsModel>> getCategoryDetails(int id);
+  Future<Either<Failure, CategoryDetailsModel>> getCategoryDetails(int id,
+      {int pageNumber});
   // get category properties
-  Future<Either<Failure, CategoryPropertiesModel>> getCategoryProperties(int id);
+  Future<Either<Failure, CategoryPropertiesModel>> getCategoryProperties(
+      int id);
 }
 
 class CategoryDetailsRepositoryImpl implements CategoryDetailsRepository {
@@ -19,10 +21,14 @@ class CategoryDetailsRepositoryImpl implements CategoryDetailsRepository {
   CategoryDetailsRepositoryImpl({required this.api});
 
   @override
-  Future<Either<Failure, CategoryDetailsModel>> getCategoryDetails(int id) async{
+  Future<Either<Failure, CategoryDetailsModel>> getCategoryDetails(
+    int id, {
+    int pageNumber = 1,
+  }) async {
     // get data from api and return it
     try {
-      final response = await api.get('${EndPoint.getCompoundDetails}/$id');
+      final response = await api.get('${EndPoint.getCompoundDetails}/$id',
+          queryParameters: {'page': pageNumber});
       final categoryDetails = CategoryDetailsModel.fromJson(response);
       return Right(categoryDetails);
     } catch (error) {
@@ -31,7 +37,8 @@ class CategoryDetailsRepositoryImpl implements CategoryDetailsRepository {
   }
 
   @override
-  Future<Either<Failure, CategoryPropertiesModel>> getCategoryProperties(int id)  async {
+  Future<Either<Failure, CategoryPropertiesModel>> getCategoryProperties(
+      int id) async {
     try {
       final response = await api.get(
         EndPoint.getSubCategories,
@@ -44,5 +51,4 @@ class CategoryDetailsRepositoryImpl implements CategoryDetailsRepository {
       return Left(e.errModel.errorMessage![0] ?? 'Server error');
     }
   }
-
 }

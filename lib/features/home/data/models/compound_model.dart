@@ -1,10 +1,10 @@
 class CompoundModel {
-  int id;
+  dynamic id;
   String? image;
   String priceFrom;
   String priceTo;
-  int userId;
-  int zoneId;
+  dynamic userId;
+  dynamic zoneId;
   String numberOfUnits;
   String status;
   String views;
@@ -46,7 +46,7 @@ class CompoundModel {
 }
 
 class Zone {
-  int id;
+  dynamic id;
   String name;
 
   Zone({

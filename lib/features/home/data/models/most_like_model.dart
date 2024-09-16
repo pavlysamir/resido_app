@@ -17,25 +17,25 @@ class MostLikeModel {
 }
 
 class Data {
-  int id;
-  int compoundId;
+  dynamic id;
+  dynamic compoundId;
   String image;
   String price;
   String bedrooms;
   String bathrooms;
   String area;
   String featured;
-  int likey;
+  dynamic likey;
   dynamic deliveryIn;
   String longitude;
   String latitude;
   String balconies;
   String likes;
   String grage;
-  int statusId;
-  int typeId;
-  int userId;
-  int subId;
+  dynamic statusId;
+  dynamic typeId;
+  dynamic userId;
+  dynamic subId;
   String createdAt;
   String updatedAt;
   String title;
@@ -137,9 +137,9 @@ class Data {
 }
 
 class Sub {
-  int id;
+  dynamic id;
   String image;
-  int catId;
+  dynamic catId;
   String name;
 
   Sub({
@@ -169,7 +169,7 @@ class Sub {
 }
 
 class Type {
-  int id;
+  dynamic id;
   String title;
 
   Type({

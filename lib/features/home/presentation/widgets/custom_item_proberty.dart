@@ -18,12 +18,14 @@ class CustomItemProbirtyHome extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         customJustGoNavigate(
-            context: context, path: AppRouter.kCateegoryDeatilsScreen,data: category);
+            context: context,
+            path: AppRouter.kCateegoryDeatilsScreen,
+            data: category);
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 3),
         child: Container(
-          width: 100,
+          width: 120.w,
           decoration: BoxDecoration(
               color: Theme.of(context).appBarTheme.backgroundColor,
               borderRadius: BorderRadius.circular(10),

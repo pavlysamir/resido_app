@@ -10,26 +10,28 @@ import '../../../home/presentation/managers/home_cubit/home_cubit.dart';
 import '../../../home/presentation/widgets/grid_view_properties.dart';
 import '../../../home/presentation/widgets/grid_view_properties_item.dart';
 import '../../logic/cubit/category_filter_cubit.dart';
+import '../widgts/grid_view_category_filter.dart';
 
 class CategoryFilterScreen extends StatelessWidget {
-  final dynamic modelOfCategoryFilter;
-  const CategoryFilterScreen({super.key, this.modelOfCategoryFilter});
+  final Map<String, String> listFilter;
+  const CategoryFilterScreen(
+      {super.key, required this.listFilter});
 
   @override
   Widget build(BuildContext context) {
-    final cubit = HomeCubit.get(context);
-    // cubit?.getMostLike();
-
+    context.read<CategoryFilterCubit>().getCategoryFilters(
+          //modelOfCategoryFilter.id,
+          listFilter,
+        );
     return Scaffold(
       appBar: CustomAppBar(
-        title: modelOfCategoryFilter.name,
+        title: listFilter['title'] ?? '',
         showBackButton: true,
         function: () {
-
           Navigator.of(context).pop();
         },
       ),
-      body:  Padding(
+      body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: SingleChildScrollView(
           child: Column(
@@ -38,7 +40,9 @@ class CategoryFilterScreen extends StatelessWidget {
               SizedBox(
                 height: 20.h,
               ),
-              const GridViewMostLikedProperties(),
+              GridViewCategoryFilter(
+                listFilter: listFilter,
+              ),
             ],
           ),
         ),

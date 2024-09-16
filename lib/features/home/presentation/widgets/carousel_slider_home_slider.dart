@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:resido_app/core/Assets/assets.dart';
 import 'package:resido_app/features/home/presentation/managers/home_cubit/home_cubit.dart';
 import 'package:resido_app/features/home/presentation/widgets/custom_banner_home.dart';
 import 'package:resido_app/features/home/presentation/widgets/custom_smooth_indicaror.dart';
@@ -21,17 +22,7 @@ class _CustomCarouselSliderHomeState extends State<CustomCarouselSliderHome> {
       listener: (context, state) {},
       builder: (context, state) {
         final bannerList = HomeCubit.get(context)!.bannerList;
-        // if (bannerList.isEmpty) {
-        //   return Shimmer.fromColors(
-        //     baseColor: Colors.grey[300]!,
-        //     highlightColor: Colors.grey[100]!,
-        //     child: Container(
-        //       width: double.infinity,
-        //       height: MediaQuery.of(context).size.height * 0.2,
-        //       color: Colors.white,
-        //     ),
-        //   );
-        // }
+
         return Column(
           children: [
             // state is GetBannerLoading
@@ -46,13 +37,15 @@ class _CustomCarouselSliderHomeState extends State<CustomCarouselSliderHome> {
             //       )
             //     :
             CarouselSlider(
-              items: bannerList
-                  .map(
-                    (e) => CustomBannerHome(
-                      imageUrl: e.image,
-                    ),
-                  )
-                  .toList(),
+              items: bannerList.isEmpty
+                  ? [Image.asset(AssetsData.logo)]
+                  : bannerList
+                      .map(
+                        (e) => CustomBannerHome(
+                          imageUrl: e.image,
+                        ),
+                      )
+                      .toList(),
               options: CarouselOptions(
                 autoPlay: true,
                 onPageChanged: (index, reason) {
@@ -75,7 +68,8 @@ class _CustomCarouselSliderHomeState extends State<CustomCarouselSliderHome> {
               height: 5,
             ),
             CustomSmoothIndicator(
-                activeIndex: activeIndex, count: bannerList.length),
+                activeIndex: activeIndex,
+                count: bannerList.isEmpty ? 1 : bannerList.length),
           ],
         );
       },

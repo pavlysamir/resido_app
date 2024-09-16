@@ -1,8 +1,8 @@
 class BannerModel {
-  final int id;
-  final int? type;
+  final dynamic id;
+  final dynamic? type;
   final String image;
-  final int? link;
+  final dynamic? link;
   final String? createdAt;
   final String? updatedAt;
 

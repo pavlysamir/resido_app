@@ -23,6 +23,7 @@ class CustomBannerHome extends StatelessWidget {
           ]),
       child: CachedNetworkImage(
         width: double.infinity,
+        fit: BoxFit.fitHeight,
         imageUrl: imageUrl,
         placeholder: (context, url) => Shimmer.fromColors(
           baseColor: Colors.grey[300]!,

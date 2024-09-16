@@ -61,6 +61,7 @@ dependencies:
   path: ^1.9.0
   flutter_svg: ^2.0.10+1
   shimmer: ^3.0.0
+  flutter_launcher_icons: ^0.13.1
 
 dev_dependencies:
   flutter_test:
@@ -119,3 +120,12 @@ flutter:
   # see https://flutter.dev/custom-fonts/#from-packages
 flutter_intl:
   enabled: true
+
+
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: "AppIcon"
+  image_path: "assets/images/mainLogo.png"
+  min_sdk_android: 21
+  remove_alpha_ios: true

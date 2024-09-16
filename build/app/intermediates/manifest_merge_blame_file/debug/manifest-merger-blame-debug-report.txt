@@ -55,8 +55,8 @@
 40        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 40-->[androidx.core:core:1.13.1] C:\Users\bavly\.gradle\caches\transforms-3\7ca6a70ea4a42145116e54841a62c653\transformed\core-1.13.1\AndroidManifest.xml:28:18-86
 41        android:debuggable="true"
-42        android:icon="@mipmap/ic_launcher"
-43        android:label="resido_app" >
+42        android:icon="@mipmap/launcher_icon"
+43        android:label="Resido" >
 44        <activity
 45            android:name="com.example.resido_app.MainActivity"
 46            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
