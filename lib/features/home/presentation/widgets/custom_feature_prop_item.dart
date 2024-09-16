@@ -94,8 +94,7 @@ class CustomprobFeaturedItem extends StatelessWidget {
                       width: 5.w,
                     ),
                     Text(
-                      'aaaaa',
-                      //  featureProperty.sub ?? '',
+                      featureProperty.sub.name.toString() ?? '',
                       style: Theme.of(context)
                           .textTheme
                           .bodySmall!
@@ -129,12 +128,15 @@ class CustomprobFeaturedItem extends StatelessWidget {
                     SizedBox(
                       width: 120.w,
                     ),
-                    Text(
-                      'dddddd',
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodySmall!
-                          .copyWith(color: AppColors.primaryColor),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        featureProperty.priceTo ?? '',
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodySmall!
+                            .copyWith(color: AppColors.primaryColor),
+                      ),
                     ),
                   ],
                 ),

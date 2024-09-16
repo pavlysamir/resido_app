@@ -2,11 +2,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:lottie/lottie.dart';
+import 'package:resido_app/core/utils/app_colors.dart';
 import 'package:resido_app/core/utils/widgets/custom_app_bar.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:resido_app/features/favourite/logic/cubit/favorite_cubit.dart';
 import 'package:shimmer/shimmer.dart';
 
+import '../../../../constance.dart';
 import '../../../../core/font/dimensions.dart';
 import '../../../../core/widgets/header_widget.dart';
 import '../../../../core/widgets/shimmer_widget.dart';
@@ -44,6 +47,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                 title: AppLocalizations.of(context)!.favorites,
                 showArrow: false,
               ),
+              if(token != null)
               Expanded(
                   child: cubit.dataFavoriteModel != null
                       ? ListView.builder(
@@ -60,6 +64,20 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
 
 
               ),
+
+                // use lottie to show animation with text you must register first
+                const Expanded(
+                  child: Center(
+                    child: Text(
+                      // AppLocalizations.of(context)!.youMustRegisterFirst,
+                      "You must register first",
+                      style: TextStyle(
+                        color: AppColors.green,
+                      ),
+
+                    ),
+                  ),
+                ),
             ],
           ),
         );

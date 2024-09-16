@@ -98,6 +98,10 @@ class EndPoint {
     return "apartment/$id";
   }
 
+  static String getCompoundDeatails(id) {
+    return "compounds/$id";
+  }
+
   static String plans = "/plans";
   static String contactUs = "/contactUs";
   static String promocode = "/promocode";

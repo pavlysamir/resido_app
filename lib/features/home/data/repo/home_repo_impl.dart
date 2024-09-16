@@ -6,6 +6,7 @@ import 'package:resido_app/core/errors/exceptions.dart';
 import 'package:resido_app/features/home/data/models/apartment_details_model.dart';
 import 'package:resido_app/features/home/data/models/banner_model.dart';
 import 'package:resido_app/features/home/data/models/category_item_model.dart';
+import 'package:resido_app/features/home/data/models/compound_details_model.dart';
 import 'package:resido_app/features/home/data/models/compound_model.dart';
 import 'package:resido_app/features/home/data/models/features_model.dart';
 import 'package:resido_app/features/home/data/repo/home_repo.dart';
@@ -83,7 +84,6 @@ class HomeRepoImpl implements HomeRepo {
     } on ServerException catch (e) {
       return Left(e.errModel.errorMessage![0] ?? 'Server error');
     }
-
   }
 
   @override
@@ -110,6 +110,8 @@ class HomeRepoImpl implements HomeRepo {
 
       var data = List<CompoundModel>.from(
           response['data'].map((x) => CompoundModel.fromJson(x)));
+      Logger()
+          .i('CompoundModel: ${data.map((e) => e.name).toList().toString()}');
 
       return Right(data);
     } on ServerException catch (e) {
@@ -157,6 +159,22 @@ class HomeRepoImpl implements HomeRepo {
         },
       );
       return Right(response);
+    } on ServerException catch (e) {
+      return Left(e.errModel.errorMessage![0] ?? 'Server error');
+    }
+  }
+
+  @override
+  Future<Either<String, CompoundDetailsModel>> getCoumpoundDetails(
+      int id) async {
+    try {
+      final response = await api.get(
+        EndPoint.getCompoundDeatails(id),
+      );
+
+      var data = CompoundDetailsModel.fromJson(response['data']);
+
+      return Right(data);
     } on ServerException catch (e) {
       return Left(e.errModel.errorMessage![0] ?? 'Server error');
     }

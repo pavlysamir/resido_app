@@ -4,7 +4,7 @@
             "outputFile": "com.example.resido_app-mergeDebugResources-27:/values-sv/values-sv.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\bavly\\.gradle\\caches\\transforms-3\\7ca6a70ea4a42145116e54841a62c653\\transformed\\core-1.13.1\\res\\values-sv\\values-sv.xml",
+                    "source": "C:\\Users\\moham\\.gradle\\caches\\transforms-3\\6afaf56d4e1e4056870d44cfdab879b4\\transformed\\core-1.13.1\\res\\values-sv\\values-sv.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",

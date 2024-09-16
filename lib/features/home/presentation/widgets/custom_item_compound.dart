@@ -20,7 +20,9 @@ class CustomItemCompound extends StatelessWidget {
     return InkWell(
         onTap: () {
           customJustGoNavigate(
-              context: context, path: AppRouter.kCompoundDetailsScreen);
+              context: context,
+              path: AppRouter.kCompoundDetailsScreen,
+              data: compoundModel.id);
 
           // Navigator.push(context, MaterialPageRoute(builder: (context) {
           //   return PropertyDetailes(

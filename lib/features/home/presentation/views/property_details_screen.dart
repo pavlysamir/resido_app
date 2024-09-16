@@ -9,9 +9,9 @@ import 'package:resido_app/features/home/data/models/expanded_icons_text_model.d
 import 'package:resido_app/features/home/data/models/features_model.dart';
 import 'package:resido_app/features/home/presentation/managers/home_cubit/home_cubit.dart';
 import 'package:resido_app/features/home/presentation/widgets/nearest_item_widget.dart';
+
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/widgets/custom_app_bar.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class PropertyDetailes extends StatefulWidget {
   const PropertyDetailes({super.key, required this.featureProperty});
@@ -38,19 +38,19 @@ class _PropertyDetailesState extends State<PropertyDetailes> {
       ExpandedIconsWithTextModel(
           iconOne: Icons.area_chart,
           name: 'Area',
-          num: widget.featureProperty.area),
+          num: widget.featureProperty.area.toString()),
       ExpandedIconsWithTextModel(
           iconOne: Icons.balcony_sharp,
           name: 'Balcony',
-          num: widget.featureProperty.balconies),
+          num: widget.featureProperty.balconies.toString()),
       ExpandedIconsWithTextModel(
           iconOne: Icons.bathroom,
           name: 'Bathrooms',
-          num: widget.featureProperty.bathrooms),
+          num: widget.featureProperty.bathrooms.toString()),
       ExpandedIconsWithTextModel(
           iconOne: Icons.bed_outlined,
           name: 'Bedrooms',
-          num: widget.featureProperty.masterBedroom),
+          num: widget.featureProperty.bedrooms.toString()),
     ];
 
     return BlocConsumer<HomeCubit, HomeState>(
@@ -73,16 +73,13 @@ class _PropertyDetailesState extends State<PropertyDetailes> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(
-                          height: 10.h,
-                        ),
                         Stack(
                           children: [
                             ClipRRect(
                               borderRadius: BorderRadius.circular(10),
                               child: CachedNetworkImage(
-                                height: 213.h,
-                                imageUrl: widget.featureProperty.image!,
+                                height: 250.h,
+                                imageUrl: widget.featureProperty.image,
                                 fit: BoxFit.fill,
                               ),
                             ),
@@ -92,29 +89,29 @@ class _PropertyDetailesState extends State<PropertyDetailes> {
                               child: Padding(
                                 padding: const EdgeInsets.only(left: 40.0),
                                 child: CircleAvatar(
-                                  radius: 15,
+                                  radius: 23,
                                   backgroundColor: Theme.of(context).cardColor,
                                   child: const Icon(
                                     Icons.favorite_border,
                                     color: AppColors.primaryColor,
-                                    size: 15,
+                                    size: 30,
                                   ),
                                 ),
                               ),
                             ),
                             CustomSellContainer(
-                              text: widget.featureProperty.type!.name!,
+                              text: widget.featureProperty.name,
                             ),
                             Positioned(
                               bottom: 10,
                               right: 30,
                               child: CircleAvatar(
-                                radius: 15,
+                                radius: 23,
                                 backgroundColor: Theme.of(context).cardColor,
                                 child: const Icon(
                                   Icons.recycling,
                                   color: AppColors.primaryColor,
-                                  size: 15,
+                                  size: 30,
                                 ),
                               ),
                             )
@@ -125,7 +122,7 @@ class _PropertyDetailesState extends State<PropertyDetailes> {
                           child: Row(
                             children: [
                               const Icon(
-                                Icons.business,
+                                Icons.home_outlined,
                                 color: AppColors.primaryColor,
                                 size: 25,
                               ),
@@ -133,7 +130,7 @@ class _PropertyDetailesState extends State<PropertyDetailes> {
                                 width: 5.w,
                               ),
                               Text(
-                                widget.featureProperty.address ?? '',
+                                widget.featureProperty.sub.name,
                                 style: Theme.of(context).textTheme.bodyMedium,
                               ),
                               const Spacer(),
@@ -145,7 +142,7 @@ class _PropertyDetailesState extends State<PropertyDetailes> {
                                     color: AppColors.primaryColor),
                                 child: Center(
                                   child: Text(
-                                    widget.featureProperty.type?.name ?? "",
+                                    widget.featureProperty.name,
                                     style: const TextStyle(
                                         color: Colors.white, fontSize: 15),
                                   ),
@@ -160,7 +157,7 @@ class _PropertyDetailesState extends State<PropertyDetailes> {
                           height: 8.h,
                         ),
                         Text(
-                          '${widget.featureProperty.priceFrom} EGP',
+                          '${widget.featureProperty.priceTo} EGP',
                           overflow: TextOverflow.ellipsis,
                           style: const TextStyle(
                               fontWeight: FontWeight.w500,
@@ -189,45 +186,16 @@ class _PropertyDetailesState extends State<PropertyDetailes> {
                         CustomGridViewAdditionApartment(
                           list: widgetExpanded,
                         ),
-                        SizedBox(
-                          height: 8.h,
-                        ),
                         const Divider(),
-                        Text(
-                          AppLocalizations.of(context)!.paymentPlay,
-                          overflow: TextOverflow.ellipsis,
-                          style: Theme.of(context).textTheme.labelMedium,
-                        ),
-                        SizedBox(
-                          height: 16.h,
-                        ),
-                        // SizedBox(
-                        //   height: 120.h,
-                        //   child: ListView.separated(
-                        //     scrollDirection: Axis.horizontal,
-                        //     itemBuilder: (context, index) {
-                        //       return CustomPaymentItem(
-                        //         payment: widget.featureProperty.payments[index],
-                        //       );
-                        //     },
-                        //     separatorBuilder: (context, index) {
-                        //       return SizedBox(
-                        //         width: 16.w,
-                        //       );
-                        //     },
-                        //     itemCount: widget.featureProperty.payments.length,
-                        //   ),
-                        // ),
-
-                        SizedBox(
-                          height: 16.h,
-                        ),
-
-                        const Divider(),
-                        Text(
-                          AppLocalizations.of(context)!.aboutThisCompound,
-                          overflow: TextOverflow.ellipsis,
-                          style: Theme.of(context).textTheme.labelMedium,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text(
+                              ' About This Property',
+                              overflow: TextOverflow.ellipsis,
+                              style: Theme.of(context).textTheme.labelMedium,
+                            ),
+                          ],
                         ),
                         SizedBox(
                           width: double.infinity,
@@ -237,15 +205,7 @@ class _PropertyDetailesState extends State<PropertyDetailes> {
                             overflow: TextOverflow.ellipsis,
                             style: Theme.of(context).textTheme.bodyMedium,
                           ),
-                        ),
-                        SizedBox(
-                          height: 16.h,
-                        ),
-                        Text(
-                          AppLocalizations.of(context)!.outdoorFacility,
-                          overflow: TextOverflow.ellipsis,
-                          style: Theme.of(context).textTheme.labelMedium,
-                        ),
+                        )
                       ],
                     ),
                   ),
@@ -281,57 +241,3 @@ class _PropertyDetailesState extends State<PropertyDetailes> {
     );
   }
 }
-
-// class CustomPaymentItem extends StatelessWidget {
-//   const CustomPaymentItem({
-//     super.key,
-//     required this.payment,
-//   });
-
-//   final Payment payment;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       height: 120,
-//       width: 120,
-//       decoration: const BoxDecoration(
-//         color: Color.fromARGB(255, 200, 203, 206),
-//         borderRadius: BorderRadius.all(
-//           Radius.circular(10),
-//         ),
-//       ),
-//       child: Column(
-//         mainAxisAlignment: MainAxisAlignment.center,
-//         children: [
-//           Text(
-//             payment.start,
-//             style: Theme.of(context)
-//                 .textTheme
-//                 .displaySmall!
-//                 .copyWith(color: AppColors.primaryColor),
-//           ),
-//           Text(
-//             'Monthly',
-//             style: Theme.of(context).textTheme.bodyMedium,
-//           ),
-//           Text(
-//             payment.priceOfMonth,
-//             style: Theme.of(context).textTheme.bodyLarge,
-//           ),
-//           Text(
-//             payment.year,
-//             style: Theme.of(context)
-//                 .textTheme
-//                 .bodyLarge!
-//                 .copyWith(color: AppColors.primaryColor),
-//           ),
-//           Text(
-//             'Down Payment',
-//             style: Theme.of(context).textTheme.bodyMedium,
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }

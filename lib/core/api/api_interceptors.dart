@@ -1,11 +1,7 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/foundation.dart';
 import 'package:resido_app/constance.dart';
 import 'package:resido_app/core/utils/app_router.dart';
-import 'package:resido_app/core/utils/shared_preferences_cash_helper.dart';
 import 'package:resido_app/core/utils/widgets/custom_go_navigator.dart';
-import '../utils/service_locator.dart';
-import 'end_ponits.dart';
 
 class ApiInterceptor extends Interceptor {
   ApiInterceptor();

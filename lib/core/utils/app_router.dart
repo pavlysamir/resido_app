@@ -137,7 +137,9 @@ abstract class AppRouter {
         ),
         GoRoute(
           path: kCompoundDetailsScreen,
-          builder: (context, state) => const CompoundDetailsScreen(),
+          builder: (context, state) => CompoundDetailsScreen(
+            compoundId: state.extra as int,
+          ),
         ),
       ]);
 }

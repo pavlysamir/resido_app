@@ -26,7 +26,7 @@ class AllFeaturePropItemWidget extends StatelessWidget {
           Stack(
             children: [
               CachedNetworkImage(
-                  imageUrl: featureProperty.image!,
+                  imageUrl: featureProperty.image,
                   height: 350.h,
                   width: 170.w,
                   fit: BoxFit.cover),
@@ -43,7 +43,7 @@ class AllFeaturePropItemWidget extends StatelessWidget {
                         color: Colors.white.withOpacity(0.5)),
                     child: Center(
                         child: Text(
-                      featureProperty.type?.name ?? '',
+                      featureProperty.type.name,
                       style: Theme.of(context).textTheme.titleSmall,
                     )),
                   ),
@@ -71,7 +71,7 @@ class AllFeaturePropItemWidget extends StatelessWidget {
                         size: 18,
                       ),
                       Text(
-                        '',
+                        featureProperty.sub.name,
                         style: Theme.of(context).textTheme.titleSmall,
                       ),
                       const Spacer(),
@@ -91,7 +91,7 @@ class AllFeaturePropItemWidget extends StatelessWidget {
                         .labelLarge!
                         .copyWith(color: AppColors.primaryColor),
                   ),
-                  Text(featureProperty.name ?? '',
+                  Text(featureProperty.priceTo ?? '',
                       style: Theme.of(context).textTheme.labelMedium),
                   const Spacer(),
                   Row(

@@ -65,16 +65,22 @@ final class GetCompoundFailure extends HomeState {
 
   const GetCompoundFailure({required this.message});
 }
+
 /// This is a most like state
 final class GetMostLikeLoading extends HomeState {}
+
 final class GetMostLikeSuccess extends HomeState {}
+
 final class GetMostLikeFailure extends HomeState {
   final String message;
   const GetMostLikeFailure({required this.message});
 }
+
 /// Add property to favorite state
 final class AddFavoriteLoading extends HomeState {}
+
 final class AddFavoriteSuccess extends HomeState {}
+
 final class AddFavoriteFailure extends HomeState {
   final String message;
   const AddFavoriteFailure({required this.message});
@@ -91,3 +97,13 @@ final class MakeLikeFailure extends HomeState {
 }
 
 final class ToggleLikeIcon extends HomeState {}
+
+final class GetCompoundDetailsLoading extends HomeState {}
+
+final class GetCompoundDetailsSuccess extends HomeState {}
+
+final class GetCompoundDetailsFailure extends HomeState {
+  final String message;
+
+  const GetCompoundDetailsFailure({required this.message});
+}
