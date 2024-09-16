@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:resido_app/features/favourite/logic/cubit/favorite_cubit.dart';
+import '../../../../constance.dart';
 import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/widgets/custom_botton_sheet_guest.dart';
 import '../../../favourite/data/models/favorite_model.dart';
 
 class MostLikePropertiesItem extends StatelessWidget {
@@ -83,9 +85,17 @@ class MostLikePropertiesItem extends StatelessWidget {
                         style: Theme.of(context).textTheme.titleSmall,
                       ),
                       const Spacer(),
-                      GestureDetector(
+                      InkWell(
                         onTap: () {
-                          cubit?.removeItemFromFavorites(favoriteData.id);
+                          if(token == null){
+                            showModalBottomSheet(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return const CustomBottomSheetGuest();
+                              },
+                            );
+                          }
+                       // cubit.removeItemFromFavorites(favoriteData.id);
                         },
                         child: CircleAvatar(
                           backgroundColor: Theme.of(context).cardColor,

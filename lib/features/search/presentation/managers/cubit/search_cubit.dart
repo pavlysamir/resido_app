@@ -6,6 +6,8 @@ import 'package:resido_app/features/search/data/models/sub-category_model.dart';
 import 'package:resido_app/features/search/data/models/unit_data_model.dart';
 import 'package:resido_app/features/search/data/repo/search_repo.dart';
 
+import '../../../data/models/search_item_model.dart';
+
 part 'search_state.dart';
 
 class SearchCubit extends Cubit<SearchState> {
@@ -190,4 +192,26 @@ class SearchCubit extends Cubit<SearchState> {
 
     emit(ClearData());
   }
+
+  List<Data> searchItems = [];
+// how can use recentSearch
+  List<String> recentSearches = [];
+
+  emitSearchItems(String keyword) async {
+    emit(SearchItemsLoading());
+    final response = await searchRepo.searchItems(keyword);
+    response.fold(
+          (errMessage) => emit(SearchItemsFailure(message: errMessage)),
+          (items) {
+        searchItems = items.data;
+        // Add the keyword to recent searches if it's not already there
+        if (!recentSearches.contains(keyword)) {
+          recentSearches.add(keyword);
+        }
+        emit(SearchItemsSuccess(searchItems: items));
+      },
+    );
+  }
+
+
 }

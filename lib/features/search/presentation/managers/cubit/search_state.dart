@@ -46,3 +46,16 @@ final class GetMoreSearchedSuccess extends SearchState {}
 final class ClearData extends SearchState {}
 
 final class SearchTypeChanged extends SearchState {}
+
+// search items state
+final class SearchItemsLoading extends SearchState {}
+final class SearchItemsSuccess extends SearchState {
+  SearchItemModel searchItems;
+
+  SearchItemsSuccess({required this.searchItems});
+}
+final class SearchItemsFailure extends SearchState {
+  final String message;
+
+  SearchItemsFailure({required this.message});
+}

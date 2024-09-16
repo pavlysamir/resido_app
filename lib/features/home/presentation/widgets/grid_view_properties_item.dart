@@ -5,6 +5,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:resido_app/core/utils/app_colors.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:resido_app/features/home/presentation/managers/home_cubit/home_cubit.dart';
+import '../../../../constance.dart';
+import '../../../../core/utils/widgets/custom_botton_sheet_guest.dart';
 import '../../data/models/most_like_model.dart';
 
 class GridViewPropertiesItem extends StatelessWidget {
@@ -38,7 +40,15 @@ class GridViewPropertiesItem extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              cubit?.addPropertyToFavorites(item.id);
+              // cubit?.addPropertyToFavorites(item.id);
+              if(token == null){
+                showModalBottomSheet(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return const CustomBottomSheetGuest();
+                  },
+                );
+              }
             },
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
