@@ -82,7 +82,7 @@ class _PropertyDetailesState extends State<PropertyDetailes> {
                               borderRadius: BorderRadius.circular(10),
                               child: CachedNetworkImage(
                                 height: 213.h,
-                                imageUrl: widget.featureProperty.image!,
+                                imageUrl: widget.featureProperty.image,
                                 fit: BoxFit.fill,
                               ),
                             ),

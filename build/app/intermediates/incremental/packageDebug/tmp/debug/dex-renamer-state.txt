@@ -1,17 +1,4 @@
-<<<<<<< HEAD
-#Thu Sep 12 15:34:35 EET 2024
-=======
-#Thu Sep 12 16:13:06 EEST 2024
-base.0=E\:\\resido_app\\build\\app\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
-base.1=E\:\\resido_app\\build\\app\\intermediates\\dex\\debug\\mergeLibDexDebug\\0\\classes.dex
-base.2=E\:\\resido_app\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
-base.3=E\:\\resido_app\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\15\\classes.dex
-base.4=E\:\\resido_app\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\1\\classes.dex
-path.0=classes.dex
-path.1=0/classes.dex
-path.2=0/classes.dex
-path.3=15/classes.dex
->>>>>>> 814f3d99021b5209cbdc5b3bea2f79a041051ad8
+#Fri Sep 13 17:31:39 EET 2024
 path.4=1/classes.dex
 path.3=15/classes.dex
 path.2=0/classes.dex
