@@ -1,9 +1,7 @@
 import 'package:go_router/go_router.dart';
 import 'package:resido_app/constance.dart';
 import 'package:resido_app/core/Layouts/home_layout.dart';
-import 'package:resido_app/core/api/end_ponits.dart';
-import 'package:resido_app/core/utils/service_locator.dart';
-import 'package:resido_app/core/utils/shared_preferences_cash_helper.dart';
+
 import 'package:resido_app/features/authentications/presentation/views/forget_password_screen.dart';
 import 'package:resido_app/features/home/presentation/views/add_prop_screens/add_properties_screen.dart';
 import 'package:resido_app/features/home/presentation/views/add_prop_screens/add_properties_second_screen.dart';
@@ -123,13 +121,14 @@ abstract class AppRouter {
         ),
         GoRoute(
           path: kCateegoryDeatilsScreen,
-          builder: (context, state) => CategoryDetailsScreen(category:state.extra as Category,),
+          builder: (context, state) => CategoryDetailsScreen(
+            category: state.extra as Category,
+          ),
         ),
         GoRoute(
           path: KCategoryFilterScreen,
           builder: (context, state) => CategoryFilterScreen(
             listFilter: state.extra as Map<String, String>,
-
           ),
         ),
         GoRoute(

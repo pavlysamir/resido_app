@@ -94,7 +94,8 @@ class CustomprobFeaturedItem extends StatelessWidget {
                       width: 5.w,
                     ),
                     Text(
-                      featureProperty.sub ?? '',
+                      'aaaaa',
+                      //  featureProperty.sub ?? '',
                       style: Theme.of(context)
                           .textTheme
                           .bodySmall!

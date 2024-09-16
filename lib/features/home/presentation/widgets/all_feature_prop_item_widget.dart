@@ -43,7 +43,7 @@ class AllFeaturePropItemWidget extends StatelessWidget {
                         color: Colors.white.withOpacity(0.5)),
                     child: Center(
                         child: Text(
-                      featureProperty.type.name,
+                      featureProperty.type?.name ?? '',
                       style: Theme.of(context).textTheme.titleSmall,
                     )),
                   ),
@@ -71,7 +71,7 @@ class AllFeaturePropItemWidget extends StatelessWidget {
                         size: 18,
                       ),
                       Text(
-                        featureProperty.sub ?? '',
+                        '',
                         style: Theme.of(context).textTheme.titleSmall,
                       ),
                       const Spacer(),
@@ -85,7 +85,7 @@ class AllFeaturePropItemWidget extends StatelessWidget {
                     ],
                   ),
                   Text(
-                    featureProperty.priceTo,
+                    featureProperty.priceTo ?? '',
                     style: Theme.of(context)
                         .textTheme
                         .labelLarge!

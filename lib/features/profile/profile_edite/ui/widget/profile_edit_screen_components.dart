@@ -1,20 +1,14 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:resido_app/features/profile/profile_edite/ui/widget/profile_image.dart';
 import 'package:resido_app/features/profile/profile_edite/ui/widget/text_field_section.dart';
 import 'package:resido_app/features/profile/profile_edite/ui/widget/text_field_widget.dart';
-import 'package:resido_app/features/profile/profile_edite/ui/widget/update_button.dart';
-import '../../../../../core/Assets/assets.dart';
+
 import '../../../../../core/utils/app_colors.dart';
 import '../../logic/profile_edit_cubit.dart';
 
-
 class LocationNoteWidget extends StatelessWidget {
-  const LocationNoteWidget({Key? key}) : super(key: key);
+  const LocationNoteWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +24,7 @@ class LocationNoteWidget extends StatelessWidget {
 class LocationFieldWidget extends StatelessWidget {
   final VoidCallback onPressed;
 
-  const LocationFieldWidget({Key? key, required this.onPressed}) : super(key: key);
+  const LocationFieldWidget({super.key, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -72,10 +66,9 @@ class LocationFieldWidget extends StatelessWidget {
   }
 }
 
-
 // ProfileFormWidget
 class ProfileFormWidget extends StatelessWidget {
-  const ProfileFormWidget({Key? key}) : super(key: key);
+  const ProfileFormWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -90,7 +83,7 @@ class ProfileFormWidget extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 20.0),
           child: Column(
             children: [
-              const ProfileImageWidget(),
+              // const ProfileImageWidget(),
               const SizedBox(height: 0.0),
               TextFieldSectionWidget(
                 label: AppLocalizations.of(context)!.fullName,
@@ -110,7 +103,6 @@ class ProfileFormWidget extends StatelessWidget {
                 placeholder: cubit.phoneController.text ?? '',
                 isPassword: false,
                 controller: cubit.phoneController,
-
               ),
               TextFieldSectionWidget(
                 label: 'Address',
@@ -121,17 +113,22 @@ class ProfileFormWidget extends StatelessWidget {
               // LocationFieldWidget(onPressed: () {
               //   // Handle location selection
               // }),
-
-              const LocationNoteWidget(),
-              UpdateButtonWidget(onPressed: () {
-                cubit.updateProfile(
-                  // name: nameController.text,
-                  // email: emailController.text,
-                  // phone: phoneController.text,
-                  // address: addressController.text,
-                  // image: cubit.file != null ? cubit.base64BackImage : null,
-                );
-              }),
+              const Padding(
+                padding: EdgeInsets.only(left: 8.0, bottom: 15.0),
+                child: Text(
+                  'This location will enable new section in home screen for nearby properties',
+                ),
+              )
+              //   const LocationNoteWidget(),
+              // UpdateButtonWidget(onPressed: () {
+              //   cubit.updateProfile(
+              //       // name: nameController.text,
+              //       // email: emailController.text,
+              //       // phone: phoneController.text,
+              //       // address: addressController.text,
+              //       // image: cubit.file != null ? cubit.base64BackImage : null,
+              //       );
+              // }),
             ],
           ),
         );

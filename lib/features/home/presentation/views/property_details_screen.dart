@@ -82,7 +82,7 @@ class _PropertyDetailesState extends State<PropertyDetailes> {
                               borderRadius: BorderRadius.circular(10),
                               child: CachedNetworkImage(
                                 height: 213.h,
-                                imageUrl: widget.featureProperty.image,
+                                imageUrl: widget.featureProperty.image!,
                                 fit: BoxFit.fill,
                               ),
                             ),
@@ -103,7 +103,7 @@ class _PropertyDetailesState extends State<PropertyDetailes> {
                               ),
                             ),
                             CustomSellContainer(
-                              text: widget.featureProperty.type.name,
+                              text: widget.featureProperty.type!.name!,
                             ),
                             Positioned(
                               bottom: 10,
@@ -145,7 +145,7 @@ class _PropertyDetailesState extends State<PropertyDetailes> {
                                     color: AppColors.primaryColor),
                                 child: Center(
                                   child: Text(
-                                    widget.featureProperty.type.name,
+                                    widget.featureProperty.type?.name ?? "",
                                     style: const TextStyle(
                                         color: Colors.white, fontSize: 15),
                                   ),
@@ -201,23 +201,23 @@ class _PropertyDetailesState extends State<PropertyDetailes> {
                         SizedBox(
                           height: 16.h,
                         ),
-                        SizedBox(
-                          height: 120.h,
-                          child: ListView.separated(
-                            scrollDirection: Axis.horizontal,
-                            itemBuilder: (context, index) {
-                              return CustomPaymentItem(
-                                payment: widget.featureProperty.payments[index],
-                              );
-                            },
-                            separatorBuilder: (context, index) {
-                              return SizedBox(
-                                width: 16.w,
-                              );
-                            },
-                            itemCount: widget.featureProperty.payments.length,
-                          ),
-                        ),
+                        // SizedBox(
+                        //   height: 120.h,
+                        //   child: ListView.separated(
+                        //     scrollDirection: Axis.horizontal,
+                        //     itemBuilder: (context, index) {
+                        //       return CustomPaymentItem(
+                        //         payment: widget.featureProperty.payments[index],
+                        //       );
+                        //     },
+                        //     separatorBuilder: (context, index) {
+                        //       return SizedBox(
+                        //         width: 16.w,
+                        //       );
+                        //     },
+                        //     itemCount: widget.featureProperty.payments.length,
+                        //   ),
+                        // ),
 
                         SizedBox(
                           height: 16.h,
@@ -282,56 +282,56 @@ class _PropertyDetailesState extends State<PropertyDetailes> {
   }
 }
 
-class CustomPaymentItem extends StatelessWidget {
-  const CustomPaymentItem({
-    super.key,
-    required this.payment,
-  });
+// class CustomPaymentItem extends StatelessWidget {
+//   const CustomPaymentItem({
+//     super.key,
+//     required this.payment,
+//   });
 
-  final Payment payment;
+//   final Payment payment;
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 120,
-      width: 120,
-      decoration: const BoxDecoration(
-        color: Color.fromARGB(255, 200, 203, 206),
-        borderRadius: BorderRadius.all(
-          Radius.circular(10),
-        ),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            payment.start,
-            style: Theme.of(context)
-                .textTheme
-                .displaySmall!
-                .copyWith(color: AppColors.primaryColor),
-          ),
-          Text(
-            'Monthly',
-            style: Theme.of(context).textTheme.bodyMedium,
-          ),
-          Text(
-            payment.priceOfMonth,
-            style: Theme.of(context).textTheme.bodyLarge,
-          ),
-          Text(
-            payment.year,
-            style: Theme.of(context)
-                .textTheme
-                .bodyLarge!
-                .copyWith(color: AppColors.primaryColor),
-          ),
-          Text(
-            'Down Payment',
-            style: Theme.of(context).textTheme.bodyMedium,
-          ),
-        ],
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       height: 120,
+//       width: 120,
+//       decoration: const BoxDecoration(
+//         color: Color.fromARGB(255, 200, 203, 206),
+//         borderRadius: BorderRadius.all(
+//           Radius.circular(10),
+//         ),
+//       ),
+//       child: Column(
+//         mainAxisAlignment: MainAxisAlignment.center,
+//         children: [
+//           Text(
+//             payment.start,
+//             style: Theme.of(context)
+//                 .textTheme
+//                 .displaySmall!
+//                 .copyWith(color: AppColors.primaryColor),
+//           ),
+//           Text(
+//             'Monthly',
+//             style: Theme.of(context).textTheme.bodyMedium,
+//           ),
+//           Text(
+//             payment.priceOfMonth,
+//             style: Theme.of(context).textTheme.bodyLarge,
+//           ),
+//           Text(
+//             payment.year,
+//             style: Theme.of(context)
+//                 .textTheme
+//                 .bodyLarge!
+//                 .copyWith(color: AppColors.primaryColor),
+//           ),
+//           Text(
+//             'Down Payment',
+//             style: Theme.of(context).textTheme.bodyMedium,
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
