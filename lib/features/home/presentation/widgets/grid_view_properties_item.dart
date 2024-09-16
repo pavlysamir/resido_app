@@ -93,7 +93,7 @@ class GridViewPropertiesItem extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 4.w),
                       child: Text(
-                        item.price.toString(),
+                        item.priceTo.toString(),
                         style: Theme.of(context)
                             .textTheme
                             .labelLarge!
@@ -111,7 +111,7 @@ class GridViewPropertiesItem extends StatelessWidget {
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 4.w),
-                      child: Text(item.title.toString(),
+                      child: Text(item.sub.name.toString(),
                           style: Theme.of(context).textTheme.labelMedium),
                     ),
                   ],

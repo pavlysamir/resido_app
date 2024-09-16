@@ -110,6 +110,9 @@ class HomeRepoImpl implements HomeRepo {
 
       var data = List<CompoundModel>.from(
           response['data'].map((x) => CompoundModel.fromJson(x)));
+      Logger().i(
+          'CompoundModel: ${data.map((e) => e.name).toList().toString()}'
+      );
 
       return Right(data);
     } on ServerException catch (e) {

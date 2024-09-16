@@ -44,6 +44,7 @@ class CustomItemCompound extends StatelessWidget {
                     fit: BoxFit.cover,
                     imageUrl: compoundModel.image ?? '',
                     height: 88.h,
+
                     width: 260.w,
                     placeholder: (context, url) => Shimmer.fromColors(
                         baseColor: Colors.grey[300]!,

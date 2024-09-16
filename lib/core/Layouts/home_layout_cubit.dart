@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:resido_app/features/home/presentation/views/home_screen.dart';
 
+import '../../constance.dart';
 import '../../features/favourite/ui/views/favorites_screen.dart';
 import '../../features/profile/profile_main/ui/views/profile_screen.dart';
 
@@ -15,8 +16,7 @@ class HomeLayoutCubit extends Cubit<HomeLayoutState> {
   int currentIndex = 0;
   List screens = [
     const HomeScreen(),
-    FavoritesScreen(),
-    //   const ChatScreen(),
+    FavoritesScreen() ,
     ProfileScreen()
   ];
 
