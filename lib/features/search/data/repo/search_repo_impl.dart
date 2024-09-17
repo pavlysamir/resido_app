@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:resido_app/core/api/api_consumer.dart';
 import 'package:resido_app/core/api/end_ponits.dart';
 import 'package:resido_app/core/errors/exceptions.dart';
+import 'package:resido_app/features/search/data/models/search_item_model.dart';
 import 'package:resido_app/features/search/data/models/sub-category_model.dart';
 import 'package:resido_app/features/search/data/models/unit_data_model.dart';
 import 'package:resido_app/features/search/data/repo/search_repo.dart';
@@ -68,6 +69,20 @@ class SearchRepoImpl implements SearchRepo {
 
       var data = DataSubCategoryResponse.fromJson(response);
 
+      return Right(data);
+    } on ServerException catch (e) {
+      return Left(e.errModel.errorMessage![0] ?? 'Server error');
+    }
+  }
+
+  @override
+  Future<Either<String, SearchItemModel>> searchItems(String keyword) async{
+    try {
+      final response = await api.get(
+        EndPoint.search,
+      );
+      // get response
+      var data = SearchItemModel.fromJson(response);
       return Right(data);
     } on ServerException catch (e) {
       return Left(e.errModel.errorMessage![0] ?? 'Server error');

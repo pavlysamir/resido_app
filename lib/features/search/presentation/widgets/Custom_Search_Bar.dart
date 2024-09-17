@@ -28,16 +28,12 @@ class _CustomSearchBarState extends State<CustomSearchBar> {
       builder: (context, state) {
         return Scaffold(
           body: SizedBox(
-            height: 50.h,
+            height: 60.h,
             width: MediaQuery.of(context).size.width,
             child: Form(
               key: formKey,
               child: TextFormField(
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'there is nothing';
-                  }
-                },
+
                 controller: searchCubit.searchController,
                 onTapOutside: (event) {
                   FocusManager.instance.primaryFocus?.unfocus();
@@ -50,7 +46,11 @@ class _CustomSearchBarState extends State<CustomSearchBar> {
                 onFieldSubmitted: (String _) {
                   if (formKey.currentState!.validate()) {}
                 },
-                onChanged: (String _) {},
+                onChanged: (String _) {
+                  searchCubit. emitSearchItems(
+                    searchCubit.searchController.text,
+                  );
+                },
                 decoration: InputDecoration(
                   contentPadding: const EdgeInsets.fromLTRB(10, 8, 10, 10),
                   filled: true,

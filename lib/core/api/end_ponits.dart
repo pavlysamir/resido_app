@@ -53,7 +53,7 @@ class EndPoint {
 
   static String signUp = "register";
 
-  static String search = "apartments/search";
+  static String search = "search-apartment";
 
   static String filter = "filter-apartments";
 

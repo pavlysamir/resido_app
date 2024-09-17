@@ -1,6 +1,10 @@
+
+
 import 'package:dartz/dartz.dart';
-import 'package:resido_app/features/search/data/models/sub-category_model.dart';
-import 'package:resido_app/features/search/data/models/unit_data_model.dart';
+
+import '../models/search_item_model.dart';
+import '../models/sub-category_model.dart';
+import '../models/unit_data_model.dart';
 
 abstract class SearchRepo {
   Future<Either<String, PaginatedProperties>> search(String keword,
@@ -17,4 +21,6 @@ abstract class SearchRepo {
       {int pageNumber = 1});
 
   Future<Either<String, DataSubCategoryResponse>> getSubCategory();
+  Future<Either<String, SearchItemModel>> searchItems(String keyword);
+
 }

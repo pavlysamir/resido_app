@@ -105,7 +105,7 @@ class HelpSectionWidget extends StatelessWidget {
                   const SizedBox(width: 15.0),
                   Text(
                     AppLocalizations.of(context)!.callUs,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 16.0,
                       fontWeight: FontWeight.normal,
                       color: AppColors.darkGrey,
