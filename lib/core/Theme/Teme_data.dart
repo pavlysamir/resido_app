@@ -84,6 +84,9 @@ import 'package:resido_app/core/utils/styles.dart';
 class AppTheme {
   static ThemeData lightTheme = ThemeData(
     cardColor: Colors.white,
+    appBarTheme: const AppBarTheme(
+      backgroundColor: AppColors.white,
+    ),
     indicatorColor: Colors.black,
     shadowColor: Colors.black.withOpacity(0.2),
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
@@ -97,29 +100,31 @@ class AppTheme {
     primaryColor: AppColors.primaryColor, // Change primary color as needed
     // Change accent color as needed
     textTheme: TextTheme(
-        bodySmall: Styles.textStyle12Blue,
-        displayLarge: Styles.textStyle32Blue,
-        displayMedium: Styles.textStyle18Black,
-        bodyLarge: Styles.textStyle12Black,
-        bodyMedium: Styles.textStyle12BoldGrey,
-        titleMedium: const TextStyle(color: Colors.black),
-        titleSmall: Styles.textStyle12Black,
-        displaySmall: Styles.textStyle20Black,
-        headlineMedium: Styles.textStyle14Grey,
-        headlineSmall: Styles.textStyle14Blck,
-        titleLarge: Styles.textStyle24BoldBlack,
-        labelLarge: Styles.textStyle16White,
-        labelMedium: Styles.textStyle16Black,
-        headlineLarge: Styles.textStyle16Black
+      bodySmall: Styles.textStyle12Blue,
+      displayLarge: Styles.textStyle32Blue,
+      displayMedium: Styles.textStyle18Black,
+      bodyLarge: Styles.textStyle12Black,
+      bodyMedium: Styles.textStyle12BoldGrey,
+      titleMedium: const TextStyle(color: Colors.black),
+      titleSmall: Styles.textStyle12Black,
+      displaySmall: Styles.textStyle20Black,
+      headlineMedium: Styles.textStyle14Grey,
+      headlineSmall: Styles.textStyle14Blck,
+      titleLarge: Styles.textStyle24BoldBlack,
+      labelLarge: Styles.textStyle16White,
+      labelMedium: Styles.textStyle16Black,
+      headlineLarge: Styles.textStyle16Black,
 
-        // Text color for light mode
-        ),
+      // Text color for light mode
+    ),
     inputDecorationTheme: InputDecorationTheme(
       fillColor: Colors.white,
       enabledBorder: OutlineInputBorder(
-        borderSide: const BorderSide(color: Colors.white),
+        borderSide: BorderSide(color: Colors.grey.shade300
+        ),
         borderRadius: BorderRadius.circular(10.0),
       ),
+
       border: OutlineInputBorder(
         borderSide: const BorderSide(
             color: Colors.white), // Border color for light mode
@@ -131,7 +136,9 @@ class AppTheme {
 
   static ThemeData darkTheme = ThemeData(
     indicatorColor: Colors.white,
-
+    appBarTheme: const AppBarTheme(
+      backgroundColor: AppColors.lightBlack,
+    ),
     cardColor: Colors.black,
     shadowColor: Colors.white.withOpacity(0.1),
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
@@ -145,7 +152,7 @@ class AppTheme {
 
     primaryColor: AppColors.primaryColor, // Change primary color as needed
     textTheme: TextTheme(
-        bodySmall: Styles.textStyle12Blue,
+        bodySmall: Styles.textStyle12White,
         displayLarge: Styles.textStyle32Blue,
         displayMedium: Styles.textStyle18White,
         bodyLarge: Styles.textStyle12White,
@@ -166,7 +173,7 @@ class AppTheme {
     inputDecorationTheme: InputDecorationTheme(
       fillColor: Colors.black,
       enabledBorder: OutlineInputBorder(
-        borderSide: const BorderSide(color: Colors.white),
+        borderSide: const BorderSide(color: Colors.grey),
         borderRadius: BorderRadius.circular(10.0),
       ),
       border: OutlineInputBorder(

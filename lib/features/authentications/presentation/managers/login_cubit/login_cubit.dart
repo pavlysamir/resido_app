@@ -2,11 +2,14 @@ import 'package:bloc/bloc.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:resido_app/features/authentications/data/repo/auth_repo.dart';
 
 part 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
-  LoginCubit() : super(LoginInitial());
+  LoginCubit(this.authRepository) : super(LoginInitial());
+
+  final AuthRepo authRepository;
 
   IconData iconDataPassword = Icons.visibility_off;
 
@@ -44,6 +47,8 @@ class LoginCubit extends Cubit<LoginState> {
 
   TextEditingController confirmNewPasswordController = TextEditingController();
 
+  TextEditingController emailToResetPassword = TextEditingController();
+
   var formScreenLoginrKey = GlobalKey<FormState>();
 
   var formScreenResetPasswordKey = GlobalKey<FormState>();
@@ -52,18 +57,22 @@ class LoginCubit extends Cubit<LoginState> {
 
   var formVerifyPhoneKey = GlobalKey<FormState>();
 
-  // login() async {
-  //   emit(LoginLoading());
-  //   final response = await authRepository.login(
-  //       emailController.text, passwordController.text);
+  var formVerifyEmailForgetOtpKey = GlobalKey<FormState>();
 
-  //   response.fold(
-  //     (errMessage) => emit(LoginFailure(message: errMessage)),
-  //     (login) {
-  //       emit(LoginSuccess());
-  //     },
-  //   );
-  // }
+  login() async {
+    emit(LoginLoading());
+    final response = await authRepository.login(
+        emailController.text, passwordController.text);
+
+    response.fold(
+      (errMessage) => emit(LoginFailure(message: errMessage)),
+      (login) {
+        emit(LoginSuccess());
+        emailController.clear();
+        passwordController.clear();
+      },
+    );
+  }
 
   // forgetPassword() async {
   //   emit(ForgetPasswordLoading());

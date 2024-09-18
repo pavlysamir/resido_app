@@ -5,6 +5,7 @@ class Assets {
   static const String imagesAbout = 'assets/images/about.png';
   static const String imagesAdvertisement = 'assets/images/advertisement.png';
   static const String imagesArticles = 'assets/images/articles.png';
+  static const String imagesBanner = 'assets/images/Banner.png';
   static const String imagesCall = 'assets/images/call.png';
   static const String imagesContact = 'assets/images/contact.png';
   static const String imagesConverter = 'assets/images/converter.png';
@@ -35,9 +36,16 @@ class Assets {
   static const String imagesProfileEdit = 'assets/images/profileEdit.png';
   static const String imagesRate = 'assets/images/rate.png';
   static const String imagesShare = 'assets/images/share.png';
+  static const String imagesSplashScreen = 'assets/images/splash_screen.png';
+  static const String imagesSplashScreen12 = 'assets/images/splash_screen_12.png';
   static const String imagesSubscription = 'assets/images/subscription.png';
   static const String imagesTerms = 'assets/images/terms.png';
   static const String imagesToggle = 'assets/images/toggle.png';
   static const String imagesTransaction = 'assets/images/transaction.png';
+  static const String imagesUnitItem = 'assets/images/unitItem.png';
+  static const String svgDeleteIllustrator = 'assets/svg/delete_illustrator.svg';
+  static const String svgEnquiry = 'assets/svg/enquiry.svg';
+  static const String svgLogoutConfirmation = 'assets/svg/logout_confirmation.svg';
+  static const String svgNoDataFound = 'assets/svg/no_data_found.svg';
 
 }

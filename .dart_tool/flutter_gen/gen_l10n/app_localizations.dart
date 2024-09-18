@@ -8,6 +8,8 @@ import 'package:intl/intl.dart' as intl;
 import 'app_localizations_ar.dart';
 import 'app_localizations_en.dart';
 
+// ignore_for_file: type=lint
+
 /// Callers can lookup localized strings with an instance of AppLocalizations
 /// returned by `AppLocalizations.of(context)`.
 ///
@@ -117,6 +119,150 @@ abstract class AppLocalizations {
   /// **'Buy, Sell & Rent Properties'**
   String get onBording_3;
 
+  /// No description provided for @darkTheme.
+  ///
+  /// In en, this message translates to:
+  /// **'Dark Theme'**
+  String get darkTheme;
+
+  /// No description provided for @myEnquiry.
+  ///
+  /// In en, this message translates to:
+  /// **'My Enquiry'**
+  String get myEnquiry;
+
+  /// No description provided for @subscription.
+  ///
+  /// In en, this message translates to:
+  /// **'Subscription'**
+  String get subscription;
+
+  /// No description provided for @transactionHistory.
+  ///
+  /// In en, this message translates to:
+  /// **'Transaction History'**
+  String get transactionHistory;
+
+  /// No description provided for @language.
+  ///
+  /// In en, this message translates to:
+  /// **'Language'**
+  String get language;
+
+  /// No description provided for @registerNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Register Now'**
+  String get registerNow;
+
+  /// No description provided for @myAds.
+  ///
+  /// In en, this message translates to:
+  /// **'My Ads'**
+  String get myAds;
+
+  /// No description provided for @myProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'My Profile'**
+  String get myProfile;
+
+  /// No description provided for @notification.
+  ///
+  /// In en, this message translates to:
+  /// **'Notification'**
+  String get notification;
+
+  /// No description provided for @articles.
+  ///
+  /// In en, this message translates to:
+  /// **'Articles'**
+  String get articles;
+
+  /// No description provided for @areaConverter.
+  ///
+  /// In en, this message translates to:
+  /// **'Area Converter'**
+  String get areaConverter;
+
+  /// No description provided for @shareThisApp.
+  ///
+  /// In en, this message translates to:
+  /// **'Share this App'**
+  String get shareThisApp;
+
+  /// No description provided for @rateUs.
+  ///
+  /// In en, this message translates to:
+  /// **'Rate us'**
+  String get rateUs;
+
+  /// No description provided for @contactUs.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact Us'**
+  String get contactUs;
+
+  /// No description provided for @aboutUs.
+  ///
+  /// In en, this message translates to:
+  /// **'About Us'**
+  String get aboutUs;
+
+  /// No description provided for @termsConditions.
+  ///
+  /// In en, this message translates to:
+  /// **'Terms & Conditions'**
+  String get termsConditions;
+
+  /// No description provided for @privacyPolicy.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy Policy'**
+  String get privacyPolicy;
+
+  /// No description provided for @delete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get delete;
+
+  /// No description provided for @deleteAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Account'**
+  String get deleteAccount;
+
+  /// No description provided for @deleteAccountMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'You won\'t be able to rollback it. You will be logged out and all active sessions will be terminated'**
+  String get deleteAccountMessage;
+
+  /// No description provided for @logout.
+  ///
+  /// In en, this message translates to:
+  /// **'Logout'**
+  String get logout;
+
+  /// No description provided for @logoutConfirmation.
+  ///
+  /// In en, this message translates to:
+  /// **'Logout Confirmation'**
+  String get logoutConfirmation;
+
+  /// No description provided for @areYouSureWantLogout.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to logout?'**
+  String get areYouSureWantLogout;
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
   /// No description provided for @description_onBording_1.
   ///
   /// In en, this message translates to:
@@ -134,6 +280,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Buy & sell your expected house from phone with eBroker'**
   String get description_onBording_3;
+
+  /// No description provided for @callUs.
+  ///
+  /// In en, this message translates to:
+  /// **'Call'**
+  String get callUs;
 
   /// No description provided for @name.
   ///
@@ -153,6 +305,12 @@ abstract class AppLocalizations {
   /// **'Name'**
   String get nameWithout;
 
+  /// No description provided for @finishingUpdateProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Finishing Update Profile'**
+  String get finishingUpdateProfile;
+
   /// No description provided for @phoneNumberWithout.
   ///
   /// In en, this message translates to:
@@ -164,6 +322,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Adress'**
   String get adress;
+
+  /// No description provided for @phone.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone'**
+  String get phone;
 
   /// No description provided for @tripleName.
   ///
@@ -189,11 +353,11 @@ abstract class AppLocalizations {
   /// **'Login'**
   String get login;
 
-  /// No description provided for @contactUs.
+  /// No description provided for @favorites.
   ///
   /// In en, this message translates to:
-  /// **'Contact Us'**
-  String get contactUs;
+  /// **'Favorite'**
+  String get favorites;
 
   /// No description provided for @phoneValidation.
   ///
@@ -303,6 +467,36 @@ abstract class AppLocalizations {
   /// **'Email *'**
   String get email;
 
+  /// No description provided for @fullName.
+  ///
+  /// In en, this message translates to:
+  /// **'Full Name'**
+  String get fullName;
+
+  /// No description provided for @emailAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'Email Address'**
+  String get emailAddress;
+
+  /// No description provided for @phoneNum.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone Number'**
+  String get phoneNum;
+
+  /// No description provided for @subject.
+  ///
+  /// In en, this message translates to:
+  /// **'Subject'**
+  String get subject;
+
+  /// No description provided for @updateProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'update Profile'**
+  String get updateProfile;
+
   /// No description provided for @emailValidation.
   ///
   /// In en, this message translates to:
@@ -326,6 +520,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Send'**
   String get send;
+
+  /// No description provided for @writeSomethingHere.
+  ///
+  /// In en, this message translates to:
+  /// **'Write something here...'**
+  String get writeSomethingHere;
 
   /// No description provided for @doUDoNotHaveAccount.
   ///
@@ -417,12 +617,6 @@ abstract class AppLocalizations {
   /// **'State'**
   String get state;
 
-  /// No description provided for @notification.
-  ///
-  /// In en, this message translates to:
-  /// **'Notification'**
-  String get notification;
-
   /// No description provided for @welcom.
   ///
   /// In en, this message translates to:
@@ -452,12 +646,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Edit Profile'**
   String get editProfile;
-
-  /// No description provided for @deleteAccount.
-  ///
-  /// In en, this message translates to:
-  /// **'Delete Account'**
-  String get deleteAccount;
 
   /// No description provided for @logOut.
   ///
@@ -836,6 +1024,150 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Featured Properties'**
   String get featureProb;
+
+  /// No description provided for @mostLikedProp.
+  ///
+  /// In en, this message translates to:
+  /// **'Most Liked Properties'**
+  String get mostLikedProp;
+
+  /// No description provided for @seeMore.
+  ///
+  /// In en, this message translates to:
+  /// **'See More'**
+  String get seeMore;
+
+  /// No description provided for @favoutires.
+  ///
+  /// In en, this message translates to:
+  /// **'Favourites'**
+  String get favoutires;
+
+  /// No description provided for @subscriptionPlan.
+  ///
+  /// In en, this message translates to:
+  /// **'Subscription Plan'**
+  String get subscriptionPlan;
+
+  /// No description provided for @area.
+  ///
+  /// In en, this message translates to:
+  /// **'Area'**
+  String get area;
+
+  /// No description provided for @filterResults.
+  ///
+  /// In en, this message translates to:
+  /// **'Filter Results'**
+  String get filterResults;
+
+  /// No description provided for @subCategory.
+  ///
+  /// In en, this message translates to:
+  /// **'Sub Category'**
+  String get subCategory;
+
+  /// No description provided for @compounds.
+  ///
+  /// In en, this message translates to:
+  /// **'Compounds'**
+  String get compounds;
+
+  /// No description provided for @resetPassWord.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset Your Password'**
+  String get resetPassWord;
+
+  /// No description provided for @forgetpass.
+  ///
+  /// In en, this message translates to:
+  /// **'Forgot Password?'**
+  String get forgetpass;
+
+  /// No description provided for @yourEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Email'**
+  String get yourEmail;
+
+  /// No description provided for @noWorry.
+  ///
+  /// In en, this message translates to:
+  /// **'No worries , we”ll send a recovery link to your email.'**
+  String get noWorry;
+
+  /// No description provided for @backTo.
+  ///
+  /// In en, this message translates to:
+  /// **'Back To'**
+  String get backTo;
+
+  /// No description provided for @confirmChangeLng.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm Change langeuage'**
+  String get confirmChangeLng;
+
+  /// No description provided for @doChangeLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'Do you want change language'**
+  String get doChangeLanguage;
+
+  /// No description provided for @startPrice.
+  ///
+  /// In en, this message translates to:
+  /// **'Start Price:'**
+  String get startPrice;
+
+  /// No description provided for @zone.
+  ///
+  /// In en, this message translates to:
+  /// **'Zone:'**
+  String get zone;
+
+  /// No description provided for @aboutThisCompound.
+  ///
+  /// In en, this message translates to:
+  /// **'About This Compound'**
+  String get aboutThisCompound;
+
+  /// No description provided for @aboutThisproberty.
+  ///
+  /// In en, this message translates to:
+  /// **'About This Property'**
+  String get aboutThisproberty;
+
+  /// No description provided for @photoGallary.
+  ///
+  /// In en, this message translates to:
+  /// **'Photo Gallery'**
+  String get photoGallary;
+
+  /// No description provided for @availableApartments.
+  ///
+  /// In en, this message translates to:
+  /// **'Available Apartments'**
+  String get availableApartments;
+
+  /// No description provided for @models.
+  ///
+  /// In en, this message translates to:
+  /// **'Model:'**
+  String get models;
+
+  /// No description provided for @paymentPlay.
+  ///
+  /// In en, this message translates to:
+  /// **'Payment Play'**
+  String get paymentPlay;
+
+  /// No description provided for @outdoorFacility.
+  ///
+  /// In en, this message translates to:
+  /// **'Outdoor facilities'**
+  String get outdoorFacility;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

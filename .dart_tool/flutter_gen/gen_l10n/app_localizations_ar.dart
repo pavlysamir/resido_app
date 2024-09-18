@@ -1,5 +1,7 @@
 import 'app_localizations.dart';
 
+// ignore_for_file: type=lint
+
 /// The translations for Arabic (`ar`).
 class AppLocalizationsAr extends AppLocalizations {
   AppLocalizationsAr([String locale = 'ar']) : super(locale);
@@ -17,6 +19,78 @@ class AppLocalizationsAr extends AppLocalizations {
   String get onBording_3 => 'Buy, Sell & Rent Properties';
 
   @override
+  String get darkTheme => 'الوضع الليلي';
+
+  @override
+  String get myEnquiry => 'استفساري';
+
+  @override
+  String get subscription => 'الاشتراك';
+
+  @override
+  String get transactionHistory => 'تاريخ المعاملات';
+
+  @override
+  String get language => 'اللغة';
+
+  @override
+  String get registerNow => 'سجل الان';
+
+  @override
+  String get myAds => 'اعلاناتي';
+
+  @override
+  String get myProfile => 'ملفي الشخصي';
+
+  @override
+  String get notification => 'الاشعارات';
+
+  @override
+  String get articles => 'المقالات';
+
+  @override
+  String get areaConverter => 'محول المساحة';
+
+  @override
+  String get shareThisApp => 'شارك هذا التطبيق';
+
+  @override
+  String get rateUs => 'قيمنا';
+
+  @override
+  String get contactUs => 'تواصل معنا';
+
+  @override
+  String get aboutUs => 'عنا';
+
+  @override
+  String get termsConditions => 'الشروط والاحكام';
+
+  @override
+  String get privacyPolicy => 'سياسة الخصوصية';
+
+  @override
+  String get delete => 'حذف';
+
+  @override
+  String get deleteAccount => 'حذف الحساب';
+
+  @override
+  String get deleteAccountMessage => 'لن تتمكن من التراجع عن ذلك. سيتم تسجيل خروجك وإنهاء جميع الجلسات النشطة';
+
+  @override
+  String get logout => 'تسجيل الخروج';
+
+  @override
+  String get logoutConfirmation => 'تأكيد تسجيل الخروج';
+
+  @override
+  String get areYouSureWantLogout => 'هل تريد تسجيل الخروج؟';
+
+  @override
+  String get cancel => 'الغاء';
+
+  @override
   String get description_onBording_1 => 'Find the ideal place according to your needs and expectations.';
 
   @override
@@ -24,6 +98,9 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get description_onBording_3 => 'Buy & sell your expected house from phone with eBroker';
+
+  @override
+  String get callUs => 'اتصل';
 
   @override
   String get name => 'الاسم *';
@@ -35,10 +112,16 @@ class AppLocalizationsAr extends AppLocalizations {
   String get nameWithout => 'الاسم';
 
   @override
+  String get finishingUpdateProfile => 'انتهاء تحديث البروفايل';
+
+  @override
   String get phoneNumberWithout => 'رقم الهاتف';
 
   @override
   String get adress => 'عنوان المكتب';
+
+  @override
+  String get phone => 'الهاتف';
 
   @override
   String get tripleName => 'الاسم ثلاثي';
@@ -53,7 +136,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get login => 'تسجيل الدخول';
 
   @override
-  String get contactUs => 'تواصل معنا';
+  String get favorites => 'المفضلة';
 
   @override
   String get phoneValidation => 'الهاتف مطلوب';
@@ -110,6 +193,21 @@ class AppLocalizationsAr extends AppLocalizations {
   String get email => 'البريد الالكتروني';
 
   @override
+  String get fullName => 'الاسم الكامل';
+
+  @override
+  String get emailAddress => 'البريد الالكتروني';
+
+  @override
+  String get phoneNum => 'رقم الهاتف';
+
+  @override
+  String get subject => 'موضوع';
+
+  @override
+  String get updateProfile => 'تحديث البروفايل';
+
+  @override
   String get emailValidation => 'البريد الالكتروني مطلوب';
 
   @override
@@ -120,6 +218,9 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get send => 'ارسال';
+
+  @override
+  String get writeSomethingHere => 'اكتب شيئا هنا...';
 
   @override
   String get doUDoNotHaveAccount => 'ليس لديك حساب؟';
@@ -167,9 +268,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get state => 'الحالة';
 
   @override
-  String get notification => 'الاشعارات';
-
-  @override
   String get welcom => 'مرحبا بك';
 
   @override
@@ -183,9 +281,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get editProfile => 'تعديل البروفايل';
-
-  @override
-  String get deleteAccount => 'حذف الحساب';
 
   @override
   String get logOut => 'تسجيل الخروج';
@@ -375,4 +470,76 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get featureProb => 'مميزات المملكات';
+
+  @override
+  String get mostLikedProp => 'المملكات الاكثر مثمرة';
+
+  @override
+  String get seeMore => 'اظهار المزيد';
+
+  @override
+  String get favoutires => 'المفضلة';
+
+  @override
+  String get subscriptionPlan => 'خطة الدفع';
+
+  @override
+  String get area => 'مساحة';
+
+  @override
+  String get filterResults => 'تصفية النتائج';
+
+  @override
+  String get subCategory => 'التصنيف الفرعي';
+
+  @override
+  String get compounds => 'المجموعات';
+
+  @override
+  String get resetPassWord => 'اعادة تعيين كلمة المرور';
+
+  @override
+  String get forgetpass => 'نسيت كلمة المرور؟';
+
+  @override
+  String get yourEmail => 'بريدك الالكتروني';
+
+  @override
+  String get noWorry => 'لا تقلق، سوف نرسل لك رابط استعادة كلمة المرور.';
+
+  @override
+  String get backTo => 'العودة للخلف';
+
+  @override
+  String get confirmChangeLng => 'تأكيد تغيير اللغه';
+
+  @override
+  String get doChangeLanguage => 'هل تريد تغيير اللغه';
+
+  @override
+  String get startPrice => 'السعر الأولي:';
+
+  @override
+  String get zone => 'المنطقة';
+
+  @override
+  String get aboutThisCompound => 'عن المجموعة';
+
+  @override
+  String get aboutThisproberty => 'About This Property';
+
+  @override
+  String get photoGallary => 'صور المجموعة';
+
+  @override
+  String get availableApartments => 'الشقق المتاحة';
+
+  @override
+  String get models => 'الموديلات';
+
+  @override
+  String get paymentPlay => 'Payment Play';
+
+  @override
+  String get outdoorFacility => 'Outdoor facilities';
 }

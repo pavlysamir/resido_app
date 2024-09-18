@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:resido_app/core/utils/widgets/custom_form_field.dart';
 import 'package:resido_app/features/chat/presentation/managers/cubit/chat_cubit.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:resido_app/features/chat/presentation/widgets/chat_send_bubble.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'dart:async';
+
+import '../../../../core/widgets/header_widget.dart';
 
 class ChatScreen extends StatelessWidget {
   const ChatScreen({super.key});
@@ -22,17 +25,16 @@ class ChatScreen extends StatelessWidget {
       },
       builder: (context, state) {
         return Scaffold(
-            appBar: AppBar(
-              title: Text(
-                "chat",
-                style: Theme.of(context).textTheme.displaySmall,
-              ),
-            ),
+
             body:
                 // state is GetContactUsSuccess || state is SendContactUsSuccess
                 //     ?
                 Column(
               children: [
+                HeaderWidget(
+                  title: AppLocalizations.of(context)!.chat,
+                  showArrow: false,
+                ),
                 Expanded(
                   child: ListView.builder(
                     physics: const BouncingScrollPhysics(),

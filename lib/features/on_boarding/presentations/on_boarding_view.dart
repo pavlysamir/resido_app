@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:resido_app/core/Assets/assets.dart';
+import 'package:resido_app/core/api/end_ponits.dart';
 import 'package:resido_app/core/utils/app_colors.dart';
 import 'package:resido_app/core/utils/service_locator.dart';
 import 'package:resido_app/core/utils/shared_preferences_cash_helper.dart';
@@ -95,7 +96,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   void submit() {
     getIt
         .get<CashHelperSharedPreferences>()
-        .saveData(key: 'onBoarding', value: true)
+        .saveData(key: ApiKey.LOGIN_USER_DATA, value: true)
         .then((value) {
       //customGoAndDeleteNavigate(context: context, path: AppRouter.kLogin);
     });

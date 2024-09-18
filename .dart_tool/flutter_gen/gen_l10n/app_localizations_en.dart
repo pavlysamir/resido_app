@@ -1,5 +1,7 @@
 import 'app_localizations.dart';
 
+// ignore_for_file: type=lint
+
 /// The translations for English (`en`).
 class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
@@ -17,6 +19,78 @@ class AppLocalizationsEn extends AppLocalizations {
   String get onBording_3 => 'Buy, Sell & Rent Properties';
 
   @override
+  String get darkTheme => 'Dark Theme';
+
+  @override
+  String get myEnquiry => 'My Enquiry';
+
+  @override
+  String get subscription => 'Subscription';
+
+  @override
+  String get transactionHistory => 'Transaction History';
+
+  @override
+  String get language => 'Language';
+
+  @override
+  String get registerNow => 'Register Now';
+
+  @override
+  String get myAds => 'My Ads';
+
+  @override
+  String get myProfile => 'My Profile';
+
+  @override
+  String get notification => 'Notification';
+
+  @override
+  String get articles => 'Articles';
+
+  @override
+  String get areaConverter => 'Area Converter';
+
+  @override
+  String get shareThisApp => 'Share this App';
+
+  @override
+  String get rateUs => 'Rate us';
+
+  @override
+  String get contactUs => 'Contact Us';
+
+  @override
+  String get aboutUs => 'About Us';
+
+  @override
+  String get termsConditions => 'Terms & Conditions';
+
+  @override
+  String get privacyPolicy => 'Privacy Policy';
+
+  @override
+  String get delete => 'Delete';
+
+  @override
+  String get deleteAccount => 'Delete Account';
+
+  @override
+  String get deleteAccountMessage => 'You won\'t be able to rollback it. You will be logged out and all active sessions will be terminated';
+
+  @override
+  String get logout => 'Logout';
+
+  @override
+  String get logoutConfirmation => 'Logout Confirmation';
+
+  @override
+  String get areYouSureWantLogout => 'Are you sure you want to logout?';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
   String get description_onBording_1 => 'Find the ideal place according to your needs and expectations.';
 
   @override
@@ -24,6 +98,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get description_onBording_3 => 'Buy & sell your expected house from phone with eBroker';
+
+  @override
+  String get callUs => 'Call';
 
   @override
   String get name => 'Name *';
@@ -35,10 +112,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get nameWithout => 'Name';
 
   @override
+  String get finishingUpdateProfile => 'Finishing Update Profile';
+
+  @override
   String get phoneNumberWithout => 'Phone number';
 
   @override
   String get adress => 'Adress';
+
+  @override
+  String get phone => 'Phone';
 
   @override
   String get tripleName => 'The name is triple';
@@ -53,7 +136,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get login => 'Login';
 
   @override
-  String get contactUs => 'Contact Us';
+  String get favorites => 'Favorite';
 
   @override
   String get phoneValidation => 'phone is required';
@@ -110,6 +193,21 @@ class AppLocalizationsEn extends AppLocalizations {
   String get email => 'Email *';
 
   @override
+  String get fullName => 'Full Name';
+
+  @override
+  String get emailAddress => 'Email Address';
+
+  @override
+  String get phoneNum => 'Phone Number';
+
+  @override
+  String get subject => 'Subject';
+
+  @override
+  String get updateProfile => 'update Profile';
+
+  @override
   String get emailValidation => 'Email is required';
 
   @override
@@ -120,6 +218,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get send => 'Send';
+
+  @override
+  String get writeSomethingHere => 'Write something here...';
 
   @override
   String get doUDoNotHaveAccount => 'Do not have an account?';
@@ -167,9 +268,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get state => 'State';
 
   @override
-  String get notification => 'Notification';
-
-  @override
   String get welcom => 'Welcome';
 
   @override
@@ -183,9 +281,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get editProfile => 'Edit Profile';
-
-  @override
-  String get deleteAccount => 'Delete Account';
 
   @override
   String get logOut => 'Log Out';
@@ -375,4 +470,76 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get featureProb => 'Featured Properties';
+
+  @override
+  String get mostLikedProp => 'Most Liked Properties';
+
+  @override
+  String get seeMore => 'See More';
+
+  @override
+  String get favoutires => 'Favourites';
+
+  @override
+  String get subscriptionPlan => 'Subscription Plan';
+
+  @override
+  String get area => 'Area';
+
+  @override
+  String get filterResults => 'Filter Results';
+
+  @override
+  String get subCategory => 'Sub Category';
+
+  @override
+  String get compounds => 'Compounds';
+
+  @override
+  String get resetPassWord => 'Reset Your Password';
+
+  @override
+  String get forgetpass => 'Forgot Password?';
+
+  @override
+  String get yourEmail => 'Your Email';
+
+  @override
+  String get noWorry => 'No worries , we”ll send a recovery link to your email.';
+
+  @override
+  String get backTo => 'Back To';
+
+  @override
+  String get confirmChangeLng => 'Confirm Change langeuage';
+
+  @override
+  String get doChangeLanguage => 'Do you want change language';
+
+  @override
+  String get startPrice => 'Start Price:';
+
+  @override
+  String get zone => 'Zone:';
+
+  @override
+  String get aboutThisCompound => 'About This Compound';
+
+  @override
+  String get aboutThisproberty => 'About This Property';
+
+  @override
+  String get photoGallary => 'Photo Gallery';
+
+  @override
+  String get availableApartments => 'Available Apartments';
+
+  @override
+  String get models => 'Model:';
+
+  @override
+  String get paymentPlay => 'Payment Play';
+
+  @override
+  String get outdoorFacility => 'Outdoor facilities';
 }

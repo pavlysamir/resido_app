@@ -5,67 +5,59 @@ sealed class SearchState {}
 
 final class SearchInitial extends SearchState {}
 
-final class SearchClick extends SearchState {}
+final class SearchLoading extends SearchState {}
 
-final class GetAllGradesRegistrationSuccess extends SearchState {}
+final class SearchSuccess extends SearchState {}
 
-final class GetAllGradesRegistrationFail extends SearchState {
-  final String errorMessage;
-
-  GetAllGradesRegistrationFail(this.errorMessage);
-}
-
-final class GetAllSubjectsRegistrationLoading extends SearchState {}
-
-final class GetAllAvalabalityOfWorkSuccess extends SearchState {}
-
-final class GetAllAvalabalityOfWorkFail extends SearchState {
-  final String errorMessage;
-
-  GetAllAvalabalityOfWorkFail(this.errorMessage);
-}
-
-final class GetAllAvalabalityOfWorkLoading extends SearchState {}
-
-final class GetAllGovernmentsSuccess extends SearchState {}
-
-final class GetAllGovernmentsFail extends SearchState {
-  final String errorMessage;
-
-  GetAllGovernmentsFail(this.errorMessage);
-}
-
-final class GetAllGovernmentsLoading extends SearchState {}
-
-final class GetAllDistrictsSuccess extends SearchState {}
-
-final class GetAllDistrictsFail extends SearchState {
-  final String errorMessage;
-
-  GetAllDistrictsFail(this.errorMessage);
-}
-
-final class GetAllDistrictsLoading extends SearchState {}
-
-final class SelectedGovernment extends SearchState {}
-
-final class SelectedDistrict extends SearchState {}
-
-final class TriggerFunctionSuccess extends SearchState {}
-
-final class TriggerFunctionLoading extends SearchState {}
-
-final class GetSearchedUsersLoading extends SearchState {}
-
-final class GetMoreUsersLoading extends SearchState {}
-
-final class GetSearchedUsersSuccess extends SearchState {}
-
-final class GetMoreSearchedUsersSuccess extends SearchState {}
-
-final class GetSearchedUsersFailure extends SearchState {
+final class SearchFailure extends SearchState {
   final String message;
-  GetSearchedUsersFailure({required this.message});
+
+  SearchFailure({required this.message});
 }
+
+final class FilterLoading extends SearchState {}
+
+final class FilterSuccess extends SearchState {}
+
+final class FilterFailure extends SearchState {
+  final String message;
+
+  FilterFailure({required this.message});
+}
+
+final class GetCategoryLoading extends SearchState {}
+
+final class GetCategorySuccess extends SearchState {}
+
+final class GetCategoryFailure extends SearchState {
+  final String message;
+
+  GetCategoryFailure({required this.message});
+}
+
+final class SelectCategoryId extends SearchState {}
+
+final class ClearFilterData extends SearchState {}
+
+final class GetMoreSearchLoading extends SearchState {}
+
+final class GetMoreSearchedSuccess extends SearchState {}
 
 final class ClearData extends SearchState {}
+
+final class SearchTypeChanged extends SearchState {}
+
+// search items state
+final class SearchItemsLoading extends SearchState {}
+
+final class SearchItemsSuccess extends SearchState {
+  SearchPropertyResponse searchItems;
+
+  SearchItemsSuccess({required this.searchItems});
+}
+
+final class SearchItemsFailure extends SearchState {
+  final String message;
+
+  SearchItemsFailure({required this.message});
+}

@@ -4,7 +4,9 @@ import 'package:resido_app/core/errors/error_model.dart';
 class ServerException implements Exception {
   final ErrorModel errModel;
 
-  ServerException({required this.errModel});
+  ServerException({
+    required this.errModel,
+  });
 }
 
 void handleDioExceptions(DioException e) {
@@ -26,8 +28,7 @@ void handleDioExceptions(DioException e) {
         // Handle the case where response is null
         throw ServerException(
             errModel: ErrorModel(
-          errorMessage: 'Connection error',
-          errors: ['Connection error'],
+          errorMessage: ['Connection error'],
         ));
       }
 
@@ -54,6 +55,9 @@ void handleDioExceptions(DioException e) {
           throw ServerException(
               errModel: ErrorModel.fromJson(e.response!.data));
         case 504: // Server exception
+          throw ServerException(
+              errModel: ErrorModel.fromJson(e.response!.data));
+        case 500: // Server exception
           throw ServerException(
               errModel: ErrorModel.fromJson(e.response!.data));
       }

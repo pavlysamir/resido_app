@@ -26,16 +26,16 @@ String? conditionOfValidationPassWord(value) {
 String? conditionOfValidationName(value) {
   var nonNullValue = value ?? '';
   if (nonNullValue.isEmpty) {
-    return 'اسم المستخدم مطلوب';
+    return 'please enter your name';
   }
 
-  // تقسيم الاسم إلى مقاطع باستخدام المسافات
-  List<String> nameParts = nonNullValue.split(' ');
+  // // تقسيم الاسم إلى مقاطع باستخدام المسافات
+  // List<String> nameParts = nonNullValue.split(' ');
 
-  // التحقق من عدد المقاطع
-  if (nameParts.length < 3) {
-    return 'الاسم يجب أن يكون ثلاثي';
-  }
+  // // التحقق من عدد المقاطع
+  // if (nameParts.length < 3) {
+  //   return 'الاسم يجب أن يكون ثلاثي';
+  // }
 
   return null;
 }

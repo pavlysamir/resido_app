@@ -1,64 +1,42 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
 class CashHelperSharedPreferences {
-  static SharedPreferences? _sharedPreferences;
+  static SharedPreferences? sharedPreferences;
 
-  /// Initializes the SharedPreferences instance.
-  Future<void> init() async {
-    _sharedPreferences = await SharedPreferences.getInstance();
+  init() async {
+    sharedPreferences = await SharedPreferences.getInstance();
   }
 
-  /// Saves data to SharedPreferences.
-  Future<bool> saveData({
+  Future<dynamic> saveData({
     required String key,
     required dynamic value,
   }) async {
-    if (_sharedPreferences == null) {
-      throw Exception('SharedPreferences not initialized');
-    }
-
-    final saveFunctions = {
-      String: (String key, String value) => _sharedPreferences!.setString(key, value),
-      int: (String key, int value) => _sharedPreferences!.setInt(key, value),
-      bool: (String key, bool value) => _sharedPreferences!.setBool(key, value),
-      double: (String key, double value) => _sharedPreferences!.setDouble(key, value),
-      List<String>: (String key, List<String> value) => _sharedPreferences!.setStringList(key, value),
-    };
-
-    // Get the save function for the value type.
-    final saveFunction = saveFunctions[value.runtimeType];
-    if (saveFunction != null) {
-      return await saveFunction(key, value);
-    } else {
-      throw Exception('Unsupported value type');
+    if (value is String) {
+      return await sharedPreferences!.setString(key, value);
+    } else if (value is int) {
+      return await sharedPreferences!.setInt(key, value);
+    } else if (value is bool) {
+      return await sharedPreferences!.setBool(key, value);
+    } else if (value is double) {
+      return await sharedPreferences!.setDouble(key, value);
+    } else if (value is List<String>) {
+      return await sharedPreferences!.setStringList(key, value);
     }
   }
 
-  /// Retrieves data from SharedPreferences.
   dynamic getData({
     required String key,
   }) {
-    if (_sharedPreferences == null) {
-      throw Exception('SharedPreferences not initialized');
-    }
-    return _sharedPreferences?.get(key);
+    return sharedPreferences?.get(key);
   }
 
-  /// Removes data from SharedPreferences.
-  Future<bool> removeData({
-    required String key,
+  Future<dynamic> removeData({
+    required dynamic key,
   }) async {
-    if (_sharedPreferences == null) {
-      throw Exception('SharedPreferences not initialized');
-    }
-    return await _sharedPreferences!.remove(key);
+    return await sharedPreferences?.remove(key);
   }
 
-  /// Clears all data from SharedPreferences.
-  Future<bool> clearData() async {
-    if (_sharedPreferences == null) {
-      throw Exception('SharedPreferences not initialized');
-    }
-    return await _sharedPreferences!.clear();
+  Future<dynamic> clearData() async {
+    return await sharedPreferences?.clear();
   }
 }

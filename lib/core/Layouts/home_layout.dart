@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconly/iconly.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:resido_app/constance.dart';
 import 'package:resido_app/core/Layouts/home_layout_cubit.dart';
+import 'package:resido_app/core/utils/service_locator.dart';
+import 'package:resido_app/core/utils/shared_preferences_cash_helper.dart';
+import 'package:resido_app/core/utils/widgets/custom_botton_sheet_guest.dart';
 
 class HomeLayout extends StatefulWidget {
   const HomeLayout({super.key});
@@ -33,10 +37,16 @@ class _HomeLayoutState extends State<HomeLayout> {
                 ),
                 BottomNavigationBarItem(
                   icon: const Icon(
-                    IconlyLight.chat,
+                    IconlyLight.heart,
                   ),
-                  label: AppLocalizations.of(context)!.chat,
+                  label: AppLocalizations.of(context)!.favoutires,
                 ),
+                // BottomNavigationBarItem(
+                //   icon: const Icon(
+                //     IconlyLight.chat,
+                //   ),
+                //   label: AppLocalizations.of(context)!.chat,
+                // ),
                 BottomNavigationBarItem(
                   icon: const Icon(
                     IconlyLight.profile,
@@ -44,58 +54,29 @@ class _HomeLayoutState extends State<HomeLayout> {
                   label: AppLocalizations.of(context)!.profile,
                 ),
               ],
-              currentIndex: cubit.currentIndex,
+              currentIndex: token == null ? 0 : cubit.currentIndex,
               onTap: (index) {
-                cubit.changeBottomNavBar(index);
+                if (getIt
+                        .get<CashHelperSharedPreferences>()
+                        .getData(key: 'uId') ==
+                    null) {
+                  showModalBottomSheet(
+                    context: context,
+                    isScrollControlled: true,
+                    shape: const RoundedRectangleBorder(
+                      borderRadius:
+                          BorderRadius.vertical(top: Radius.circular(10)),
+                    ),
+                    builder: (BuildContext context) {
+                      return const CustomBottomSheetGuest();
+                    },
+                  );
+                  ;
+                } else {
+                  cubit.changeBottomNavBar(index);
+                }
               },
             ),
-
-            // BottomAppBar(
-            //   clipBehavior: Clip.antiAlias,
-            //   notchMargin: 2,
-            //   padding: EdgeInsets.zero,
-            //   color: Colors.white,
-            //   elevation: 0.0,
-            //   shape: const CircularNotchedRectangle(),
-            //   child: Container(
-            //     decoration: BoxDecoration(
-            //       border: Border(
-            //         top: BorderSide(
-            //           color: Colors.grey[300]!,
-            //           width: 1.0,
-            //         ),
-            //       ),
-            //     ),
-            //     child: BottomNavigationBar(
-            //       mouseCursor: MouseCursor.defer,
-            //       items: [
-            //         BottomNavigationBarItem(
-            //           icon: const Icon(
-            //             IconlyLight.home,
-            //           ),
-            //           label: AppLocalizations.of(context)!.home,
-            //         ),
-            //         BottomNavigationBarItem(
-            //           icon: const Icon(
-            //             IconlyLight.chat,
-            //           ),
-            //           label: AppLocalizations.of(context)!.chat,
-            //         ),
-            //         BottomNavigationBarItem(
-            //           icon: const Icon(
-            //             IconlyLight.profile,
-            //           ),
-            //           label: AppLocalizations.of(context)!.profile,
-            //         ),
-            //       ],
-            //       currentIndex: cubit.currentIndex,
-            //       onTap: (index) {
-            //         cubit.changeBottomNavBar(index);
-            //       },
-            //     ),
-            //   ),
-            // ),
-
             body: cubit.screens[cubit.currentIndex],
           );
         },

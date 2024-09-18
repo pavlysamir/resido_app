@@ -6,6 +6,7 @@ import 'package:resido_app/core/Assets/assets.dart';
 import 'package:resido_app/core/functions/validation_handling.dart';
 import 'package:resido_app/core/utils/app_colors.dart';
 import 'package:resido_app/core/utils/app_router.dart';
+import 'package:resido_app/core/utils/snackbar/info_snackbar.dart';
 import 'package:resido_app/core/utils/styles.dart';
 import 'package:resido_app/core/utils/widgets/custom_button_large.dart';
 import 'package:resido_app/core/utils/widgets/custom_form_field.dart';
@@ -18,7 +19,15 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<LoginCubit, LoginState>(
-      listener: (context, state) {},
+      listener: (context, state) {
+        if (state is LoginSuccess) {
+          customGoAndDeleteNavigate(
+              context: context, path: AppRouter.kHomeLayout);
+          showInfoSnackBar(context, 'success', AppColors.green);
+        } else if (state is LoginFailure) {
+          showInfoSnackBar(context, state.message, AppColors.red);
+        }
+      },
       builder: (context, state) {
         return Scaffold(
           body: SafeArea(
@@ -92,14 +101,20 @@ class LoginScreen extends StatelessWidget {
                             LoginCubit.get(context)!.iconDataPassword),
                       ),
                       controller: LoginCubit.get(context)!.passwordController,
-                      validationMassage: conditionOfValidationPassWord,
+                      validationMassage: (value) {
+                        if (value.isEmpty) {
+                          return 'please enter password';
+                        }
+                      },
+                      // conditionOfValidationPassWord,
                       hintText: '************',
                       textInputType: TextInputType.visiblePassword),
                   Center(
                       child: TextButton(
                     onPressed: () {
-                      // customGoAndDeleteNavigate(
-                      //     context: context, path: AppRouter.kVerifyPhoneScreen);
+                      customGoAndDeleteNavigate(
+                          context: context,
+                          path: AppRouter.kResetPasswordScreen);
                       LoginCubit.get(context)!.clearData();
                     },
                     child: Text(
@@ -119,19 +134,23 @@ class LoginScreen extends StatelessWidget {
                   //         color: kPrimaryKey,
                   //       ))
                   //     :
-                  CustomButtonLarge(
-                      text: AppLocalizations.of(context)!.login,
-                      textColor: Colors.white,
-                      function: () async {
-                        if (LoginCubit.get(context)!
-                            .formScreenLoginrKey
-                            .currentState!
-                            .validate()) {
-                          // LoginCubit.get(context)!.login();
-                          customGoAndDeleteNavigate(
-                              context: context, path: AppRouter.kHomeLayout);
-                        }
-                      }),
+                  state is LoginLoading
+                      ? const Center(
+                          child: CircularProgressIndicator(
+                            color: AppColors.primaryColor,
+                          ),
+                        )
+                      : CustomButtonLarge(
+                          text: AppLocalizations.of(context)!.login,
+                          textColor: Colors.white,
+                          function: () async {
+                            if (LoginCubit.get(context)!
+                                .formScreenLoginrKey
+                                .currentState!
+                                .validate()) {
+                              LoginCubit.get(context)!.login();
+                            }
+                          }),
                   SizedBox(
                     height: 70.h,
                   ),

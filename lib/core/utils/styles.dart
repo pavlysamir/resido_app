@@ -14,12 +14,12 @@ abstract class Styles {
     color: Colors.black,
   );
 
-  static TextStyle textStyle18Black = GoogleFonts.manrope(
+  static TextStyle textStyle18Black = GoogleFonts.inter(
     fontSize: 18,
     fontWeight: FontWeight.normal,
-    color: AppColors.black,
+    color: AppColors.lightBlack,
   );
-  static TextStyle textStyle18White = GoogleFonts.manrope(
+  static TextStyle textStyle18White = GoogleFonts.inter(
     fontSize: 18,
     fontWeight: FontWeight.bold,
     color: Colors.white,
@@ -43,14 +43,14 @@ abstract class Styles {
   //   );
   // }
   static TextStyle textStyle12Black = const TextStyle(
-      fontSize: 12, fontWeight: FontWeight.bold, color: Colors.black);
+      fontSize: 12, fontWeight: FontWeight.normal, color: Colors.black);
   static TextStyle textStyle12White = const TextStyle(
       fontSize: 12, fontWeight: FontWeight.bold, color: Colors.white);
   static TextStyle textStyle12BoldGrey = const TextStyle(
       fontSize: 12, fontWeight: FontWeight.bold, color: Colors.grey);
 
   static TextStyle textStyle12Blue = GoogleFonts.almarai(
-      fontSize: 12, fontWeight: FontWeight.bold, color: AppColors.black);
+      fontSize: 12, fontWeight: FontWeight.normal, color: AppColors.black);
 
   static TextStyle textStyle12WhiteBoldPoppings = GoogleFonts.poppins(
       fontSize: 12, fontWeight: FontWeight.bold, color: Colors.white);
@@ -83,13 +83,16 @@ abstract class Styles {
     fontWeight: FontWeight.bold,
     color: Colors.white,
   );
-  static TextStyle textStyle14Grey = GoogleFonts.poppins(
+  static TextStyle textStyle14Grey = GoogleFonts.inter(
     fontSize: 14,
     fontWeight: FontWeight.w500,
     color: Colors.grey,
   );
-  static TextStyle textStyle14Blck = const TextStyle(
-      fontSize: 14, fontWeight: FontWeight.normal, color: Colors.black);
+  static TextStyle textStyle14Blck = GoogleFonts.inter(
+    fontSize: 14,
+    fontWeight: FontWeight.normal,
+    color: Colors.black,
+  );
 
   static TextStyle textStyle14White = const TextStyle(
       fontSize: 14, fontWeight: FontWeight.normal, color: Colors.white);
@@ -102,9 +105,25 @@ abstract class Styles {
 
   static TextStyle textStyle16Black = GoogleFonts.almarai(
     fontSize: 16,
-    fontWeight: FontWeight.bold,
+    fontWeight: FontWeight.normal,
     color: AppColors.black,
+  );
+  // contact us
+  static TextStyle textStyle16Grey = GoogleFonts.almarai(
+    fontSize: 16,
+    fontWeight: FontWeight.normal,
+    color: AppColors.grey,
   );
   static TextStyle textStyle16White = const TextStyle(
       fontSize: 16, fontWeight: FontWeight.normal, color: Colors.white);
+  static TextStyle textStyle18BoldPrimary = GoogleFonts.almarai(
+    fontSize: 18.0,
+    fontWeight: FontWeight.bold,
+    color: AppColors.primaryColor,
+  );
+  static TextStyle textStyleDarkGrey = GoogleFonts.almarai(
+    fontSize: 14, // Adjust the font size as needed
+    fontWeight: FontWeight.normal, // Adjust the font weight as needed
+    color: AppColors.darkGrey,
+  );
 }

@@ -5,12 +5,13 @@ import 'package:resido_app/core/Assets/assets.dart';
 import 'package:resido_app/core/functions/validation_handling.dart';
 import 'package:resido_app/core/utils/app_colors.dart';
 import 'package:resido_app/core/utils/app_router.dart';
+import 'package:resido_app/core/utils/snackbar/info_snackbar.dart';
 import 'package:resido_app/core/utils/styles.dart';
 import 'package:resido_app/core/utils/widgets/custom_button_large.dart';
 import 'package:resido_app/core/utils/widgets/custom_form_field.dart';
 import 'package:resido_app/core/utils/widgets/custom_go_navigator.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:resido_app/features/authentications/presentation/managers/cubit/register_cubit.dart';
+import 'package:resido_app/features/authentications/presentation/managers/register_cubit/register_cubit.dart';
 
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({super.key});
@@ -19,7 +20,13 @@ class RegisterScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<RegisterCubit, RegisterState>(
       listener: (context, state) {
-        // TODO: implement listener
+        if (state is SignUpSuccess) {
+          customGoAndDeleteNavigate(
+              context: context, path: AppRouter.kLoginScreen);
+          showInfoSnackBar(context, 'success', AppColors.green);
+        } else if (state is SignUpFaluir) {
+          showInfoSnackBar(context, state.errorMessage, AppColors.red);
+        }
       },
       builder: (context, state) {
         return Scaffold(
@@ -118,25 +125,24 @@ class RegisterScreen extends StatelessWidget {
                       },
                     ),
                     SizedBox(height: 30.h),
-                    // state is SignUpLoading
-                    //     ? const Center(
-                    //         child: CircularProgressIndicator(
-                    //           color: kPrimaryKey,
-                    //         ),
-                    //       )
-                    //     :
-                    CustomButtonLarge(
-                      function: () {
-                        if (RegisterCubit.get(context)!
-                            .formKey
-                            .currentState!
-                            .validate()) {
-                          // RegisterCubit.get(context)!.signUp();
-                        }
-                      },
-                      text: AppLocalizations.of(context)!.signUp,
-                      textColor: Colors.white,
-                    ),
+                    state is SignUpLoading
+                        ? const Center(
+                            child: CircularProgressIndicator(
+                              color: AppColors.primaryColor,
+                            ),
+                          )
+                        : CustomButtonLarge(
+                            function: () {
+                              if (RegisterCubit.get(context)!
+                                  .formKey
+                                  .currentState!
+                                  .validate()) {
+                                RegisterCubit.get(context)!.signUp();
+                              }
+                            },
+                            text: AppLocalizations.of(context)!.signUp,
+                            textColor: Colors.white,
+                          ),
                     SizedBox(
                       height: 30.h,
                     ),

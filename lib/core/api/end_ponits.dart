@@ -1,11 +1,15 @@
 class EndPoint {
-  static String baseUrl = "http://16.171.141.127/";
+  static String baseUrl = "https://me.w-manage.org/api/app/";
 
   static String getAllGradesRegistration =
       "api/BaseLookup/GetAllRegistrationGrade";
   static String getAllAvailabilityWork =
       "api/BaseLookup/GetAllAvailabilityWork";
 
+  static String getProfileEndPoint = "profile";
+  static String getFavoriteDataEndPoint = "like-user";
+  static String getFavorite = "favorite";
+  static String getMostLikePropertiesAll = "mlikes-all";
   static String getCurrentUserSorted = "Home/GetCurrentUserSorted";
 
   static String getAllUsers = "Home/GetAllUsers";
@@ -25,8 +29,14 @@ class EndPoint {
   static String getAllPostgraduateStudy =
       "api/BaseLookup/GetAllPostgraduateStudy";
 
-  static String getAllSpecializationField =
-      "api/BaseLookup/GetAllSpecializationField";
+  static String getCategories = "categories";
+
+  static String getSubCategories = "subcategories";
+  static String getCategoryFilter = "filter-apartment-by-category";
+
+  static String getCompound = "compounds";
+  static String mostLike = "most-liked";
+  static String getCompoundDetails = "get-apartment-by-id";
 
   static String verifyMobileNum = "Account/VerifyMobileNumber";
   static String verifyOtpMobileNum = "Account/verify-otp";
@@ -37,8 +47,23 @@ class EndPoint {
 
   static String resendOtp = "Account/Resend-otp";
 
-  static String login = "Account/Login";
-  static String signUp = "Account/Register";
+  static String login = "login";
+  static String logout = "logout";
+  static String deleteAccountAPI = "delete-account";
+
+  static String signUp = "register";
+
+  static String search = "search-apartment";
+
+  static String filter = "filter-apartments";
+
+  static String banners = "banners";
+
+  static String getFeatures = "feauters";
+
+  static String makeLike = "favorite";
+
+  static String getAllFeatures = "feauters/see-more";
 
   static const String contentType = 'application/json';
 
@@ -46,7 +71,7 @@ class EndPoint {
   static String changeForgetPassword = "/Auth/change-forget-password";
   static String verfyForgetPasswordOtp =
       "Account/VerifyOtpAndResetPasswordAsync";
-
+  static String updateUserProfile = "update-me";
   static String resetPassword = "user/reset";
 
   static String getProfileSetting = "ProfileSetting/GetProfileSetting";
@@ -69,8 +94,12 @@ class EndPoint {
     return "/User/$id";
   }
 
-  static String confirnSubscribeEndPoint(refId) {
-    return "/plans/subscribe/confirmPayment/$refId";
+  static String getApartmentDeatails(id) {
+    return "apartment/$id";
+  }
+
+  static String getCompoundDeatails(id) {
+    return "compounds/$id";
   }
 
   static String plans = "/plans";
@@ -105,6 +134,7 @@ class ApiKey {
   static String otp = "OTP";
   static String newForgetPassword = "newPass";
   static String token = "token";
+  static String IMAGE_PROFILE_KEY = "image profile";
 
   static String id = "id";
   static String firstName = "firstName";
@@ -140,4 +170,5 @@ class ApiKey {
   static String allgradesRegisters = "allgradesRegisters";
   static String allCountRegisters = "allCountRegisters";
   static String namesOfGrades = "namesOfGrades";
+  static String LOGIN_USER_DATA = "onBoarding";
 }
