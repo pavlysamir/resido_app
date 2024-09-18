@@ -40,7 +40,7 @@ class _FilterResultScreenState extends State<FilterResultScreen> {
             0.7 * _scrollController!.position.maxScrollExtent &&
         !isLoading) {
       if (SearchCubit.get(context)!.countFilter! !=
-          SearchCubit.get(context)!.filterList!.data.length) {
+          SearchCubit.get(context)!.filterList!.data?.length) {
         isLoading = true;
         if (kDebugMode) {
           print("bavlyyyyyyyyyyyyyy${++pageNum}");
@@ -82,7 +82,7 @@ class _FilterResultScreenState extends State<FilterResultScreen> {
                               physics: const NeverScrollableScrollPhysics(),
                               itemCount: SearchCubit.get(context)!
                                   .filterList!
-                                  .data
+                                  .data!
                                   .length,
                               itemBuilder: (context, index) => Padding(
                                 padding: const EdgeInsets.all(8.0),
@@ -90,7 +90,7 @@ class _FilterResultScreenState extends State<FilterResultScreen> {
                                   propertyDetailsModel:
                                       SearchCubit.get(context)!
                                           .filterList!
-                                          .data[index],
+                                          .data![index],
                                 ),
                               ),
                             ),

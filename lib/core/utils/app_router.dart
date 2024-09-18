@@ -91,10 +91,10 @@ abstract class AppRouter {
           path: kProfileEditScreen,
           builder: (context, state) => ProfileEditeScreen(),
         ),
-        GoRoute(
-          path: kFilterScreen,
-          builder: (context, state) => const FilterScreen(),
-        ),
+        // GoRoute(
+        //   path: kFilterScreen,
+        //   builder: (context, state) => const FilterScreen(),
+        // ),
         GoRoute(
           path: kAboutUs,
           builder: (context, state) => ContactUs(),
@@ -115,10 +115,10 @@ abstract class AppRouter {
           path: kResetPasswordScreen,
           builder: (context, state) => const ForgetPasswordScreen(),
         ),
-        GoRoute(
-          path: kSearchResultScreen,
-          builder: (context, state) => const SerachResultScreen(),
-        ),
+        // GoRoute(
+        //   path: kSearchResultScreen,
+        //   builder: (context, state) => const SerachResultScreen(),
+        // ),
         GoRoute(
           path: kCateegoryDeatilsScreen,
           builder: (context, state) => CategoryDetailsScreen(

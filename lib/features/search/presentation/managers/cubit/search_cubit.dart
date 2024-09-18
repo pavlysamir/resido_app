@@ -39,7 +39,7 @@ class SearchCubit extends Cubit<SearchState> {
     // emit(SearchTypeChanged());
   }
 
-  PaginatedProperties? searchList;
+  SearchPropertyResponse? searchList;
   int? count;
   search(int pageNumber) async {
     if (pageNumber == 1) {
@@ -73,7 +73,7 @@ class SearchCubit extends Cubit<SearchState> {
     );
   }
 
-  PaginatedProperties? filterList;
+  SearchPropertyResponse? filterList;
   int? countFilter;
 
   filter(int pageNumber) async {
@@ -125,7 +125,7 @@ class SearchCubit extends Cubit<SearchState> {
     }
   }
 
-  List<DataItem> subCategoryItems = [];
+  List<DataItem>? subCategoryItems = [];
   getSubCategory() async {
     emit(GetCategoryLoading());
     final response = await searchRepo.getSubCategory();
@@ -154,7 +154,7 @@ class SearchCubit extends Cubit<SearchState> {
 
   Map<int, bool>? selectedMapCategory = {1: true};
 
-  selectCategory(int index) {
+  selectCategory(int? index) {
     if (selectedMapCategory![index] == true) {
       selectedMapCategory!.clear();
 
@@ -163,7 +163,7 @@ class SearchCubit extends Cubit<SearchState> {
       print(selectedMapCategory);
     } else {
       selectedMapCategory?.clear();
-      selectedMapCategory?[index] = true;
+      selectedMapCategory?[index!] = true;
       emit(SelectCategoryId());
       print(selectedMapCategory);
     }
@@ -193,7 +193,7 @@ class SearchCubit extends Cubit<SearchState> {
     emit(ClearData());
   }
 
-  List<Data> searchItems = [];
+  List<PropertyData>? searchItems = [];
 // how can use recentSearch
   List<String> recentSearches = [];
 
@@ -201,8 +201,8 @@ class SearchCubit extends Cubit<SearchState> {
     emit(SearchItemsLoading());
     final response = await searchRepo.searchItems(keyword);
     response.fold(
-          (errMessage) => emit(SearchItemsFailure(message: errMessage)),
-          (items) {
+      (errMessage) => emit(SearchItemsFailure(message: errMessage)),
+      (items) {
         searchItems = items.data;
         // Add the keyword to recent searches if it's not already there
         if (!recentSearches.contains(keyword)) {
@@ -212,6 +212,4 @@ class SearchCubit extends Cubit<SearchState> {
       },
     );
   }
-
-
 }

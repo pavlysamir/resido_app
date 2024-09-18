@@ -39,7 +39,7 @@ class CustomprobFeaturedItem extends StatelessWidget {
                 borderRadius: BorderRadius.circular(4),
                 child: CachedNetworkImage(
                     fit: BoxFit.cover,
-                    imageUrl: featureProperty.image!,
+                    imageUrl: featureProperty.image ?? '',
                     height: 88.h,
                     width: 260.w,
                     placeholder: (context, url) => Shimmer.fromColors(
@@ -94,7 +94,7 @@ class CustomprobFeaturedItem extends StatelessWidget {
                       width: 5.w,
                     ),
                     Text(
-                      featureProperty.sub.name.toString() ?? '',
+                      featureProperty.sub?.name.toString() ?? '',
                       style: Theme.of(context)
                           .textTheme
                           .bodySmall!
@@ -126,7 +126,7 @@ class CustomprobFeaturedItem extends StatelessWidget {
                     ),
                     //const Spacer(),
                     SizedBox(
-                      width: 120.w,
+                      width: 90.w,
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),

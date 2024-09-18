@@ -46,14 +46,15 @@ class CustomItemProbirty extends StatelessWidget {
                       CircleAvatar(
                           radius: 15.r,
                           backgroundColor: AppColors.white,
-                          child: CachedNetworkImage(imageUrl: dataItem.image)),
+                          child: CachedNetworkImage(
+                              imageUrl: dataItem.image ?? '')),
                       SizedBox(
                         width: 3.w,
                       ),
                       Expanded(
                         flex: 1,
                         child: Text(
-                          dataItem.name,
+                          dataItem.name ?? '',
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: Theme.of(context).textTheme.bodySmall!,

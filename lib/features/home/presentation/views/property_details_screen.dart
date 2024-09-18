@@ -9,6 +9,7 @@ import 'package:resido_app/features/home/data/models/expanded_icons_text_model.d
 import 'package:resido_app/features/home/data/models/features_model.dart';
 import 'package:resido_app/features/home/presentation/managers/home_cubit/home_cubit.dart';
 import 'package:resido_app/features/home/presentation/widgets/nearest_item_widget.dart';
+import 'package:shimmer/shimmer.dart';
 
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/widgets/custom_app_bar.dart';
@@ -73,16 +74,24 @@ class _PropertyDetailesState extends State<PropertyDetailes> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        SizedBox(
+                          height: 18.h,
+                        ),
                         Stack(
                           children: [
                             ClipRRect(
-                              borderRadius: BorderRadius.circular(10),
-                              child: CachedNetworkImage(
-                                height: 250.h,
-                                imageUrl: widget.featureProperty.image,
-                                fit: BoxFit.fill,
-                              ),
-                            ),
+                                borderRadius: BorderRadius.circular(10),
+                                child: CachedNetworkImage(
+                                  imageUrl: widget.featureProperty.image ?? "",
+                                  fit: BoxFit.cover,
+                                  placeholder: (context, url) =>
+                                      Shimmer.fromColors(
+                                          baseColor: Colors.grey[300]!,
+                                          highlightColor: Colors.grey[100]!,
+                                          child: SizedBox(
+                                            width: 300.w,
+                                          )),
+                                )),
                             Positioned(
                               top: 10,
                               right: 30,
@@ -100,7 +109,7 @@ class _PropertyDetailesState extends State<PropertyDetailes> {
                               ),
                             ),
                             CustomSellContainer(
-                              text: widget.featureProperty.name,
+                              text: widget.featureProperty.name ?? "",
                             ),
                             Positioned(
                               bottom: 10,
@@ -130,19 +139,18 @@ class _PropertyDetailesState extends State<PropertyDetailes> {
                                 width: 5.w,
                               ),
                               Text(
-                                widget.featureProperty.sub.name,
+                                widget.featureProperty.sub?.name ?? "",
                                 style: Theme.of(context).textTheme.bodyMedium,
                               ),
                               const Spacer(),
                               Container(
                                 height: 24.h,
-                                width: 60.w,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(4.r),
                                     color: AppColors.primaryColor),
                                 child: Center(
                                   child: Text(
-                                    widget.featureProperty.name,
+                                    widget.featureProperty.name ?? "",
                                     style: const TextStyle(
                                         color: Colors.white, fontSize: 15),
                                   ),
@@ -198,9 +206,12 @@ class _PropertyDetailesState extends State<PropertyDetailes> {
                           ],
                         ),
                         SizedBox(
+                          height: 18.h,
+                        ),
+                        SizedBox(
                           width: double.infinity,
                           child: Text(
-                            'Brand New, About 550 Sqft Loft/ Bachelor With Simple Kitchen, Upgrade Glass Shower, Modern And',
+                            widget.featureProperty.description ?? '',
                             maxLines: 7,
                             overflow: TextOverflow.ellipsis,
                             style: Theme.of(context).textTheme.bodyMedium,

@@ -14,24 +14,23 @@ class CustomListviewCompound extends StatelessWidget {
       builder: (context, state) {
         var cubit = HomeCubit.get(context);
         return SizedBox(
-          height: 176.h,
-          child: ListView.separated(
-              padding: EdgeInsets.zero,
-              separatorBuilder: (context, index) {
-                return SizedBox(
-                  width: 5.w,
-                );
-              },
-              shrinkWrap: true,
-              // physics: const NeverScrollableScrollPhysics(),
-              itemCount: cubit!.copoundList.length,
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) {
-                return CustomItemCompound(
-                  compoundModel: cubit.copoundList[index],
-                );
-              }),
-        );
+            height: 176.h,
+            child: ListView.separated(
+                padding: EdgeInsets.zero,
+                separatorBuilder: (context, index) {
+                  return SizedBox(
+                    width: 5.w,
+                  );
+                },
+                 shrinkWrap: true,
+                // physics: const NeverScrollableScrollPhysics(),
+                itemCount: cubit!.copoundList.length,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) {
+                  return CustomItemCompound(
+                    compoundModel: cubit.copoundList[index],
+                  );
+                }));
       },
     );
   }

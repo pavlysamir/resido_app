@@ -1,5 +1,3 @@
-
-
 import 'package:dartz/dartz.dart';
 
 import '../models/search_item_model.dart';
@@ -7,10 +5,10 @@ import '../models/sub-category_model.dart';
 import '../models/unit_data_model.dart';
 
 abstract class SearchRepo {
-  Future<Either<String, PaginatedProperties>> search(String keword,
+  Future<Either<String, SearchPropertyResponse>> search(String keword,
       {int pageNumber = 1});
 
-  Future<Either<String, PaginatedProperties>> filter(
+  Future<Either<String, SearchPropertyResponse>> filter(
       int? typeId,
       int? categoryId,
       String? priceFrom,
@@ -21,6 +19,5 @@ abstract class SearchRepo {
       {int pageNumber = 1});
 
   Future<Either<String, DataSubCategoryResponse>> getSubCategory();
-  Future<Either<String, SearchItemModel>> searchItems(String keyword);
-
+  Future<Either<String, SearchPropertyResponse>> searchItems(String keyword);
 }

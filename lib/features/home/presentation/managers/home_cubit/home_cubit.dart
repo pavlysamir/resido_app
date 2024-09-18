@@ -78,9 +78,9 @@ class HomeCubit extends Cubit<HomeState> {
   }
 
   ApartmentDaetails? apartmentDetails;
-  getApartmentDetails(int id) async {
+  getApartmentDetails(int? id) async {
     emit(GetCategoryLoading());
-    final response = await homeRepository.getApartmentDetails(id);
+    final response = await homeRepository.getApartmentDetails(id!);
 
     response.fold(
       (errMessage) => emit(GetCategoryFailure(message: errMessage)),
@@ -92,7 +92,8 @@ class HomeCubit extends Cubit<HomeState> {
   }
 
   CompoundDetailsModel? compoundDetailsModel;
-  List<ModelCompound>? modelDetails;
+  List<ModelCompound> modelDetails = [];
+
   Future<void> getCompoundDetails(int id) async {
     emit(GetCompoundDetailsLoading());
     final response = await homeRepository.getCoumpoundDetails(id);
@@ -102,6 +103,7 @@ class HomeCubit extends Cubit<HomeState> {
       (compoundDetails) {
         compoundDetailsModel = compoundDetails;
         modelDetails = compoundDetails.modelCompound;
+        print(modelDetails.length);
         emit(GetCompoundDetailsSuccess());
       },
     );

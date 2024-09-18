@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:resido_app/core/utils/app_router.dart';
+import 'package:resido_app/core/utils/widgets/custom_go_navigator.dart';
 import '../app_colors.dart';
 import 'custom_button_large.dart';
 
@@ -39,8 +41,8 @@ class CustomBottomSheetGuest extends StatelessWidget {
               text: AppLocalizations.of(context)!.registerNow,
               function: () {
                 //  SearchCubit.get(context)!.filter(1);
-                // customJustGoNavigate(
-                //     context: context, path: AppRouter.KCategoryFilterScreen);
+                customJustGoNavigate(
+                    context: context, path: AppRouter.kRegisterScreen);
               },
               textColor: Colors.white,
             ),

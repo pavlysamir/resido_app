@@ -1,8 +1,8 @@
 class DataItem {
-  final int id;
-  final String name;
-  final int catId;
-  final String image;
+  final int? id;
+  final String? name;
+  final int? catId;
+  final String? image;
 
   DataItem({
     required this.id,

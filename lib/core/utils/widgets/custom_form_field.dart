@@ -14,6 +14,7 @@ class CustomFormField extends StatefulWidget {
     this.isEyeTrue = false,
     this.initialValue,
     this.readOnly = false,
+    this.onChange,
   });
 
   final TextEditingController controller;
@@ -25,6 +26,7 @@ class CustomFormField extends StatefulWidget {
   final bool isEyeTrue;
   final String? initialValue;
   final bool? readOnly;
+  final Function(String)? onChange;
 
   @override
   _CustomFormFieldState createState() => _CustomFormFieldState();
@@ -51,6 +53,7 @@ class _CustomFormFieldState extends State<CustomFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onChanged: (widget.onChange != null) ? widget.onChange : null,
       focusNode: _focusNode,
       readOnly: widget.readOnly!,
       initialValue: widget.initialValue,
@@ -65,7 +68,8 @@ class _CustomFormFieldState extends State<CustomFormField> {
         FocusManager.instance.primaryFocus?.unfocus();
       },
       decoration: InputDecoration(
-        contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+        contentPadding:
+            const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
         filled: true,
         suffixIcon: widget.suffixIcon,
         prefixIcon: widget.prefixIcon,
@@ -74,7 +78,9 @@ class _CustomFormFieldState extends State<CustomFormField> {
         focusedBorder: outlineFocusInputBorder(context),
         errorBorder: outlineInputBorderError(),
         hintText: widget.hintText,
-        hintStyle: _focusNode.hasFocus ? Styles.textStyle14Grey.copyWith(color: AppColors.primaryColor) : Styles.textStyle14Grey,
+        hintStyle: _focusNode.hasFocus
+            ? Styles.textStyle14Grey.copyWith(color: AppColors.primaryColor)
+            : Styles.textStyle14Grey,
         prefixIconConstraints: const BoxConstraints(
           minWidth: 40,
           minHeight: 40,
@@ -97,7 +103,17 @@ InputBorder? outlineFocusInputBorder(BuildContext context) {
 
 OutlineInputBorder outlineInputBorderError() {
   return OutlineInputBorder(
-    borderSide: const BorderSide(color: Colors.red), // Border color changes to red
+    borderSide:
+        const BorderSide(color: Colors.red), // Border color changes to red
     borderRadius: BorderRadius.circular(14),
   );
 }
+
+
+
+
+  // onChanged: (String _) {
+  //                 searchCubit.search(
+  //                   1,
+  //                 );
+  //               },

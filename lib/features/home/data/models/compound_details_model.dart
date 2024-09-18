@@ -160,6 +160,7 @@ class Apartment {
   final int rooms;
   final String name;
   final String description;
+  final String address;
 
   Apartment({
     required this.id,
@@ -171,6 +172,7 @@ class Apartment {
     required this.rooms,
     required this.name,
     required this.description,
+    required this.address,
   });
 
   factory Apartment.fromJson(Map<String, dynamic> json) {
@@ -184,6 +186,7 @@ class Apartment {
       rooms: json['rooms'],
       name: json['name'],
       description: json['description'],
+      address: json['address'],
     );
   }
 }

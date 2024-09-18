@@ -16,7 +16,6 @@ import 'package:resido_app/features/favourite/logic/cubit/favorite_cubit.dart';
 import 'package:resido_app/features/home/data/repo/home_repo_impl.dart';
 import 'package:resido_app/features/home/presentation/managers/add_prob_cubit/add_proparties_cubit.dart';
 import 'package:resido_app/features/home/presentation/managers/home_cubit/home_cubit.dart';
-import 'package:resido_app/features/home/presentation/views/categories_details_screen.dart';
 import 'package:resido_app/features/profile/profile_edite/data/repository/profile_edit_repository.dart';
 import 'package:resido_app/features/search/data/repo/search_repo_impl.dart';
 import 'package:resido_app/features/search/presentation/managers/cubit/search_cubit.dart';
@@ -52,8 +51,7 @@ class ResidoApp extends StatelessWidget {
         BlocProvider(
             create: (context) => RegisterCubit(getIt.get<AuthRepoImpl>())),
         BlocProvider(
-            create: (context) =>
-                SearchCubit(getIt.get<SearchRepoImpl>())..getSubCategory()),
+            create: (context) => SearchCubit(getIt.get<SearchRepoImpl>())),
         BlocProvider(create: (context) => ChatCubit()),
         BlocProvider(
             create: (context) =>
@@ -68,14 +66,12 @@ class ResidoApp extends StatelessWidget {
                 FavoriteCubit(getIt.get<FavoriteRepositoryImpl>())
                   ..getFavorite()),
         // category details cubit
-        BlocProvider(create: (context)=> CategoryDetailsCubit(
-          getIt.get<CategoryDetailsRepositoryImpl>()
-        ) ),
-        BlocProvider(create: (context)=> CategoryFilterCubit(
-          getIt.get<CategoryFilterRepositoryImpl>()
-        ) ),
-
-
+        BlocProvider(
+            create: (context) => CategoryDetailsCubit(
+                getIt.get<CategoryDetailsRepositoryImpl>())),
+        BlocProvider(
+            create: (context) =>
+                CategoryFilterCubit(getIt.get<CategoryFilterRepositoryImpl>())),
       ],
       child: ScreenUtilInit(
         designSize: const Size(390, 844),
